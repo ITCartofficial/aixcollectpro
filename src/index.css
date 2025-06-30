@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+
+
+@theme {
+  /* Black & White */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  
+  /* Neutral colors */
+  --color-neutral-50: #FAFAFA;
+  --color-neutral-100: #F5F5F5;
+  --color-neutral-200: #EEEEEE;
+  --color-neutral-300: #E1E1E1;
+  --color-neutral-400: #CACACA;
+  --color-neutral-500: #8E8E8E;
+  --color-neutral-600: #4B4B4B;
+  --color-neutral-700: #1F1F1F;
+  
+  /* Primary colors (Blue) */
+  --color-primary-50: #EDF9FF;
+  --color-primary-100: #D6F0FF;
+  --color-primary-200: #B6E7FF;
+  --color-primary-300: #83DAFF;
+  --color-primary-400: #49C3FF;
+  --color-primary-500: #1FA2FF;
+  --color-primary-600: #0784FF;
+  --color-primary-700: #0163E1;
+
+    /* Secondary colors (Orange) */
+  --color-secondary-50: #FFF8EC;
+  --color-secondary-100: #FFF0D3;
+  --color-secondary-200: #FFDDA6;
+  --color-secondary-300: #FFC46D;
+  --color-secondary-400: #FF9F33;
+  --color-secondary-500: #FF810B;
+  --color-secondary-600: #F86601;
+  --color-secondary-700: #CB4A03;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #000000;
+  background-color: var(--color-neutral-100);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #000000;
+      background-color: var(--color-neutral-100);
+  }
+  
+
+}

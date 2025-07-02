@@ -7,12 +7,12 @@ const TitleSection = () => {
         <div className="w-full mt-4">
             <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 lg:gap-6 mr-3">
                 <div className="flex-1">
-                    <h1 className="text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-bold text-black mb-2">
+                    <h1 className="text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-bold text-neutral-700 mb-2">
                         Welcome back, Arjun!
                     </h1>
-                    <p className="text-sm sm:text-base text-black leading-relaxed">
+                    <p className="text-sm sm:text-base text-neutral-700 leading-relaxed">
                         Here's a quick snapshot of collection performance and team activity.{" "}
-                        <span className="text-gray-600 text-xs sm:text-sm block sm:inline mt-1 sm:mt-0">
+                        <span className="text-neutral-600 text-xs sm:text-sm block sm:inline mt-1 sm:mt-0">
                             (Last Updated: 2hrs Ago)
                         </span>
                     </p>

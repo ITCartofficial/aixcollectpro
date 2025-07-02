@@ -39,8 +39,8 @@ const AiInsightCard: React.FC<AiInsightCardProps> = ({
         <div className={`w-full bg-white rounded-lg shadow-sm border ${config.borderColor} border-l-4 py-4 px-6 mx-auto`}>
             {/* Header */}
             <div className="flex justify-between items-start mb-4">
-                <h2 className="text-lg font-semibold text-gray-900">{title}</h2>
-                <span className="text-sm text-gray-500">{timestamp}</span>
+                <h2 className="text-lg font-semibold text-neutral-700">{title}</h2>
+                <span className="text-sm text-neutral-600">{timestamp}</span>
             </div>
 
             {/* Description */}

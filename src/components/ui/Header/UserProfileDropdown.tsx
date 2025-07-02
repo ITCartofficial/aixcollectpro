@@ -35,8 +35,8 @@ const UserProfileDropdown: React.FC<UserProfileDropdownProps> = ({
         <div className="relative">
             <button
                 onClick={toggleDropdown}
-                className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 transition-colors duration-200 cursor-pointer">
-                <div className="w-8 h-8 rounded-full overflow-hidden bg-gray-200">
+                className="flex items-center space-x-3 p-2 rounded-lg hover:bg-neutral-100 transition-colors duration-200 cursor-pointer">
+                <div className="w-8 h-8 rounded-full overflow-hidden bg-neutral-50">
                     {user.avatar ? (
                         <img
                             src={user.avatar}
@@ -44,7 +44,7 @@ const UserProfileDropdown: React.FC<UserProfileDropdownProps> = ({
                             className="w-full h-full object-cover"
                         />
                     ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-blue-500 text-white text-sm font-medium">
+                        <div className="w-full h-full flex items-center justify-center bg-blue-700 text-white text-sm font-medium">
                             {(() => {
                                 const nameParts = user.name.trim().split(' ');
                                 const firstInitial = nameParts[0]?.charAt(0).toUpperCase() || '';
@@ -55,21 +55,21 @@ const UserProfileDropdown: React.FC<UserProfileDropdownProps> = ({
                     )}
                 </div>
                 <div className="hidden md:block text-left">
-                    <div className="text-sm font-medium text-gray-900">{user.name}</div>
-                    <div className="text-xs text-gray-500">{user.designation}</div>
+                    <div className="text-sm font-medium text-neutral-700">{user.name}</div>
+                    <div className="text-xs text-neutral-600">{user.designation}</div>
                 </div>
                 <AiOutlineDown
-                    className={`h-4 w-4 text-gray-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''
+                    className={`h-4 w-4 text-neutral-600 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''
                         }`}
                 />
             </button>
 
             {isOpen && (
-                <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-neutral-300 py-2 z-50">
                     {/* User Info Section */}
-                    <div className="px-4 py-3 border-b border-gray-100">
+                    <div className="px-4 py-3 border-b border-neutral-300">
                         <div className="flex items-center space-x-3">
-                            <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">
+                            <div className="w-12 h-12 rounded-full overflow-hidden bg-neutral-50">
                                 {user.avatar ? (
                                     <img
                                         src={user.avatar}
@@ -77,7 +77,7 @@ const UserProfileDropdown: React.FC<UserProfileDropdownProps> = ({
                                         className="w-full h-full object-cover"
                                     />
                                 ) : (
-                                    <div className="w-full h-full flex items-center justify-center bg-blue-500 text-white font-medium">
+                                    <div className="w-full h-full flex items-center justify-center bg-primary-700 text-white font-medium">
                                         {(() => {
                                             const nameParts = user.name.trim().split(' ');
                                             const firstInitial = nameParts[0]?.charAt(0).toUpperCase() || '';
@@ -88,8 +88,8 @@ const UserProfileDropdown: React.FC<UserProfileDropdownProps> = ({
                                 )}
                             </div>
                             <div>
-                                <div className="font-medium text-gray-900">{user.name}</div>
-                                <div className="text-sm text-gray-500">{user.designation}</div>
+                                <div className="font-medium text-neutral-700">{user.name}</div>
+                                <div className="text-sm text-neutral-600">{user.designation}</div>
                             </div>
                         </div>
                     </div>
@@ -98,23 +98,23 @@ const UserProfileDropdown: React.FC<UserProfileDropdownProps> = ({
                     <div className="py-2">
                         <button
                             onClick={() => handleItemClick(onProfileClick)}
-                            className="w-full flex items-center px-4 py-2 cursor-pointer text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
+                            className="w-full flex items-center px-4 py-2 cursor-pointer text-sm text-neutral-700 hover:bg-neutral-50 transition-colors duration-150"
                         >
                             <AiOutlineUser className="h-4 w-4 mr-3 text-gray-400" />
                             Profile
                         </button>
                         <button
                             onClick={() => handleItemClick(onSettingsClick)}
-                            className="w-full flex items-center px-4 py-2 cursor-pointer text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
+                            className="w-full flex items-center px-4 py-2 cursor-pointer text-sm text-neutral-700 hover:bg-gray-50 transition-colors duration-150"
                         >
-                            <AiOutlineSetting className="h-4 w-4 mr-3 text-gray-400" />
+                            <AiOutlineSetting className="h-4 w-4 mr-3 text-neutral-600" />
                             Setting
                         </button>
                         <button
                             onClick={() => handleItemClick(onLogoutClick)}
                             className="w-full flex items-center px-4 py-2 cursor-pointer text-sm text-red-600 hover:bg-red-50 transition-colors duration-150"
                         >
-                            <AiOutlineLogout className="h-4 w-4 mr-3 text-red-500" />
+                            <AiOutlineLogout className="h-4 w-4 mr-3 text-red-600" />
                             Logout
                         </button>
                     </div>

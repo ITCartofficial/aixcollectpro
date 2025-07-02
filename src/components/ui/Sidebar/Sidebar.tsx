@@ -59,18 +59,18 @@ const Sidebar: React.FC = () => {
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-gray-200 flex-shrink-0">
         {!isCollapsed && (
-          <h1 className="text-xl font-semibold text-gray-800 whitespace-nowrap overflow-hidden">
+          <h1 className="text-xl font-bold text-neutral-700 whitespace-nowrap overflow-hidden">
             AiXCollectPro
           </h1>
         )}
         <button
           onClick={toggleSidebar}
-          className="p-1 rounded-lg hover:bg-gray-100 transition-colors flex-shrink-0 cursor-pointer"
+          className="p-1 rounded-lg hover:bg-neutral-100 transition-colors flex-shrink-0 cursor-pointer"
         >
           {isCollapsed ? (
-            <MdChevronRight className="w-5 h-5 text-gray-600" />
+            <MdChevronRight className="w-5 h-5 text-neutral-600" />
           ) : (
-            <MdChevronLeft className="w-5 h-5 text-gray-600" />
+            <MdChevronLeft className="w-5 h-5 text-neutral-600" />
           )}
         </button>
       </div>

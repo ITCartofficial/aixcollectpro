@@ -44,15 +44,15 @@ const PerformanceCard: React.FC<PerformanceCardProps> = ({
                         <h3 className="font-semibold text-sm leading-3 text-neutral-700 truncate">{name}</h3>
                         <span className="text-xs text-gray-500">{location}</span>
                     </div>
-                    <FiChevronRight className="w-4 h-4 text-gray-400" />
+                    <FiChevronRight className="w-4 h-4 text-gray-400 cursor-pointer" />
                 </div>
 
                 {/* Action Buttons */}
                 <div className="flex items-center gap-2">
-                    <button className="p-2 border border-gray-300 rounded-full text-primary-700 hover:bg-primary-50 transition-colors">
+                    <button className="p-2 border border-gray-300 rounded-full text-primary-700 hover:bg-primary-50 transition-colors cursor-pointer">
                         <FiPhone size={14} />
                     </button>
-                    <button className="p-2 border border-gray-300 rounded-full text-primary-700 hover:bg-primary-50 transition-colors">
+                    <button className="p-2 border border-gray-300 rounded-full text-primary-700 hover:bg-primary-50 transition-colors cursor-pointer">
                         <MdOutlineWhatsapp size={14} />
                     </button>
                 </div>

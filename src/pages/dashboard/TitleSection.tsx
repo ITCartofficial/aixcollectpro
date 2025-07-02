@@ -7,7 +7,7 @@ const TitleSection = () => {
         <div className="w-full mt-4">
             <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 lg:gap-6 mr-3">
                 <div className="flex-1">
-                    <h1 className="text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-bold text-black mb-2">
+                    <h1 className="text-xl lg:text-2xl font-bold text-black mb-2">
                         Welcome back, Arjun!
                     </h1>
                     <p className="text-sm sm:text-base text-black leading-relaxed">

@@ -33,7 +33,7 @@ const Sidebar: React.FC = () => {
     { id: 'task', label: 'Task Management', icon: <MdTask />, path: '/task-management' },
     { id: 'metrics', label: 'Collection Metrics', icon: <MdBarChart />, path: '/collection-metrics' },
     { id: 'documents', label: 'Documents', icon: <MdDescription />, path: '/documents' },
-    { id: 'alerts', label: 'Alerts & Escalations', icon: <MdNotificationImportant />, path: '/alerts-escalations' },
+    { id: 'alerts', label: 'Alerts & Escalations', icon: <MdNotificationImportant />, path: '/alerts-and-escalations' },
     { id: 'attendance', label: 'Attendance & Leave', icon: <MdEventAvailable />, path: '/attendance-leave' },
     { id: 'insights', label: 'AI Insights', icon: <MdInsights />, path: '/ai-insights' },
     { id: 'reports', label: 'Reports', icon: <MdAssessment />, path: '/reports' },

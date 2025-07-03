@@ -1,19 +1,43 @@
-import OutlinesButton from "../ui/Buttons/OutlinesButton"
-import PrimaryButton from "../ui/Buttons/PrimaryButton"
+// components/common/HeaderActionCenter.tsx
 
-const HeaderActionCenter = () => {
-    return (
-        <div className="w-full flex justify-between">
-            <div className="flex gap-4">
-                <PrimaryButton text="Field Agent" />
-                <PrimaryButton text="Tele Callers" />
-            </div>
-            <div className="flex gap-4">
-                <OutlinesButton text="+Invite Agent" />
-                <PrimaryButton text="+Assign Task" />
-            </div>
-        </div>
-    )
+import OutlinesButton from "../ui/Buttons/OutlinesButton";
+import PrimaryButton from "../ui/Buttons/PrimaryButton";
+
+type ButtonConfig = {
+  type: "primary" | "outline";
+  text: string;
+  onClick?: () => void;
+};
+
+type ButtonType = { type: "primary" | "outline"; text: string };
+
+interface HeadersectionProps {
+  leftButtons: ButtonType[];
+  rightButtons: ButtonType[];
 }
 
-export default HeaderActionCenter
+
+const HeaderActionCenter = ({ leftButtons, rightButtons }: HeadersectionProps) => {
+  const renderButton = ({ type, text, onClick }: ButtonConfig, index: number) => {
+    if (type === "primary") {
+      return <PrimaryButton key={index} text={text} onClick={onClick} />;
+    }
+    if (type === "outline") {
+      return <OutlinesButton key={index} text={text} onClick={onClick} />;
+    }
+    return null;
+  };
+
+  return (
+    <div className="w-full flex justify-between">
+      <div className="flex gap-4">
+        {leftButtons.map(renderButton)}
+      </div>
+      <div className="flex gap-4">
+        {rightButtons.map(renderButton)}
+      </div>
+    </div>
+  );
+};
+
+export default HeaderActionCenter;

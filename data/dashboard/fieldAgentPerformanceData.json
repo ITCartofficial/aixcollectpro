@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "initials": "RK",
+    "name": "Rakesh Kumar",
+    "location": "Whitefield",
+    "metricTitle": "Total Visits",
+    "metricValue": 14,
+    "paidCases": 9,
+    "amountCollected": 88000,
+    "isTopPerformer": true
+  },
+  {
+    "id": 2,
+    "initials": "NK",
+    "name": "Nadeem Khan",
+    "location": "Jayanagar",
+    "metricTitle": "Total Visits",
+    "metricValue": 12,
+    "paidCases": 8,
+    "amountCollected": 73500
+  },
+  {
+    "id": 3,
+    "initials": "RJ",
+    "name": "Rajesh Kumar",
+    "location": "MG Road",
+    "metricTitle": "Total Visits",
+    "metricValue": 10,
+    "paidCases": 5,
+    "amountCollected": 70500
+  },
+  {
+    "id": 4,
+    "initials": "SK",
+    "name": "Suresh Kumar",
+    "location": "Koramangala",
+    "metricTitle": "Total Visits",
+    "metricValue": 13,
+    "paidCases": 7,
+    "amountCollected": 65000
+  },
+  {
+    "id": 5,
+    "initials": "AM",
+    "name": "Amit Mehta",
+    "location": "HSR Layout",
+    "metricTitle": "Total Visits",
+    "metricValue": 11,
+    "paidCases": 6,
+    "amountCollected": 58000
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Idle Agent Detected",
+    "description": "Field Agent Rohit inactive for over 90 minutes",
+    "suggestion": "Verify agent's last location; send check-in reminder",
+    "priority": "high",
+    "timestamp": "10:22 AM"
+  },
+  {
+    "id": 2,
+    "title": "Repeated Visits to Red-Zone Area",
+    "description": "Agent Rakesh Kumar has attempted collection in a flagged Red-Zone area 3 times this week.",
+    "suggestion": "Temporarily restrict future visits until further review.",
+    "priority": "medium",
+    "timestamp": "10:22 AM"
+  },
+  {
+    "id": 3,
+    "title": "Agent Completing Tasks Ahead of Time",
+    "description": "Agent Sahil Khan has completed 90% of assigned tasks 30 minutes ahead of average completion time.",
+    "suggestion": "Acknowledge, Consider reassigning additional tasks for the day.",
+    "priority": "low",
+    "timestamp": "10:22 AM"
+  },
+  {
+    "id": 4,
+    "title": "Unusual Travel Pattern Detected",
+    "description": "Agent Priya Mehta deviated significantly from assigned route without scheduled stops.",
+    "suggestion": "Review travel logs and confirm if route change was necessary.",
+    "priority": "medium",
+    "timestamp": "10:23 AM"
+  }
+]

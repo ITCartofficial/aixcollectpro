@@ -1,16 +1,18 @@
-import CollectionPerformanceGraph from "./CollectionPerformanceGraph"
-import FieldAgentPerformance from "./FieldAgentPerformance"
-import MetricsCardSection from "./MetricsCardSection"
-import TaskSection from "./TaskSection"
-import TaskTypeCard from "./TaskTypeCard"
-import TelecallerPerformance from "./TelecallerPerformance"
-import TitleSection from "./TitleSection"
+import CollectionPerformanceGraph from "./features/CollectionPerformanceGraph"
+import FieldAgentPerformance from "./features/FieldAgentPerformance"
+import MetricsCardSection from "./features/MetricsCardSection"
+import TaskSection from "./features/TaskSection"
+import TaskTypeCard from "./features/TaskTypeCard"
+import TelecallerPerformance from "./features/TelecallerPerformance"
+import TitleSection from "./features/TitleSection"
 
-import type { CollectionData } from "./CollectionPerformanceGraph"
-import LocationWiseCollectionSummary from "./LocationWiseCollectionSummary"
-import VisitSuccessMatrics from "./VisitSuccessMatrics"
-import FlaggedTaskCard from "./FlaggedTaskCard"
-import AiAlertAndInsightCard from "./AiAlertAndInsightCard"
+import type { CollectionData } from "./features/CollectionPerformanceGraph"
+import LocationWiseCollectionSummary from "./features/LocationWiseCollectionSummary"
+import VisitSuccessMatrics from "./features/VisitSuccessMatrics"
+import FlaggedTaskCard from "./features/FlaggedTaskCard"
+import AiAlertAndInsightCard from "./features/AiAlertAndInsightCard"
+import TaskAssignmentModal from "./features/TaskAssignmentModal"
+import { useState } from "react"
 
 
 const data: CollectionData[] = [
@@ -25,9 +27,15 @@ const data: CollectionData[] = [
 
 
 const Dashboard = () => {
+    const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
   return (
     <div className="w-full h-full flex flex-col gap-6">
-      <TitleSection />
+      <TitleSection onAssignTaskClick={openModal} />
+      <TaskAssignmentModal isOpen={isModalOpen} onClose={closeModal} />
+      
       <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 mr-3">
         <div className="lg:col-span-5"><TaskSection /></div>
         <div className="lg:col-span-5"><MetricsCardSection /></div>

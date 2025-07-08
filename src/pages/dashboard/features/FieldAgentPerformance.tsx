@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import PerformanceCard from "../../components/ui/Card/PerformanceCard";
+import PerformanceCard from "../../../components/ui/Card/PerformanceCard";
 
 
 const FieldAgentPerformance = () => {

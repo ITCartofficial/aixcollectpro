@@ -1,4 +1,4 @@
-import MetricCard from "../../components/ui/Card/MetricCard";
+import MetricCard from "../../../components/ui/Card/MetricCard";
 
 const metricCards = [
   {

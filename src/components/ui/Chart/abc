@@ -1,0 +1,714 @@
+// import { useState } from "react";
+// import type { TableColumn } from "../../../components/ui/Table/DataTable";
+// import Avatar from "../../../components/ui/Table/Avatar";
+// import Badge from "../../../components/ui/Table/Badge";
+// import { FaEye } from "react-icons/fa";
+// import Dropdown from "../../../components/common/Dropdown";
+// import SearchBar from "../../../components/common/Searchbar";
+// import DataTable from "../../../components/ui/Table/DataTable";
+
+// interface FieldAgent {
+//     id: string;
+//     name: string;
+//     totalVisits: number;
+//     paidVisits: number;
+//     amountCollected: number;
+//     location: string;
+//     status: 'On Road' | 'Inactive' | 'On Leave';
+//     lastSynced: string;
+//     avatar?: string;
+// }
+
+// // Sample Field Agent Data
+// const fieldAgentsData: FieldAgent[] = [
+//     {
+//         id: '1',
+//         name: 'Rakesh Kumar',
+//         totalVisits: 9,
+//         paidVisits: 7,
+//         amountCollected: 89000,
+//         location: 'Koramangala',
+//         status: 'On Road',
+//         lastSynced: '10:22 AM',
+//         avatar: ''
+//     },
+//     {
+//         id: '2',
+//         name: 'Ajay Singh',
+//         totalVisits: 8,
+//         paidVisits: 6,
+//         amountCollected: 73500,
+//         location: 'Indiranagar',
+//         status: 'On Road',
+//         lastSynced: '10:10 AM',
+//         avatar: ''
+//     },
+//     {
+//         id: '3',
+//         name: 'Vinod Rao',
+//         totalVisits: 7,
+//         paidVisits: 5,
+//         amountCollected: 69000,
+//         location: 'Whitefield',
+//         status: 'On Road',
+//         lastSynced: '9:45 AM',
+//         avatar: ''
+//     },
+//     {
+//         id: '4',
+//         name: 'Sameer Patil',
+//         totalVisits: 10,
+//         paidVisits: 8,
+//         amountCollected: 92300,
+//         location: 'Jayanagar',
+//         status: 'Inactive',
+//         lastSynced: '10:30 AM',
+//         avatar: ''
+//     },
+//     {
+//         id: '5',
+//         name: 'Suresh Menon',
+//         totalVisits: 6,
+//         paidVisits: 4,
+//         amountCollected: 55000,
+//         location: 'Rajajinagar',
+//         status: 'Inactive',
+//         lastSynced: '10:12 AM',
+//         avatar: ''
+//     },
+//     {
+//         id: '6',
+//         name: 'Arvind Desai',
+//         totalVisits: 5,
+//         paidVisits: 3,
+//         amountCollected: 41800,
+//         location: 'BTM Layout',
+//         status: 'On Leave',
+//         lastSynced: '9:50 AM',
+//         avatar: ''
+//     },
+//     {
+//         id: '7',
+//         name: 'Pradeep Joshi',
+//         totalVisits: 11,
+//         paidVisits: 9,
+//         amountCollected: 99700,
+//         location: 'Malleshwaram',
+//         status: 'On Road',
+//         lastSynced: '10:35 AM',
+//         avatar: ''
+//     },
+//     {
+//         id: '8',
+//         name: 'Harish Nayak',
+//         totalVisits: 7,
+//         paidVisits: 5,
+//         amountCollected: 63000,
+//         location: 'HSR Layout',
+//         status: 'On Road',
+//         lastSynced: '9:58 AM',
+//         avatar: ''
+//     },
+//     {
+//         id: '9',
+//         name: 'Deepak Reddy',
+//         totalVisits: 8,
+//         paidVisits: 6,
+//         amountCollected: 78500,
+//         location: 'Marathahalli',
+//         status: 'Inactive',
+//         lastSynced: '10:20 AM',
+//         avatar: ''
+//     },
+//     {
+//         id: '10',
+//         name: 'Nitin Babu',
+//         totalVisits: 6,
+//         paidVisits: 4,
+//         amountCollected: 52400,
+//         location: 'Yelahanka',
+//         status: 'On Road',
+//         lastSynced: '9:40 AM',
+//         avatar: ''
+//     }
+// ];
+
+// // Main Field Agents Component
+// const FieldAgentsTable: React.FC = () => {
+//     const [filteredData, setFilteredData] = useState<FieldAgent[]>(fieldAgentsData);
+//     const [selectedLocation, setSelectedLocation] = useState<string>('');
+//     const [selectedStatus, setSelectedStatus] = useState<string>('');
+//     const [selectedLastSynced, setSelectedLastSynced] = useState<string>('');
+
+//     // Filter options
+//     const locationOptions = [
+//         { label: 'All Locations', value: '' },
+//         ...Array.from(new Set(fieldAgentsData.map(agent => agent.location))).map(location => ({
+//             label: location,
+//             value: location
+//         }))
+//     ];
+
+//     const statusOptions = [
+//         { label: 'All Status', value: '' },
+//         { label: 'On Road', value: 'On Road' },
+//         { label: 'Inactive', value: 'Inactive' },
+//         { label: 'On Leave', value: 'On Leave' }
+//     ];
+
+//     const lastSyncedOptions = [
+//         { label: 'All Times', value: '' },
+//         { label: 'Last Hour', value: 'last_hour' },
+//         { label: 'Today', value: 'today' },
+//         { label: 'This Week', value: 'this_week' }
+//     ];
+
+//     // Handle search
+//     const handleSearch = (query: string) => {
+//         let filtered = fieldAgentsData;
+
+//         if (query) {
+//             filtered = filtered.filter(agent =>
+//                 agent.name.toLowerCase().includes(query.toLowerCase()) ||
+//                 agent.location.toLowerCase().includes(query.toLowerCase())
+//             );
+//         }
+
+//         // Apply filters
+//         if (selectedLocation) {
+//             filtered = filtered.filter(agent => agent.location === selectedLocation);
+//         }
+
+//         if (selectedStatus) {
+//             filtered = filtered.filter(agent => agent.status === selectedStatus);
+//         }
+
+//         setFilteredData(filtered);
+//     };
+
+//     // Handle filter changes
+//     const handleLocationChange = (value: string | string[]) => {
+//         const locationValue = Array.isArray(value) ? value[0] : value;
+//         setSelectedLocation(locationValue);
+//         applyFilters(locationValue, selectedStatus, selectedLastSynced);
+//     };
+
+//     const handleStatusChange = (value: string | string[]) => {
+//         const statusValue = Array.isArray(value) ? value[0] : value;
+//         setSelectedStatus(statusValue);
+//         applyFilters(selectedLocation, statusValue, selectedLastSynced);
+//     };
+
+//     const handleLastSyncedChange = (value: string | string[]) => {
+//         const lastSyncedValue = Array.isArray(value) ? value[0] : value;
+//         setSelectedLastSynced(lastSyncedValue);
+//         applyFilters(selectedLocation, selectedStatus, lastSyncedValue);
+//     };
+
+//     const applyFilters = (location: string, status: string, lastSynced: string) => {
+//         let filtered = fieldAgentsData;
+
+//         if (location) {
+//             filtered = filtered.filter(agent => agent.location === location);
+//         }
+
+//         if (status) {
+//             filtered = filtered.filter(agent => agent.status === status);
+//         }
+
+//         // You can implement lastSynced filtering logic here if needed
+//         if (lastSynced) {
+//             // Add your lastSynced filtering logic here
+//             console.log('Filtering by lastSynced:', lastSynced);
+//         }
+
+//         setFilteredData(filtered);
+//     };
+
+//     // Table columns configuration
+//     const columns: TableColumn<FieldAgent>[] = [
+
+//         {
+//             key: 'name',
+//             label: 'Agent Name',
+//             sortable: true,
+//             width: '200px',
+//             render: (value, row) => (
+//                 <div className="flex items-center space-x-3">
+//                     <Avatar name={value} image={row.avatar} size="md" />
+//                     <span className="font-medium text-gray-900">{value}</span>
+//                 </div>
+//             )
+//         },
+//         {
+//             key: 'totalVisits',
+//             label: 'Total Visits',
+//             sortable: true,
+//             width: '120px',
+//             className: 'text-center',
+//             render: (value) => <span className="font-medium">{value}</span>
+//         },
+//         {
+//             key: 'paidVisits',
+//             label: 'Paid Visits',
+//             sortable: true,
+//             width: '120px',
+//             className: 'text-center',
+//             render: (value) => <span className="font-medium">{value}</span>
+//         },
+//         {
+//             key: 'amountCollected',
+//             label: 'Amount Collected',
+//             sortable: true,
+//             width: '150px',
+//             className: 'text-right',
+//             render: (value) => <span className="font-medium">₹{value.toLocaleString()}</span>
+//         },
+//         {
+//             key: 'location',
+//             label: 'Location',
+//             sortable: true,
+//             width: '150px',
+//             render: (value) => <span className="text-gray-700">{value}</span>
+//         },
+//         {
+//             key: 'status',
+//             label: 'Status',
+//             sortable: true,
+//             width: '120px',
+//             className: 'text-center',
+//             render: (value) => {
+//                 const variant = value === 'On Road' ? 'success' : value === 'Inactive' ? 'danger' : 'info';
+//                 return <Badge variant={variant}>{value}</Badge>;
+//             }
+//         },
+//         {
+//             key: 'lastSynced',
+//             label: 'Last Synced',
+//             sortable: true,
+//             width: '120px',
+//             className: 'text-center',
+//             render: (value) => <span className="text-gray-600">{value}</span>
+//         },
+//         {
+//             key: 'id', // Use an existing property from FieldAgent
+//             label: 'Action',
+//             sortable: false,
+//             width: '100px',
+//             className: 'text-center',
+//             render: (_, row) => (
+//                 <button
+//                     className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm flex items-center space-x-1"
+//                     onClick={() => handleViewAgent(row)}
+//                 >
+//                     <FaEye className="w-4 h-4" />
+//                     <span>View</span>
+//                 </button>
+//             )
+//         }
+//     ];
+
+//     // Handler for view action
+//     const handleViewAgent = (agent: FieldAgent) => {
+//         console.log('Viewing agent:', agent);
+//         // Add your view logic here
+//     };
+
+//     return (
+//         <div className="p-6 bg-gray-50 min-h-screen">
+//             <div className="mb-6">
+//                 <h1 className="text-2xl font-bold text-gray-900 mb-6">Field Agents</h1>
+
+//                 {/* Filters and Search */}
+//                 <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 mb-6">
+//                     <div className="flex flex-wrap items-center gap-4">
+//                         <span className="text-sm font-medium text-gray-700">Filter by:</span>
+
+//                         <Dropdown
+//                             options={locationOptions}
+//                             value={selectedLocation}
+//                             onChange={handleLocationChange}
+//                             placeholder="Select Location"
+//                             className="min-w-48"
+//                         />
+
+//                         <Dropdown
+//                             options={statusOptions}
+//                             value={selectedStatus}
+//                             onChange={handleStatusChange}
+//                             placeholder="Select Status"
+//                             className="min-w-48"
+//                         />
+
+//                         <Dropdown
+//                             options={lastSyncedOptions}
+//                             value={selectedLastSynced}
+//                             onChange={handleLastSyncedChange}
+//                             placeholder="Select Time"
+//                             className="min-w-48"
+//                         />
+
+//                         <div className="ml-auto">
+//                             <SearchBar
+//                                 placeholder="Search agents..."
+//                                 onSearch={handleSearch}
+//                                 className="w-64"
+//                             />
+//                         </div>
+//                     </div>
+//                 </div>
+
+//                 {/* Table */}
+//                 <DataTable
+//                     data={filteredData}
+//                     columns={columns}
+//                     selectable={true}
+//                     sortable={true}
+//                     pagination={true}
+//                     pageSize={10}
+//                     className="shadow-sm"
+//                     emptyMessage="No field agents found"
+//                 />
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default FieldAgentsTable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { useMemo, useState } from "react";
+// import { FaChevronDown, FaChevronRight, FaChevronUp } from "react-icons/fa";
+// import { FaChevronLeft } from "react-icons/fa6";
+
+// // Type definitions
+// export interface TableColumn<T> {
+//   key: keyof T;
+//   label: string;
+//   sortable?: boolean;
+//   width?: string;
+//   className?: string;
+//   render?: (value: any, row: T, rowIndex: number) => React.ReactNode;
+// }
+
+// export interface TableProps<T extends Record<string, any>> {
+//   data: T[];
+//   columns: TableColumn<T>[];
+//   loading?: boolean;
+//   className?: string;
+//   rowClassName?: string;
+//   headerClassName?: string;
+//   onRowClick?: (row: T, rowIndex: number) => void;
+//   selectable?: boolean;
+//   selectedRows?: T[];
+//   onSelectionChange?: (selectedRows: T[]) => void;
+//   sortable?: boolean;
+//   pagination?: boolean;
+//   pageSize?: number;
+//   emptyMessage?: string;
+// }
+
+// // Reusable Table Component
+// const DataTable = <T extends Record<string, any>>({
+//   data,
+//   columns,
+//   loading = false,
+//   className = '',
+//   rowClassName = '',
+//   headerClassName = '',
+//   onRowClick,
+//   selectable = false,
+//   selectedRows = [],
+//   onSelectionChange,
+//   sortable = true,
+//   pagination = true,
+//   pageSize = 10,
+//   emptyMessage = 'No data available'
+// }: TableProps<T>) => {
+//   const [sortConfig, setSortConfig] = useState<{
+//     key: string;
+//     direction: 'asc' | 'desc';
+//   } | null>(null);
+//   const [currentPage, setCurrentPage] = useState(1);
+
+//   // Sorting logic
+//   const sortedData = useMemo(() => {
+//     if (!sortConfig) return data;
+
+//     return [...data].sort((a, b) => {
+//       const aValue = a[sortConfig.key];
+//       const bValue = b[sortConfig.key];
+
+//       if (aValue < bValue) return sortConfig.direction === 'asc' ? -1 : 1;
+//       if (aValue > bValue) return sortConfig.direction === 'asc' ? 1 : -1;
+//       return 0;
+//     });
+//   }, [data, sortConfig]);
+
+//   // Pagination logic
+//   const paginatedData = useMemo(() => {
+//     if (!pagination) return sortedData;
+    
+//     const startIndex = (currentPage - 1) * pageSize;
+//     const endIndex = startIndex + pageSize;
+//     return sortedData.slice(startIndex, endIndex);
+//   }, [sortedData, currentPage, pageSize, pagination]);
+
+//   const totalPages = Math.ceil(sortedData.length / pageSize);
+
+//   const handleSort = (key: string) => {
+//     if (!sortable) return;
+
+//     setSortConfig(prevSort => {
+//       if (prevSort?.key === key) {
+//         return {
+//           key,
+//           direction: prevSort.direction === 'asc' ? 'desc' : 'asc'
+//         };
+//       }
+//       return { key, direction: 'asc' };
+//     });
+//   };
+
+//   const handleSelectAll = (checked: boolean) => {
+//     if (!onSelectionChange) return;
+    
+//     if (checked) {
+//       onSelectionChange(paginatedData);
+//     } else {
+//       onSelectionChange([]);
+//     }
+//   };
+
+//   const handleRowSelect = (row: T, checked: boolean) => {
+//     if (!onSelectionChange) return;
+    
+//     if (checked) {
+//       onSelectionChange([...selectedRows, row]);
+//     } else {
+//       onSelectionChange(selectedRows.filter((r: T) => r !== row));
+//     }
+//   };
+
+//   const isAllSelected = selectedRows.length === paginatedData.length && paginatedData.length > 0;
+//   const isPartiallySelected = selectedRows.length > 0 && selectedRows.length < paginatedData.length;
+
+//   const getSortIcon = (columnKey: string) => {
+//     if (sortConfig?.key === columnKey) {
+//       return sortConfig.direction === 'asc' ? 
+//         <FaChevronUp className="w-4 h-4" /> : 
+//         <FaChevronDown className="w-4 h-4" />;
+//     }
+//     return <FaChevronDown className="w-4 h-4 opacity-50" />;
+//   };
+
+//   if (loading) {
+//     return (
+//       <div className="flex justify-center items-center h-64">
+//         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <div className={`bg-white rounded-lg shadow-sm border border-gray-200 ${className}`}>
+//       <div className="overflow-x-auto">
+//         <table className="min-w-full divide-y divide-gray-200">
+//           <thead className={`bg-gray-50 ${headerClassName}`}>
+//             <tr>
+//               {selectable && (
+//                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-12">
+//                   <input
+//                     type="checkbox"
+//                     checked={isAllSelected}
+//                     ref={input => {
+//                       if (input) input.indeterminate = isPartiallySelected;
+//                     }}
+//                     onChange={(e) => handleSelectAll(e.target.checked)}
+//                     className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+//                   />
+//                 </th>
+//               )}
+//               {columns.map((column: TableColumn<T>, index: number) => (
+//                 <th
+//                   key={index}
+//                   className={`px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider ${
+//                     column.sortable && sortable ? 'cursor-pointer hover:bg-gray-100' : ''
+//                   } ${column.className || ''}`}
+//                   style={{ width: column.width }}
+//                   onClick={() => column.sortable && handleSort(column.key as string)}
+//                 >
+//                   <div className="flex items-center space-x-1">
+//                     <span>{column.label}</span>
+//                     {column.sortable && sortable && getSortIcon(column.key as string)}
+//                   </div>
+//                 </th>
+//               ))}
+//             </tr>
+//           </thead>
+//           <tbody className="bg-white divide-y divide-gray-200">
+//             {paginatedData.length === 0 ? (
+//               <tr>
+//                 <td
+//                   colSpan={columns.length + (selectable ? 1 : 0)}
+//                   className="px-6 py-12 text-center text-gray-500"
+//                 >
+//                   {emptyMessage}
+//                 </td>
+//               </tr>
+//             ) : (
+//               paginatedData.map((row: T, rowIndex: number) => (
+//                 <tr
+//                   key={rowIndex}
+//                   className={`hover:bg-gray-50 ${onRowClick ? 'cursor-pointer' : ''} ${rowClassName}`}
+//                   onClick={() => onRowClick?.(row, rowIndex)}
+//                 >
+//                   {selectable && (
+//                     <td className="px-6 py-4 whitespace-nowrap w-12">
+//                       <input
+//                         type="checkbox"
+//                         checked={selectedRows.includes(row)}
+//                         onChange={(e) => handleRowSelect(row, e.target.checked)}
+//                         className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+//                       />
+//                     </td>
+//                   )}
+//                   {columns.map((column: TableColumn<T>, colIndex: number) => (
+//                     <td
+//                       key={colIndex}
+//                       className={`px-6 py-4 whitespace-nowrap text-sm ${column.className || ''}`}
+//                       style={{ width: column.width }}
+//                     >
+//                       {column.render
+//                         ? column.render(row[column.key as keyof T], row, rowIndex)
+//                         : row[column.key as keyof T]
+//                       }
+//                     </td>
+//                   ))}
+//                 </tr>
+//               ))
+//             )}
+//           </tbody>
+//         </table>
+//       </div>
+
+//       {pagination && totalPages > 1 && (
+//         <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200">
+//           <div className="flex-1 flex justify-between sm:hidden">
+//             <button
+//               onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+//               disabled={currentPage === 1}
+//               className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+//             >
+//               Previous
+//             </button>
+//             <button
+//               onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+//               disabled={currentPage === totalPages}
+//               className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+//             >
+//               Next
+//             </button>
+//           </div>
+//           <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+//             <div>
+//               <p className="text-sm text-gray-700">
+//                 Showing{' '}
+//                 <span className="font-medium">{Math.min((currentPage - 1) * pageSize + 1, sortedData.length)}</span>
+//                 {' '}to{' '}
+//                 <span className="font-medium">{Math.min(currentPage * pageSize, sortedData.length)}</span>
+//                 {' '}of{' '}
+//                 <span className="font-medium">{sortedData.length}</span>
+//                 {' '}results
+//               </p>
+//             </div>
+//             <div>
+//               <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
+//                 <button
+//                   onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+//                   disabled={currentPage === 1}
+//                   className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+//                 >
+//                   <FaChevronLeft className="h-5 w-5" />
+//                 </button>
+//                 {Array.from({ length: totalPages }, (_, i) => i + 1).map((page: number) => (
+//                   <button
+//                     key={page}
+//                     onClick={() => setCurrentPage(page)}
+//                     className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
+//                       currentPage === page
+//                         ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
+//                         : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
+//                     }`}
+//                   >
+//                     {page}
+//                   </button>
+//                 ))}
+//                 <button
+//                   onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+//                   disabled={currentPage === totalPages}
+//                   className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+//                 >
+//                   <FaChevronRight className="h-5 w-5" />
+//                 </button>
+//               </nav>
+//             </div>
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default DataTable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

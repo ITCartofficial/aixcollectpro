@@ -134,8 +134,8 @@
 
 
 import React from 'react';
-import DonutChart from "../../components/ui/Chart/DonutChart";
-import type { DonutChartData } from "../../components/ui/Chart/DonutChart";
+import DonutChart from "../../../components/ui/Chart/DonutChart";
+import type { DonutChartData } from "../../../components/ui/Chart/DonutChart";
 
 // Task Type Card Props - data is no longer required from props
 interface TaskTypeCardProps {

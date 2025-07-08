@@ -26,7 +26,7 @@ const StatsCard = ({ title, value, icon, className = '' }: StatsCardProps) => {
           <p className="text-2xl font-bold text-neutral-700">{value}</p>
         </div>
         {icon && (
-          <div className="bg-primary-100 rounded-lg p-3 ml-4 text-primary-700">
+          <div className="bg-primary-100 rounded-lg p-3 text-primary-700">
             {icon}
           </div>
         )}

@@ -1,0 +1,112 @@
+ [
+    {
+        "id": "1",
+        "name": "Ananya Iyer",
+        "callsMade": 24,
+        "paidCases": 5,
+        "amountCollected": 32000,
+        "language": "Kannada, Tamil, Telugu",
+        "status": "Active",
+        "lastSynced": "11:05 AM",
+        "avatar": ""
+    },
+    {
+        "id": "2",
+        "name": "Rajesh Sharma",
+        "callsMade": 19,
+        "paidCases": 3,
+        "amountCollected": 21000,
+        "language": "Hindi, English, Punjabi",
+        "status": "Active",
+        "lastSynced": "10:51 AM",
+        "avatar": ""
+    },
+    {
+        "id": "3",
+        "name": "Neha Prasad",
+        "callsMade": 15,
+        "paidCases": 2,
+        "amountCollected": 12000,
+        "language": "English, Hindi, Bengali",
+        "status": "Active",
+        "lastSynced": "9:38 AM",
+        "avatar": ""
+    },
+    {
+        "id": "4",
+        "name": "Suman Das",
+        "callsMade": 22,
+        "paidCases": 4,
+        "amountCollected": 28500,
+        "language": "Bengali, Hindi, Assamese, English",
+        "status": "Active",
+        "lastSynced": "11:12 AM",
+        "avatar": ""
+    },
+    {
+        "id": "5",
+        "name": "Priya R",
+        "callsMade": 18,
+        "paidCases": 2,
+        "amountCollected": 17000,
+        "language": "Tamil, Kannada, English",
+        "status": "Active",
+        "lastSynced": "10:40 AM",
+        "avatar": ""
+    },
+    {
+        "id": "6",
+        "name": "Akash Mehta",
+        "callsMade": 20,
+        "paidCases": 3,
+        "amountCollected": 19200,
+        "language": "Hindi, Gujarati, Marathi",
+        "status": "Active",
+        "lastSynced": "9:57 AM",
+        "avatar": ""
+    },
+    {
+        "id": "7",
+        "name": "Ritu Arora",
+        "callsMade": 16,
+        "paidCases": 1,
+        "amountCollected": 8700,
+        "language": "Punjabi, Hindi, English, Urdu",
+        "status": "Active",
+        "lastSynced": "11:00 AM",
+        "avatar": ""
+    },
+    {
+        "id": "8",
+        "name": "Mohammed Saif",
+        "callsMade": 21,
+        "paidCases": 2,
+        "amountCollected": 14800,
+        "language": "Urdu, Hindi, English, Kannada",
+        "status": "Active",
+        "lastSynced": "10:48 AM",
+        "avatar": ""
+    },
+    {
+        "id": "9",
+        "name": "Kavya Shetty",
+        "callsMade": 17,
+        "paidCases": 3,
+        "amountCollected": 20500,
+        "language": "Kannada, Tulu, Tamil, English",
+        "status": "Active",
+        "lastSynced": "11:08 AM",
+        "avatar": ""
+    },
+    {
+        "id": "10",
+        "name": "Vinay Bhatt",
+        "callsMade": 14,
+        "paidCases": 1,
+        "amountCollected": 6000,
+        "language": "English, Hindi, Gujarati, Marathi",
+        "status": "Active",
+        "lastSynced": "9:22 AM",
+        "avatar": ""
+    }
+]

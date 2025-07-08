@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import AreaChart from '../../components/ui/Chart/AreaChart';
-import type { AreaChartSeries } from '../../components/ui/Chart/AreaChart';
+import AreaChart from '../../../components/ui/Chart/AreaChart';
+import type { AreaChartSeries } from '../../../components/ui/Chart/AreaChart';
 
 
 export interface CollectionData {

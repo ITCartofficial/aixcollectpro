@@ -8,7 +8,10 @@ import { MdOutlineSwapCalls } from "react-icons/md";
 import { MdOutlinePhoneCallback } from "react-icons/md";
 import type { StatsData } from "../../components/ui/Card/StatsCard";
 
+
 const TaskManagement = () => {
+  // Removed unused selectedStatus state
+
   const leftButtons: { type: "primary" | "outline"; text: string }[] = [
     { type: "primary", text: "Field Task" },
     { type: "primary", text: "Telecalling Task" },
@@ -58,16 +61,18 @@ const TaskManagement = () => {
   ];
 
   return (
-    <div className="mr-3">
-      <h1 className="text-xl lg:text-2xl font-bold text-black mb-5 mt-4">
-        Task Management
-      </h1>
-      <HeaderActionCenter
-        leftButtons={leftButtons}
-        rightButtons={rightButtons}
-      />
-      <StatsCardSection statsData={statsData} />
-    </div>
+    <>
+      <div className="mr-3">
+        <h1 className="text-xl lg:text-2xl font-bold text-black mb-5 mt-4">
+          Task Management
+        </h1>
+        <HeaderActionCenter
+          leftButtons={leftButtons}
+          rightButtons={rightButtons}
+        />
+        <StatsCardSection statsData={statsData} />
+      </div>
+    </>
   );
 };
 

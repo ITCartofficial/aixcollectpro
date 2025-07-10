@@ -1,8 +1,8 @@
 import { useState } from "react";
 import HeaderActionCenter from "../../components/common/HeaderActionCenter";
-import FieldAgentsTable from "./features/FieldAgenttable";
 import StatsCardSection from "./features/StatsCardSection";
 import TelecallersTable from "./features/TelecallersTable";
+import FieldAgentsTable from "./features/FieldAgentTable";
 
 const TeamManagement = () => {
   const [activeTab, setActiveTab] = useState<"fieldAgent" | "telecaller">("fieldAgent");

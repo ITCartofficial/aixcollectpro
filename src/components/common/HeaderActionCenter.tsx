@@ -46,18 +46,18 @@ const HeaderActionCenter = ({
       <div className="flex gap-4">
         {leftButtons.map((btn, index) =>
           btn.variant === "outline" ? (
-            <OutlinesButton key={index} text={btn.text} onClick={btn.onClick} />
+            <OutlinesButton key={index} text={btn.text} onClick={btn.onClick} className="min-w-40" />
           ) : (
-            <PrimaryButton key={index} text={btn.text} onClick={btn.onClick} />
+            <PrimaryButton key={index} text={btn.text} onClick={btn.onClick} className="min-w-40" />
           )
         )}
       </div>
       <div className="h-max flex gap-4">
         {rightButtons.map((btn, index) =>
           btn.variant === "outline" ? (
-            <OutlinesButton key={index} text={btn.text} onClick={btn.onClick} />
+            <OutlinesButton key={index} text={btn.text} onClick={btn.onClick} className="min-w-40" />
           ) : (
-            <PrimaryButton key={index} text={btn.text} onClick={btn.onClick} />
+            <PrimaryButton key={index} text={btn.text} onClick={btn.onClick} className="min-w-40" />
           )
         )}
       </div>

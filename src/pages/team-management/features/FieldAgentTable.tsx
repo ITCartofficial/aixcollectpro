@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import type { TableColumn } from "../../../components/ui/Table/DataTable";
 import Avatar from "../../../components/ui/Table/Avatar";
 import Badge from "../../../components/ui/Table/Badge";
@@ -6,6 +6,7 @@ import { FaEye } from "react-icons/fa";
 import Dropdown from "../../../components/common/Dropdown"; // Assuming this is your custom Dropdown
 import SearchBar from "../../../components/common/Searchbar";
 import DataTable from "../../../components/ui/Table/DataTable";
+import fieldAgentTableData from "../../../../data/team-management/fieldAgentData.json"
 
 interface FieldAgent {
     id: string;
@@ -21,40 +22,15 @@ interface FieldAgent {
 
 // Main Field Agents Component
 const FieldAgentsTable: React.FC = () => {
-    const [fieldAgentsData, setFieldAgentsData] = useState<FieldAgent[]>([]);
-    const [filteredData, setFilteredData] = useState<FieldAgent[]>([]);
-    const [selectedLocation, setSelectedLocation] = useState<string[]>([]); // Changed to string[]
+    const fieldAgentsData: FieldAgent[] = fieldAgentTableData as FieldAgent[];
+
+    // Initialize filteredData with the original data so it shows before any filters are applied
+    const [filteredData, setFilteredData] = useState<FieldAgent[]>(fieldAgentsData);
+    const [selectedLocation, setSelectedLocation] = useState<string[]>([]);
     const [selectedStatus, setSelectedStatus] = useState<string>('');
     const [selectedLastSynced, setSelectedLastSynced] = useState<string>('');
     const [selectedRows, setSelectedRows] = useState<FieldAgent[]>([]);
-    const [isLoading, setIsLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
-
-    // Load field agents data from JSON file
-    useEffect(() => {
-        const loadFieldAgentsData = async () => {
-            try {
-                setIsLoading(true);
-                // Replace with the actual path to your JSON file
-                const response = await fetch('../../../../data/team-management/fieldAgentData.json');
-
-                if (!response.ok) {
-                    throw new Error('Failed to load field agents data');
-                }
-
-                const data: FieldAgent[] = await response.json();
-                setFieldAgentsData(data);
-                setFilteredData(data);
-            } catch (err) {
-                setError(err instanceof Error ? err.message : 'An error occurred');
-                console.error('Error loading field agents data:', err);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        loadFieldAgentsData();
-    }, []);
+    const [searchQuery, setSearchQuery] = useState<string>(''); // Add search query state
 
     // Filter options (computed based on loaded data)
     const locationOptions = [
@@ -79,10 +55,16 @@ const FieldAgentsTable: React.FC = () => {
         { label: 'This Week', value: 'this_week' }
     ];
 
-    // Handle search
-    const handleSearch = (query: string) => {
+    // Unified function to apply all filters
+    const applyAllFilters = (
+        query: string = searchQuery,
+        location: string[] = selectedLocation,
+        status: string = selectedStatus,
+        lastSynced: string = selectedLastSynced
+    ) => {
         let filtered = fieldAgentsData;
 
+        // Apply search filter
         if (query) {
             filtered = filtered.filter(agent =>
                 agent.name.toLowerCase().includes(query.toLowerCase()) ||
@@ -90,65 +72,56 @@ const FieldAgentsTable: React.FC = () => {
             );
         }
 
-        // Apply filters
-        // If selectedLocation is an array, check if agent.location is included in it
-        if (selectedLocation.length > 0) {
-            filtered = filtered.filter(agent => selectedLocation.includes(agent.location));
-        }
-
-        if (selectedStatus) {
-            filtered = filtered.filter(agent => agent.status === selectedStatus);
-        }
-
-        setFilteredData(filtered);
-    };
-
-    // Handle filter changes
-    const handleLocationChange = (value: string | string[]) => {
-        // If 'All Locations' is selected, clear all selections
-        if (Array.isArray(value) && value.includes('')) {
-            setSelectedLocation([]);
-            applyFilters([], selectedStatus, selectedLastSynced);
-        } else {
-            const locationValues = Array.isArray(value) ? value : [value];
-            setSelectedLocation(locationValues);
-            applyFilters(locationValues, selectedStatus, selectedLastSynced);
-        }
-    };
-
-    const handleStatusChange = (value: string | string[]) => {
-        const statusValue = Array.isArray(value) ? value[0] : value;
-        setSelectedStatus(statusValue);
-        applyFilters(selectedLocation, statusValue, selectedLastSynced);
-    };
-
-    const handleLastSyncedChange = (value: string | string[]) => {
-        const lastSyncedValue = Array.isArray(value) ? value[0] : value;
-        setSelectedLastSynced(lastSyncedValue);
-        applyFilters(selectedLocation, selectedStatus, lastSyncedValue);
-    };
-
-    const applyFilters = (location: string | string[], status: string, lastSynced: string) => {
-        let filtered = fieldAgentsData;
-
-        // Handle location filter (now supports array)
-        if (Array.isArray(location) && location.length > 0) {
+        // Apply location filter
+        if (location.length > 0) {
             filtered = filtered.filter(agent => location.includes(agent.location));
-        } else if (typeof location === 'string' && location) { // For single select if it were used elsewhere
-            filtered = filtered.filter(agent => agent.location === location);
         }
 
-
+        // Apply status filter
         if (status) {
             filtered = filtered.filter(agent => agent.status === status);
         }
 
+        // Apply last synced filter
         if (lastSynced) {
             console.log('Filtering by lastSynced:', lastSynced);
             // Add your last synced filtering logic here
         }
 
         setFilteredData(filtered);
+    };
+
+    // Handle search
+    const handleSearch = (query: string) => {
+        setSearchQuery(query);
+        applyAllFilters(query, selectedLocation, selectedStatus, selectedLastSynced);
+    };
+
+    // Handle filter changes
+    const handleLocationChange = (value: string | string[]) => {
+        let locationValues: string[];
+        
+        // If 'All Locations' is selected, clear all selections
+        if (Array.isArray(value) && value.includes('')) {
+            locationValues = [];
+        } else {
+            locationValues = Array.isArray(value) ? value : [value];
+        }
+        
+        setSelectedLocation(locationValues);
+        applyAllFilters(searchQuery, locationValues, selectedStatus, selectedLastSynced);
+    };
+
+    const handleStatusChange = (value: string | string[]) => {
+        const statusValue = Array.isArray(value) ? value[0] : value;
+        setSelectedStatus(statusValue);
+        applyAllFilters(searchQuery, selectedLocation, statusValue, selectedLastSynced);
+    };
+
+    const handleLastSyncedChange = (value: string | string[]) => {
+        const lastSyncedValue = Array.isArray(value) ? value[0] : value;
+        setSelectedLastSynced(lastSyncedValue);
+        applyAllFilters(searchQuery, selectedLocation, selectedStatus, lastSyncedValue);
     };
 
     const handleSelectionChange = (selected: FieldAgent[]) => {
@@ -245,35 +218,6 @@ const FieldAgentsTable: React.FC = () => {
         }
     ];
 
-    // Loading state
-    if (isLoading) {
-        return (
-            <div className="p-6 bg-gray-50 min-h-screen">
-                <div className="flex justify-center items-center h-64">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-                </div>
-            </div>
-        );
-    }
-
-    // Error state
-    if (error) {
-        return (
-            <div className="p-6 bg-gray-50 min-h-screen">
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                    <div className="flex">
-                        <div className="ml-3">
-                            <h3 className="text-sm font-medium text-red-800">Error loading data</h3>
-                            <div className="mt-2 text-sm text-red-700">
-                                <p>{error}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
     return (
         <div className="mt-4 bg-white min-h-screen rounded-lg p-6">
             {/* Filters and Search */}
@@ -283,11 +227,11 @@ const FieldAgentsTable: React.FC = () => {
 
                     <Dropdown
                         options={locationOptions}
-                        value={selectedLocation} // Pass array value
+                        value={selectedLocation}
                         onChange={handleLocationChange}
                         placeholder="Select Location"
                         className="min-w-48"
-                        multiSelect={true} // Enable multi-select
+                        multiSelect={true}
                     />
 
                     <Dropdown

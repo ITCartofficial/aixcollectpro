@@ -5,6 +5,7 @@ import SearchBar from "../../../components/common/Searchbar";
 import DataTable from "../../../components/ui/Table/DataTable";
 import Avatar from "../../../components/ui/Table/Avatar";
 import { IoCheckmarkOutline, IoClose } from "react-icons/io5";
+import leaveRequestTableData from "../../../../data/attendance/leaveRequestData.json"
 
 // INTERFACE DEFINITIONS
 interface LeaveRequestData {
@@ -19,61 +20,60 @@ interface LeaveRequestData {
     avatar?: string;
 }
 
+// Interface for the raw JSON data
+interface RawLeaveRequestData {
+    id: number;
+    name: string;
+    role: string;
+    leaveFromTo: string;
+    days: number;
+    leaveType: string;
+    status: string;
+    notes: string;
+    avatar: string;
+}
+
 interface LeaveRequestTableProps {
     onTabChange?: (tab: 'attendance' | 'leaveRequest') => void;
     activeTab?: 'attendance' | 'leaveRequest';
 }
 
 const LeaveRequestTable: React.FC<LeaveRequestTableProps> = ({ onTabChange, activeTab = 'leaveRequest' }) => {
-    const [leaveRequestData, setLeaveRequestData] = useState<LeaveRequestData[]>([]);
+    // Transform raw JSON data to match our interface
+    const transformData = (rawData: RawLeaveRequestData[]): LeaveRequestData[] => {
+        return rawData.map(item => ({
+            ...item,
+            id: String(item.id), // Convert number to string
+            status: item.status as 'Approved' | 'Pending' | 'Rejected', // Type assertion for status
+            avatar: item.avatar || undefined // Handle optional avatar
+        }));
+    };
+
+    // Fixed: Use useState for leaveRequestData to enable state updates
+    const [leaveRequestData, setLeaveRequestData] = useState<LeaveRequestData[]>(
+        transformData(leaveRequestTableData as RawLeaveRequestData[])
+    );
     const [filteredData, setFilteredData] = useState<LeaveRequestData[]>([]);
     const [selectedRole, setSelectedRole] = useState<string[]>([]);
     const [selectedStatus, setSelectedStatus] = useState<string>('');
     const [selectedRows, setSelectedRows] = useState<LeaveRequestData[]>([]);
-    const [isLoading, setIsLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
     const [searchQuery, setSearchQuery] = useState<string>('');
-
-    // DATA LOADING
-    useEffect(() => {
-        const loadLeaveRequestData = async () => {
-            try {
-                setIsLoading(true);
-                const response = await fetch('../../../../data/attendance/leaveRequestData.json');
-
-                if (!response.ok) {
-                    throw new Error('Failed to load leave request data');
-                }
-
-                const data: LeaveRequestData[] = await response.json();
-                setLeaveRequestData(data);
-                setFilteredData(data);
-            } catch (err) {
-                setError(err instanceof Error ? err.message : 'An error occurred');
-                console.error('Error loading leave request data:', err);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        loadLeaveRequestData();
-    }, []);
 
     // ACTION HANDLERS
     const handleApprove = (id: string) => {
         const updateStatus = (data: LeaveRequestData[]) =>
             data.map(item => item.id === id ? { ...item, status: 'Approved' as const } : item);
 
-        setLeaveRequestData(updateStatus);
-        setFilteredData(prev => updateStatus(prev));
+        // Fixed: Update the main data state
+        setLeaveRequestData(prev => updateStatus(prev));
     };
 
     const handleReject = (id: string) => {
         const updateStatus = (data: LeaveRequestData[]) =>
             data.map(item => item.id === id ? { ...item, status: 'Rejected' as const } : item);
 
-        setLeaveRequestData(updateStatus);
-        setFilteredData(prev => updateStatus(prev));
+        // Fixed: Update the main data state
+        setLeaveRequestData(prev => updateStatus(prev));
     };
 
     // FILTER OPTIONS CONFIGURATION
@@ -290,35 +290,6 @@ const LeaveRequestTable: React.FC<LeaveRequestTableProps> = ({ onTabChange, acti
             }
         }
     ];
-
-    // LOADING STATE RENDER
-    if (isLoading) {
-        return (
-            <div className="p-6 bg-gray-50 min-h-screen">
-                <div className="flex justify-center items-center h-64">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-                </div>
-            </div>
-        );
-    }
-
-    // ERROR STATE RENDER
-    if (error) {
-        return (
-            <div className="p-6 bg-gray-50 min-h-screen">
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                    <div className="flex">
-                        <div className="ml-3">
-                            <h3 className="text-sm font-medium text-red-800">Error loading data</h3>
-                            <div className="mt-2 text-sm text-red-700">
-                                <p>{error}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
 
     // MAIN COMPONENT RENDER
     return (

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import type { TableColumn } from "../../../components/ui/Table/DataTable";
 import Avatar from "../../../components/ui/Table/Avatar";
 import Badge from "../../../components/ui/Table/Badge";
@@ -6,6 +6,7 @@ import { FaEye } from "react-icons/fa";
 import Dropdown from "../../../components/common/Dropdown"; // Assuming this path is correct
 import SearchBar from "../../../components/common/Searchbar";
 import DataTable from "../../../components/ui/Table/DataTable";
+import telecallersTableData from "../../../../data/team-management/telecallersData.json"
 
 interface Telecallers {
     id: string;
@@ -21,43 +22,18 @@ interface Telecallers {
 
 // Main Telecallers Component
 const TelecallersTable: React.FC = () => {
-    const [telecallersData, setTelecallersData] = useState<Telecallers[]>([]);
-    const [filteredData, setFilteredData] = useState<Telecallers[]>([]);
+
+    const telecallersData: Telecallers[] = telecallersTableData as Telecallers[];
+    // Initialize filteredData with the original data so it shows before any filters are applied
+
+    const [filteredData, setFilteredData] = useState<Telecallers[]>(telecallersData);
     // Changed to string[] for multi-select language
     const [selectedLanguage, setSelectedLanguage] = useState<string[]>([]);
     const [selectedStatus, setSelectedStatus] = useState<string>('');
     const [selectedLastSynced, setSelectedLastSynced] = useState<string>('');
     const [selectedRows, setSelectedRows] = useState<Telecallers[]>([]);
-    const [isLoading, setIsLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
 
-    // Load telecallers data from JSON file
-    useEffect(() => {
-        const loadTelecallersData = async () => {
-            try {
-                setIsLoading(true);
-                // Replace with the actual path to your JSON file
-                const response = await fetch('../../../../data/team-management/telecallersData.json'); // Ensure this path is correct
 
-                if (!response.ok) {
-                    throw new Error('Failed to load telecallers data');
-                }
-
-                const data: Telecallers[] = await response.json();
-                setTelecallersData(data);
-                setFilteredData(data);
-            } catch (err) {
-                setError(err instanceof Error ? err.message : 'An error occurred');
-                console.error('Error loading telecallers data:', err);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        loadTelecallersData();
-    }, []);
-
-    // Filter options (computed based on loaded data)
     // Generates unique language options from the comma-separated language strings
     const languageOptions = [
         { label: 'All Languages', value: '' }, // Option to clear all language filters
@@ -271,35 +247,6 @@ const TelecallersTable: React.FC = () => {
             )
         }
     ];
-
-    // Loading state UI
-    if (isLoading) {
-        return (
-            <div className="p-6 bg-gray-50 min-h-screen">
-                <div className="flex justify-center items-center h-64">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-                </div>
-            </div>
-        );
-    }
-
-    // Error state UI
-    if (error) {
-        return (
-            <div className="p-6 bg-gray-50 min-h-screen">
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                    <div className="flex">
-                        <div className="ml-3">
-                            <h3 className="text-sm font-medium text-red-800">Error loading data</h3>
-                            <div className="mt-2 text-sm text-red-700">
-                                <p>{error}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
 
     return (
         <div className="mt-4 bg-white min-h-screen rounded-lg p-6">

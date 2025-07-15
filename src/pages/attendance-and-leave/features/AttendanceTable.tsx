@@ -7,6 +7,8 @@ import DataTable from "../../../components/ui/Table/DataTable";
 import { FaEye } from "react-icons/fa";
 import Avatar from "../../../components/ui/Table/Avatar";
 import LeaveRequestTable from "./LeaveRequestTable";
+import attendanceTableData from "../../../../data/attendance/attendanceData.json"
+
 
 
 // INTERFACE DEFINITIONS
@@ -14,7 +16,7 @@ interface AttendanceData {
     id: string;
     agentName: string;
     role: string;
-    presentDays: string;
+    presentDays: number;
     lateCheckIns: number;
     avgHrsPerDay: number;
     overtimeDays: number;
@@ -25,39 +27,13 @@ interface AttendanceData {
 
 const AttendanceTable: React.FC = () => {
     const [activeTab, setActiveTab] = useState<string>('attendance');
-    const [attendanceData, setAttendanceData] = useState<AttendanceData[]>([]);
+    const attendanceData: AttendanceData[] = attendanceTableData as AttendanceData[];
     const [filteredData, setFilteredData] = useState<AttendanceData[]>([]);
     const [selectedRole, setSelectedRole] = useState<string[]>([]);
     const [selectedStatus, setSelectedStatus] = useState<string>('');
     const [selectedRows, setSelectedRows] = useState<AttendanceData[]>([]);
-    const [isLoading, setIsLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
     const [searchQuery, setSearchQuery] = useState<string>('');
 
-    // DATA LOADING
-    useEffect(() => {
-        const loadAttendanceData = async () => {
-            try {
-                setIsLoading(true);
-                const response = await fetch('../../../../data/attendance/attendanceData.json');
-
-                if (!response.ok) {
-                    throw new Error('Failed to load attendance data');
-                }
-
-                const data: AttendanceData[] = await response.json();
-                setAttendanceData(data);
-                setFilteredData(data);
-            } catch (err) {
-                setError(err instanceof Error ? err.message : 'An error occurred');
-                console.error('Error loading attendance data:', err);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        loadAttendanceData();
-    }, []);
 
     // FILTER OPTIONS CONFIGURATION
     const roleOptions = [
@@ -217,7 +193,7 @@ const AttendanceTable: React.FC = () => {
             sortable: true,
             width: '150px',
             className: 'text-center',
-            render: (value) => <span className="font-medium">{value}</span>
+            render: (value) => <span className="font-medium">{value} hrs</span>
         },
         {
             key: 'overtimeDays',
@@ -278,35 +254,6 @@ const AttendanceTable: React.FC = () => {
         }
     ];
 
-    // LOADING STATE RENDER
-    if (isLoading) {
-        return (
-            <div className="p-6 bg-gray-50 min-h-screen">
-                <div className="flex justify-center items-center h-64">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-                </div>
-            </div>
-        );
-    }
-
-    // ERROR STATE RENDER
-    if (error) {
-        return (
-            <div className="p-6 bg-gray-50 min-h-screen">
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                    <div className="flex">
-                        <div className="ml-3">
-                            <h3 className="text-sm font-medium text-red-800">Error loading data</h3>
-                            <div className="mt-2 text-sm text-red-700">
-                                <p>{error}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
     // MAIN COMPONENT RENDER
     return (
         <div className="mt-4 bg-white rounded-lg p-6 relative">
@@ -316,21 +263,19 @@ const AttendanceTable: React.FC = () => {
                     {/* Tab Navigation */}
                     <div className="flex border-b border-gray-200">
                         <button
-                            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors cursor-pointer ${
-                                activeTab === 'attendance'
-                                    ? 'border-blue-500 text-blue-600'
-                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                            }`}
+                            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors cursor-pointer ${activeTab === 'attendance'
+                                ? 'border-blue-500 text-blue-600'
+                                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                                }`}
                             onClick={() => handleTabChange('attendance')}
                         >
                             Attendance
                         </button>
                         <button
-                            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors cursor-pointer ${
-                                activeTab === 'leaveRequest'
-                                    ? 'border-blue-500 text-blue-600'
-                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                            }`}
+                            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors cursor-pointer ${activeTab === 'leaveRequest'
+                                ? 'border-blue-500 text-blue-600'
+                                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                                }`}
                             onClick={() => handleTabChange('leaveRequest')}
                         >
                             Leave Request

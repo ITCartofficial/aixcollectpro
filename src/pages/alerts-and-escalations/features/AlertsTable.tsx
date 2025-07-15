@@ -5,10 +5,9 @@ import Dropdown from "../../../components/common/Dropdown";
 import SearchBar from "../../../components/common/Searchbar";
 import DataTable from "../../../components/ui/Table/DataTable";
 import { RxDotsVertical } from "react-icons/rx";
+import alertTableData from "../../../../data/alerts-escalations/alertsEscalation.json"
 
-// ============================================
 // INTERFACE DEFINITIONS
-// ============================================
 interface AlertData {
     id: string;
     alert_type: string;
@@ -26,7 +25,7 @@ interface PopupPosition {
 }
 
 const AlertsTable: React.FC = () => {
-    const [alertsData, setAlertsData] = useState<AlertData[]>([]);
+    const alertsData: AlertData[] = alertTableData as AlertData[];
     const [filteredData, setFilteredData] = useState<AlertData[]>([]);
     const [selectedAlertType, setSelectedAlertType] = useState<string[]>([]);
     const [selectedRiskLabel, setSelectedRiskLabel] = useState<string>('');
@@ -34,8 +33,6 @@ const AlertsTable: React.FC = () => {
     const [selectedRaisedBy, setSelectedRaisedBy] = useState<string>('');
     const [selectedLastUpdated, setSelectedLastUpdated] = useState<string>('');
     const [selectedRows, setSelectedRows] = useState<AlertData[]>([]);
-    const [isLoading, setIsLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
     const [searchQuery, setSearchQuery] = useState<string>('');
 
     // Popup related state
@@ -44,36 +41,7 @@ const AlertsTable: React.FC = () => {
     const [popupPosition, setPopupPosition] = useState<PopupPosition>({ top: 0, left: 0 });
     const popupRef = useRef<HTMLDivElement>(null);
 
-    // ============================================
-    // DATA LOADING
-    // ============================================
-    useEffect(() => {
-        const loadAlertsData = async () => {
-            try {
-                setIsLoading(true);
-                const response = await fetch('../../../../data/alerts-escalations/alertsEscalation.json');
-
-                if (!response.ok) {
-                    throw new Error('Failed to load alerts data');
-                }
-
-                const data: AlertData[] = await response.json();
-                setAlertsData(data);
-                setFilteredData(data);
-            } catch (err) {
-                setError(err instanceof Error ? err.message : 'An error occurred');
-                console.error('Error loading alerts data:', err);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        loadAlertsData();
-    }, []);
-
-    // ============================================
-    // POPUP MANAGEMENT
-    // ============================================
+    
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
@@ -90,9 +58,8 @@ const AlertsTable: React.FC = () => {
         };
     }, [showPopup]);
 
-    // ============================================
+
     // FILTER OPTIONS CONFIGURATION
-    // ============================================
     const alertTypeOptions = [
         { label: 'All Alert Types', value: '' },
         ...Array.from(new Set(alertsData.map(alert => alert.alert_type).filter(alertType => alertType && alertType.trim() !== ''))).map(alertType => ({
@@ -131,10 +98,8 @@ const AlertsTable: React.FC = () => {
         }))
     ];
 
-    // ============================================
-    // FILTER UTILITY FUNCTIONS
-    // ============================================
 
+    // FILTER UTILITY FUNCTIONS
     // Helper function to apply date-based filtering
     const applyLastUpdatedFilter = (data: AlertData[], filter: string) => {
         const now = new Date();
@@ -186,9 +151,7 @@ const AlertsTable: React.FC = () => {
         return data.filter(alert => alert.raised_by === filter);
     };
 
-    // ============================================
     // MAIN FILTER APPLICATION LOGIC
-    // ============================================
 
     // Core function to apply all filters and search
     const applyAllFilters = () => {
@@ -233,19 +196,15 @@ const AlertsTable: React.FC = () => {
         setFilteredData(filtered);
     };
 
-    // ============================================
     // FILTER EFFECTS - Auto-apply when dependencies change
-    // ============================================
     useEffect(() => {
         if (alertsData.length > 0) {
             applyAllFilters();
         }
     }, [alertsData, selectedAlertType, selectedRiskLabel, selectedLastUpdated, selectedStatus, selectedRaisedBy, searchQuery]);
 
-    // ============================================
-    // EVENT HANDLERS
-    // ============================================
 
+    // EVENT HANDLERS
     // Handle search input changes
     const handleSearch = (query: string) => {
         setSearchQuery(query);
@@ -322,9 +281,7 @@ const AlertsTable: React.FC = () => {
         // Add your escalate logic here
     };
 
-    // ============================================
     // TABLE COLUMN CONFIGURATION
-    // ============================================
     const columns: TableColumn<AlertData>[] = [
         {
             key: 'id',
@@ -437,47 +394,10 @@ const AlertsTable: React.FC = () => {
         }
     ];
 
-    // ============================================
-    // LOADING STATE RENDER
-    // ============================================
-    if (isLoading) {
-        return (
-            <div className="p-6 bg-gray-50 min-h-screen">
-                <div className="flex justify-center items-center h-64">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-                </div>
-            </div>
-        );
-    }
-
-    // ============================================
-    // ERROR STATE RENDER
-    // ============================================
-    if (error) {
-        return (
-            <div className="p-6 bg-gray-50 min-h-screen">
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                    <div className="flex">
-                        <div className="ml-3">
-                            <h3 className="text-sm font-medium text-red-800">Error loading data</h3>
-                            <div className="mt-2 text-sm text-red-700">
-                                <p>{error}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    // ============================================
     // MAIN COMPONENT RENDER
-    // ============================================
     return (
         <div className="mt-4 bg-white rounded-lg p-6 relative">
-            {/* ============================================ */}
             {/* FILTERS AND SEARCH SECTION */}
-            {/* ============================================ */}
             <div className="bg-white p-4 rounded-lg mb-4">
                 <div className="flex flex-wrap items-center gap-4">
                     <span className="text-sm font-medium text-gray-700">Filter by:</span>
@@ -539,9 +459,7 @@ const AlertsTable: React.FC = () => {
                 </div>
             </div>
 
-            {/* ============================================ */}
             {/* SELECTED ITEMS DISPLAY SECTION */}
-            {/* ============================================ */}
             {selectedRows.length > 0 && (
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
                     <div className="flex items-center justify-between">
@@ -558,9 +476,8 @@ const AlertsTable: React.FC = () => {
                 </div>
             )}
 
-            {/* ============================================ */}
+
             {/* DATA TABLE SECTION */}
-            {/* ============================================ */}
             <div className="bg-white rounded-lg shadow-sm">
                 <DataTable
                     data={filteredData}
@@ -577,9 +494,7 @@ const AlertsTable: React.FC = () => {
                 />
             </div>
 
-            {/* ============================================ */}
             {/* POPUP MENU */}
-            {/* ============================================ */}
             {showPopup && selectedAlert && (
                 <div
                     ref={popupRef}

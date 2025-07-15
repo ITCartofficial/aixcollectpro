@@ -51,7 +51,7 @@ const AlertsTable: React.FC = () => {
         const loadAlertsData = async () => {
             try {
                 setIsLoading(true);
-                const response = await fetch('/data/alerts-escalations/alertsEscalation.json');
+                const response = await fetch('../../../../data/alerts-escalations/alertsEscalation.json');
 
                 if (!response.ok) {
                     throw new Error('Failed to load alerts data');

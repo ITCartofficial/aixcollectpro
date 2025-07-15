@@ -32,7 +32,7 @@ const DocumentVerificationTaskTable: React.FC = () => {
         const loadDocVerificationTask = async () => {
             try {
                 setIsLoading(true);
-                const response = await fetch('/data/document/documentVerificationTask.json');
+                const response = await fetch('../../../../data/document/documentVerificationTask.json');
 
                 if (!response.ok) {
                     throw new Error('Failed to load document verification task data');

@@ -37,7 +37,7 @@ const TelecallersTable: React.FC = () => {
             try {
                 setIsLoading(true);
                 // Replace with the actual path to your JSON file
-                const response = await fetch('/data/team-management/telecallersData.json'); // Ensure this path is correct
+                const response = await fetch('../../../../data/team-management/telecallersData.json'); // Ensure this path is correct
 
                 if (!response.ok) {
                     throw new Error('Failed to load telecallers data');

@@ -36,7 +36,7 @@ const FieldAgentsTable: React.FC = () => {
             try {
                 setIsLoading(true);
                 // Replace with the actual path to your JSON file
-                const response = await fetch('/data/team-management/fieldAgentData.json');
+                const response = await fetch('../../../../data/team-management/fieldAgentData.json');
 
                 if (!response.ok) {
                     throw new Error('Failed to load field agents data');

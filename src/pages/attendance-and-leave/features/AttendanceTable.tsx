@@ -8,6 +8,7 @@ import { FaEye } from "react-icons/fa";
 import Avatar from "../../../components/ui/Table/Avatar";
 import LeaveRequestTable from "./LeaveRequestTable";
 
+
 // INTERFACE DEFINITIONS
 interface AttendanceData {
     id: string;
@@ -38,10 +39,10 @@ const AttendanceTable: React.FC = () => {
         const loadAttendanceData = async () => {
             try {
                 setIsLoading(true);
-                const response = await fetch('/data/attendance/attendanceData.json');
+                const response = await fetch('../../../../data/attendance/attendanceData.json');
 
                 if (!response.ok) {
-                    throw new Error('Failed to load alerts data');
+                    throw new Error('Failed to load attendance data');
                 }
 
                 const data: AttendanceData[] = await response.json();
@@ -49,7 +50,7 @@ const AttendanceTable: React.FC = () => {
                 setFilteredData(data);
             } catch (err) {
                 setError(err instanceof Error ? err.message : 'An error occurred');
-                console.error('Error loading alerts data:', err);
+                console.error('Error loading attendance data:', err);
             } finally {
                 setIsLoading(false);
             }

@@ -39,7 +39,7 @@ const LeaveRequestTable: React.FC<LeaveRequestTableProps> = ({ onTabChange, acti
         const loadLeaveRequestData = async () => {
             try {
                 setIsLoading(true);
-                const response = await fetch('/data/attendance/leaveRequestData.json');
+                const response = await fetch('../../../../data/attendance/leaveRequestData.json');
 
                 if (!response.ok) {
                     throw new Error('Failed to load leave request data');

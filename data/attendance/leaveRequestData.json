@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "Ajay Singh",
+    "role": "Agent",
+    "leaveFromTo": "03 Jun - 05 Jun",
+    "days": 3,
+    "leaveType": "Sick Leave",
+    "notes": "Doctor appointment",
+    "status": "Approved",
+    "avatar": ""
+  },
+  {
+    "id": 2,
+    "name": "Priya Nair",
+    "role": "Telecaller",
+    "leaveFromTo": "01 Jun - 02 Jun",
+    "days": 2,
+    "leaveType": "Emergency Leave",
+    "notes": "Family emergency",
+    "status": "Pending",
+    "avatar": ""
+  },
+  {
+    "id": 3,
+    "name": "Sandeep Reddy",
+    "role": "Agent",
+    "leaveFromTo": "07 Jun - 08 Jun",
+    "days": 2,
+    "leaveType": "Casual Leave",
+    "notes": "Personal Work",
+    "status": "Pending",
+    "avatar": ""
+  },
+  {
+    "id": 4,
+    "name": "Neha Prasad",
+    "role": "Telecaller",
+    "leaveFromTo": "10 Jun - 11 Jun",
+    "days": 2,
+    "leaveType": "Planned Leave",
+    "notes": "Attending training",
+    "status": "Pending",
+    "avatar": ""
+  },
+  {
+    "id": 5,
+    "name": "Vinod Rao",
+    "role": "Agent",
+    "leaveFromTo": "09 Jun - 10 Jun",
+    "days": 2,
+    "leaveType": "Personal Leave",
+    "notes": "Family function",
+    "status": "Rejected",
+    "avatar": ""
+  },
+  {
+    "id": 6,
+    "name": "Ananya Iyer",
+    "role": "Telecaller",
+    "leaveFromTo": "08 Jun - 08 Jun",
+    "days": 1,
+    "leaveType": "Half-day Leave",
+    "notes": "Medical check-up",
+    "status": "Pending",
+    "avatar": ""
+  }
+]

@@ -1,8 +1,63 @@
+import { LuCalendarClock, LuTriangleAlert } from "react-icons/lu"
+import OutlineButton from "../../components/ui/Buttons/OutlineButton"
+import PrimaryButton from "../../components/ui/Buttons/PrimaryButton"
+import { RiFileList3Line } from "react-icons/ri"
+import type { StatsData } from "../../components/ui/Card/StatsCard"
+import StatsCardSection from "../../components/common/StatsCardSection"
+import { FaUser } from "react-icons/fa"
+import { MdPendingActions } from "react-icons/md"
+import AttendanceTable from "./features/AttendanceTable"
 
+
+const statsData: StatsData[] = [
+  {
+    id: '1',
+    title: 'Total Present Today',
+    value: 22,
+    icon: <FaUser className="w-5 h-5" />,
+  },
+  {
+    id: '2',
+    title: 'Average Attendance Rate',
+    value: '81%',
+    icon: <LuTriangleAlert className="w-5 h-5" />,
+  },
+  {
+    id: '3',
+    title: 'Total Late Check-Ins',
+    value: 18,
+    icon: <MdPendingActions className="w-5 h-5" />,
+  },
+  {
+    id: '4',
+    title: 'Pending Leave Requests',
+    value: 6,
+    icon: <RiFileList3Line className="w-5 h-5" />,
+  },
+  {
+    id: '5',
+    title: ' Underutilized Members',
+    value: '5',
+    icon: <LuCalendarClock className="w-5 h-5" />,
+
+  },
+]
 
 const AttendanceLeave = () => {
   return (
-    <div>attendanceAndLeave</div>
+    <div className="mr-4">
+      <div className="w-full h-12 flex justify-between items-center mt-4">
+        <h1 className="text-xl lg:text-2xl font-bold text-black mb-5 mt-4">
+          Attendance & Leave
+        </h1>
+        <div className="flex gap-4">
+          <OutlineButton text="May 2025" className="min-w-40" />
+          <PrimaryButton text="Export Report" className="w-42" />
+        </div>
+      </div>
+      <StatsCardSection cardData={statsData} />
+      <AttendanceTable/>
+    </div>
   )
 }
 

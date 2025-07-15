@@ -21,7 +21,7 @@
 
 
 
-import OutlinesButton from "../ui/Buttons/OutlinesButton";
+import OutlinesButton from "../ui/Buttons/OutlineButton";
 import PrimaryButton from "../ui/Buttons/PrimaryButton";
 
 type ButtonProps = {

@@ -1,4 +1,4 @@
-import OutlinesButton from "../../components/ui/Buttons/OutlinesButton"
+import OutlinesButton from "../../components/ui/Buttons/OutlineButton"
 import PrimaryButton from "../../components/ui/Buttons/PrimaryButton"
 import type { StatsData } from "../../components/ui/Card/StatsCard"
 import StatsCardSection from "../../components/common/StatsCardSection"

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "AGT-58234",
+    "agentName": "Rakesh Kumar",
+    "role": "Agent",
+    "presentDays": 9,
+    "lateCheckIns": 1,
+    "avgHrsPerDay": "8.5 hrs",
+    "overtimeDays": 2,
+    "todayCheckInOut": "09:03 AM / 05:35 PM",
+    "currentStatus": "On-Road",
+    "avatar": ""
+  },
+  {
+    "id": "AGT-58235",
+    "agentName": "Ananya Iyer",
+    "role": "Telecaller",
+    "presentDays": 10,
+    "lateCheckIns": 0,
+    "avgHrsPerDay": "8.2 hrs",
+    "overtimeDays": 1,
+    "todayCheckInOut": "09:01 AM / 05:15 PM",
+    "currentStatus": "Disabled",
+    "avatar": ""
+  },
+  {
+    "id": "AGT-58236",
+    "agentName": "Vinod Rao",
+    "role": "Agent",
+    "presentDays": 10,
+    "lateCheckIns": 0,
+    "avgHrsPerDay": "7.9 hrs",
+    "overtimeDays": 1,
+    "todayCheckInOut": "08:55 AM / 04:50 PM",
+    "currentStatus": "Inactive",
+    "avatar": ""
+  },
+  {
+    "id": "AGT-58237",
+    "agentName": "Ajay Singh",
+    "role": "Agent",
+    "presentDays": 8,
+    "lateCheckIns": 3,
+    "avgHrsPerDay": "8.2 hrs",
+    "overtimeDays": 0,
+    "todayCheckInOut": "— / —",
+    "currentStatus": "Inactive",
+    "avatar": ""
+  },
+  {
+    "id": "AGT-58238",
+    "agentName": "Rajesh Sharma",
+    "role": "Telecaller",
+    "presentDays": 9,
+    "lateCheckIns": 2,
+    "avgHrsPerDay": "8.0 hrs",
+    "overtimeDays": 1,
+    "todayCheckInOut": "09:20 AM / 05:10 PM",
+    "currentStatus": "Active",
+    "avatar": ""
+  },
+  {
+    "id": "AGT-58239",
+    "agentName": "Manoj Pillai",
+    "role": "Agent",
+    "presentDays": 9,
+    "lateCheckIns": 2,
+    "avgHrsPerDay": "8.7 hrs",
+    "overtimeDays": 1,
+    "todayCheckInOut": "09:08 AM / 05:55 PM",
+    "currentStatus": "On-Road",
+    "avatar": ""
+  },
+  {
+    "id": "AGT-58240",
+    "agentName": "Neha Prasad",
+    "role": "Telecaller",
+    "presentDays": 10,
+    "lateCheckIns": 1,
+    "avgHrsPerDay": "8.4 hrs",
+    "overtimeDays": 0,
+    "todayCheckInOut": "09:10 AM / 06:00 PM",
+    "currentStatus": "Inactive",
+    "avatar": ""
+  },
+  {
+    "id": "AGT-58241",
+    "agentName": "Priya Nair",
+    "role": "Telecaller",
+    "presentDays": 7,
+    "lateCheckIns": 3,
+    "avgHrsPerDay": "7.5 hrs",
+    "overtimeDays": 1,
+    "todayCheckInOut": "09:45 AM / 04:45 PM",
+    "currentStatus": "Active",
+    "avatar": ""
+  },
+  {
+    "id": "AGT-58242",
+    "agentName": "Sandeep Reddy",
+    "role": "Agent",
+    "presentDays": 6,
+    "lateCheckIns": 4,
+    "avgHrsPerDay": "7.8 hrs",
+    "overtimeDays": 0,
+    "todayCheckInOut": "10:30 AM / 06:00 PM",
+    "currentStatus": "On-Road",
+    "avatar": ""
+  },
+  {
+    "id": "AGT-58243",
+    "agentName": "Meera Das",
+    "role": "Telecaller",
+    "presentDays": 8,
+    "lateCheckIns": 2,
+    "avgHrsPerDay": "8.1 hrs",
+    "overtimeDays": 1,
+    "todayCheckInOut": "09:30 AM / 05:40 PM",
+    "currentStatus": "Inactive",
+    "avatar": ""
+  }
+]

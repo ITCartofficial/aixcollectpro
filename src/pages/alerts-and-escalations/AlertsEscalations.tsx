@@ -1,4 +1,3 @@
-import OutlinesButton from "../../components/ui/Buttons/OutlinesButton"
 import PrimaryButton from "../../components/ui/Buttons/PrimaryButton"
 import type { StatsData } from "../../components/ui/Card/StatsCard"
 import StatsCardSection from "../../components/common/StatsCardSection"
@@ -6,6 +5,7 @@ import { LuCalendarClock, LuTriangleAlert } from "react-icons/lu"
 import { RiFileList3Line } from "react-icons/ri"
 import { MdNotificationImportant, MdPendingActions } from "react-icons/md"
 import AlertsTable from "./features/AlertsTable"
+import OutlineButton from "../../components/ui/Buttons/OutlineButton"
 
 
 
@@ -52,7 +52,7 @@ const AlertsEscalations = () => {
           Alerts & Escalations
         </h1>
         <div className="flex gap-4">
-          <OutlinesButton text="Export Report" className="min-w-40" />
+          <OutlineButton text="Export Report" className="min-w-40" />
           <PrimaryButton text="AI Escalate" className="w-42" />
         </div>
       </div>

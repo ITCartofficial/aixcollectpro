@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import AiInsightCard from "../../components/ui/Card/AiInsightCard";
+import AiInsightCard from "../../../components/ui/Card/AiInsightCard";
 
 
 const AiAlertAndInsightCard = () => {

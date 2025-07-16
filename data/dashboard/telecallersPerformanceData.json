@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "initials": "PS",
+    "name": "Priya Sharma",
+    "location": "Bangalore",
+    "metricTitle": "Calls Made",
+    "metricValue": 145,
+    "paidCases": 12,
+    "amountCollected": 95000,
+    "isTopPerformer": true
+  },
+  {
+    "id": 2,
+    "initials": "AS",
+    "name": "Anita Singh",
+    "location": "Bangalore",
+    "metricTitle": "Calls Made",
+    "metricValue": 132,
+    "paidCases": 10,
+    "amountCollected": 78000
+  },
+  {
+    "id": 3,
+    "initials": "VK",
+    "name": "Vikram Kumar",
+    "location": "Bangalore",
+    "metricTitle": "Calls Made",
+    "metricValue": 128,
+    "paidCases": 9,
+    "amountCollected": 72000
+  },
+  {
+    "id": 4,
+    "initials": "SG",
+    "name": "Sunita Gupta",
+    "location": "Bangalore",
+    "metricTitle": "Calls Made",
+    "metricValue": 120,
+    "paidCases": 8,
+    "amountCollected": 68000
+  },
+  {
+    "id": 5,
+    "initials": "RV",
+    "name": "Ravi Verma",
+    "location": "Bangalore",
+    "metricTitle": "Calls Made",
+    "metricValue": 115,
+    "paidCases": 7,
+    "amountCollected": 62000
+  }
+]

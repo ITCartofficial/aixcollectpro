@@ -1,5 +1,5 @@
 import { MdChecklist } from "react-icons/md"
-import TaskCountCard from "../../components/ui/Card/TaskCountCard"
+import TaskCountCard from "../../../components/ui/Card/TaskCountCard"
 
 
 const taskCountCardData = {

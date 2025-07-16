@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "matric": "Visit Completion Rate",
+    "value": "190",
+    "notes": "562 of 689 tasks successfully completed"
+  },
+  {
+    "id": 2,
+    "matric": "Flagged Visit Rate",
+    "value": "5%",
+    "notes": "34 visits flagged by agents for issues"
+  },
+  {
+    "id": 3,
+    "matric": "Reschedule Rate",
+    "value": "5%",
+    "notes": "30 visits were rescheduled due to borrower issues"
+  },
+  {
+    "id": 4,
+    "matric": "Avg Collection per Visit",
+    "value": "₹3,025",
+    "notes": "Based on 562 completed and paid field visits"
+  }
+]

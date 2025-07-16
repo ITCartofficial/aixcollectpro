@@ -1,0 +1,152 @@
+[
+    {
+      "id": "Alt - 001",
+      "alert_type": "Idle Agent Detected",
+      "description": "Agent Rohit inactive > 90 min",
+      "risk_level": "Medium",
+      "suggestion": "Verify agent status",
+      "raised_by": "System AI",
+      "timestamp": "10:22 AM",
+      "status": "Pending"
+    },
+    {
+      "id": "Alt - 002",
+      "alert_type": "Risk Zone Visit",
+      "description": "Collection attempted in red zone area",
+      "risk_level": "High",
+      "suggestion": "Escalate to compliance team",
+      "raised_by": "System GEO AI",
+      "timestamp": "09:45 AM",
+      "status": "Pending"
+    },
+    {
+      "id": "Alt - 003",
+      "alert_type": "Missed PTP Follow-Up",
+      "description": "Telecaller Ananya missed 3 PTP follow-ups",
+      "risk_level": "Medium",
+      "suggestion": "Reassign or send reminder",
+      "raised_by": "System AI",
+      "timestamp": "11:03 AM",
+      "status": "Escalated"
+    },
+    {
+      "id": "Alt - 004",
+      "alert_type": "Call Drop Spike",
+      "description": "Sudden drop in call success rate - Neha",
+      "risk_level": "Medium",
+      "suggestion": "Check network / app issue",
+      "raised_by": "System AI",
+      "timestamp": "10:00 AM",
+      "status": "Resolved"
+    },
+    {
+      "id": "Alt - 005",
+      "alert_type": "Flagged Document",
+      "description": "PAN card of TASK-27403 flagged",
+      "risk_level": "High",
+      "suggestion": "Review document manually",
+      "raised_by": "System OCR",
+      "timestamp": "Yesterday",
+      "status": "Escalated"
+    },
+    {
+      "id": "Alt - 006",
+      "alert_type": "Multiple Task Skips",
+      "description": "Agent Ajay skipped 4 tasks this week",
+      "risk_level": "Medium",
+      "suggestion": "Contact agent, review logs",
+      "raised_by": "System AI",
+      "timestamp": "10:30 AM",
+      "status": "Escalated"
+    },
+    {
+      "id": "Alt - 007",
+      "alert_type": "Location Mismatch",
+      "description": "Task marked complete 5 km away from site",
+      "risk_level": "High",
+      "suggestion": "GPS verification needed",
+      "raised_by": "System GEO AI",
+      "timestamp": "09:15 AM",
+      "status": "Resolved"
+    },
+    {
+      "id": "Alt - 008",
+      "alert_type": "Late Task Closure",
+      "description": "Agent closed task 3 hrs past due time",
+      "risk_level": "Low",
+      "suggestion": "Follow-up with agent",
+      "raised_by": "System AI",
+      "timestamp": "11:15 AM",
+      "status": "Resolved"
+    },
+    {
+      "id":"Alt - 009",
+      "alert_type": "Repeat Flagged",
+      "description": "Task TASK-24156 re-Flagged by agent",
+      "risk_level": "Medium",
+      "suggestion": "Assign senior handler",
+      "raised_by": "System AI",
+      "timestamp": "08:50 AM",
+      "status": "Escalated"
+    },
+    {
+      "id": "Alt - 010",
+      "alert_type": "Multiple Call Failures",
+      "description": "Telecaller Priya's 8 calls failed today",
+      "risk_level": "Medium",
+      "suggestion": "Check dialer/app settings",
+      "raised_by": "System AI",
+      "timestamp": "10:40 AM",
+      "status": "Resolved"
+    },
+    {
+      "id": "Alt - 011",
+      "alert_type": "Unusual Login Time",
+      "description": "Agent logged in at 3:00 AM",
+      "risk_level": "High",
+      "suggestion": "Investigate for unauthorized access",
+      "raised_by": "System AI",
+      "timestamp": "03:00 AM",
+      "status": "Escalated"
+    },
+    {
+      "id": "Alt - 012",
+      "alert_type": "High Task Reassignment",
+      "description": "5 tasks reassigned from Agent Ravi in 1 day",
+      "risk_level": "Medium",
+      "suggestion": "Review agent performance",
+      "raised_by": "System AI",
+      "timestamp": "08:30 AM",
+      "status": "Pending"
+    },
+    {
+      "id": "Alt - 013",
+      "alert_type": "Customer Complaint Flag",
+      "description": "Complaint received against Agent Sana",
+      "risk_level": "High",
+      "suggestion": "Assign grievance officer",
+      "raised_by": "System AI",
+      "timestamp": "Yesterday",
+      "status": "Escalated"
+    },
+    {
+      "id": "Alt - 014",
+      "alert_type": "Offline Duration Spike",
+      "description": "Agent Mahesh offline for 4 hours during duty",
+      "risk_level": "Medium",
+      "suggestion": "Check attendance and contact agent",
+      "raised_by": "System AI",
+      "timestamp": "11:45 AM",
+      "status": "Pending"
+    },
+    {
+      "id": "Alt - 015",
+      "alert_type": "Inconsistent Reporting",
+      "description": "Mismatch in field report entries - TASK-3098",
+      "risk_level": "Medium",
+      "suggestion": "Manual audit required",
+      "raised_by": "System AI",
+      "timestamp": "09:10 AM",
+      "status": "Escalated"
+    }
+]

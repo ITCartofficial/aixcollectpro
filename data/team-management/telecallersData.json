@@ -17,7 +17,7 @@
         "paidCases": 3,
         "amountCollected": 21000,
         "language": "Hindi, English, Punjabi",
-        "status": "Active",
+        "status": "Inactive",
         "lastSynced": "10:51 AM",
         "avatar": ""
     },
@@ -61,7 +61,7 @@
         "paidCases": 3,
         "amountCollected": 19200,
         "language": "Hindi, Gujarati, Marathi",
-        "status": "Active",
+        "status": "On Leave",
         "lastSynced": "9:57 AM",
         "avatar": ""
     },

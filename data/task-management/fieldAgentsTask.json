@@ -1,0 +1,112 @@
+[
+  {
+    "taskId": "TASK-24501",
+    "borrowerName": "Anil Kumar",
+    "location": "Koramangala",
+    "taskType": "Collection",
+    "status": "Completed",
+    "collectionStatus": "PTP",
+    "dueDate": "10 June, 2025",
+    "agent": "Rakesh Kumar",
+    "lastUpdated": "10:21 AM"
+  },
+  {
+    "taskId": "TASK-24502",
+    "borrowerName": "Leela Sharma",
+    "location": "Indiranagar",
+    "taskType": "KYC",
+    "status": "Completed",
+    "collectionStatus": "Paid",
+    "dueDate": "09 June, 2025",
+    "agent": "Vinod Rao",
+    "lastUpdated": "09:55 AM"
+  },
+  {
+    "taskId": "TASK-24503",
+    "borrowerName": "Raj Malhotra",
+    "location": "BTM Layout",
+    "taskType": "Collection",
+    "status": "Flagged",
+    "collectionStatus": "ID",
+    "dueDate": "09 June, 2025",
+    "agent": "Ajay Singh",
+    "lastUpdated": "09:52 AM"
+  },
+  {
+    "taskId": "TASK-24504",
+    "borrowerName": "Jyoti Shetty",
+    "location": "Whitefield",
+    "taskType": "Collection",
+    "status": "Completed",
+    "collectionStatus": "PTPD",
+    "dueDate": "10 June, 2025",
+    "agent": "Manoj Pillai",
+    "lastUpdated": "10:22 AM"
+  },
+  {
+    "taskId": "TASK-24505",
+    "borrowerName": "Sameer Reddy",
+    "location": "Rajajinagar",
+    "taskType": "Collection",
+    "status": "Pending",
+    "collectionStatus": "TNC",
+    "dueDate": "11 June, 2025",
+    "agent": "Rakesh Kumar",
+    "lastUpdated": "10:23 AM"
+  },
+  {
+    "taskId": "TASK-24506",
+    "borrowerName": "Neha Verma",
+    "location": "Jayanagar",
+    "taskType": "Collection",
+    "status": "Completed",
+    "collectionStatus": "Paid",
+    "dueDate": "09 June, 2025",
+    "agent": "Ajay Singh",
+    "lastUpdated": "08:45 AM"
+  },
+  {
+    "taskId": "TASK-24507",
+    "borrowerName": "Arvind Menon",
+    "location": "Banashankari",
+    "taskType": "Collection",
+    "status": "Flagged",
+    "collectionStatus": "FI",
+    "dueDate": "10 June, 2025",
+    "agent": "Rakesh Kumar",
+    "lastUpdated": "09:33 AM"
+  },
+  {
+    "taskId": "TASK-24508",
+    "borrowerName": "Suman Joshi",
+    "location": "Hebbal",
+    "taskType": "KYC",
+    "status": "Pending",
+    "collectionStatus": "TNC",
+    "dueDate": "11 June, 2025",
+    "agent": "Vinod Rao",
+    "lastUpdated": "10:27 AM"
+  },
+  {
+    "taskId": "TASK-24509",
+    "borrowerName": "Deepak Naik",
+    "location": "MG Road",
+    "taskType": "Collection",
+    "status": "Completed",
+    "collectionStatus": "PTPD",
+    "dueDate": "09 June, 2025",
+    "agent": "Manoj Pillai",
+    "lastUpdated": "Yesterday"
+  },
+  {
+    "taskId": "TASK-24510",
+    "borrowerName": "Ritu Sharma",
+    "location": "HSR Layout",
+    "taskType": "Collection",
+    "status": "Pending",
+    "collectionStatus": "No Update",
+    "dueDate": "08 June, 2025",
+    "agent": "Unassigned",
+    "lastUpdated": "Yesterday"
+  }
+]

@@ -1,0 +1,112 @@
+[
+  {
+    "taskId": "CALL-90301",
+    "borrowerName": "Suresh Mehta",
+    "language": "Hindi",
+    "taskType": "New Calls",
+    "status": "Completed",
+    "collectionStatus": "Paid",
+    "lastCallTime": "10 June, 2025",
+    "telecaller": "Ananya Iyer",
+    "lastUpdated": "10:15 AM"
+  },
+  {
+    "taskId": "CALL-90302",
+    "borrowerName": "Ravi Shankar",
+    "language": "Kannada",
+    "taskType": "Follow-up",
+    "status": "Pending",
+    "collectionStatus": "PTP",
+    "lastCallTime": "10 June, 2025",
+    "telecaller": "Rajesh Sharma",
+    "lastUpdated": "09:45 AM"
+  },
+  {
+    "taskId": "CALL-90303",
+    "borrowerName": "Fatima Bano",
+    "language": "Urdu",
+    "taskType": "Follow-up",
+    "status": "Flagged",
+    "collectionStatus": "TNC",
+    "lastCallTime": "09 June, 2025",
+    "telecaller": "Neha Prasad",
+    "lastUpdated": "Yesterday"
+  },
+  {
+    "taskId": "CALL-90304",
+    "borrowerName": "Meera Das",
+    "language": "Bengali",
+    "taskType": "New Calls",
+    "status": "Completed",
+    "collectionStatus": "PTPD",
+    "lastCallTime": "10 June, 2025",
+    "telecaller": "Varun Khanna",
+    "lastUpdated": "11:00 AM"
+  },
+  {
+    "taskId": "CALL-90305",
+    "borrowerName": "Harish Gowda",
+    "language": "Kannada",
+    "taskType": "Follow-up",
+    "status": "Pending",
+    "collectionStatus": "YTC",
+    "lastCallTime": "11 June, 2025",
+    "telecaller": "Priya Nair",
+    "lastUpdated": "09:10 AM"
+  },
+  {
+    "taskId": "CALL-90306",
+    "borrowerName": "Nitin Joshi",
+    "language": "Marathi",
+    "taskType": "New Calls",
+    "status": "Completed",
+    "collectionStatus": "Paid",
+    "lastCallTime": "09 June, 2025",
+    "telecaller": "Ananya Iyer",
+    "lastUpdated": "10:58 AM"
+  },
+  {
+    "taskId": "CALL-90307",
+    "borrowerName": "Kavya Menon",
+    "language": "Malayalam",
+    "taskType": "Follow-up",
+    "status": "Flagged",
+    "collectionStatus": "FY",
+    "lastCallTime": "12 June, 2025",
+    "telecaller": "Neha Prasad",
+    "lastUpdated": "Monday"
+  },
+  {
+    "taskId": "CALL-90308",
+    "borrowerName": "Imran Qureshi",
+    "language": "Hindi",
+    "taskType": "Follow-up",
+    "status": "Pending",
+    "collectionStatus": "YTC",
+    "lastCallTime": "10 June, 2025",
+    "telecaller": "Rajesh Sharma",
+    "lastUpdated": "Monday"
+  },
+  {
+    "taskId": "CALL-90309",
+    "borrowerName": "Lata Bhaskar",
+    "language": "Tamil",
+    "taskType": "New Calls",
+    "status": "Completed",
+    "collectionStatus": "SI",
+    "lastCallTime": "11 June, 2025",
+    "telecaller": "Priya Nair",
+    "lastUpdated": "—"
+  },
+  {
+    "taskId": "CALL-90310",
+    "borrowerName": "Manav Gupta",
+    "language": "Hindi",
+    "taskType": "Follow-up",
+    "status": "Flagged",
+    "collectionStatus": "NFI",
+    "lastCallTime": "10 June, 2025",
+    "telecaller": "Varun Khanna",
+    "lastUpdated": "10:22 AM"
+  }
+]

@@ -117,7 +117,7 @@ const Sidebar: React.FC = () => {
             <span className="font-medium whitespace-nowrap">Logout</span>
           )}
         </button>
-      </div>
+      </div>       
     </div>
   );
 };

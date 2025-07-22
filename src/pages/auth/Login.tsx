@@ -1,134 +1,44 @@
-// import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-
-// const Login: React.FC = () => {
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-//   const navigate = useNavigate();
-
-//   const handleLogin = (e: React.FormEvent) => {
-//     e.preventDefault();
-    
-//     // For development purposes - simulate successful login
-//     // Replace this with your actual authentication logic
-//     if (email && password) {
-//       // Set authentication flag
-//       localStorage.setItem('isAuthenticated', 'true');
-      
-//       // Navigate to dashboard (root URL)
-//       navigate('/');
-      
-//       // Force a page refresh to trigger route re-evaluation
-//       window.location.reload();
-//     } else {
-//       alert('Please enter email and password');
-//     }
-//   };
-
-//   const handleLogout = () => {
-//     // For development purposes - clear authentication
-//     localStorage.removeItem('isAuthenticated');
-//     window.location.reload();
-//   };
-
-//   // Check if already authenticated
-//   const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
-
-//   if (isAuthenticated) {
-//     return (
-//       <div style={{ padding: '20px', textAlign: 'center' }}>
-//         <h2>You are already logged in</h2>
-//         <button onClick={() => navigate('/')}>Go to Dashboard</button>
-//         <button onClick={handleLogout} style={{ marginLeft: '10px' }}>Logout</button>
-//       </div>
-//     );
-//   }
-
-//   return (
-//     <div style={{ maxWidth: '400px', margin: '100px auto', padding: '20px' }}>
-//       <h2 className='text-3xl font-semibold pb-4'>Login</h2>
-//       <form onSubmit={handleLogin}>
-//         <div style={{ marginBottom: '15px' }}>
-//           <label>Email:</label>
-//           <input
-//             type="email"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//             style={{ width: '100%', padding: '8px', marginTop: '5px' }} className='border rounded-sm'
-//             required
-//           />
-//         </div>
-//         <div style={{ marginBottom: '15px' }}>
-//           <label>Password:</label>
-//           <input
-//             type="password"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//             style={{ width: '100%', padding: '8px', marginTop: '5px' }} className='border rounded-sm'
-//             required
-//           />
-//         </div>
-//         <button 
-//           type="submit"
-//           style={{ 
-//             width: '100%', 
-//             padding: '12px', 
-//             backgroundColor: '#007bff', 
-//             color: 'white', 
-//             border: 'none',
-//             borderRadius: '4px',
-//             cursor: 'pointer'
-//           }}
-//         >
-//           Login
-//         </button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default Login;
-
-
-
-
-
-
-
-
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Login: React.FC = () => {
   const [employeeId, setEmployeeId] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [errors, setErrors] = useState<{ employeeId?: string; phoneNumber?: string }>({});
+
+  // Validation functions
+  const validateEmployeeId = (id: string) => {
+    const regex = /^SUP-\d{6}$/;
+    if (!id) return "Employee ID is required";
+    if (!regex.test(id)) return "Employee ID must be in format SUP-xxxxxx";
+    return "";
+  };
+
+  const validatePhoneNumber = (num: string) => {
+    const regex = /^(\+91[\s\-]?)?[6-9]\d{9}$/;
+    if (!num) return "Phone number is required";
+    if (!regex.test(num.replace(/\s+/g, ""))) return "Enter a valid Indian phone number";
+    return "";
+  };
+
+  // Handle login
   const handleLogin = () => {
-    // For development purposes - simulate successful login
-    // Replace this with your actual authentication logic
-    if (employeeId && phoneNumber) {
-      // Set authentication flag
-      localStorage.setItem('isAuthenticated', 'true');
-      
-      // Redirect to dashboard (simulate navigation)
-      window.location.href = '/';
-    } else {
-      alert('Please enter Employee ID and Phone Number');
-    }
-  };
+    const employeeIdError = validateEmployeeId(employeeId);
+    const phoneNumberError = validatePhoneNumber(phoneNumber);
 
-  const handleLogout = () => {
-    // Clear authentication
-    localStorage.removeItem('isAuthenticated');
-    window.location.reload();
-  };
+    setErrors({
+      employeeId: employeeIdError,
+      phoneNumber: phoneNumberError,
+    });
 
-  const goToDashboard = () => {
+    if (employeeIdError || phoneNumberError) return;
+
+    localStorage.setItem('isAuthenticated', 'true');
     window.location.href = '/';
   };
 
-  // Handle phone number input to only allow numbers
+  // Allow only numbers, spaces, hyphens, and plus
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    // Only allow numbers, spaces, hyphens, and plus sign
     const phoneRegex = /^[\d\s\-\+]*$/;
     if (phoneRegex.test(value)) {
       setPhoneNumber(value);
@@ -138,30 +48,14 @@ const Login: React.FC = () => {
   // Check if already authenticated
   const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
 
-  if (isAuthenticated) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="bg-white p-8 rounded-lg shadow-md text-center">
-          <h2 className="text-2xl font-semibold mb-4">You are already logged in</h2>
-          <div className="space-x-4">
-            <button 
-              onClick={goToDashboard}
-              className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors"
-            >
-              Go to Dashboard
-            </button>
-            <button 
-              onClick={handleLogout}
-              className="bg-gray-600 text-white px-6 py-2 rounded-md hover:bg-gray-700 transition-colors"
-            >
-              Logout
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  // Redirect to dashboard if already authenticated
+  useEffect(() => {
+    if (isAuthenticated) {
+      window.location.href = '/';
+    }
+  }, [isAuthenticated]);
 
+  // Render login if not authenticated
   return (
     <div className="min-h-screen flex">
       {/* Left Panel - Welcome Section */}
@@ -204,8 +98,11 @@ const Login: React.FC = () => {
                   value={employeeId}
                   onChange={(e) => setEmployeeId(e.target.value)}
                   placeholder="SUP-112345"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
+                  className={`w-full px-4 py-3 border ${errors.employeeId ? "border-red-500" : "border-gray-300"} rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors`}
                 />
+                {errors.employeeId && (
+                  <p className="mt-2 text-sm text-red-600">{errors.employeeId}</p>
+                )}
               </div>
 
               {/* Phone Number Field */}
@@ -217,9 +114,12 @@ const Login: React.FC = () => {
                   type="tel"
                   value={phoneNumber}
                   onChange={handlePhoneChange}
-                  placeholder="+91 xxxxx xxx98"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
+                  placeholder="+91 xxxxx xxxxx"
+                  className={`w-full px-4 py-3 border ${errors.phoneNumber ? "border-red-500" : "border-gray-300"} rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors`}
                 />
+                {errors.phoneNumber && (
+                  <p className="mt-2 text-sm text-red-600">{errors.phoneNumber}</p>
+                )}
               </div>
 
               {/* Continue Button */}
@@ -243,3 +143,11 @@ const Login: React.FC = () => {
 };
 
 export default Login;
+
+
+
+
+
+
+
+

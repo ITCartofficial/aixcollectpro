@@ -4,42 +4,19 @@ import StatsCard from "../ui/Card/StatsCard";
 type StatsCardSectionProps = {
   cardData: StatsData[];
   className?: string;
-  gridCols?: {
-    sm?: number;
-    md?: number;
-    lg?: number;
-    xl?: number;
-    '2xl'?: number;
-  };
   gap?: string;
 };
 
-const StatsCardSection: React.FC<StatsCardSectionProps> = ({ 
-  cardData, 
+const StatsCardSection: React.FC<StatsCardSectionProps> = ({
+  cardData,
   className = "",
-  gridCols = {
-    md: 2,
-    lg: 4,
-    xl: 5
-  },
   gap = "gap-6"
 }) => {
-  const getGridClasses = () => {
-    const { sm, md, lg, xl, '2xl': xl2 } = gridCols;
-    
-    let classes = "grid grid-cols-1";
-    
-    if (sm) classes += ` sm:grid-cols-${sm}`;
-    if (md) classes += ` md:grid-cols-${md}`;
-    if (lg) classes += ` lg:grid-cols-${lg}`;
-    if (xl) classes += ` xl:grid-cols-${xl}`;
-    if (xl2) classes += ` 2xl:grid-cols-${xl2}`;
-    
-    return classes;
-  };
+  // Always: mobile (1), sm (1), md (2), lg (5)
+  const gridClasses = "grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5";
 
   return (
-    <div className={`mt-5 ${getGridClasses()} ${gap} ${className}`}>
+    <div className={`mt-5 ${gridClasses} ${gap} ${className}`}>
       {cardData.map((stat) => (
         <StatsCard
           key={stat.id}
@@ -54,4 +31,3 @@ const StatsCardSection: React.FC<StatsCardSectionProps> = ({
 };
 
 export default StatsCardSection;
-

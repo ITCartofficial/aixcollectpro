@@ -41,7 +41,7 @@ const PerformanceCard: React.FC<PerformanceCardProps> = ({
                         {initials}
                     </div>
                     <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-sm leading-3 text-neutral-700 truncate">{name}</h3>
+                        <h3 className="font-semibold text-sm text-neutral-700 truncate">{name}</h3>
                         <span className="text-xs text-gray-500">{location}</span>
                     </div>
                     <FiChevronRight className="w-4 h-4 text-gray-400 cursor-pointer" />

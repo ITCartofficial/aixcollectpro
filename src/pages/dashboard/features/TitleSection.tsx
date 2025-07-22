@@ -28,7 +28,7 @@ const TitleSection: React.FC<TitleSectionProps> = ({ onAssignTaskClick }) => {
                     </div>
                     <div className="flex items-center gap-3 sm:gap-4">
                         <div className="flex-1 sm:flex-none">
-                            <PrimaryButton text="+Assign Task" onClick={onAssignTaskClick} />
+                            <PrimaryButton text="+Assign Task" onClick={onAssignTaskClick} className="bg-primary-700 hover:bg-primary-600 text-white"/>
                         </div>
                         <div className="bg-white p-2 sm:p-[13px] border border-neutral-300 rounded-md hover:bg-gray-50 transition-colors cursor-pointer">
                             <GoGraph className="text-primary-700 w-4 h-4 sm:w-5 sm:h-5" />

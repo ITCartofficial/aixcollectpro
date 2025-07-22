@@ -53,7 +53,7 @@ const AlertsEscalations = () => {
         </h1>
         <div className="flex gap-4">
           <OutlineButton text="Export Report" className="min-w-40" />
-          <PrimaryButton text="AI Escalate" className="w-42" />
+          <PrimaryButton text="AI Escalate" className="w-42 bg-primary-700 hover:bg-primary-600 text-white" />
         </div>
       </div>
       <StatsCardSection cardData={statsData} />

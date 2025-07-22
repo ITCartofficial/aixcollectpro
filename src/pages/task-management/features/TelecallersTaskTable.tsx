@@ -1,337 +1,418 @@
-import { useState, useMemo, useCallback } from "react";
-import type { TableColumn } from "../../../components/ui/Table/DataTable";
-import Avatar from "../../../components/ui/Table/Avatar";
-import Badge from "../../../components/ui/Table/Badge";
-import { FaEye } from "react-icons/fa";
+import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import Dropdown from "../../../components/common/Dropdown";
 import SearchBar from "../../../components/common/Searchbar";
-import DataTable from "../../../components/ui/Table/DataTable";
-// Import the static JSON data
 import telecallerTaskData from "../../../../data/task-management/telecallersTaskData.json";
+import ExpandableTable from "../../../components/ui/Table/ExpandableTable";
+import type { TableColumn } from "../../../components/ui/Table/ExpandableTable";
+import Badge from "../../../components/ui/Table/Badge";
+import Avatar from "../../../components/ui/Table/Avatar";
+import ExpandedRowContent, { type RecentActivityItem } from "../../../components/ui/Table/ExpandedRowContent";
+import PopupMenu, { type PopupPosition } from "../../../components/ui/Table/PopupMenu";
 
 interface TelecallersTask {
+    id: string;
     taskId: string;
     borrowerName: string;
-    language: string;
-    taskType: 'New Calls' | 'Follow-up';
-    status: 'Completed' | 'Pending' | 'Flagged';
-    collectionStatus: 'PTP' | 'Paid' | 'TNC' | 'PTPD' | 'YTC' | 'SI' | 'NFI';
+    location: string;
+    language: string; // <-- ADDED!
+    taskType: "New Calls" | "Follow-up";
+    status: "Completed" | "Pending" | "Flagged";
+    collectionStatus: "PTP" | "Paid" | "TNC" | "PTPD" | "YTC" | "SI" | "NFI" | "No Update";
     lastCallTime: string;
-    telecaller: string;
     lastUpdated: string;
+    telecaller: string;
     avatar?: string;
+    agentAvatar?: string;
+    expandedDetails: {
+        taskDetails: {
+            recommendedTime: string;
+            notes: string;
+            amount: string;
+        };
+        loanInformation: {
+            loanCategory: string;
+            loanAmount: string;
+            loanNumber: string;
+            bankName: string;
+            netAmount: string;
+            dueDate: string;
+            pos: string;
+            tos: string;
+        };
+        recentActivity: Array<RecentActivityItem>;
+    };
 }
 
 interface FilterState {
     status: string;
+    agent: string;
     collectionStatus: string;
+    taskType: string;
+    dateRange: string;
+    language: string;
     lastUpdated: string;
     searchQuery: string;
 }
 
+const popupMenuItems = [
+    { label: "Mark as Complete", action: "mark_complete" },
+    { label: "Reassign Task", action: "reassign" },
+    { label: "Edit Task", action: "edit" },
+    { label: "Flag Task", action: "flag" },
+    { label: "Add Notes", action: "add_notes" },
+    { label: "Open in New Tab", action: "open_new_tab" },
+    { label: "Delete Task", action: "delete" },
+    { label: "Share Task Link", action: "share" },
+];
+
 const TelecallersTaskTable: React.FC = () => {
-    // Use imported data directly
-    const telecallersTask: TelecallersTask[] = telecallerTaskData as TelecallersTask[];
-    
+    const [showPopup, setShowPopup] = useState<boolean>(false);
+    const [selectedTask, setSelectedTask] = useState<TelecallersTask | null>(null);
+    const [popupPosition, setPopupPosition] = useState<PopupPosition>({ top: 0, left: 0 });
+    const popupRef = useRef<HTMLDivElement>(null);
+
+    const telecallerTask: TelecallersTask[] = Array.isArray(telecallerTaskData)
+        ? (telecallerTaskData as any[]).map((task: any) => ({
+              ...task,
+              id: task.taskId || task.id,
+          }))
+        : [];
+
     const [filters, setFilters] = useState<FilterState>({
-        status: '',
-        collectionStatus: '',
-        lastUpdated: '',
-        // language: '',
-        searchQuery: ''
+        status: "",
+        agent: "",
+        collectionStatus: "",
+        taskType: "",
+        dateRange: "",
+        language: "",
+        lastUpdated: "",
+        searchQuery: "",
     });
-    
+
     const [selectedRows, setSelectedRows] = useState<TelecallersTask[]>([]);
 
-    // Memoized filter options
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
+                setShowPopup(false);
+            }
+        };
+        if (showPopup) {
+            document.addEventListener("mousedown", handleClickOutside);
+            return () => document.removeEventListener("mousedown", handleClickOutside);
+        }
+    }, [showPopup]);
+
     const filterOptions = useMemo(() => ({
         status: [
-            { label: 'All Status', value: '' },
-            { label: 'Completed', value: 'Completed' },
-            { label: 'Pending', value: 'Pending' },
-            { label: 'Flagged', value: 'Flagged' }
+            { label: "All Status", value: "" },
+            { label: "Completed", value: "Completed" },
+            { label: "Pending", value: "Pending" },
+            { label: "Flagged", value: "Flagged" },
+        ],
+        agent: [
+            { label: "All Agents", value: "" },
+            ...Array.from(
+                new Set(telecallerTask.map((task) => task.telecaller).filter((telecaller) => telecaller && telecaller !== "Unassigned"))
+            ).map((telecaller) => ({ label: telecaller, value: telecaller })),
         ],
         collectionStatus: [
-            { label: 'All Collection Status', value: '' },
-            { label: 'PTP', value: 'PTP' },
-            { label: 'Paid', value: 'Paid' }, // Fixed typo: was 'PendinPaid'
-            { label: 'TNC', value: 'TNC' },
-            { label: 'PTPD', value: 'PTPD' },
-            { label: 'YTC', value: 'YTC' },
-            { label: 'FY', value: 'FY' },
-            { label: 'SI', value: 'SI' },
-            { label: 'NFI', value: 'NFI' },
-            { label: 'No Update', value: 'No Update' },
+            { label: "All Collection Status", value: "" },
+            { label: "PTP", value: "PTP" },
+            { label: "Paid", value: "Paid" },
+            { label: "TNC", value: "TNC" },
+            { label: "PTPD", value: "PTPD" },
+            { label: "YTC", value: "YTC" },
+            { label: "SI", value: "SI" },
+            { label: "NFI", value: "NFI" },
+            { label: "No Update", value: "No Update" },
+        ],
+        taskType: [
+            { label: "All Task Types", value: "" },
+            { label: "New Calls", value: "New Calls" },
+            { label: "Follow-up", value: "Follow-up" },
+        ],
+        dateRange: [
+            { label: "All Dates", value: "" },
+            { label: "Today", value: "today" },
+            { label: "This Week", value: "this_week" },
+            { label: "This Month", value: "this_month" },
+        ],
+        language: [
+            { label: "All Languages", value: "" },
+            ...Array.from(new Set(telecallerTask.map((task) => task.language).filter((lang) => lang))).map(
+                (lang) => ({ label: lang, value: lang })
+            ),
         ],
         lastUpdated: [
-            { label: 'All Times', value: '' },
-            { label: 'Last Hour', value: 'last_hour' },
-            { label: 'Today', value: 'today' },
-            { label: 'This Week', value: 'this_week' }
-        ]
-    }), []);
+            { label: "All Times", value: "" },
+            ...Array.from(new Set(telecallerTask.map((task) => task.lastUpdated).filter((lastUpdated) => lastUpdated))).map(
+                (lastUpdated) => ({ label: lastUpdated, value: lastUpdated })
+            ),
+        ],
+    }), [telecallerTask]);
 
-    // Helper function to apply last updated filter
-    const applyLastUpdatedFilter = useCallback((data: TelecallersTask[], filter: string) => {
-        if (!filter) return data;
-
-        const now = new Date();
-        
-        switch (filter) {
-            case 'last_hour':
-                return data.filter(task => {
-                    const taskDate = new Date(task.lastUpdated);
-                    const diffInHours = (now.getTime() - taskDate.getTime()) / (1000 * 60 * 60);
-                    return diffInHours <= 1;
-                });
-            case 'today':
-                return data.filter(task => {
-                    const taskDate = new Date(task.lastUpdated);
-                    return taskDate.toDateString() === now.toDateString();
-                });
-            case 'this_week':
-                return data.filter(task => {
-                    const taskDate = new Date(task.lastUpdated);
-                    const startOfWeek = new Date(now.setDate(now.getDate() - now.getDay()));
-                    return taskDate >= startOfWeek;
-                });
-            default:
-                return data;
-        }
-    }, []);
-
-    // Memoized filtered data
     const filteredData = useMemo(() => {
-        let filtered = telecallersTask;
-
-        // Apply search filter - Only search by taskId, borrowerName, and agent
-        if (filters.searchQuery && filters.searchQuery.trim() !== '') {
+        let filtered = telecallerTask;
+        if (filters.searchQuery && filters.searchQuery.trim() !== "") {
             const query = filters.searchQuery.toLowerCase();
-            filtered = filtered.filter(task =>
-                task.taskId?.toLowerCase().includes(query) ||
-                task.borrowerName?.toLowerCase().includes(query) ||
-                task.telecaller?.toLowerCase().includes(query)
+            filtered = filtered.filter(
+                (task) =>
+                    task.taskId?.toLowerCase().includes(query) ||
+                    task.borrowerName?.toLowerCase().includes(query) ||
+                    task.telecaller?.toLowerCase().includes(query)
             );
         }
-
-        // Apply status filter
-        if (filters.status) {
-            filtered = filtered.filter(task => task.status === filters.status);
-        }
-
-        // Apply collection status filter (Fixed the bug here)
-        if (filters.collectionStatus) {
-            filtered = filtered.filter(task => task.collectionStatus === filters.collectionStatus);
-        }
-
-        // Apply last updated filter
-        if (filters.lastUpdated) {
-            filtered = applyLastUpdatedFilter(filtered, filters.lastUpdated);
-        }
-
+        Object.entries(filters).forEach(([key, value]) => {
+            if (value && key !== "searchQuery") {
+                filtered = filtered.filter((task) => {
+                    const taskValue = task[key as keyof TelecallersTask];
+                    return taskValue === value;
+                });
+            }
+        });
         return filtered;
-    }, [telecallersTask, filters, applyLastUpdatedFilter]);
+    }, [telecallerTask, filters]);
 
-    // Optimized filter handlers using useCallback
     const handleFilterChange = useCallback((filterType: keyof FilterState, value: string | string[]) => {
         const filterValue = Array.isArray(value) ? value[0] : value;
-        setFilters(prev => ({
+        setFilters((prev) => ({
             ...prev,
-            [filterType]: filterValue
+            [filterType]: filterValue,
         }));
     }, []);
 
-    const handleStatusChange = useCallback((value: string | string[]) => {
-        handleFilterChange('status', value);
-    }, [handleFilterChange]);
-
-    const handleCollectionStatusChange = useCallback((value: string | string[]) => {
-        handleFilterChange('collectionStatus', value);
-    }, [handleFilterChange]);
-
-    const handleLastUpdatedChange = useCallback((value: string | string[]) => {
-        handleFilterChange('lastUpdated', value);
-    }, [handleFilterChange]);
-
-    const handleSearch = useCallback((query: string) => {
-        handleFilterChange('searchQuery', query);
-    }, [handleFilterChange]);
+    const handleSearch = useCallback(
+        (query: string) => {
+            handleFilterChange("searchQuery", query);
+        },
+        [handleFilterChange]
+    );
 
     const handleSelectionChange = useCallback((selected: TelecallersTask[]) => {
         setSelectedRows(selected);
     }, []);
 
-    const handleViewTask = useCallback((task: TelecallersTask) => {
-        console.log('Viewing task:', task);
-        // Add your view logic here
+    const handleRowAction = useCallback((action: string, task: TelecallersTask) => {
+        if (action === "view") {
+            console.log("Viewing task:", task);
+        }
     }, []);
 
     const clearSelection = useCallback(() => {
         setSelectedRows([]);
     }, []);
 
-    // Memoized badge variant functions
-    const getStatusVariant = useCallback((status: string) => {
-        switch (status) {
-            case 'Completed': return 'success';
-            case 'Flagged': return 'danger';
-            case 'Pending': return 'warning';
-            default: return 'info';
-        }
+    const handleMenuClick = useCallback((task: TelecallersTask, event: React.MouseEvent) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
+        const scrollY = window.scrollY || document.documentElement.scrollTop;
+        const scrollX = window.scrollX || document.documentElement.scrollLeft;
+        const popupWidth = 200;
+        const leftPosition =
+            rect.right + scrollX - popupWidth > 0 ? rect.right + scrollX - popupWidth : rect.left + scrollX;
+        setPopupPosition({
+            top: rect.bottom + scrollY + 5,
+            left: leftPosition,
+        });
+        setSelectedTask(task);
+        setShowPopup(true);
     }, []);
 
-    const getCollectionStatusVariant = useCallback((status: string) => {
-        switch (status) {
-            case 'PTP':
-            case 'Paid':
-            case 'TNC':
-            case 'PTPD':
-            case 'YTC':
-            case 'NFI':
-            case 'SI':
-                return 'success';
-            default:
-                return 'secondary';
-        }
+    const handlePopupAction = useCallback(
+        (action: string) => {
+            if (!selectedTask) return;
+            console.log(`Action: ${action} for task:`, selectedTask.taskId);
+        },
+        [selectedTask]
+    );
+
+    const closePopup = useCallback(() => {
+        setShowPopup(false);
+        setSelectedTask(null);
     }, []);
 
-    // Memoized table columns configuration
-    const columns: TableColumn<TelecallersTask>[] = useMemo(() => [
-        {
-            key: 'taskId',
-            label: 'Task Id',
-            sortable: true,
-            width: '120px',
-            className: 'text-center',
-            render: (value) => <span className="font-medium">{value}</span>
+    const getStatusVariant = useCallback(
+        (status: string): "success" | "warning" | "danger" | "info" | "secondary" => {
+            switch (status) {
+                case "Completed":
+                    return "success";
+                case "Flagged":
+                    return "danger";
+                case "Pending":
+                    return "warning";
+                default:
+                    return "info";
+            }
         },
-        {
-            key: 'borrowerName',
-            label: 'Borrower Name',
-            sortable: true,
-            width: '200px',
-            render: (value, row) => (
-                <div className="flex items-center space-x-3">
-                    <Avatar name={value} image={row.avatar} size="md" />
-                    <span className="font-medium text-gray-900">{value}</span>
-                </div>
-            )
+        []
+    );
+
+    const getCollectionStatusVariant = useCallback(
+        (status: string): "success" | "warning" | "danger" | "info" | "secondary" => {
+            switch (status) {
+                case "Paid":
+                case "PTP":
+                case "PTPD":
+                    return "success";
+                case "TNC":
+                    return "warning";
+                case "FI":
+                    return "danger";
+                case "No Update":
+                    return "secondary";
+                case "NFI":
+                    return "danger";
+                case "YTC":
+                    return "info";
+                case "SI":
+                    return "info";
+                default:
+                    return "secondary";
+            }
         },
-        {
-            key: 'language',
-            label: 'Language',
-            sortable: true,
-            width: '120px',
-            className: 'text-center',
-            render: (value) => <span className="font-medium">{value}</span>
-        },
-        {
-            key: 'taskType',
-            label: 'Task Type',
-            sortable: false,
-            width: '120px',
-            className: 'text-center',
-            render: (value) => <span className="font-medium">{value}</span>
-        },
-        {
-            key: 'status',
-            label: 'Status',
-            sortable: true,
-            width: '120px',
-            className: 'text-center',
-            render: (value) => <Badge variant={getStatusVariant(value)}>{value}</Badge>
-        },
-        {
-            key: 'collectionStatus',
-            label: 'Collection Status',
-            sortable: true,
-            width: '120px',
-            className: 'text-center',
-            render: (value) => <Badge variant={getCollectionStatusVariant(value)}>{value}</Badge>
-        },
-        {
-            key: 'lastCallTime',
-            label: 'Last Call Time',
-            sortable: true,
-            width: '160px',
-            className: 'text-center',
-            render: (value) => <span className="font-medium">{value}</span>
-        },
-        {
-            key: 'telecaller',
-            label: 'Telecaller',
-            sortable: true,
-            width: '130px',
-            render: (value, row) => (
-                <div className="flex items-center space-x-3">
-                    <Avatar name={value} image={row.avatar} size="md" />
-                    <span className="font-medium text-gray-900">{value}</span>
-                </div>
-            )
-        },
-        {
-            key: 'lastUpdated',
-            label: 'Last Updated',
-            sortable: true,
-            width: '160px',
-            className: 'text-center',
-            render: (value) => <span className="font-medium">{value}</span>
-        },
-        {
-            key: 'taskId',
-            label: 'Action',
-            sortable: false,
-            width: '100px',
-            className: 'text-center',
-            render: (_, row) => (
-                <button
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-full text-sm flex items-center space-x-1 cursor-pointer transition-colors duration-200"
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        handleViewTask(row);
-                    }}
-                >
-                    <FaEye className="w-4 h-4" />
-                    <span>View</span>
-                </button>
-            )
-        }
-    ], [getStatusVariant, getCollectionStatusVariant, handleViewTask]);
+        []
+    );
+
+    const expandedRowRenderer = useCallback(
+        (row: TelecallersTask) => (
+            <ExpandedRowContent<TelecallersTask>
+                row={row}
+                getTaskDetails={(r) => r.expandedDetails?.taskDetails || {}}
+                getLoanInformation={(r) => r.expandedDetails?.loanInformation || {}}
+                getRecentActivity={(r) => r.expandedDetails?.recentActivity || []}
+                onMenuClick={handleMenuClick}
+            />
+        ),
+        [handleMenuClick]
+    );
+
+    const columns: TableColumn<TelecallersTask>[] = useMemo(
+        () => [
+            {
+                key: "taskId",
+                label: "Task ID",
+                sortable: true,
+                width: "120px",
+                render: (value: string) => <span className="text-sm font-normal">{value}</span>,
+            },
+            {
+                key: "borrowerName",
+                label: "Borrower Name",
+                sortable: true,
+                render: (value: string, row: TelecallersTask) => (
+                    <div className="flex items-center space-x-2">
+                        <Avatar name={value} image={row.avatar} size="sm" />
+                        <span className="text-sm font-normal">{value}</span>
+                    </div>
+                ),
+            },
+            {
+                key: "language",
+                label: "Language",
+                sortable: true,
+                render: (value: string) => <span className="text-sm font-normal">{value}</span>,
+            },
+            {
+                key: "taskType",
+                label: "Task Type",
+                sortable: true,
+                render: (value: string) => <span className="text-sm font-normal">{value}</span>,
+            },
+            {
+                key: "status",
+                label: "Status",
+                sortable: true,
+                render: (value: string) => <Badge variant={getStatusVariant(value)}>{value}</Badge>,
+            },
+            {
+                key: "collectionStatus",
+                label: "Collection Status",
+                align: "center",
+                sortable: true,
+                render: (value: string) => <Badge variant={getCollectionStatusVariant(value)}>{value}</Badge>,
+            },
+            {
+                key: "lastCallTime",
+                label: "Last Call Time",
+                sortable: true,
+                render: (value: string) => <span className="text-sm font-normal">{value}</span>,
+            },
+            {
+                key: "telecaller",
+                label: "Telecaller",
+                sortable: true,
+                render: (value: string, row: TelecallersTask) => (
+                    <div className="flex items-center space-x-2">
+                        <Avatar name={value} image={row.agentAvatar} size="sm" />
+                        <span className="text-sm font-normal">{value}</span>
+                    </div>
+                ),
+            },
+            {
+                key: "lastUpdated",
+                label: "Last Updated",
+                sortable: true,
+                render: (value: string) => <span className="text-sm font-normal">{value}</span>,
+            },
+        ],
+        [getStatusVariant, getCollectionStatusVariant]
+    );
 
     return (
-        <div className="mt-4 bg-white min-h-screen rounded-lg p-6">
+        <div className="mt-4 bg-white h-max rounded-lg p-4">
             {/* Filters and Search */}
-            <div className="bg-white p-4 rounded-lg">
-                <div className="flex flex-wrap items-center gap-4">
-                    <span className="text-sm font-medium text-gray-700">Filter by:</span>
-                    <Dropdown
-                        options={filterOptions.status}
-                        value={filters.status}
-                        onChange={handleStatusChange}
-                        placeholder="Select Status"
-                        className="min-w-48"
+            <div className="flex flex-wrap items-center gap-4 p-4">
+                <span className="text-sm font-medium text-gray-700">Filter by:</span>
+                <Dropdown
+                    options={filterOptions.status}
+                    value={filters.status}
+                    onChange={(value) => handleFilterChange("status", value)}
+                    placeholder="Status"
+                    className="w-32"
+                />
+                <Dropdown
+                    options={filterOptions.agent}
+                    value={filters.agent}
+                    onChange={(value) => handleFilterChange("agent", value)}
+                    placeholder="Telecaller"
+                    className="w-40"
+                />
+                <Dropdown
+                    options={filterOptions.collectionStatus}
+                    value={filters.collectionStatus}
+                    onChange={(value) => handleFilterChange("collectionStatus", value)}
+                    placeholder="Collection Status"
+                    className="w-48"
+                />
+                <Dropdown
+                    options={filterOptions.taskType}
+                    value={filters.taskType}
+                    onChange={(value) => handleFilterChange("taskType", value)}
+                    placeholder="Task Type"
+                    className="w-40"
+                />
+                <Dropdown
+                    options={filterOptions.language}
+                    value={filters.language}
+                    onChange={(value) => handleFilterChange("language", value)}
+                    placeholder="Language"
+                    className="w-40"
+                />
+                <Dropdown
+                    options={filterOptions.lastUpdated}
+                    value={filters.lastUpdated}
+                    onChange={(value) => handleFilterChange("lastUpdated", value)}
+                    placeholder="Last Updated"
+                    className="w-40"
+                />
+                <div className="ml-auto">
+                    <SearchBar
+                        placeholder="Search by Task ID, Borrower Name, or Agent..."
+                        onSearch={handleSearch}
+                        className="w-64"
                     />
-                    <Dropdown
-                        options={filterOptions.collectionStatus}
-                        value={filters.collectionStatus}
-                        onChange={handleCollectionStatusChange}
-                        placeholder="Select Collection Status"
-                        className="min-w-48"
-                    />
-                    <Dropdown
-                        options={filterOptions.lastUpdated}
-                        value={filters.lastUpdated}
-                        onChange={handleLastUpdatedChange}
-                        placeholder="Select Time"
-                        className="min-w-48"
-                    />
-                    <div className="ml-auto">
-                        <SearchBar
-                            placeholder="Search by Task ID, Borrower Name, or Agent..."
-                            onSearch={handleSearch}
-                            className="w-64"
-                        />
-                    </div>
                 </div>
             </div>
 
@@ -340,7 +421,7 @@ const TelecallersTaskTable: React.FC = () => {
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
                     <div className="flex items-center justify-between">
                         <span className="text-sm font-medium text-blue-900">
-                            {selectedRows.length} task{selectedRows.length > 1 ? 's' : ''} selected
+                            {selectedRows.length} task{selectedRows.length > 1 ? "s" : ""} selected
                         </span>
                         <button
                             onClick={clearSelection}
@@ -352,22 +433,45 @@ const TelecallersTaskTable: React.FC = () => {
                 </div>
             )}
 
-            {/* Table */}
-            <DataTable
+            <ExpandableTable
                 data={filteredData}
                 columns={columns}
-                selectable={true}
+                expandedRowRenderer={expandedRowRenderer}
+                onRowAction={handleRowAction}
                 selectedRows={selectedRows}
                 onSelectionChange={handleSelectionChange}
+                pageSize={10}
+                enableSelection={true}
+                enableExpansion={true}
                 sortable={true}
                 pagination={true}
-                pageSize={10}
-                className="shadow-sm"
+                getRowId={(row) => row.id}
                 emptyMessage="No telecaller tasks found."
-                getRowId={(row) => row.taskId}
+            />
+
+            {/* Popup Menu */}
+            <PopupMenu
+                isVisible={showPopup}
+                position={popupPosition}
+                onClose={closePopup}
+                onAction={handlePopupAction}
+                popupRef={popupRef}
+                menuItems={popupMenuItems}
             />
         </div>
     );
 };
 
 export default TelecallersTaskTable;
+
+
+
+
+
+
+
+
+
+
+
+

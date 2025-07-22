@@ -1,5 +1,4 @@
 import { LuCalendarClock, LuTriangleAlert } from "react-icons/lu"
-import OutlineButton from "../../components/ui/Buttons/OutlineButton"
 import PrimaryButton from "../../components/ui/Buttons/PrimaryButton"
 import { RiFileList3Line } from "react-icons/ri"
 import type { StatsData } from "../../components/ui/Card/StatsCard"
@@ -7,6 +6,7 @@ import StatsCardSection from "../../components/common/StatsCardSection"
 import { FaUser } from "react-icons/fa"
 import { MdPendingActions } from "react-icons/md"
 import AttendanceTable from "./features/AttendanceTable"
+import DateRangePickerInput from "../../components/ui/Input/DateRangePickerInput"
 
 
 const statsData: StatsData[] = [
@@ -51,8 +51,8 @@ const AttendanceLeave = () => {
           Attendance & Leave
         </h1>
         <div className="flex gap-4">
-          <OutlineButton text="May 2025" className="min-w-40" />
-          <PrimaryButton text="Export Report" className="w-42" />
+          <DateRangePickerInput />
+          <PrimaryButton text="Export Report" className="w-42 bg-primary-700 hover:bg-primary-600 text-white" />
         </div>
       </div>
       <StatsCardSection cardData={statsData} />

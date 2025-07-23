@@ -10,9 +10,10 @@ import type { CollectionData } from "./features/CollectionPerformanceGraph"
 import LocationWiseCollectionSummary from "./features/LocationWiseCollectionSummary"
 import VisitSuccessMatrics from "./features/VisitSuccessMatrics"
 import FlaggedTaskCard from "./features/FlaggedTaskCard"
-import AiAlertAndInsightCard from "./features/AiAlertAndInsightCard"
 import TaskAssignmentModal from "./features/TaskAssignmentModal"
 import { useState } from "react"
+import LiveAgentTrackingSection from "./features/LiveAgentTrackingSection"
+import AgentActivityFeedTable from "./features/AgentActivityFeedTable"
 
 
 const data: CollectionData[] = [
@@ -27,7 +28,7 @@ const data: CollectionData[] = [
 
 
 const Dashboard = () => {
-    const [isModalOpen, setModalOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
@@ -35,7 +36,7 @@ const Dashboard = () => {
     <div className="w-full h-full flex flex-col gap-6">
       <TitleSection onAssignTaskClick={openModal} />
       <TaskAssignmentModal isOpen={isModalOpen} onClose={closeModal} />
-      
+
       <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 mr-3">
         <div className="lg:col-span-5"><TaskSection /></div>
         <div className="lg:col-span-5"><MetricsCardSection /></div>
@@ -46,14 +47,14 @@ const Dashboard = () => {
 
         <div className="lg:col-span-5"><CollectionPerformanceGraph data={data} /></div>
         <div className="lg:col-span-5"><LocationWiseCollectionSummary /></div>
+        <div className="lg:col-span-5"><VisitSuccessMatrics /></div>
+        <div className="lg:col-span-5"><FlaggedTaskCard /></div>
 
-        {/* Final Bottom Panel */}
-        <div className="lg:col-span-5 flex flex-col gap-4">
-          <div><VisitSuccessMatrics/></div>
-          <div><FlaggedTaskCard/></div>
+        {/* <div className="lg:col-span-5"><AiAlertAndInsightCard /></div> */}
+        <div className="col-span-10 bg-white rounded-lg shadow p-6">
+          <LiveAgentTrackingSection />
+          <AgentActivityFeedTable />
         </div>
-
-        <div className="lg:col-span-5"><AiAlertAndInsightCard/></div>
       </div>
     </div>
   )

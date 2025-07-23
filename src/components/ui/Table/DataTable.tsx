@@ -244,7 +244,7 @@ const DataTable = <T extends Record<string, any>>({
                   onClick={() => onRowClick?.(row, rowIndex)}
                 >
                   {selectable && (
-                    <td className="px-4 py-4 whitespace-nowrap w-12">
+                    <td className="px-4 py-3 whitespace-nowrap w-12">
                       <input
                         type="checkbox"
                         checked={isRowSelected(row)}
@@ -260,7 +260,7 @@ const DataTable = <T extends Record<string, any>>({
                   {columns.map((column: TableColumn<T>, colIndex: number) => (
                     <td
                       key={colIndex}
-                      className={`px-3 py-4 whitespace-nowrap text-sm ${column.className || ''}`}
+                      className={`px-3 py-3 whitespace-nowrap text-sm ${column.className || ''}`}
                       style={{ width: column.width }}
                     >
                       {column.render

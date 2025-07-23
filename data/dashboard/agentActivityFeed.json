@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1",
+    "lastSynced": "10:22 AM",
+    "agentName": "Rakesh Kumar",
+    "agentInitials": "RK",
+    "agentColor": "#009966",
+    "task": "Collection",
+    "taskLocation": "Koramangala",
+    "visitAction": "Checked-In",
+    "visitActionType": "checked-in",
+    "currentLocation": "Koramangala"
+  },
+  {
+    "id": "2",
+    "lastSynced": "10:22 AM",
+    "agentName": "Ajay Singh",
+    "agentInitials": "AS",
+    "agentColor": "#ff6600",
+    "task": "KYC",
+    "taskLocation": "Whitefield",
+    "visitAction": "Updated Task Notes",
+    "visitActionType": "updated",
+    "currentLocation": "Whitefield"
+  },
+  {
+    "id": "3",
+    "lastSynced": "10:22 AM",
+    "agentName": "Vinod Rao",
+    "agentInitials": "VR",
+    "agentColor": "#0066cc",
+    "task": "Collection",
+    "taskLocation": "Indiranagar",
+    "visitAction": "Flagged Borrower Location",
+    "visitActionType": "flagged",
+    "currentLocation": "Indiranagar"
+  },
+  {
+    "id": "4",
+    "lastSynced": "10:22 AM",
+    "agentName": "Manoj Pillai",
+    "agentInitials": "MP",
+    "agentColor": "#33aa22",
+    "task": "Collection",
+    "taskLocation": "Banashankari",
+    "visitAction": "Rescheduled Visit",
+    "visitActionType": "rescheduled",
+    "currentLocation": "Banashankari"
+  },
+  {
+    "id": "5",
+    "lastSynced": "10:22 AM",
+    "agentName": "Suresh Mehta",
+    "agentInitials": "SM",
+    "agentColor": "#b0006d",
+    "task": "KYC",
+    "taskLocation": "Yelahanka",
+    "visitAction": "Logged Issue (Battery Drop)",
+    "visitActionType": "logged-issue",
+    "currentLocation": "Whitefield"
+  },
+  {
+    "id": "6",
+    "lastSynced": "11:02 AM",
+    "agentName": "Ritu Sharma",
+    "agentInitials": "RS",
+    "agentColor": "#6D28D9",
+    "task": "Collection",
+    "taskLocation": "MG Road",
+    "visitAction": "Checked-In",
+    "visitActionType": "checked-in",
+    "currentLocation": "MG Road"
+  },
+  {
+    "id": "7",
+    "lastSynced": "11:10 AM",
+    "agentName": "Karan Grover",
+    "agentInitials": "KG",
+    "agentColor": "#F59E42",
+    "task": "KYC",
+    "taskLocation": "BTM Layout",
+    "visitAction": "Updated Task Notes",
+    "visitActionType": "updated",
+    "currentLocation": "BTM Layout"
+  },
+  {
+    "id": "8",
+    "lastSynced": "11:12 AM",
+    "agentName": "Sunita Rao",
+    "agentInitials": "SR",
+    "agentColor": "#DC2626",
+    "task": "Collection",
+    "taskLocation": "Jayanagar",
+    "visitAction": "Flagged Borrower Location",
+    "visitActionType": "flagged",
+    "currentLocation": "Jayanagar"
+  },
+  {
+    "id": "9",
+    "lastSynced": "11:15 AM",
+    "agentName": "Neha Gupta",
+    "agentInitials": "NG",
+    "agentColor": "#2563EB",
+    "task": "Collection",
+    "taskLocation": "Rajajinagar",
+    "visitAction": "Rescheduled Visit",
+    "visitActionType": "rescheduled",
+    "currentLocation": "Rajajinagar"
+  },
+  {
+    "id": "10",
+    "lastSynced": "11:25 AM",
+    "agentName": "Amit Desai",
+    "agentInitials": "AD",
+    "agentColor": "#CB6E17",
+    "task": "KYC",
+    "taskLocation": "Malleshwaram",
+    "visitAction": "Logged Issue (Battery Drop)",
+    "visitActionType": "logged-issue",
+    "currentLocation": "Malleshwaram"
+  }
+]

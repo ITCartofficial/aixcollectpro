@@ -14,7 +14,7 @@ interface TelecallersTask {
     taskId: string;
     borrowerName: string;
     location: string;
-    language: string; // <-- ADDED!
+    language: string; 
     taskType: "New Calls" | "Follow-up";
     status: "Completed" | "Pending" | "Flagged";
     collectionStatus: "PTP" | "Paid" | "TNC" | "PTPD" | "YTC" | "SI" | "NFI" | "No Update";
@@ -45,12 +45,11 @@ interface TelecallersTask {
 
 interface FilterState {
     status: string;
-    agent: string;
+    agent: string[]; // multi-select
     collectionStatus: string;
     taskType: string;
     dateRange: string;
     language: string;
-    lastUpdated: string;
     searchQuery: string;
 }
 
@@ -80,12 +79,11 @@ const TelecallersTaskTable: React.FC = () => {
 
     const [filters, setFilters] = useState<FilterState>({
         status: "",
-        agent: "",
+        agent: [""], // default to "All Agents"
         collectionStatus: "",
         taskType: "",
         dateRange: "",
         language: "",
-        lastUpdated: "",
         searchQuery: "",
     });
 
@@ -105,7 +103,7 @@ const TelecallersTaskTable: React.FC = () => {
 
     const filterOptions = useMemo(() => ({
         status: [
-            { label: "All Status", value: "" },
+            { label: "All", value: "" },
             { label: "Completed", value: "Completed" },
             { label: "Pending", value: "Pending" },
             { label: "Flagged", value: "Flagged" },
@@ -117,7 +115,7 @@ const TelecallersTaskTable: React.FC = () => {
             ).map((telecaller) => ({ label: telecaller, value: telecaller })),
         ],
         collectionStatus: [
-            { label: "All Collection Status", value: "" },
+            { label: "All", value: "" },
             { label: "PTP", value: "PTP" },
             { label: "Paid", value: "Paid" },
             { label: "TNC", value: "TNC" },
@@ -128,29 +126,45 @@ const TelecallersTaskTable: React.FC = () => {
             { label: "No Update", value: "No Update" },
         ],
         taskType: [
-            { label: "All Task Types", value: "" },
+            { label: "All", value: "" },
             { label: "New Calls", value: "New Calls" },
             { label: "Follow-up", value: "Follow-up" },
         ],
         dateRange: [
-            { label: "All Dates", value: "" },
+            { label: "All", value: "" },
             { label: "Today", value: "today" },
             { label: "This Week", value: "this_week" },
             { label: "This Month", value: "this_month" },
         ],
         language: [
-            { label: "All Languages", value: "" },
+            { label: "All", value: "" },
             ...Array.from(new Set(telecallerTask.map((task) => task.language).filter((lang) => lang))).map(
                 (lang) => ({ label: lang, value: lang })
             ),
         ],
-        lastUpdated: [
-            { label: "All Times", value: "" },
-            ...Array.from(new Set(telecallerTask.map((task) => task.lastUpdated).filter((lastUpdated) => lastUpdated))).map(
-                (lastUpdated) => ({ label: lastUpdated, value: lastUpdated })
-            ),
-        ],
     }), [telecallerTask]);
+
+    // Agent multi-select logic for "All Agents" special case
+    const handleFilterChange = useCallback((filterType: keyof FilterState, value: string | string[]) => {
+        if (filterType === "agent") {
+            let agentArr = Array.isArray(value) ? value : [value];
+            // If "All Agents" is selected, keep only it and clear others
+            if (agentArr.includes("")) {
+                agentArr = [""];
+            } else {
+                agentArr = agentArr.filter((val) => val !== "");
+            }
+            setFilters((prev) => ({
+                ...prev,
+                [filterType]: agentArr,
+            }));
+        } else {
+            setFilters((prev) => ({
+                ...prev,
+                [filterType]: value,
+            }));
+        }
+    }, []);
 
     const filteredData = useMemo(() => {
         let filtered = telecallerTask;
@@ -165,22 +179,22 @@ const TelecallersTaskTable: React.FC = () => {
         }
         Object.entries(filters).forEach(([key, value]) => {
             if (value && key !== "searchQuery") {
-                filtered = filtered.filter((task) => {
-                    const taskValue = task[key as keyof TelecallersTask];
-                    return taskValue === value;
-                });
+                if (key === "agent") {
+                    const agentArr = value as string[];
+                    // If "All Agents" is selected, skip filtering; else, filter for selected agents
+                    if (agentArr.length > 0 && !agentArr.includes("")) {
+                        filtered = filtered.filter((task) => agentArr.includes(task.telecaller));
+                    }
+                } else {
+                    filtered = filtered.filter((task) => {
+                        const taskValue = task[key as keyof TelecallersTask];
+                        return taskValue === value;
+                    });
+                }
             }
         });
         return filtered;
     }, [telecallerTask, filters]);
-
-    const handleFilterChange = useCallback((filterType: keyof FilterState, value: string | string[]) => {
-        const filterValue = Array.isArray(value) ? value[0] : value;
-        setFilters((prev) => ({
-            ...prev,
-            [filterType]: filterValue,
-        }));
-    }, []);
 
     const handleSearch = useCallback(
         (query: string) => {
@@ -370,48 +384,43 @@ const TelecallersTaskTable: React.FC = () => {
                     value={filters.status}
                     onChange={(value) => handleFilterChange("status", value)}
                     placeholder="Status"
-                    className="w-32"
+                    className="w-28"
                 />
                 <Dropdown
                     options={filterOptions.agent}
                     value={filters.agent}
                     onChange={(value) => handleFilterChange("agent", value)}
-                    placeholder="Telecaller"
-                    className="w-40"
+                    placeholder="Select Agent"
+                    className="w-44"
+                    multiSelect={true}
+                    searchable={true}
                 />
                 <Dropdown
                     options={filterOptions.collectionStatus}
                     value={filters.collectionStatus}
                     onChange={(value) => handleFilterChange("collectionStatus", value)}
                     placeholder="Collection Status"
-                    className="w-48"
+                    className="w-40"
                 />
                 <Dropdown
                     options={filterOptions.taskType}
                     value={filters.taskType}
                     onChange={(value) => handleFilterChange("taskType", value)}
                     placeholder="Task Type"
-                    className="w-40"
+                    className="w-30"
                 />
                 <Dropdown
                     options={filterOptions.language}
                     value={filters.language}
                     onChange={(value) => handleFilterChange("language", value)}
                     placeholder="Language"
-                    className="w-40"
-                />
-                <Dropdown
-                    options={filterOptions.lastUpdated}
-                    value={filters.lastUpdated}
-                    onChange={(value) => handleFilterChange("lastUpdated", value)}
-                    placeholder="Last Updated"
-                    className="w-40"
+                    className="w-30"
                 />
                 <div className="ml-auto">
                     <SearchBar
-                        placeholder="Search by Task ID, Borrower Name, or Agent..."
+                        placeholder="Search"
                         onSearch={handleSearch}
-                        className="w-64"
+                        className="w-56"
                     />
                 </div>
             </div>
@@ -463,8 +472,6 @@ const TelecallersTaskTable: React.FC = () => {
 };
 
 export default TelecallersTaskTable;
-
-
 
 
 

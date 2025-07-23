@@ -263,6 +263,8 @@ const TelecallersTable: React.FC = () => {
                         placeholder="Select Language"
                         className="min-w-48"
                         multiSelect={true} // Enable multi-selection
+                        searchable={true}
+
                     />
 
                     {/* Status Dropdown (Single-select) */}

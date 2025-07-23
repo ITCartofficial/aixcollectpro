@@ -1,4 +1,3 @@
-// Dropdown Component (label removed)
 import { useState, useEffect, useRef } from 'react';
 import { FaChevronDown, FaSearch } from 'react-icons/fa';
 
@@ -49,19 +48,44 @@ const Dropdown: React.FC<DropdownProps> = ({
     };
   }, [isOpen]);
 
-  const filteredOptions = options.filter(option =>
-    option.label.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Prepare sorted options: "All" first, then selected, then unselected (all matching search)
+  let sortedOptions: DropdownOption[] = [];
+
+  if (multiSelect) {
+    const selectedValues = Array.isArray(value) ? value : [];
+    // "All" option
+    const allOption = options.find(opt => opt.value === "");
+    // Selected (except "") and unselected (except "") matching search
+    const selectedOptions = options.filter(opt =>
+      opt.value !== "" &&
+      selectedValues.includes(opt.value) &&
+      opt.label.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    const unselectedOptions = options.filter(opt =>
+      opt.value !== "" &&
+      !selectedValues.includes(opt.value) &&
+      opt.label.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    sortedOptions = [
+      ...(allOption ? [allOption] : []),
+      ...selectedOptions,
+      ...unselectedOptions,
+    ];
+  } else {
+    sortedOptions = options.filter(opt =>
+      opt.label.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
 
   const getDisplayText = () => {
     if (multiSelect) {
       const selectedValues = Array.isArray(value) ? value : [];
-      if (selectedValues.length === 0) return placeholder;
+      if (selectedValues.length === 0 || (selectedValues.length === 1 && selectedValues[0] === "")) return placeholder;
       if (selectedValues.length === 1) {
         const option = options.find(opt => opt.value === selectedValues[0]);
         return option?.label || placeholder;
       }
-      return `${selectedValues.length} selected`;
+      return `${selectedValues.length} filter applied`;
     } else {
       if (!value || (Array.isArray(value) && value.length === 0)) return placeholder;
       const selectedValue = Array.isArray(value) ? value[0] : value;
@@ -72,11 +96,21 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   const handleSelect = (optionValue: string) => {
     if (multiSelect) {
-      const currentValues = Array.isArray(value) ? value : [];
+      let currentValues = Array.isArray(value) ? value : [];
+      if (optionValue === "") {
+        onChange([""]);
+        return;
+      }
       if (currentValues.includes(optionValue)) {
-        onChange(currentValues.filter(v => v !== optionValue));
+        currentValues = currentValues.filter(v => v !== optionValue);
       } else {
-        onChange([...currentValues, optionValue]);
+        currentValues = currentValues.filter(v => v !== "");
+        currentValues = [...currentValues, optionValue];
+      }
+      if (currentValues.length === 0) {
+        onChange([""]);
+      } else {
+        onChange(currentValues);
       }
     } else {
       onChange(optionValue);
@@ -117,10 +151,10 @@ const Dropdown: React.FC<DropdownProps> = ({
           )}
 
           <div className="max-h-40 overflow-y-auto">
-            {filteredOptions.length === 0 ? (
+            {sortedOptions.length === 0 ? (
               <div className="px-4 py-2 text-sm text-gray-500">No options found</div>
             ) : (
-              filteredOptions.map((option) => (
+              sortedOptions.map((option) => (
                 <div
                   key={option.value}
                   onClick={() => handleSelect(option.value)}
@@ -134,7 +168,7 @@ const Dropdown: React.FC<DropdownProps> = ({
                     <input
                       type="checkbox"
                       checked={Array.isArray(value) && value.includes(option.value)}
-                      onChange={() => {}}
+                      readOnly
                       className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mr-3"
                     />
                   )}
@@ -150,4 +184,3 @@ const Dropdown: React.FC<DropdownProps> = ({
 };
 
 export default Dropdown;
-

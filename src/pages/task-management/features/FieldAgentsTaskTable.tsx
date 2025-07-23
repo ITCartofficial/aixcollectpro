@@ -2,7 +2,6 @@ import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import Dropdown from "../../../components/common/Dropdown";
 import SearchBar from "../../../components/common/Searchbar";
 
-// Import the enhanced JSON data
 import fieldAgentTaskData from "../../../../data/task-management/fieldAgentsTask.json";
 import ExpandableTable from "../../../components/ui/Table/ExpandableTable";
 import type { TableColumn } from "../../../components/ui/Table/ExpandableTable";
@@ -10,7 +9,6 @@ import Badge from "../../../components/ui/Table/Badge";
 import Avatar from "../../../components/ui/Table/Avatar";
 import ExpandedRowContent, { type RecentActivityItem } from "../../../components/ui/Table/ExpandedRowContent";
 import PopupMenu, { type PopupPosition } from "../../../components/ui/Table/PopupMenu";
-
 
 interface FieldAgentsTask {
     id: string;
@@ -49,15 +47,14 @@ interface FieldAgentsTask {
 
 interface FilterState {
     status: string;
-    agent: string;
+    agent: string[];      // <-- Multi-select
     collectionStatus: string;
     taskType: string;
     dateRange: string;
-    location: string;
+    location: string[];   // <-- Multi-select
     searchQuery: string;
 }
 
-// Popup Menu items config, can be shared for other tables
 const popupMenuItems = [
     { label: "Mark as Complete", action: "mark_complete" },
     { label: "Reassign Task", action: "reassign" },
@@ -72,13 +69,11 @@ const popupMenuItems = [
 ];
 
 const FieldAgentTaskTable: React.FC = () => {
-    // Popup related state
     const [showPopup, setShowPopup] = useState<boolean>(false);
     const [selectedTask, setSelectedTask] = useState<FieldAgentsTask | null>(null);
     const [popupPosition, setPopupPosition] = useState<PopupPosition>({ top: 0, left: 0 });
     const popupRef = useRef<HTMLDivElement>(null);
 
-    // Transform the data to include id field for ExpandableTable compatibility
     const fieldTask: FieldAgentsTask[] = Array.isArray(fieldAgentTaskData)
         ? (fieldAgentTaskData as any[]).map((task: any) => ({
               ...task,
@@ -88,17 +83,16 @@ const FieldAgentTaskTable: React.FC = () => {
 
     const [filters, setFilters] = useState<FilterState>({
         status: "",
-        agent: "",
+        agent: [""],        // default: All
         collectionStatus: "",
         taskType: "",
         dateRange: "",
-        location: "",
+        location: [""],     // default: All
         searchQuery: "",
     });
 
     const [selectedRows, setSelectedRows] = useState<FieldAgentsTask[]>([]);
 
-    // Close popup when clicking outside
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
@@ -112,23 +106,22 @@ const FieldAgentTaskTable: React.FC = () => {
         }
     }, [showPopup]);
 
-    // Memoized filter options
     const filterOptions = useMemo(
         () => ({
             status: [
-                { label: "All Status", value: "" },
+                { label: "All", value: "" },
                 { label: "Completed", value: "Completed" },
                 { label: "Pending", value: "Pending" },
                 { label: "Flagged", value: "Flagged" },
             ],
             agent: [
-                { label: "All Agents", value: "" },
+                { label: "All", value: "" },
                 ...Array.from(
                     new Set(fieldTask.map((task) => task.agent).filter((agent) => agent && agent !== "Unassigned"))
                 ).map((agent) => ({ label: agent, value: agent })),
             ],
             collectionStatus: [
-                { label: "All Collection Status", value: "" },
+                { label: "All", value: "" },
                 { label: "PTP", value: "PTP" },
                 { label: "Paid", value: "Paid" },
                 { label: "ID", value: "ID" },
@@ -138,18 +131,18 @@ const FieldAgentTaskTable: React.FC = () => {
                 { label: "No Update", value: "No Update" },
             ],
             taskType: [
-                { label: "All Task Types", value: "" },
+                { label: "All", value: "" },
                 { label: "Collection", value: "Collection" },
                 { label: "KYC", value: "KYC" },
             ],
             dateRange: [
-                { label: "All Dates", value: "" },
+                { label: "All", value: "" },
                 { label: "Today", value: "today" },
                 { label: "This Week", value: "this_week" },
                 { label: "This Month", value: "this_month" },
             ],
             location: [
-                { label: "All Locations", value: "" },
+                { label: "All", value: "" },
                 ...Array.from(new Set(fieldTask.map((task) => task.location).filter((location) => location))).map(
                     (location) => ({ label: location, value: location })
                 ),
@@ -158,11 +151,33 @@ const FieldAgentTaskTable: React.FC = () => {
         [fieldTask]
     );
 
-    // Memoized filtered data
+    // --- Multi-select filter handler for agent & location ---
+    const handleFilterChange = useCallback((filterType: keyof FilterState, value: string | string[]) => {
+        // For agent/location, handle multi-select and "All" option
+        if (filterType === "agent" || filterType === "location") {
+            let arr = Array.isArray(value) ? value : [value];
+            if (arr.includes("")) {
+                arr = [""];
+            } else {
+                arr = arr.filter(val => val !== "");
+            }
+            setFilters((prev) => ({
+                ...prev,
+                [filterType]: arr,
+            }));
+        } else {
+            setFilters((prev) => ({
+                ...prev,
+                [filterType]: value,
+            }));
+        }
+    }, []);
+
+    // --- Filtering logic ---
     const filteredData = useMemo(() => {
         let filtered = fieldTask;
 
-        // Apply search filter
+        // Search
         if (filters.searchQuery && filters.searchQuery.trim() !== "") {
             const query = filters.searchQuery.toLowerCase();
             filtered = filtered.filter(
@@ -172,29 +187,29 @@ const FieldAgentTaskTable: React.FC = () => {
                     task.agent?.toLowerCase().includes(query)
             );
         }
-
-        // Apply all filters
+        // Filters
         Object.entries(filters).forEach(([key, value]) => {
             if (value && key !== "searchQuery") {
-                filtered = filtered.filter((task) => {
-                    const taskValue = task[key as keyof FieldAgentsTask];
-                    return taskValue === value;
-                });
+                if (key === "agent" || key === "location") {
+                    const arr = value as string[];
+                    if (arr.length > 0 && !arr.includes("")) {
+                        filtered = filtered.filter((task) =>
+                            arr.includes(task[key as keyof FieldAgentsTask] as string)
+                        );
+                    }
+                } else {
+                    filtered = filtered.filter((task) => {
+                        const taskValue = task[key as keyof FieldAgentsTask];
+                        return taskValue === value;
+                    });
+                }
             }
         });
 
         return filtered;
     }, [fieldTask, filters]);
 
-    // Filter handlers
-    const handleFilterChange = useCallback((filterType: keyof FilterState, value: string | string[]) => {
-        const filterValue = Array.isArray(value) ? value[0] : value;
-        setFilters((prev) => ({
-            ...prev,
-            [filterType]: filterValue,
-        }));
-    }, []);
-
+    // Other unchanged handlers...
     const handleSearch = useCallback(
         (query: string) => {
             handleFilterChange("searchQuery", query);
@@ -216,38 +231,27 @@ const FieldAgentTaskTable: React.FC = () => {
         setSelectedRows([]);
     }, []);
 
-    // Handle 3-dot menu click
     const handleMenuClick = useCallback((task: FieldAgentsTask, event: React.MouseEvent) => {
         event.preventDefault();
         event.stopPropagation();
-
-        // Calculate popup position
         const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
         const scrollY = window.scrollY || document.documentElement.scrollTop;
         const scrollX = window.scrollX || document.documentElement.scrollLeft;
-
-        // Calculate position to ensure popup stays within viewport
         const popupWidth = 200;
         const leftPosition =
             rect.right + scrollX - popupWidth > 0 ? rect.right + scrollX - popupWidth : rect.left + scrollX;
-
         setPopupPosition({
             top: rect.bottom + scrollY + 5,
             left: leftPosition,
         });
-
         setSelectedTask(task);
         setShowPopup(true);
     }, []);
 
-    // Handle popup actions
     const handlePopupAction = useCallback(
         (action: string) => {
             if (!selectedTask) return;
-
             console.log(`Action: ${action} for task:`, selectedTask.taskId);
-
-            // Actual implementation for each action goes here
         },
         [selectedTask]
     );
@@ -257,7 +261,6 @@ const FieldAgentTaskTable: React.FC = () => {
         setSelectedTask(null);
     }, []);
 
-    // Badge variant functions
     const getStatusVariant = useCallback(
         (status: string): "success" | "warning" | "danger" | "info" | "secondary" => {
             switch (status) {
@@ -296,7 +299,6 @@ const FieldAgentTaskTable: React.FC = () => {
         []
     );
 
-    // Expanded row renderer (pass mapping functions to generic ExpandedRowContent)
     const expandedRowRenderer = useCallback(
         (row: FieldAgentsTask) => (
             <ExpandedRowContent<FieldAgentsTask>
@@ -310,7 +312,6 @@ const FieldAgentTaskTable: React.FC = () => {
         [handleMenuClick]
     );
 
-    // Define table columns
     const columns: TableColumn<FieldAgentsTask>[] = useMemo(
         () => [
             {
@@ -400,21 +401,23 @@ const FieldAgentTaskTable: React.FC = () => {
                     value={filters.agent}
                     onChange={(value) => handleFilterChange("agent", value)}
                     placeholder="Agent"
-                    className="w-40"
+                    className="w-44"
+                    multiSelect={true}
+                    searchable={true}
                 />
                 <Dropdown
                     options={filterOptions.collectionStatus}
                     value={filters.collectionStatus}
                     onChange={(value) => handleFilterChange("collectionStatus", value)}
                     placeholder="Collection Status"
-                    className="w-48"
+                    className="w-40"
                 />
                 <Dropdown
                     options={filterOptions.taskType}
                     value={filters.taskType}
                     onChange={(value) => handleFilterChange("taskType", value)}
                     placeholder="Task Type"
-                    className="w-40"
+                    className="w-30"
                 />
                 <Dropdown
                     options={filterOptions.location}
@@ -422,12 +425,14 @@ const FieldAgentTaskTable: React.FC = () => {
                     onChange={(value) => handleFilterChange("location", value)}
                     placeholder="Location"
                     className="w-40"
+                    multiSelect={true}
+                    searchable={true}
                 />
                 <div className="ml-auto">
                     <SearchBar
-                        placeholder="Search by Task ID, Borrower Name, or Agent..."
+                        placeholder="Search"
                         onSearch={handleSearch}
-                        className="w-64"
+                        className="w-56"
                     />
                 </div>
             </div>
@@ -479,16 +484,3 @@ const FieldAgentTaskTable: React.FC = () => {
 };
 
 export default FieldAgentTaskTable;
-
-
-
-
-
-
-
-
-
-
-
-
-

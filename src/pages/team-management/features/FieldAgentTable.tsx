@@ -232,6 +232,7 @@ const FieldAgentsTable: React.FC = () => {
                         placeholder="Select Location"
                         className="min-w-48"
                         multiSelect={true}
+                        searchable={true}
                     />
 
                     <Dropdown

@@ -3,8 +3,8 @@ import { FaSyncAlt } from "react-icons/fa";
 import Dropdown from "../../../components/common/Dropdown";
 import { MdLocationPin, MdOutlineAccessTimeFilled } from "react-icons/md";
 import PrimaryButton from "../../../components/ui/Buttons/PrimaryButton";
-import type { AgentSummaryCard } from "../../../components/ui/Card/agentStatusSummaryCard";
-import AgentStatusSummaryCard from "../../../components/ui/Card/agentStatusSummaryCard";
+import type { AgentSummaryCard } from "../../../components/ui/Card/AgentStatusSummaryCard";
+import AgentStatusSummaryCard from "../../../components/ui/Card/AgentStatusSummaryCard";
 
 // Dummy multiple agent data
 const agents = [

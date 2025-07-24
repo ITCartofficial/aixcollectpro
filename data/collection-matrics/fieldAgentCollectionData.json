@@ -1,0 +1,153 @@
+[
+  {
+    "id": "AG001",
+    "rank": 1,
+    "agentName": "Rakesh Kumar",
+    "initials": "RK",
+    "totalVisits": 12,
+    "paid": 9,
+    "collection": 88000,
+    "averageValue": 9778,
+    "collectionRate": "92%",
+    "location": "Koramangala",
+    "lastVisit": "10:22 AM",
+    "status": "Top Performer",
+    "avatar": ""
+
+  },
+  {
+    "id": "AG002",
+    "rank": 2,
+    "agentName": "Vinod Rao",
+    "initials": "VR",
+    "totalVisits": 10,
+    "paid": 7,
+    "collection": 69000,
+    "averageValue": 9857,
+    "collectionRate": "88%",
+    "location": "Whitefield",
+    "lastVisit": "09:50 AM",
+    "avatar": ""
+
+  },
+  {
+    "id": "AG003",
+    "rank": 3,
+    "agentName": "Ajay Singh",
+    "initials": "AS",
+    "totalVisits": 11,
+    "paid": 8,
+    "collection": 73500,
+    "averageValue": 9188,
+    "collectionRate": "84%",
+    "location": "Indiranagar",
+    "lastVisit": "10:05 AM",
+    "avatar": ""
+
+  },
+  {
+    "id": "AG004",
+    "rank": 4,
+    "agentName": "Manoj Pillai",
+    "initials": "MP",
+    "totalVisits": 9,
+    "paid": 6,
+    "collection": 58200,
+    "averageValue": 9700,
+    "collectionRate": "82%",
+    "location": "Rajajinagar",
+    "lastVisit": "09:35 AM",
+    "avatar": ""
+
+  },
+  {
+    "id": "AG005",
+    "rank": 5,
+    "agentName": "Faizal Khan",
+    "initials": "FK",
+    "totalVisits": 8,
+    "paid": 6,
+    "collection": 52000,
+    "averageValue": 8667,
+    "collectionRate": "80%",
+    "location": "BTM Layout",
+    "lastVisit": "09:20 AM",
+    "avatar": ""
+
+  },
+  {
+    "id": "AG006",
+    "rank": 6,
+    "agentName": "Deepak Mehra",
+    "initials": "DM",
+    "totalVisits": 10,
+    "paid": 8,
+    "collection": 64500,
+    "averageValue": 8063,
+    "collectionRate": "85%",
+    "location": "HSR Layout",
+    "lastVisit": "09:40 AM",
+    "avatar": ""
+
+  },
+  {
+    "id": "AG007",
+    "rank": 7,
+    "agentName": "Priya Desai",
+    "initials": "PD",
+    "totalVisits": 9,
+    "paid": 7,
+    "collection": 61000,
+    "averageValue": 8714,
+    "collectionRate": "78%",
+    "location": "Jayanagar",
+    "lastVisit": "09:10 AM",
+    "avatar": ""
+
+  },
+  {
+    "id": "AG008",
+    "rank": 8,
+    "agentName": "Naveen Reddy",
+    "initials": "NR",
+    "totalVisits": 11,
+    "paid": 9,
+    "collection": 70500,
+    "averageValue": 7820,
+    "collectionRate": "81%",
+    "location": "Electronic City",
+    "lastVisit": "10:10 AM",
+    "avatar": ""
+
+  },
+  {
+    "id": "AG009",
+    "rank": 9,
+    "agentName": "Sneha Kapoor",
+    "initials": "SK",
+    "totalVisits": 7,
+    "paid": 5,
+    "collection": 49000,
+    "averageValue": 8571,
+    "collectionRate": "71%",
+    "location": "Banashankari",
+    "lastVisit": "08:50 AM",
+    "avatar": ""
+
+  },
+  {
+    "id": "AG010",
+    "rank": 10,
+    "agentName": "Rahul Joshi",
+    "initials": "RJ",
+    "totalVisits": 8,
+    "paid": 6,
+    "collection": 55000,
+    "averageValue": 9167,
+    "collectionRate": "75%",
+    "location": "Hebbal",
+    "lastVisit": "09:25 AM",
+    "avatar": ""
+
+  }
+]

@@ -1,0 +1,143 @@
+[
+  {
+    "id": "TC001",
+    "rank": 1,
+    "agentName": "Ananya Iyer",
+    "initials": "AI",
+    "totalVisits": 35,
+    "paid": 7,
+    "collection": 32000,
+    "ptp": 6,
+    "language": ["Hindi", "English"],
+    "lastVisit": "10:11 AM",
+    "status": "Top Performer",
+    "avatar": ""
+
+  },
+  {
+    "id": "TC002",
+    "rank": 2,
+    "agentName": "Rajesh Sharma",
+    "initials": "RS",
+    "totalVisits": 28,
+    "paid": 5,
+    "collection": 21000,
+    "ptp": 4,
+    "language": ["Kannada", "Hindi"],
+    "lastVisit": "10:01 AM",
+    "avatar": ""
+
+  },
+  {
+    "id": "TC003",
+    "rank": 3,
+    "agentName": "Neha Prasad",
+    "initials": "NP",
+    "totalVisits": 24,
+    "paid": 4,
+    "collection": 18500,
+    "ptp": 3,
+    "language": ["English", "Urdu", "Kannada"],
+    "lastVisit": "09:43 AM",
+    "avatar": ""
+
+  },
+  {
+    "id": "TC004",
+    "rank": 4,
+    "agentName": "Priya Nair",
+    "initials": "PN",
+    "totalVisits": 26,
+    "paid": 3,
+    "collection": 15200,
+    "ptp": 2,
+    "language": ["Tamil", "Kannada", "English"],
+    "lastVisit": "09:20 AM",
+    "avatar": ""
+
+  },
+  {
+    "id": "TC005",
+    "rank": 5,
+    "agentName": "Varun Khanna",
+    "initials": "VK",
+    "totalVisits": 22,
+    "paid": 4,
+    "collection": 19800,
+    "ptp": 3,
+    "language": ["Hindi", "English", "Bengali"],
+    "lastVisit": "09:55 AM",
+    "avatar": ""
+
+  },
+  {
+    "id": "TC006",
+    "rank": 6,
+    "agentName": "Simran Kaur",
+    "initials": "SK",
+    "totalVisits": 30,
+    "paid": 5,
+    "collection": 24500,
+    "ptp": 5,
+    "language": ["Punjabi", "Hindi", "English"],
+    "lastVisit": "10:18 AM",
+    "avatar": ""
+
+  },
+  {
+    "id": "TC007",
+    "rank": 7,
+    "agentName": "Aditya Shetty",
+    "initials": "AS",
+    "totalVisits": 20,
+    "paid": 3,
+    "collection": 16300,
+    "ptp": 2,
+    "language": ["Kannada", "English"],
+    "lastVisit": "09:35 AM",
+    "avatar": ""
+
+  },
+  {
+    "id": "TC008",
+    "rank": 8,
+    "agentName": "Meera Krishnan",
+    "initials": "MK",
+    "totalVisits": 18,
+    "paid": 3,
+    "collection": 14800,
+    "ptp": 2,
+    "language": ["Tamil", "English"],
+    "lastVisit": "09:05 AM",
+    "avatar": ""
+
+  },
+  {
+    "id": "TC009",
+    "rank": 9,
+    "agentName": "Farhan Ali",
+    "initials": "FA",
+    "totalVisits": 21,
+    "paid": 4,
+    "collection": 17200,
+    "ptp": 3,
+    "language": ["Urdu", "Hindi"],
+    "lastVisit": "09:58 AM",
+    "avatar": ""
+
+  },
+  {
+    "id": "TC010",
+    "rank": 10,
+    "agentName": "Divya Reddy",
+    "initials": "DR",
+    "totalVisits": 23,
+    "paid": 4,
+    "collection": 19000,
+    "ptp": 3,
+    "language": ["Telugu", "English"],
+    "lastVisit": "10:08 AM",
+    "avatar": ""
+
+  }
+]

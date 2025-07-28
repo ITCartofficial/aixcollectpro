@@ -1,0 +1,38 @@
+[
+  {
+    "id": "PA001",
+    "forecastFocus": "Koramangala Area",
+    "insightSummary": "High geo-risk task spike likely (87% probability)",
+    "recommendedAction": "Assign senior agents; alert ops team"
+  },
+  {
+    "id": "PA002",
+    "forecastFocus": "BTM Layout (Follow-Ups)",
+    "insightSummary": "PTP follow-up drops forecasted (72% probability)",
+    "recommendedAction": "Auto-assign follow-ups to idle agents"
+  },
+  {
+    "id": "PA003",
+    "forecastFocus": "Evening Call Window",
+    "insightSummary": "Call quality dips post 6 PM, Tier-2 clusters affected (65%)",
+    "recommendedAction": "Enable fallback calling system"
+  },
+  {
+    "id": "PA004",
+    "forecastFocus": "2W Loan Segment",
+    "insightSummary": "Entry EMI PTP deferrals projected to rise (78%)",
+    "recommendedAction": "Trigger reminder campaigns via AI dialer"
+  },
+  {
+    "id": "PA005",
+    "forecastFocus": "Agent Ajay Singh",
+    "insightSummary": "Task overload may lead to SLA breaches (70%)",
+    "recommendedAction": "Reallocate tasks to available agents"
+  },
+  {
+    "id": "PA006",
+    "forecastFocus": "Telecaller Performance",
+    "insightSummary": "Lower conversions expected from new joiners",
+    "recommendedAction": "Route priority calls to high performers"
+  }
+]

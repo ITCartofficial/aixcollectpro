@@ -1,0 +1,57 @@
+[
+  {
+    "taskId": "TASK-98321",
+    "borrowerName": "Ravi Mehta",
+    "initials": "RK",
+    "riskType": "Behavioral Risk",
+    "location": "KR Puram",
+    "assignedAgent": "Ajay Singh",
+    "agentInitials": "RM",
+    "flagReason": "Frequent PTP failure",
+    "lastUpdate": "11:10 AM"
+  },
+  {
+    "taskId": "TASK-98345",
+    "borrowerName": "Anjali Rao",
+    "initials": "AR",
+    "riskType": "Geo Risk",
+    "location": "Shivajinagar",
+    "assignedAgent": "Vinod Rao",
+    "agentInitials": "VR",
+    "flagReason": "Red zone territory",
+    "lastUpdate": "10:35 AM"
+  },
+  {
+    "taskId": "TASK-98367",
+    "borrowerName": "Suresh Patil",
+    "initials": "SP",
+    "riskType": "Financial Risk",
+    "location": "Yeshwanthpur",
+    "assignedAgent": "Manoj Pillai",
+    "agentInitials": "MP",
+    "flagReason": "Reported short-term loss",
+    "lastUpdate": "09:55 AM"
+  },
+  {
+    "taskId": "TASK-98384",
+    "borrowerName": "Reena Shetty",
+    "initials": "RS",
+    "riskType": "Intent Risk",
+    "location": "Electronic City",
+    "assignedAgent": "Rakesh Kumar",
+    "agentInitials": "RK",
+    "flagReason": "Skipping scheduled visits",
+    "lastUpdate": "Yesterday"
+  },
+  {
+    "taskId": "TASK-98402",
+    "borrowerName": "Zakir Hussain",
+    "initials": "ZH",
+    "riskType": "Service Issue",
+    "location": "BTM Layout",
+    "assignedAgent": "Prakash Naik",
+    "agentInitials": "PN",
+    "flagReason": "RC Pending / Registration",
+    "lastUpdate": "04 June, 2025"
+  }
+]

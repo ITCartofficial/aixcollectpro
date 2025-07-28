@@ -1,0 +1,57 @@
+[
+  {
+    "id": "ARE001",
+    "agentName": "Rakesh Kumar",
+    "initials": "RK",
+    "avgVisitDuration": 38,
+    "responseRate": 91,
+    "onVisitConversion": 78,
+    "geoCoverageAccuracy": 93,
+    "efficiencyRating": "High",
+    "avatar": ""
+  },
+  {
+    "id": "ARE002",
+    "agentName": "Ajay Singh",
+    "initials": "AS",
+    "avgVisitDuration": 42,
+    "responseRate": 85,
+    "onVisitConversion": 72,
+    "geoCoverageAccuracy": 88,
+    "efficiencyRating": "Medium",
+    "avatar": ""
+  },
+  {
+    "id": "ARE003",
+    "agentName": "Vinod Rao",
+    "initials": "VR",
+    "avgVisitDuration": 40,
+    "responseRate": 83,
+    "onVisitConversion": 70,
+    "geoCoverageAccuracy": 85,
+    "efficiencyRating": "Medium",
+    "avatar": ""
+  },
+  {
+    "id": "ARE004",
+    "agentName": "Manoj Pillai",
+    "initials": "MP",
+    "avgVisitDuration": 45,
+    "responseRate": 79,
+    "onVisitConversion": 66,
+    "geoCoverageAccuracy": 82,
+    "efficiencyRating": "Medium",
+    "avatar": ""
+  },
+  {
+    "id": "ARE005",
+    "agentName": "Sandeep Verma",
+    "initials": "SV",
+    "avgVisitDuration": 48,
+    "responseRate": 74,
+    "onVisitConversion": 60,
+    "geoCoverageAccuracy": 76,
+    "efficiencyRating": "Low",
+    "avatar": ""
+  }
+]

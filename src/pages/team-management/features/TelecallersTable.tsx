@@ -249,7 +249,7 @@ const TelecallersTable: React.FC = () => {
     ];
 
     return (
-        <div className="mt-4 bg-white min-h-screen rounded-lg p-6">
+        <div className="mt-4 bg-white rounded-lg p-6">
             {/* Filters and Search Section */}
             <div className="bg-white p-4 rounded-lg">
                 <div className="flex flex-wrap items-center gap-4">

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "AI001",
+    "title": "Agent Task Overload",
+    "description": "Ajay Singh has 4 overdue high-priority tasks. Reassign 2 to available agents."
+  },
+  {
+    "id": "AI002",
+    "title": "Low PTP Conversion Zone",
+    "description": "Area: Yelahanka — Increase follow-ups within 48 hrs to improve recovery chances."
+  },
+  {
+    "id": "AI003",
+    "title": "Frequent Defaulter Lead",
+    "description": "Borrower in Indiranagar flagged 3 times in 2 weeks. Assign to senior agent."
+  },
+  {
+    "id": "AI004",
+    "title": "Idle Agent Detected",
+    "description": "Rohit Kumar inactive for 120 mins. Trigger check-in alert or ping."
+  },
+  {
+    "id": "AI005",
+    "title": "Evening Call Drops High",
+    "description": "Reduce outbound calls post 6 PM in Hebbal. Schedule retries for morning slots."
+  },
+  {
+    "id": "AI006",
+    "title": "High Risk Geo Zone",
+    "description": "Multiple flagged borrowers detected in Whitefield. Increase field visits."
+  },
+  {
+    "id": "AI007",
+    "title": "Low Follow-Up Compliance",
+    "description": "Only 60% of follow-ups completed in the last 48 hours in Koramangala cluster."
+  },
+  {
+    "id": "AI008",
+    "title": "Pending Documentation",
+    "description": "5 loan accounts in Electronic City pending KYC verification. Escalate to agents."
+  },
+  {
+    "id": "AI009",
+    "title": "Customer Escalation Spike",
+    "description": "Escalations increased by 35% in Rajajinagar this week. Investigate root cause."
+  },
+  {
+    "id": "AI010",
+    "title": "Low Collection Performance",
+    "description": "Collection rate dropped below 75% in BTM Layout zone. Assign high performers."
+  }
+]

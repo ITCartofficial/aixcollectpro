@@ -1,0 +1,57 @@
+[
+  {
+    "id": "TRE001",
+    "agentName": "Ananya Iyer",
+    "initials": "RK",
+    "avgCallDuration": 4.2,
+    "responseRate": 91,
+    "followUpConversion": 78,
+    "ptpAccuracy": 93,
+    "efficiencyRating": "High",
+    "avatar": ""
+  },
+  {
+    "id": "TRE002",
+    "agentName": "Rajesh Sharma",
+    "initials": "AS",
+    "avgCallDuration": 3.8,
+    "responseRate": 85,
+    "followUpConversion": 72,
+    "ptpAccuracy": 88,
+    "efficiencyRating": "Medium",
+    "avatar": ""
+  },
+  {
+    "id": "TRE003",
+    "agentName": "Neha Prasad",
+    "initials": "VR",
+    "avgCallDuration": 4.5,
+    "responseRate": 83,
+    "followUpConversion": 70,
+    "ptpAccuracy": 85,
+    "efficiencyRating": "Medium",
+    "avatar": ""
+  },
+  {
+    "id": "TRE004",
+    "agentName": "Varun Khanna",
+    "initials": "MP",
+    "avgCallDuration": 3.1,
+    "responseRate": 79,
+    "followUpConversion": 66,
+    "ptpAccuracy": 82,
+    "efficiencyRating": "Medium",
+    "avatar": ""
+  },
+  {
+    "id": "TRE005",
+    "agentName": "Priya Nair",
+    "initials": "SV",
+    "avgCallDuration": 2.9,
+    "responseRate": 74,
+    "followUpConversion": 60,
+    "ptpAccuracy": 76,
+    "efficiencyRating": "Low",
+    "avatar": ""
+  }
+]

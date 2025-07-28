@@ -4,7 +4,7 @@ import Dropdown from "../../../components/common/Dropdown";
 import SearchBar from "../../../components/common/Searchbar";
 import DataTable from "../../../components/ui/Table/DataTable";
 import fieldAgentCollectionData from "../../../../data/collection-matrics/fieldAgentCollectionData.json";
-import { FaEye } from "react-icons/fa";
+import { FaAward, FaEye } from "react-icons/fa";
 import TelecallerCollectionTable from "./TelecallerCollectionTable";
 import Avatar from "../../../components/ui/Table/Avatar";
 
@@ -21,7 +21,6 @@ interface FieldAgentData {
   collectionRate: string;
   location: string;
   lastVisit: string;
-  status?: string;
   avatar: string;
 }
 
@@ -100,9 +99,19 @@ const FieldAgentCollectionTable: React.FC = () => {
       key: "rank",
       label: "Rank",
       sortable: true,
-      width: "90px",
+      width: "100px",
       className: "text-center",
-      render: value => <span className="font-semibold">{value}</span>
+      render: (value, row) => (
+        <div className="flex items-center space-x-2">
+          <span className="font-medium text-gray-900">{value}</span>
+          {row.rank === 1 && (
+            <div className="flex items-center gap-1 bg-[#B8FAD8] rounded-full px-2 py-1">
+              <FaAward className="w-3 h-3 text-[#10854C] rotate-180" />
+              <span className="text-[#10854C] text-[10px] font-semibold">Top Performer</span>
+            </div>
+          )}
+        </div>
+      )
     },
     {
       key: "agentName",
@@ -128,7 +137,7 @@ const FieldAgentCollectionTable: React.FC = () => {
       key: "paid",
       label: "Paid",
       sortable: true,
-      width: "90px",
+      width: "80px",
       className: "text-center",
       render: v => <span className="font-medium">{v}</span>
     },
@@ -136,7 +145,7 @@ const FieldAgentCollectionTable: React.FC = () => {
       key: "collection",
       label: "Collection",
       sortable: true,
-      width: "120px",
+      width: "90px",
       className: "text-center",
       render: v => <span className="font-medium">₹{v.toLocaleString("en-IN")}</span>
     },
@@ -152,7 +161,7 @@ const FieldAgentCollectionTable: React.FC = () => {
       key: "collectionRate",
       label: "Collection Rate",
       sortable: true,
-      width: "120px",
+      width: "140px",
       className: "text-center",
       render: v => <span className="font-medium">{v}</span>
     },

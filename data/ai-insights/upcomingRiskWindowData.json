@@ -1,0 +1,30 @@
+[
+  {
+    "id": "RA001",
+    "timeWindow": "10-13 June",
+    "riskArea": "Whitefield",
+    "riskFactor": "Increased geo-risk activity",
+    "recommendedAction": "Assign experienced agents"
+  },
+  {
+    "id": "RA002",
+    "timeWindow": "10-13 June",
+    "riskArea": "Whitefield",
+    "riskFactor": "Increased geo-risk activity",
+    "recommendedAction": "Assign experienced agents"
+  },
+  {
+    "id": "RA003",
+    "timeWindow": "10-13 June",
+    "riskArea": "Whitefield",
+    "riskFactor": "Increased geo-risk activity",
+    "recommendedAction": "Assign experienced agents"
+  },
+  {
+    "id": "RA004",
+    "timeWindow": "10-13 June",
+    "riskArea": "Whitefield",
+    "riskFactor": "Increased geo-risk activity",
+    "recommendedAction": "Assign experienced agents"
+  }
+]

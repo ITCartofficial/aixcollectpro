@@ -136,10 +136,7 @@ const TimelineChart: React.FC<TimelineChartProps> = ({
 
     if (!data || data.length === 0) {
         return (
-            <div
-                className={`flex items-center justify-center bg-gray-50 rounded-lg ${className}`}
-                style={{ height }}
-            >
+            <div className={`flex items-center justify-center bg-gray-50 rounded-lg ${className}`} style={{ height }}>
                 <div className="text-gray-500 text-sm">No data available</div>
             </div>
         );
@@ -149,3 +146,13 @@ const TimelineChart: React.FC<TimelineChartProps> = ({
 };
 
 export default TimelineChart;
+
+
+
+
+
+
+
+
+
+

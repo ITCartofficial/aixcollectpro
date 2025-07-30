@@ -67,7 +67,7 @@ const HighRiskTaskTrendCard: React.FC = () => {
                 </div>
             </div>
             <div className="mt-1">
-                <TimelineChart data={chartData} height={300} />
+                <TimelineChart data={chartData} height={300}/>
             </div>
         </div>
     );

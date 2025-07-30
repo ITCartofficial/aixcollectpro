@@ -1,0 +1,215 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Manoj Pillai",
+      "department": "Sales",
+      "attendance": {
+        "June 2": { "present": 1, "absent": 0, "late": 0 },
+        "June 3": { "present": 0, "absent": 0, "late": 1 },
+        "June 4": { "present": 1, "absent": 0, "late": 0 },
+        "June 5": { "present": 0, "absent": 1, "late": 0 },
+        "June 6": { "present": 1, "absent": 0, "late": 0 },
+        "June 7": { "present": 1, "absent": 0, "late": 0 },
+        "June 8": { "present": 0, "absent": 1, "late": 0 }
+      }
+    },
+    {
+      "id": 2,
+      "name": "Ajay Singh",
+      "department": "Operations",
+      "attendance": {
+        "June 2": { "present": 1, "absent": 0, "late": 0 },
+        "June 3": { "present": 1, "absent": 0, "late": 0 },
+        "June 4": { "present": 0, "absent": 1, "late": 0 },
+        "June 5": { "present": 1, "absent": 0, "late": 0 },
+        "June 6": { "present": 0, "absent": 0, "late": 1 },
+        "June 7": { "present": 1, "absent": 0, "late": 0 },
+        "June 8": { "present": 0, "absent": 1, "late": 0 }
+      }
+    },
+    {
+      "id": 3,
+      "name": "Vinod Rao",
+      "department": "Technical",
+      "attendance": {
+        "June 2": { "present": 1, "absent": 0, "late": 0 },
+        "June 3": { "present": 1, "absent": 0, "late": 0 },
+        "June 4": { "present": 1, "absent": 0, "late": 0 },
+        "June 5": { "present": 0, "absent": 1, "late": 0 },
+        "June 6": { "present": 0, "absent": 0, "late": 1 },
+        "June 7": { "present": 1, "absent": 0, "late": 0 },
+        "June 8": { "present": 0, "absent": 1, "late": 0 }
+      }
+    },
+    {
+      "id": 4,
+      "name": "Ananya Iyer",
+      "department": "Marketing",
+      "attendance": {
+        "June 2": { "present": 1, "absent": 0, "late": 0 },
+        "June 3": { "present": 0, "absent": 0, "late": 1 },
+        "June 4": { "present": 1, "absent": 0, "late": 0 },
+        "June 5": { "present": 1, "absent": 0, "late": 0 },
+        "June 6": { "present": 1, "absent": 0, "late": 0 },
+        "June 7": { "present": 0, "absent": 1, "late": 0 },
+        "June 8": { "present": 1, "absent": 0, "late": 0 }
+      }
+    },
+    {
+      "id": 5,
+      "name": "Rakesh Kumar",
+      "department": "Finance",
+      "attendance": {
+        "June 2": { "present": 0, "absent": 1, "late": 0 },
+        "June 3": { "present": 1, "absent": 0, "late": 0 },
+        "June 4": { "present": 0, "absent": 0, "late": 1 },
+        "June 5": { "present": 1, "absent": 0, "late": 0 },
+        "June 6": { "present": 1, "absent": 0, "late": 0 },
+        "June 7": { "present": 1, "absent": 0, "late": 0 },
+        "June 8": { "present": 0, "absent": 1, "late": 0 }
+      }
+    },
+    {
+      "id": 6,
+      "name": "Priya Sharma",
+      "department": "HR",
+      "attendance": {
+        "June 2": { "present": 0, "absent": 1, "late": 0 },
+        "June 3": { "present": 1, "absent": 0, "late": 0 },
+        "June 4": { "present": 1, "absent": 0, "late": 0 },
+        "June 5": { "present": 0, "absent": 0, "late": 1 },
+        "June 6": { "present": 1, "absent": 0, "late": 0 },
+        "June 7": { "present": 1, "absent": 0, "late": 0 },
+        "June 8": { "present": 1, "absent": 0, "late": 0 }
+      }
+    },
+    {
+      "id": 7,
+      "name": "Rohit Gupta",
+      "department": "Sales",
+      "attendance": {
+        "June 2": { "present": 1, "absent": 0, "late": 0 },
+        "June 3": { "present": 0, "absent": 1, "late": 0 },
+        "June 4": { "present": 1, "absent": 0, "late": 0 },
+        "June 5": { "present": 1, "absent": 0, "late": 0 },
+        "June 6": { "present": 1, "absent": 0, "late": 0 },
+        "June 7": { "present": 0, "absent": 0, "late": 1 },
+        "June 8": { "present": 1, "absent": 0, "late": 0 }
+      }
+    },
+    {
+      "id": 8,
+      "name": "Kavita Nair",
+      "department": "Operations",
+      "attendance": {
+        "June 2": { "present": 1, "absent": 0, "late": 0 },
+        "June 3": { "present": 1, "absent": 0, "late": 0 },
+        "June 4": { "present": 0, "absent": 1, "late": 0 },
+        "June 5": { "present": 1, "absent": 0, "late": 0 },
+        "June 6": { "present": 1, "absent": 0, "late": 0 },
+        "June 7": { "present": 1, "absent": 0, "late": 0 },
+        "June 8": { "present": 0, "absent": 0, "late": 1 }
+      }
+    },
+    {
+      "id": 9,
+      "name": "Suresh Reddy",
+      "department": "Technical",
+      "attendance": {
+        "June 2": { "present": 0, "absent": 0, "late": 1 },
+        "June 3": { "present": 1, "absent": 0, "late": 0 },
+        "June 4": { "present": 1, "absent": 0, "late": 0 },
+        "June 5": { "present": 1, "absent": 0, "late": 0 },
+        "June 6": { "present": 0, "absent": 1, "late": 0 },
+        "June 7": { "present": 1, "absent": 0, "late": 0 },
+        "June 8": { "present": 1, "absent": 0, "late": 0 }
+      }
+    },
+    {
+      "id": 10,
+      "name": "Neha Patel",
+      "department": "Marketing",
+      "attendance": {
+        "June 2": { "present": 1, "absent": 0, "late": 0 },
+        "June 3": { "present": 1, "absent": 0, "late": 0 },
+        "June 4": { "present": 1, "absent": 0, "late": 0 },
+        "June 5": { "present": 0, "absent": 1, "late": 0 },
+        "June 6": { "present": 1, "absent": 0, "late": 0 },
+        "June 7": { "present": 1, "absent": 0, "late": 0 },
+        "June 8": { "present": 0, "absent": 0, "late": 1 }
+      }
+    },
+    {
+      "id": 11,
+      "name": "Amit Sharma",
+      "department": "Finance",
+      "attendance": {
+        "June 2": { "present": 1, "absent": 0, "late": 0 },
+        "June 3": { "present": 0, "absent": 1, "late": 0 },
+        "June 4": { "present": 1, "absent": 0, "late": 0 },
+        "June 5": { "present": 1, "absent": 0, "late": 0 },
+        "June 6": { "present": 0, "absent": 0, "late": 1 },
+        "June 7": { "present": 1, "absent": 0, "late": 0 },
+        "June 8": { "present": 1, "absent": 0, "late": 0 }
+      }
+    },
+    {
+      "id": 12,
+      "name": "Deepika Singh",
+      "department": "HR",
+      "attendance": {
+        "June 2": { "present": 0, "absent": 0, "late": 1 },
+        "June 3": { "present": 1, "absent": 0, "late": 0 },
+        "June 4": { "present": 0, "absent": 1, "late": 0 },
+        "June 5": { "present": 1, "absent": 0, "late": 0 },
+        "June 6": { "present": 1, "absent": 0, "late": 0 },
+        "June 7": { "present": 1, "absent": 0, "late": 0 },
+        "June 8": { "present": 1, "absent": 0, "late": 0 }
+      }
+    },
+    {
+      "id": 13,
+      "name": "Rajesh Kumar",
+      "department": "Technical",
+      "attendance": {
+        "June 2": { "present": 1, "absent": 0, "late": 0 },
+        "June 3": { "present": 1, "absent": 0, "late": 0 },
+        "June 4": { "present": 1, "absent": 0, "late": 0 },
+        "June 5": { "present": 0, "absent": 0, "late": 1 },
+        "June 6": { "present": 1, "absent": 0, "late": 0 },
+        "June 7": { "present": 0, "absent": 1, "late": 0 },
+        "June 8": { "present": 1, "absent": 0, "late": 0 }
+      }
+    },
+    {
+      "id": 14,
+      "name": "Sneha Patel",
+      "department": "Marketing",
+      "attendance": {
+        "June 2": { "present": 1, "absent": 0, "late": 0 },
+        "June 3": { "present": 0, "absent": 0, "late": 1 },
+        "June 4": { "present": 1, "absent": 0, "late": 0 },
+        "June 5": { "present": 1, "absent": 0, "late": 0 },
+        "June 6": { "present": 1, "absent": 0, "late": 0 },
+        "June 7": { "present": 1, "absent": 0, "late": 0 },
+        "June 8": { "present": 0, "absent": 1, "late": 0 }
+      }
+    },
+    {
+      "id": 15,
+      "name": "Vikram Singh",
+      "department": "Operations",
+      "attendance": {
+        "June 2": { "present": 0, "absent": 1, "late": 0 },
+        "June 3": { "present": 1, "absent": 0, "late": 0 },
+        "June 4": { "present": 1, "absent": 0, "late": 0 },
+        "June 5": { "present": 1, "absent": 0, "late": 0 },
+        "June 6": { "present": 0, "absent": 0, "late": 1 },
+        "June 7": { "present": 1, "absent": 0, "late": 0 },
+        "June 8": { "present": 1, "absent": 0, "late": 0 }
+      }
+    }
+  ],
+  "dates": ["June 2", "June 3", "June 4", "June 5", "June 6", "June 7", "June 8"]
+}

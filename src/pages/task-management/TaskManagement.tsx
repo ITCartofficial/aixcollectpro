@@ -45,7 +45,7 @@ const statsData: StatsData[] = [
   },
 ]
 
-type TabType = "fieldTask" | "telecallerTask";
+type TabType = "fieldTask" | "telecallerTask" ;
 
 const TaskManagement = () => {
   const [activeTab, setActiveTab] = useState<TabType>("fieldTask");

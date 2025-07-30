@@ -8,7 +8,7 @@ interface SmartAiRecommendationData {
 }
 
 const SmartAiRecommendation: React.FC = () => {
-    // Only show the first 5 recommendations as in the screenshot
+    // Only show the first 5 recommendations
     const displayedData: SmartAiRecommendationData[] = (smartAiRecommendationData as SmartAiRecommendationData[]).slice(0, 5);
 
     return (

@@ -181,7 +181,7 @@ const TaskTypeCard: React.FC<TaskTypeCardProps> = ({
         {
             label: "Follow-Up Calls",
             value: 138,
-            color: "#14B8A6", // Green
+            color: "#47B881", // Green
             percentage: 20
         }
     ];

@@ -169,7 +169,7 @@ const AreaChart: React.FC<AreaChartProps> = ({
         labels: {
           style: {
             colors: '#9CA3AF',
-            fontSize: '12px',
+            fontSize: '14px',
             fontWeight: '400'
           },
           format: xAxisFormat
@@ -185,7 +185,7 @@ const AreaChart: React.FC<AreaChartProps> = ({
         labels: {
           style: {
             colors: '#9CA3AF',
-            fontSize: '12px',
+            fontSize: '14px',
             fontWeight: '400'
           },
           formatter: yAxisFormatter

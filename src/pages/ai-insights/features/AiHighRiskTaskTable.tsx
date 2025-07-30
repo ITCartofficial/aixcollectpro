@@ -142,7 +142,7 @@ const AiHighRiskTaskTable: React.FC = () => {
       label: "Flag Reason",
       width: "120px",
       className: "text-center",
-      render: v => <span className="font-medium">₹{v.toLocaleString("en-IN")}</span>
+      render: v => <span className="font-medium">{v.toLocaleString("en-IN")}</span>
     },
     {
       key: "lastUpdate",

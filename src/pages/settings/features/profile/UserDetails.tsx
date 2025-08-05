@@ -1,6 +1,6 @@
-import Badge from "../../../components/ui/Table/Badge";
-import PrimaryButton from "../../../components/ui/Buttons/PrimaryButton";
 import { RiEdit2Line } from "react-icons/ri";
+import Badge from "../../../../components/ui/Table/Badge";
+import PrimaryButton from "../../../../components/ui/Buttons/PrimaryButton";
 
 interface UserDetailsProps {
   name: string;

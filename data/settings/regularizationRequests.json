@@ -1,0 +1,42 @@
+[
+  {
+    "date": "03 Jun",
+    "regularizationDurationStartTime": "05:00PM",
+    "regularizationDurationEndTime": "06:00PM",
+    "notes": "Early Logout because of health issue",
+    "requestedAt": "13 Jul 2025",
+    "status": "Pending"
+  },
+  {
+    "date": "10 Jun",
+    "regularizationDurationStartTime": "09:00AM",
+    "regularizationDurationEndTime": "09:30AM",
+    "notes": "Late login due to traffic",
+    "requestedAt": "12 Jul 2025",
+    "status": "Approved"
+  },
+  {
+    "date": "15 Jun",
+    "regularizationDurationStartTime": "02:00PM",
+    "regularizationDurationEndTime": "04:00PM",
+    "notes": "Personal emergency",
+    "requestedAt": "16 Jul 2025",
+    "status": "Rejected"
+  },
+  {
+    "date": "21 Jun",
+    "regularizationDurationStartTime": "11:00AM",
+    "regularizationDurationEndTime": "12:00PM",
+    "notes": "System outage while working from home",
+    "requestedAt": "22 Jul 2025",
+    "status": "Approved"
+  },
+  {
+    "date": "28 Jun",
+    "regularizationDurationStartTime": "04:30PM",
+    "regularizationDurationEndTime": "05:30PM",
+    "notes": "Had to step out for urgent work",
+    "requestedAt": "29 Jul 2025",
+    "status": "Pending"
+  }
+]

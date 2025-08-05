@@ -1,5 +1,5 @@
 import React from "react";
-import SummaryCard from "../../../components/ui/Card/SummaryCard";
+import SummaryCard from "../../../../components/ui/Card/SummaryCard";
 
 
 const AttendanceCardSection: React.FC = () => {

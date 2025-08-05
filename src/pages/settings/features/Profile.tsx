@@ -1,5 +1,5 @@
-import AttendanceTab from "./AttendanceTab";
-import UserDetails from "./UserDetails";
+import ProfileTabSection from "./profile/ProfileTabSection";
+import UserDetails from "./profile/UserDetails";
 
 const userData = {
     name: "Arjun Kannan",
@@ -30,7 +30,7 @@ const Profile = () => {
                 {...userData}
                 onEdit={handleEdit}
                 onApplyLeave={handleApplyLeave} />
-            <div className="mt-4"><AttendanceTab /></div>
+            <div className="mt-4"><ProfileTabSection /></div>
         </div>
     );
 };

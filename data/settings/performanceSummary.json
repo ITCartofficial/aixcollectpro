@@ -1,0 +1,82 @@
+[
+    {
+        "date": "11 June, 2025",
+        "keyActionTaken": "Approved 4 Leave Requests",
+        "taskType": "Attendance Mgmt",
+        "status": "Completed",
+        "teamInvolved": "Field Team",
+        "notes": "Reviewed late logins"
+    },
+    {
+        "date": "10 June, 2025",
+        "keyActionTaken": "Escalated Geo-Risk Case",
+        "taskType": "Risk Alert",
+        "status": "Resolved",
+        "teamInvolved": "Telecaller Team",
+        "notes": "Flagged high-risk zone"
+    },
+    {
+        "date": "09 June, 2025",
+        "keyActionTaken": "Reassigned Delayed Tasks",
+        "taskType": "Task Management",
+        "status": "Completed",
+        "teamInvolved": "All Team",
+        "notes": "Based on SLA breach prediction"
+    },
+    {
+        "date": "07 June, 2025",
+        "keyActionTaken": "Reviewed Agent Performance",
+        "taskType": "Weekly Review",
+        "status": "Completed",
+        "teamInvolved": "All Teams",
+        "notes": "Downloaded agent-wise report"
+    },
+    {
+        "date": "06 June, 2025",
+        "keyActionTaken": "AI Recommendation Approved",
+        "taskType": "Smart Allocation",
+        "status": "Auto-Assigned",
+        "teamInvolved": "Field Team",
+        "notes": "Used AI to balance workload"
+    },
+    {
+        "date": "06 June, 2025",
+        "keyActionTaken": "Flagged Fake Document",
+        "taskType": "KYC Review",
+        "status": "Escalated",
+        "teamInvolved": "Field Team",
+        "notes": "Forwarded to document team"
+    },
+    {
+        "date": "05 June, 2025",
+        "keyActionTaken": "Telecaller Conversion Audit",
+        "taskType": "Performance Review",
+        "status": "Completed",
+        "teamInvolved": "Telecaller Team",
+        "notes": "Analyzed PTP-to-Paid drops"
+    },
+    {
+        "date": "04 June, 2025",
+        "keyActionTaken": "Conducted Team Briefing",
+        "taskType": "Daily Sync",
+        "status": "Completed",
+        "teamInvolved": "Field Team",
+        "notes": "Field visit planning"
+    },
+    {
+        "date": "03 June, 2025",
+        "keyActionTaken": "Monitored Alert Dashboard",
+        "taskType": "AI Insights",
+        "status": "Monitored",
+        "teamInvolved": "Field Team",
+        "notes": "Follow-up on flagged tasks"
+    },
+    {
+        "date": "02 June, 2025",
+        "keyActionTaken": "Reviewed Attendance Logs",
+        "taskType": "Workforce Metrics",
+        "status": "Completed",
+        "teamInvolved": "All Team",
+        "notes": "Late check-in review"
+    }
+]

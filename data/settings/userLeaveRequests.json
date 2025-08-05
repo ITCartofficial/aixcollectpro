@@ -1,0 +1,82 @@
+[
+  {
+    "leaveStartDate": "18 Jul 2025",
+    "leaveEndDate": "20 Jul 2025",
+    "days": 3,
+    "leaveType": "Sick Leave",
+    "notes": "Fever and weakness",
+    "status": "Pending"
+  },
+  {
+    "leaveStartDate": "25 Jun 2025",
+    "leaveEndDate": "27 Jun 2025",
+    "days": 3,
+    "leaveType": "Casual Leave",
+    "notes": "Family wedding",
+    "status": "Approved"
+  },
+  {
+    "leaveStartDate": "10 May 2025",
+    "leaveEndDate": "11 May 2025",
+    "days": 2,
+    "leaveType": "Earned Leave",
+    "notes": "Travel plan",
+    "status": "Rejected"
+  },
+  {
+    "leaveStartDate": "05 Apr 2025",
+    "leaveEndDate": "05 Apr 2025",
+    "days": 1,
+    "leaveType": "Casual Leave",
+    "notes": "Bank visit",
+    "status": "Approved"
+  },
+  {
+    "leaveStartDate": "15 Mar 2025",
+    "leaveEndDate": "17 Mar 2025",
+    "days": 3,
+    "leaveType": "Sick Leave",
+    "notes": "Doctor advised rest",
+    "status": "Pending"
+  },
+  {
+    "leaveStartDate": "22 Jan 2025",
+    "leaveEndDate": "23 Jan 2025",
+    "days": 2,
+    "leaveType": "Casual Leave",
+    "notes": "House repair work",
+    "status": "Approved"
+  },
+  {
+    "leaveStartDate": "10 Dec 2024",
+    "leaveEndDate": "12 Dec 2024",
+    "days": 3,
+    "leaveType": "Earned Leave",
+    "notes": "Vacation trip",
+    "status": "Rejected"
+  },
+  {
+    "leaveStartDate": "28 Oct 2024",
+    "leaveEndDate": "28 Oct 2024",
+    "days": 1,
+    "leaveType": "Casual Leave",
+    "notes": "Festival celebration",
+    "status": "Approved"
+  },
+  {
+    "leaveStartDate": "02 Sep 2024",
+    "leaveEndDate": "03 Sep 2024",
+    "days": 2,
+    "leaveType": "Sick Leave",
+    "notes": "Food poisoning",
+    "status": "Pending"
+  },
+  {
+    "leaveStartDate": "15 Aug 2024",
+    "leaveEndDate": "15 Aug 2024",
+    "days": 1,
+    "leaveType": "Casual Leave",
+    "notes": "Personal reasons",
+    "status": "Approved"
+  }
+]

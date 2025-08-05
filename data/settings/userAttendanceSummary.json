@@ -1,0 +1,107 @@
+[
+  {
+    "date": "11 June, 2025",
+    "checkInTime": "09:10 AM",
+    "checkOutTime": "06:25 PM",
+    "totalHours": "8.2 hrs",
+    "lateLogin": true
+  },
+  {
+    "date": "10 June, 2025",
+    "checkInTime": "09:10 AM",
+    "checkOutTime": "06:25 PM",
+    "totalHours": "8.2 hrs",
+    "lateLogin": true
+  },
+  {
+    "date": "09 June, 2025",
+    "checkInTime": "09:10 AM",
+    "checkOutTime": "06:25 PM",
+    "totalHours": "8.2 hrs",
+    "lateLogin": true
+  },
+  {
+    "date": "08 June, 2025",
+    "checkInTime": "09:10 AM",
+    "checkOutTime": "06:25 PM",
+    "totalHours": "8.2 hrs",
+    "lateLogin": true
+  },
+  {
+    "date": "07 June, 2025",
+    "checkInTime": "09:10 AM",
+    "checkOutTime": "06:25 PM",
+    "totalHours": "8.2 hrs",
+    "lateLogin": true
+  },
+  {
+    "date": "06 June, 2025",
+    "checkInTime": "09:10 AM",
+    "checkOutTime": "06:25 PM",
+    "totalHours": "8.2 hrs",
+    "lateLogin": true
+  },
+  {
+    "date": "05 June, 2025",
+    "checkInTime": "09:10 AM",
+    "checkOutTime": "06:25 PM",
+    "totalHours": "8.2 hrs",
+    "lateLogin": true
+  },
+  {
+    "date": "04 June, 2025",
+    "checkInTime": "09:10 AM",
+    "checkOutTime": "06:25 PM",
+    "totalHours": "8.2 hrs",
+    "lateLogin": true
+  },
+  {
+    "date": "03 June, 2025",
+    "checkInTime": "09:10 AM",
+    "checkOutTime": "06:25 PM",
+    "totalHours": "8.2 hrs",
+    "lateLogin": true
+  },
+  {
+    "date": "02 June, 2025",
+    "checkInTime": "09:10 AM",
+    "checkOutTime": "06:25 PM",
+    "totalHours": "8.2 hrs",
+    "lateLogin": true
+  },
+  {
+    "date": "01 June, 2025",
+    "checkInTime": "09:12 AM",
+    "checkOutTime": "06:20 PM",
+    "totalHours": "8.1 hrs",
+    "lateLogin": true
+  },
+  {
+    "date": "31 May, 2025",
+    "checkInTime": "09:08 AM",
+    "checkOutTime": "06:30 PM",
+    "totalHours": "8.3 hrs",
+    "lateLogin": false
+  },
+  {
+    "date": "30 May, 2025",
+    "checkInTime": "09:15 AM",
+    "checkOutTime": "06:25 PM",
+    "totalHours": "8.2 hrs",
+    "lateLogin": true
+  },
+  {
+    "date": "29 May, 2025",
+    "checkInTime": "09:05 AM",
+    "checkOutTime": "06:22 PM",
+    "totalHours": "8.3 hrs",
+    "lateLogin": false
+  },
+  {
+    "date": "28 May, 2025",
+    "checkInTime": "09:11 AM",
+    "checkOutTime": "06:28 PM",
+    "totalHours": "8.2 hrs",
+    "lateLogin": true
+  }
+]

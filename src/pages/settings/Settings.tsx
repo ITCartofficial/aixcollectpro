@@ -3,6 +3,9 @@ import PrimaryButton from "../../components/ui/Buttons/PrimaryButton"
 import Profile from "./features/Profile";
 import Security from "./features/Security";
 import TabButtonSection, { type TabConfig } from "./features/TabButtonSection";
+import NotificationSettings from "./features/NotificationSettings";
+import LanguageSettings from "./features/LanguageSettings";
+import AiConfiguration from "./features/AiConfiguration";
 
 const Settings = () => {
   const [activeTab, setActiveTab] = useState<string>("profile");
@@ -14,27 +17,27 @@ const Settings = () => {
       width: "w-full sm:w-41"
     },
     {
-      id: "telecallingTask",
-      label: "Telecalling Task",
+      id: "security",
+      label: "Security",
       component: Security,
       width: "w-full sm:w-41"
     },
     {
       id: "language",
       label: "Language",
-      component: Security,
+      component: LanguageSettings,
       width: "w-full sm:w-41"
     },
     {
       id: "notification",
       label: "Notification",
-      component: Security,
+      component: NotificationSettings,
       width: "w-full sm:w-41"
     },
     {
       id: "aiConfiguration",
       label: "AI Configuration",
-      component: Security,
+      component: AiConfiguration,
       width: "w-full sm:w-41"
     },
     {

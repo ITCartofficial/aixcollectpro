@@ -1,27 +1,18 @@
 import React, { useState } from 'react';
-import AttendanceSummary from './AttendanceSummary';
-import LeaveRequest from './LeaveRequest';
-import PerformanceSummary from './PerformanceSummary';
-import Calendar from './Calendar';
-import TabNavigation from '../../../components/common/TabNavigation';
+import AttendanceSummary from './AttendanceSummaryTab';
+import LeaveRequest from './LeaveRequestTab';
+import PerformanceSummary from './PerformanceSummaryTab';
+import Calendar from './CalendarTab';
+import TabNavigation from '../../../../components/common/TabNavigation';
 
-// import AttendanceSummary from './tabs/AttendanceSummary';
-// import LeaveRequest from './tabs/LeaveRequest';
-// import PerformanceSummary from './tabs/PerformanceSummary';
-// import Calendar from './tabs/Calendar';
 
-// Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): 2025-07-30 12:20:39
-// Current User's Login: ITCartofficial
-
-// Define tab configuration type
 interface TabConfig {
     label: string;
     value: string;
     component: React.ComponentType;
 }
 
-const AttendanceTab: React.FC = () => {
-    // Tab configuration array - easy to modify
+const ProfileTabSection: React.FC = () => {
     const tabsConfig: TabConfig[] = [
         {
             label: 'Attendance Summary',
@@ -71,7 +62,7 @@ const AttendanceTab: React.FC = () => {
                 <TabNavigation
                     tabs={tabItems}
                     activeTab={activeTab}
-                    onTabChange={handleTabChange}/>
+                    onTabChange={handleTabChange} />
             </div>
 
             {/* Tab Content */}
@@ -82,4 +73,4 @@ const AttendanceTab: React.FC = () => {
     );
 };
 
-export default AttendanceTab;
+export default ProfileTabSection;

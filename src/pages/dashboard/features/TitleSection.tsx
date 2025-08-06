@@ -17,7 +17,7 @@ const TitleSection: React.FC<TitleSectionProps> = ({ onAssignTaskClick }) => {
                     </h1>
                     <p className="text-sm sm:text-base text-black leading-relaxed">
                         Here's a quick snapshot of collection performance and team activity.{" "}
-                        <span className="text-gray-600 text-xs sm:text-sm block sm:inline mt-1 sm:mt-0">
+                        <span className="text--600 text-xs sm:text-sm block sm:inline mt-1 sm:mt-0">
                             (Last Updated: 2hrs Ago)
                         </span>
                     </p>

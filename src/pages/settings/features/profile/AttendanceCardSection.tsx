@@ -2,6 +2,7 @@ import React from "react";
 import SummaryCard from "../../../../components/ui/Card/SummaryCard";
 
 
+
 const AttendanceCardSection: React.FC = () => {
   const summaryData = [
     { title: "Total Working Days", value: 22 },

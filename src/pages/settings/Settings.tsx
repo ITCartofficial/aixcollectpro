@@ -1,11 +1,11 @@
 import { useState } from "react";
 import PrimaryButton from "../../components/ui/Buttons/PrimaryButton"
-import Profile from "./features/Profile";
 import Security from "./features/Security";
 import TabButtonSection, { type TabConfig } from "./features/TabButtonSection";
 import NotificationSettings from "./features/NotificationSettings";
 import LanguageSettings from "./features/LanguageSettings";
 import AiConfiguration from "./features/AiConfiguration";
+import ProfileSettings from "./features/ProfileSettings";
 
 const Settings = () => {
   const [activeTab, setActiveTab] = useState<string>("profile");
@@ -13,7 +13,7 @@ const Settings = () => {
     {
       id: "profile",
       label: "Profile",
-      component: Profile,
+      component: ProfileSettings,
       width: "w-full sm:w-41"
     },
     {

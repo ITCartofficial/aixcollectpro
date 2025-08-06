@@ -42,7 +42,7 @@ const DateRangePickerInput: React.FC = () => {
         <span className="text-neutral-700 text-sm">
           {formatDate(range[0].startDate)} - {formatDate(range[0].endDate)}
         </span>
-        <FaRegCalendarAlt className="text-gray-600 ml-2" />
+        <FaRegCalendarAlt className="text-neutral-600 ml-2" />
       </div>
 
       {showPicker && (

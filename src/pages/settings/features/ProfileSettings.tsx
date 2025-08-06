@@ -30,7 +30,9 @@ const ProfileSettings = () => {
                 {...userData}
                 onEdit={handleEdit}
                 onApplyLeave={handleApplyLeave} />
-            <div className="mt-4"><ProfileTabSection /></div>
+            <div className="mt-4">
+                <ProfileTabSection />
+            </div>
         </div>
     );
 };

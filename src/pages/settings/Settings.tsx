@@ -5,6 +5,7 @@ import TabButtonSection, { type TabConfig } from "./features/TabButtonSection";
 import NotificationSettings from "./features/NotificationSettings";
 import LanguageSettings from "./features/LanguageSettings";
 import AiConfiguration from "./features/AiConfiguration";
+import ExportBackup from "./features/ExportBackup";
 import ProfileSettings from "./features/ProfileSettings";
 
 const Settings = () => {
@@ -43,7 +44,7 @@ const Settings = () => {
     {
       id: "exportBackup",
       label: "Export & Backup",
-      component: Security,
+      component: ExportBackup,
       width: "w-full sm:w-41"
     },
   ];

@@ -13,7 +13,7 @@ const TitleSection: React.FC<TitleSectionProps> = ({ onAssignTaskClick }) => {
             <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 lg:gap-6 mr-3">
                 <div className="flex-1">
                     <h1 className="text-xl lg:text-2xl font-bold text-black mb-2">
-                        Welcome back, Arjun!
+                        Welcome back, Arjunn!
                     </h1>
                     <p className="text-sm sm:text-base text-black leading-relaxed">
                         Here's a quick snapshot of collection performance and team activity.{" "}

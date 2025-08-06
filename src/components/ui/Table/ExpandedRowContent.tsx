@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 
@@ -59,6 +60,7 @@ function ExpandedRowContent<T>({
     const taskDetails = getTaskDetails(row);
     const loanInformation = getLoanInformation(row);
     const recentActivity = getRecentActivity(row);
+    const navigate = useNavigate();
 
     return (
         <div className="bg-white rounded-lg">
@@ -136,14 +138,17 @@ function ExpandedRowContent<T>({
                                         </div>
                                         <p className="text-sm text-gray-600 mt-1">{activity.description}</p>
                                         <div className="flex justify-end items-center mt-3 gap-2">
-                                            <button className="flex items-center gap-[6px] bg-blue-600 text-white py-[5px] px-4 rounded-full text-sm hover:bg-blue-700 transition-colors cursor-pointer">
+                                            <button className="flex items-center gap-[6px] bg-blue-600 text-white py-[5px] px-4 rounded-full text-sm hover:bg-blue-700 transition-colors cursor-pointer"
+                                                onClick={() => {
+                                                    if (row && (row as any).taskId) {
+                                                        navigate(`/task-details/${(row as any).taskId}`);
+                                                    }
+                                                }}>
                                                 <FaEye className="w-4 h-4" />
                                                 <span>View</span>
                                             </button>
-                                            <button
-                                                onClick={(e) => onMenuClick(row, e)}
-                                                className="p-1 hover:bg-gray-100 rounded transition-colors duration-150"
-                                            >
+                                            <button onClick={(e) => onMenuClick(row, e)}
+                                                className="p-1 hover:bg-gray-100 rounded transition-colors duration-150">
                                                 <HiOutlineDotsVertical className="w-6 h-6 cursor-pointer text-gray-500" />
                                             </button>
                                         </div>
@@ -161,3 +166,34 @@ function ExpandedRowContent<T>({
 }
 
 export default ExpandedRowContent;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

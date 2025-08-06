@@ -7,6 +7,7 @@ import Dropdown from "../../../components/common/Dropdown"; // Assuming this pat
 import SearchBar from "../../../components/common/Searchbar";
 import DataTable from "../../../components/ui/Table/DataTable";
 import telecallersTableData from "../../../../data/team-management/telecallersData.json"
+import { useNavigate } from "react-router-dom";
 
 interface Telecallers {
     id: string;
@@ -32,6 +33,7 @@ const TelecallersTable: React.FC = () => {
     const [selectedStatus, setSelectedStatus] = useState<string>('');
     const [selectedLastSynced, setSelectedLastSynced] = useState<string>('');
     const [selectedRows, setSelectedRows] = useState<Telecallers[]>([]);
+    const navigate =useNavigate()
 
 
     // Generates unique language options from the comma-separated language strings
@@ -158,8 +160,7 @@ const TelecallersTable: React.FC = () => {
     };
 
     const handleViewAgent = (agent: Telecallers) => {
-        console.log('Viewing agent:', agent);
-        // Implement navigation or modal to view agent details
+        navigate(`/team-management/telecaller-profile/${agent.id}`);
     };
 
     // Table columns configuration

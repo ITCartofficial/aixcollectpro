@@ -15,7 +15,7 @@ const userData = {
     avatar: "",
 };
 
-const Profile = () => {
+const ProfileSettings = () => {
     const handleEdit = () => {
         console.log(`Edit profile clicked by ITCartofficial at 2025-07-30 10:26:13`);
     };
@@ -30,12 +30,14 @@ const Profile = () => {
                 {...userData}
                 onEdit={handleEdit}
                 onApplyLeave={handleApplyLeave} />
-            <div className="mt-4"><ProfileTabSection /></div>
+            <div className="mt-4">
+                <ProfileTabSection />
+            </div>
         </div>
     );
 };
 
-export default Profile;
+export default ProfileSettings;
 
 
 

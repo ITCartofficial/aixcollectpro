@@ -27,7 +27,7 @@ const NotificationSettings: React.FC = () => {
  
   return (
     <div className="max-w-full mx-auto mr-3 bg-white rounded-lg shadow px-8 py-7">
-      <h2 className="text-xl font-semibold mb-1">Notification Setting</h2>
+      <h2 className="text-xl font-semibold mb-1">Notification Settings</h2>
       <div className="text-gray-600 mb-6 text-sm">
         Set alert preferences across platform activities
       </div>

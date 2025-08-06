@@ -644,15 +644,13 @@ const DocumentVerificationTaskTable: React.FC = () => {
                     onClick={(e) => {
                         e.stopPropagation();
                         handleViewTask(row);
-                    }}
-                >
+                    }}>
                     <FaEye className="w-4 h-4" />
                     <span>View</span>
                 </button>
             )
         }
     ];
-
 
 
     return (
@@ -668,24 +666,21 @@ const DocumentVerificationTaskTable: React.FC = () => {
                         onChange={handleDocTypeChange}
                         placeholder="Select Doc Type"
                         className="min-w-48"
-                        multiSelect={true}
-                    />
+                        multiSelect={true}/>
 
                     <Dropdown
                         options={statusOptions}
                         value={selectedStatus}
                         onChange={handleStatusChange}
                         placeholder="Select Status"
-                        className="min-w-48"
-                    />
+                        className="min-w-48"/>
 
                     <Dropdown
                         options={lastUpdatedOptions}
                         value={selectedLastUpdated}
                         onChange={handleLastUpdatedChange}
                         placeholder="Select Time"
-                        className="min-w-48"
-                    />
+                        className="min-w-48"/>
 
                     <div className="ml-auto">
                         <SearchBar
@@ -706,8 +701,7 @@ const DocumentVerificationTaskTable: React.FC = () => {
                         </span>
                         <button
                             onClick={() => setSelectedRows([])}
-                            className="text-sm text-blue-700 hover:text-blue-900 cursor-pointer"
-                        >
+                            className="text-sm text-blue-700 hover:text-blue-900 cursor-pointer">
                             Clear selection
                         </button>
                     </div>

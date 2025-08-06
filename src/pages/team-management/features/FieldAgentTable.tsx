@@ -7,6 +7,8 @@ import Dropdown from "../../../components/common/Dropdown"; // Assuming this is 
 import SearchBar from "../../../components/common/Searchbar";
 import DataTable from "../../../components/ui/Table/DataTable";
 import fieldAgentTableData from "../../../../data/team-management/fieldAgentData.json"
+import { useNavigate } from "react-router-dom";
+
 
 interface FieldAgent {
     id: string;
@@ -31,6 +33,7 @@ const FieldAgentsTable: React.FC = () => {
     const [selectedLastSynced, setSelectedLastSynced] = useState<string>('');
     const [selectedRows, setSelectedRows] = useState<FieldAgent[]>([]);
     const [searchQuery, setSearchQuery] = useState<string>(''); // Add search query state
+    const navigate = useNavigate();
 
     // Filter options (computed based on loaded data)
     const locationOptions = [
@@ -129,7 +132,7 @@ const FieldAgentsTable: React.FC = () => {
     };
 
     const handleViewAgent = (agent: FieldAgent) => {
-        console.log('Viewing agent:', agent);
+        navigate(`/team-management/agent-profile/${agent.id}`);
     };
 
     // Table columns configuration

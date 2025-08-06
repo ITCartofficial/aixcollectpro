@@ -1,0 +1,109 @@
+import React, { useState } from "react";
+import Dropdown from "../../../components/common/Dropdown";
+import DateRangePickerInput from "../../../components/ui/Input/DateRangePickerInput";
+
+interface ExportBackupState {
+    frequency: string;
+    format: string;
+    types: string[];
+}
+
+const exportFrequencyOptions = [
+    { label: "Daily", value: "daily" },
+    { label: "Weekly", value: "weekly" },
+    { label: "Monthly", value: "monthly" },
+];
+
+const exportFormatOptions = [
+    { label: "Excel", value: "excel" },
+    { label: "CSV", value: "csv" },
+];
+
+const autoExportOptions = [
+    { label: "Task Report", value: "task" },
+    { label: "Collection Report", value: "collection" },
+    { label: "Attendance Report", value: "attendance" },
+];
+
+const initialState: ExportBackupState = {
+    frequency: "daily",
+    format: "excel",
+    types: ["collection"],
+};
+
+const ExportBackup: React.FC = () => {
+    const [state, setState] = useState<ExportBackupState>(initialState);
+
+    // Single select handler
+    const handleSingleChange = (
+        key: keyof Omit<ExportBackupState, "types">
+    ) => (value: string | string[]) => {
+        setState((prev) => ({
+            ...prev,
+            [key]: Array.isArray(value) ? value[0] || "" : value,
+        }));
+    };
+
+    // Multi select handler
+    const handleTypesChange = (value: string | string[]) => {
+        setState((prev) => ({
+            ...prev,
+            types: Array.isArray(value) ? value : value ? [value] : [],
+        }));
+    };
+
+    return (
+        <div className="max-w-full mx-auto mr-3 bg-white rounded-lg shadow px-8 py-7">
+            <h2 className="text-xl font-semibold mb-1">Export & Backup Settings</h2>
+            <div className="text-gray-600 mb-6 text-sm">
+                Manage automatic export and report backup delivery
+            </div>
+
+            <div className="flex items-center justify-between py-4 border-b border-gray-200">
+                <span className="font-medium">Auto Export Frequency</span>
+                <div className="w-48">
+                    <Dropdown
+                        options={exportFrequencyOptions}
+                        value={state.frequency}
+                        onChange={handleSingleChange("frequency")}
+                        placeholder="Select" />
+                </div>
+            </div>
+
+            <div className="flex items-center justify-between py-4 border-b border-gray-200">
+                <span className="font-medium">Preferred Export Format</span>
+                <div className="w-48">
+                    <Dropdown
+                        options={exportFormatOptions}
+                        value={state.format}
+                        onChange={handleSingleChange("format")}
+                        placeholder="Select Format" />
+                </div>
+            </div>
+
+            <div className="flex items-center justify-between py-4 border-b border-gray-200">
+                <span className="font-medium">Reports to Auto-Export</span>
+                <div className="w-48">
+                    <Dropdown
+                        options={autoExportOptions}
+                        value={state.types}
+                        onChange={handleTypesChange}
+                        placeholder="Multi Select"
+                        multiSelect={true} />
+                </div>
+            </div>
+
+            <div className="flex items-center justify-between py-4 border-b border-gray-200">
+                <span className="font-medium">Backup Email Recipients</span>
+                <button className="text-primary-700 text-sm font-normal cursor-pointer">+ Add Backup Mail</button>
+            </div>
+
+            <div className="flex items-center justify-between py-4">
+                <span className="font-medium">Schedule Export Time</span>
+                <DateRangePickerInput />
+            </div>
+        </div>
+    );
+};
+
+export default ExportBackup;

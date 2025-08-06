@@ -123,13 +123,11 @@
 
 
 
-
-
-
 import UserProfileDropdown from "./UserProfileDropdown";
 import SearchBar from "../../common/Searchbar";
 import NotificationDropdown from "./NotificationDropdown";
 import type { Notification } from "./NotificationDropdown";
+import { useNavigate } from "react-router-dom";
 
 interface User {
   name: string;
@@ -145,7 +143,6 @@ interface HeaderProps {
   onMarkAsRead?: (notificationId: string) => void;
   onMarkAllAsRead?: () => void;
   onClearAllNotifications?: () => void;
-  onProfileClick?: () => void;
   onSettingsClick?: () => void;
   onLogoutClick?: () => void;
 }
@@ -211,10 +208,11 @@ const Header: React.FC<HeaderProps> = ({
   onMarkAsRead,
   onMarkAllAsRead,
   onClearAllNotifications,
-  onProfileClick,
   onSettingsClick,
   onLogoutClick
 }) => {
+  const navigate = useNavigate(); // <-- Use navigate
+
   // Handler functions with default implementations
   const handleSearch = (query: string): void => {
     if (onSearch) {
@@ -256,12 +254,9 @@ const Header: React.FC<HeaderProps> = ({
     }
   };
 
+  // Always navigate to /profile on profile click
   const handleProfileClick = (): void => {
-    if (onProfileClick) {
-      onProfileClick();
-    } else {
-      console.log('Profile clicked');
-    }
+    navigate('/profile');
   };
 
   const handleSettingsClick = (): void => {
@@ -306,7 +301,7 @@ const Header: React.FC<HeaderProps> = ({
           {/* User Profile Dropdown */}
           <UserProfileDropdown
             user={user}
-            onProfileClick={handleProfileClick}
+            onProfileClick={handleProfileClick} 
             onSettingsClick={handleSettingsClick}
             onLogoutClick={handleLogoutClick}
           />

@@ -12,6 +12,10 @@ import AttendanceLeave from '../pages/attendance-and-leave/AttendanceLeave';
 import AiInsights from '../pages/ai-insights/AiInsights';
 import Reports from '../pages/reports/Reports';
 import AlertsEscalations from '../pages/alerts-and-escalations/AlertsEscalations';
+import TaskDetails from '../pages/task-management/task-details/[id]';
+import Profile from '../pages/profile/Profile';
+import AgentProfile from '../pages/team-management/agent-profile/[id]';
+import TelecallerProfile from '../pages/team-management/telecaller-profile/[id]';
 // import About from '../pages/about/About';
 
 export const ProtectedRoutes: React.FC = () => {
@@ -20,8 +24,15 @@ export const ProtectedRoutes: React.FC = () => {
             {/* Routes WITH sidebar */}
             <Route path="/" element={<DashboardLayout />}>
                 <Route index element={<Dashboard />} />
+                <Route path="profile" element={<Profile />} />
+
                 <Route path="team-management" element={<TeamManagement />} />
+                <Route path="team-management/agent-profile/:id" element={<AgentProfile />} />
+                <Route path="team-management/telecaller-profile/:id" element={<TelecallerProfile />} />
+
                 <Route path="task-management" element={<TaskManagement />} />
+                <Route path="task-details/:id" element={<TaskDetails />} />
+
                 <Route path="collection-metrics" element={<CollectionMetrics />} />
                 <Route path="documents" element={<Documents />} />
                 <Route path="alerts-and-escalations" element={<AlertsEscalations />} />

@@ -1,7 +1,7 @@
+
 import { useMemo, useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { FiChevronLeft, FiChevronRight, FiChevronsLeft, FiChevronsRight } from "react-icons/fi";
-
 
 // Type definitions
 export interface TableColumn<T> {
@@ -10,6 +10,7 @@ export interface TableColumn<T> {
   sortable?: boolean;
   width?: string;
   className?: string;
+  headerAlign?: 'left' | 'center' | 'right'; // NEW: header alignment
   render?: (value: any, row: T, rowIndex: number) => React.ReactNode;
 }
 
@@ -31,6 +32,18 @@ export interface TableProps<T extends Record<string, any>> {
   // Add a unique key extractor for proper row identification
   getRowId?: (row: T) => string | number;
 }
+
+// Helper for table header alignment
+const getHeaderAlignClass = (align?: 'left' | 'center' | 'right') => {
+  switch (align) {
+    case 'center':
+      return 'text-center';
+    case 'right':
+      return 'text-right';
+    default:
+      return 'text-left';
+  }
+};
 
 // Reusable Table Component
 const DataTable = <T extends Record<string, any>>({
@@ -191,6 +204,9 @@ const DataTable = <T extends Record<string, any>>({
     );
   }
 
+  // Always show pagination if pagination is enabled and data is not empty
+  const showPagination = pagination && sortedData.length > 0;
+
   return (
     <div className={`bg-white rounded-lg ${className}`}>
       <div className="overflow-x-auto">
@@ -213,12 +229,17 @@ const DataTable = <T extends Record<string, any>>({
               {columns.map((column: TableColumn<T>, index: number) => (
                 <th
                   key={index}
-                  className={`px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider ${column.sortable && sortable ? 'cursor-pointer hover:bg-gray-100' : ''
-                    } ${column.className || ''}`}
+                  className={`
+                    px-3 py-3
+                    text-xs font-medium text-gray-500 uppercase tracking-wider
+                    ${column.sortable && sortable ? 'cursor-pointer hover:bg-gray-100' : ''}
+                    ${getHeaderAlignClass(column.headerAlign)}
+                    ${column.className || ''}
+                  `}
                   style={{ width: column.width }}
                   onClick={() => column.sortable && handleSort(column.key as string)}
                 >
-                  <div className="flex items-center justify-center space-x-1">
+                  <div className={`flex items-center ${column.headerAlign === 'center' ? 'justify-center' : column.headerAlign === 'right' ? 'justify-end' : 'justify-start'} space-x-1`}>
                     <span>{column.label}</span>
                     {column.sortable && sortable && getSortIcon(column.key as string)}
                   </div>
@@ -277,7 +298,7 @@ const DataTable = <T extends Record<string, any>>({
       </div>
 
       {/* New Pagination UI */}
-      {pagination && totalPages > 1 && (
+      {showPagination && (
         <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200">
           {/* Left side - Items count */}
           <div className="flex items-center space-x-2">

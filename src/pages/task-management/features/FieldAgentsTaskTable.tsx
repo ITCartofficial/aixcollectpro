@@ -76,9 +76,9 @@ const FieldAgentTaskTable: React.FC = () => {
 
     const fieldTask: FieldAgentsTask[] = Array.isArray(fieldAgentTaskData)
         ? (fieldAgentTaskData as any[]).map((task: any) => ({
-              ...task,
-              id: task.taskId || task.id,
-          }))
+            ...task,
+            id: task.taskId || task.id,
+        }))
         : [];
 
     const [filters, setFilters] = useState<FilterState>({
@@ -336,24 +336,29 @@ const FieldAgentTaskTable: React.FC = () => {
                 key: "location",
                 label: "Location",
                 sortable: true,
+                className: 'text-left',
                 render: (value: string) => <span className="text-sm font-normal">{value}</span>,
             },
             {
                 key: "taskType",
                 label: "Task Type",
                 sortable: true,
+                headerAlign: 'center',
+                className: 'text-center',
                 render: (value: string) => <span className="text-sm font-normal">{value}</span>,
             },
             {
                 key: "status",
                 label: "Status",
                 sortable: true,
+                headerAlign: 'center',
+                className: 'text-center',
                 render: (value: string) => <Badge variant={getStatusVariant(value)}>{value}</Badge>,
             },
             {
                 key: "collectionStatus",
                 label: "Collection Status",
-                align: "center",
+                className:'text-center',
                 sortable: true,
                 render: (value: string) => <Badge variant={getCollectionStatusVariant(value)}>{value}</Badge>,
             },

@@ -29,18 +29,20 @@ const columns: TableColumn<PerformanceSummaryData>[] = [
     {
         key: "taskType",
         label: "Task Type",
-        className: "text-center font-medium",
+        className: "font-medium",
         render: (value) => <span className="font-medium">{value}</span>
     },
     {
         key: "status",
         label: "Status",
+        headerAlign:'center',
         className: "text-center font-medium",
         render: (value) => <span className="font-medium">{value}</span>
     },
     {
         key: "teamInvolved",
         label: "Team Involved",
+        headerAlign:'center',
         className: "text-center font-medium",
         render: (value) => <span className="font-medium">{value}</span>
     },

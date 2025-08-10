@@ -315,6 +315,7 @@ const AlertsTable: React.FC = () => {
             label: 'Risk Level',
             sortable: false,
             width: '120px',
+            headerAlign: 'center',
             className: 'text-center',
             render: (value) => {
                 const getVariant = (status: string) => {
@@ -356,6 +357,7 @@ const AlertsTable: React.FC = () => {
             label: 'Timestamp',
             sortable: true,
             width: '160px',
+            headerAlign:'center',
             className: 'text-center',
             render: (value) => <span className="font-medium">{value}</span>
         },
@@ -364,6 +366,7 @@ const AlertsTable: React.FC = () => {
             label: 'Status',
             sortable: false,
             width: '120px',
+            headerAlign:'center',
             className: 'text-center',
             render: (value) => {
                 const getVariant = (status: string) => {

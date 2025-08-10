@@ -138,6 +138,7 @@ const FieldAgentCollectionTable: React.FC = () => {
       label: "Paid",
       sortable: true,
       width: "80px",
+      headerAlign: 'center',
       className: "text-center",
       render: v => <span className="font-medium">{v}</span>
     },
@@ -146,6 +147,7 @@ const FieldAgentCollectionTable: React.FC = () => {
       label: "Collection",
       sortable: true,
       width: "90px",
+      headerAlign: 'center',
       className: "text-center",
       render: v => <span className="font-medium">₹{v.toLocaleString("en-IN")}</span>
     },
@@ -154,6 +156,7 @@ const FieldAgentCollectionTable: React.FC = () => {
       label: "Avg. Value",
       sortable: true,
       width: "120px",
+      headerAlign: 'center',
       className: "text-center",
       render: v => <span className="font-medium">₹{v.toLocaleString("en-IN")}</span>
     },
@@ -170,7 +173,7 @@ const FieldAgentCollectionTable: React.FC = () => {
       label: "Location",
       sortable: true,
       width: "140px",
-      className: "text-center",
+      className: "text-left",
       render: v => <span className="font-medium">{v}</span>
     },
     {
@@ -178,6 +181,7 @@ const FieldAgentCollectionTable: React.FC = () => {
       label: "Last Visit",
       sortable: true,
       width: "100px",
+      headerAlign: 'center',
       className: "text-center",
       render: v => <span className="font-medium">{v}</span>
     },

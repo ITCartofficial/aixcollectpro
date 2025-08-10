@@ -31,6 +31,7 @@ const columns: TableColumn<RegularizationRequests>[] = [
         key: "date",
         label: "Date & Time to Regularize",
         width: "250px",
+        headerAlign:'center',
         className: "text-center font-medium",
         render: (_value: string, row: RegularizationRequests) => (
             <div className="text-sm font-medium">
@@ -41,7 +42,7 @@ const columns: TableColumn<RegularizationRequests>[] = [
     {
         key: "notes",
         label: "Notes",
-        className: "text-center font-medium",
+        className: "font-medium",
         render: (value: string) => (
             <div className="text-sm text-gray-700">{value}</div>
         )
@@ -49,7 +50,6 @@ const columns: TableColumn<RegularizationRequests>[] = [
     {
         key: "requestedAt",
         label: "Requested At",
-        width: "200px",
         className: "text-left font-medium",
         render: (value: string) => (
             <div className="text-sm text-gray-700">{value}</div>
@@ -59,6 +59,7 @@ const columns: TableColumn<RegularizationRequests>[] = [
         key: "status",
         label: "Status",
         width: "300px",
+        headerAlign:'center',
         className: "text-center font-medium",
         render: (value: string) => <Badge variant={getStatusVariant(value)}>{value}</Badge>,
     },

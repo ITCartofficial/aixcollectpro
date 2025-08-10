@@ -182,6 +182,7 @@ const TelecallersTable: React.FC = () => {
             label: 'Calls Made',
             sortable: true,
             width: '120px',
+            headerAlign: 'center',
             className: 'text-center',
             render: (value) => <span className="font-medium">{value}</span>
         },
@@ -190,6 +191,7 @@ const TelecallersTable: React.FC = () => {
             label: 'Paid Cases',
             sortable: true,
             width: '120px',
+            headerAlign: 'center',
             className: 'text-center',
             render: (value) => <span className="font-medium">{value}</span>
         },
@@ -198,6 +200,7 @@ const TelecallersTable: React.FC = () => {
             label: 'Amount Collected',
             sortable: true,
             width: '160px',
+            headerAlign: 'center',
             className: 'text-center',
             render: (value) => <span className="font-medium">₹{value.toLocaleString()}</span>
         },
@@ -214,6 +217,7 @@ const TelecallersTable: React.FC = () => {
             label: 'Status',
             sortable: true,
             width: '120px',
+            headerAlign: 'center',
             className: 'text-center',
             render: (value) => {
                 const variant = value === 'Active' ? 'success' : value === 'In Active' ? 'danger' : 'info';
@@ -225,6 +229,7 @@ const TelecallersTable: React.FC = () => {
             label: 'Last Synced',
             sortable: true,
             width: '120px',
+            headerAlign: 'center',
             className: 'text-center',
             render: (value) => <span className="text-gray-600">{value}</span>
         },

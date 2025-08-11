@@ -11,6 +11,7 @@
     "lastUpdated": "10:21 AM",
     "avatar": "https://ui-avatars.com/api/?name=Anil+Kumar&background=ff6b6b&color=fff",
     "agentAvatar": "https://ui-avatars.com/api/?name=Rakesh+Kumar&background=4ecdc4&color=fff",
+    "actionTakes": "₹5,340 collected via UPI",
     "expandedDetails": {
       "taskDetails": {
         "recommendedTime": "Today, 11:30 AM - 12:30 PM",
@@ -49,6 +50,7 @@
     "lastUpdated": "09:55 AM",
     "avatar": "https://ui-avatars.com/api/?name=Leela+Sharma&background=45b7d1&color=fff",
     "agentAvatar": "https://ui-avatars.com/api/?name=Vinod+Rao&background=f39c12&color=fff",
+    "actionTakes": "KYC verification completed successfully",
     "expandedDetails": {
       "taskDetails": {
         "recommendedTime": "Today, 10:00 AM - 11:00 AM",
@@ -87,6 +89,7 @@
     "lastUpdated": "Yesterday",
     "avatar": "https://ui-avatars.com/api/?name=Raj+Malhotra&background=e74c3c&color=fff",
     "agentAvatar": "https://ui-avatars.com/api/?name=Ajay+Singh&background=9b59b6&color=fff",
+    "actionTakes": "Visit attempted — customer unavailable",
     "expandedDetails": {
       "taskDetails": {
         "recommendedTime": "Tomorrow, 02:00 PM - 03:00 PM",
@@ -125,6 +128,7 @@
     "lastUpdated": "10:22 AM",
     "avatar": "https://ui-avatars.com/api/?name=Jyoti+Shetty&background=8e44ad&color=fff",
     "agentAvatar": "https://ui-avatars.com/api/?name=Manoj+Pillai&background=27ae60&color=fff",
+    "actionTakes": "Marked as Promise to Pay by tomorrow",
     "expandedDetails": {
       "taskDetails": {
         "recommendedTime": "Today, 01:00 PM - 02:00 PM",
@@ -147,234 +151,6 @@
           "date": "Jun 10, 2025",
           "description": "Customer promised to pay ₹8,750 by tomorrow.",
           "status": "info"
-        }
-      ]
-    }
-  },
-  {
-    "taskId": "TASK-24505",
-    "borrowerName": "Sameer Reddy",
-    "location": "Rajajinagar",
-    "taskType": "Collection",
-    "status": "Pending",
-    "collectionStatus": "TNC",
-    "dueDate": "11 June, 2025",
-    "agent": "Rakesh Kumar",
-    "lastUpdated": "10:02 AM",
-    "avatar": "https://ui-avatars.com/api/?name=Sameer+Reddy&background=3498db&color=fff",
-    "agentAvatar": "https://ui-avatars.com/api/?name=Rakesh+Kumar&background=4ecdc4&color=fff",
-    "expandedDetails": {
-      "taskDetails": {
-        "recommendedTime": "Tomorrow, 11:00 AM - 12:00 PM",
-        "notes": "Customer not contactable.",
-        "amount": "₹15,200"
-      },
-      "loanInformation": {
-        "loanCategory": "Personal Loan",
-        "loanAmount": "₹4,00,000",
-        "loanNumber": "LN-84739016",
-        "bankName": "HDFC Bank",
-        "netAmount": "₹15,200",
-        "dueDate": "11 May 2025",
-        "pos": "₹3,84,800",
-        "tos": "₹4,00,000"
-      },
-      "recentActivity": [
-        {
-          "type": "Contact Attempted",
-          "date": "Jun 10, 2025",
-          "description": "Multiple attempts to contact customer failed.",
-          "status": "warning"
-        }
-      ]
-    }
-  },
-  {
-    "taskId": "TASK-24506",
-    "borrowerName": "Neha Verma",
-    "location": "Jayanagar",
-    "taskType": "Collection",
-    "status": "Completed",
-    "collectionStatus": "Paid",
-    "dueDate": "09 June, 2025",
-    "agent": "Ajay Singh",
-    "lastUpdated": "08:45 AM",
-    "avatar": "https://ui-avatars.com/api/?name=Neha+Verma&background=e67e22&color=fff",
-    "agentAvatar": "https://ui-avatars.com/api/?name=Ajay+Singh&background=9b59b6&color=fff",
-    "expandedDetails": {
-      "taskDetails": {
-        "recommendedTime": "Today, 09:00 AM - 10:00 AM",
-        "notes": "Payment collected successfully.",
-        "amount": "₹6,890"
-      },
-      "loanInformation": {
-        "loanCategory": "Personal Loan",
-        "loanAmount": "₹1,80,000",
-        "loanNumber": "LN-84739017",
-        "bankName": "ICICI Bank",
-        "netAmount": "₹6,890",
-        "dueDate": "09 May 2025",
-        "pos": "₹1,73,110",
-        "tos": "₹1,80,000"
-      },
-      "recentActivity": [
-        {
-          "type": "Payment Collected",
-          "date": "Jun 09, 2025",
-          "description": "₹6,890 collected and status updated to Paid by Agent Ajay Singh.",
-          "status": "success"
-        }
-      ]
-    }
-  },
-  {
-    "taskId": "TASK-24507",
-    "borrowerName": "Arvind Menon",
-    "location": "Banashankari",
-    "taskType": "Collection",
-    "status": "Flagged",
-    "collectionStatus": "FI",
-    "dueDate": "10 June, 2025",
-    "agent": "Rakesh Kumar",
-    "lastUpdated": "09:33 AM",
-    "avatar": "https://ui-avatars.com/api/?name=Arvind+Menon&background=2ecc71&color=fff",
-    "agentAvatar": "https://ui-avatars.com/api/?name=Rakesh+Kumar&background=4ecdc4&color=fff",
-    "expandedDetails": {
-      "taskDetails": {
-        "recommendedTime": "Tomorrow, 03:00 PM - 04:00 PM",
-        "notes": "Field investigation required.",
-        "amount": "₹22,100"
-      },
-      "loanInformation": {
-        "loanCategory": "Personal Loan",
-        "loanAmount": "₹5,00,000",
-        "loanNumber": "LN-84739018",
-        "bankName": "SBI Bank",
-        "netAmount": "₹22,100",
-        "dueDate": "10 May 2025",
-        "pos": "₹4,77,900",
-        "tos": "₹5,00,000"
-      },
-      "recentActivity": [
-        {
-          "type": "Field Investigation",
-          "date": "Jun 10, 2025",
-          "description": "Field investigation initiated due to customer unavailability.",
-          "status": "warning"
-        }
-      ]
-    }
-  },
-  {
-    "taskId": "TASK-24508",
-    "borrowerName": "Suman Joshi",
-    "location": "Hebbal",
-    "taskType": "KYC",
-    "status": "Pending",
-    "collectionStatus": "TNC",
-    "dueDate": "11 June, 2025",
-    "agent": "Vinod Rao",
-    "lastUpdated": "10:27 AM",
-    "avatar": "https://ui-avatars.com/api/?name=Suman+Joshi&background=f39c12&color=fff",
-    "agentAvatar": "https://ui-avatars.com/api/?name=Vinod+Rao&background=f39c12&color=fff",
-    "expandedDetails": {
-      "taskDetails": {
-        "recommendedTime": "Tomorrow, 04:00 PM - 05:00 PM",
-        "notes": "KYC documents pending verification.",
-        "amount": "₹0"
-      },
-      "loanInformation": {
-        "loanCategory": "Personal Loan",
-        "loanAmount": "₹1,20,000",
-        "loanNumber": "LN-84739019",
-        "bankName": "Axis Bank",
-        "netAmount": "₹0",
-        "dueDate": "11 May 2025",
-        "pos": "₹1,20,000",
-        "tos": "₹1,20,000"
-      },
-      "recentActivity": [
-        {
-          "type": "KYC Pending",
-          "date": "Jun 11, 2025",
-          "description": "KYC documents submitted, verification in progress.",
-          "status": "info"
-        }
-      ]
-    }
-  },
-  {
-    "taskId": "TASK-24509",
-    "borrowerName": "Deepak Naik",
-    "location": "MG Road",
-    "taskType": "Collection",
-    "status": "Completed",
-    "collectionStatus": "PTPD",
-    "dueDate": "09 June, 2025",
-    "agent": "Manoj Pillai",
-    "lastUpdated": "Yesterday",
-    "avatar": "https://ui-avatars.com/api/?name=Deepak+Naik&background=16a085&color=fff",
-    "agentAvatar": "https://ui-avatars.com/api/?name=Manoj+Pillai&background=27ae60&color=fff",
-    "expandedDetails": {
-      "taskDetails": {
-        "recommendedTime": "Today, 12:00 PM - 01:00 PM",
-        "notes": "Customer agreed to pay by weekend.",
-        "amount": "₹9,450"
-      },
-      "loanInformation": {
-        "loanCategory": "Personal Loan",
-        "loanAmount": "₹2,75,000",
-        "loanNumber": "LN-84739020",
-        "bankName": "HDFC Bank",
-        "netAmount": "₹9,450",
-        "dueDate": "09 May 2025",
-        "pos": "₹2,65,550",
-        "tos": "₹2,75,000"
-      },
-      "recentActivity": [
-        {
-          "type": "Payment Promised",
-          "date": "Jun 09, 2025",
-          "description": "Customer promised to pay ₹9,450 by weekend.",
-          "status": "info"
-        }
-      ]
-    }
-  },
-  {
-    "taskId": "TASK-24510",
-    "borrowerName": "Ritu Sharma",
-    "location": "HSR Layout",
-    "taskType": "Collection",
-    "status": "Pending",
-    "collectionStatus": "No Update",
-    "dueDate": "08 June, 2025",
-    "agent": "Unassigned",
-    "lastUpdated": "Yesterday",
-    "avatar": "https://ui-avatars.com/api/?name=Ritu+Sharma&background=c0392b&color=fff",
-    "agentAvatar": "",
-    "expandedDetails": {
-      "taskDetails": {
-        "recommendedTime": "Assign Agent Required",
-        "notes": "Task needs to be assigned to an agent.",
-        "amount": "₹18,750"
-      },
-      "loanInformation": {
-        "loanCategory": "Personal Loan",
-        "loanAmount": "₹3,50,000",
-        "loanNumber": "LN-84739021",
-        "bankName": "SBI Bank",
-        "netAmount": "₹18,750",
-        "dueDate": "08 May 2025",
-        "pos": "₹3,31,250",
-        "tos": "₹3,50,000"
-      },
-      "recentActivity": [
-        {
-          "type": "Assignment Pending",
-          "date": "Jun 08, 2025",
-          "description": "Task created but not yet assigned to any agent.",
-          "status": "warning"
         }
       ]
     }

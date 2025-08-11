@@ -183,7 +183,7 @@ const AgentTaskFeedback = () => {
         pageSize={5}
         className="shadow-sm"
         emptyMessage="No tasks found for this agent"
-        getRowId={(row) => row.agent}
+        getRowId={(row) => row.taskId}
       />
     </div>
   );

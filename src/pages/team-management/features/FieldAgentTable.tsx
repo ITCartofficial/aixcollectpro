@@ -202,6 +202,7 @@ const FieldAgentsTable: React.FC = () => {
             label: 'Location',
             sortable: true,
             width: '150px',
+            headerAlign: "center",
             className:"text-center",
             render: (value) => <span className="text-gray-700">{value}</span>
         },
@@ -211,6 +212,7 @@ const FieldAgentsTable: React.FC = () => {
             sortable: true,
             width: '120px',
             className: 'text-center',
+            headerAlign:"center",
             render: (value) => {
                 const variant = value === 'On Road' ? 'success' : value === 'In Active' ? 'danger' : 'info';
                 return <Badge variant={variant}>{value}</Badge>;

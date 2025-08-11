@@ -1,17 +1,5 @@
-// import React from 'react'
-
-// const KPICardSection = () => {
-//   return (
-//     <div>KPICardSection</div>
-//   )
-// }
-
-// export default KPICardSection
-
 import React from "react";
 import SummaryCard from "../../../../../components/ui/Card/SummaryCard";
-// import SummaryCard from "../../../../components/ui/Card/SummaryCard";
-
 const KPICardSection: React.FC = () => {
   const kpiSummaryData = [
     { title: "Total Assigned", value: "₹3,80,000" },

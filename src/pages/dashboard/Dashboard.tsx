@@ -14,7 +14,7 @@ import TaskAssignmentModal from "./features/TaskAssignmentModal"
 import { useState } from "react"
 import LiveAgentTrackingSection from "./features/LiveAgentTrackingSection"
 import AgentActivityFeedTable from "./features/AgentActivityFeedTable"
-import Profile from "../team-management/agent-profile/AgentProfile"
+
 
 
 const data: CollectionData[] = [
@@ -55,7 +55,6 @@ const Dashboard = () => {
         <div className="col-span-10 bg-white rounded-lg shadow p-6">
           <LiveAgentTrackingSection />
           <AgentActivityFeedTable />
-          <Profile/>
         </div>
       </div>
     </div>

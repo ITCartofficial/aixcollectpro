@@ -27,7 +27,7 @@ export const ProtectedRoutes: React.FC = () => {
                 <Route path="profile" element={<Profile />} />
 
                 <Route path="team-management" element={<TeamManagement />} />
-                <Route path="team-management/agent-profile/:id" element={<AgentProfile />} />
+                <Route path="team-management/agent-profile/:agentId" element={<AgentProfile />} />
                 <Route path="team-management/telecaller-profile/:id" element={<TelecallerProfile />} />
 
                 <Route path="task-management" element={<TaskManagement />} />

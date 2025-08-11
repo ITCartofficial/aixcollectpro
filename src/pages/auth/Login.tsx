@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PrimaryButton from '../../components/ui/Buttons/PrimaryButton';
 
 const Login: React.FC = () => {
   const [employeeId, setEmployeeId] = useState('');
@@ -55,6 +56,12 @@ const Login: React.FC = () => {
     }
   }, [isAuthenticated]);
 
+  // Handle form submission (Enter key or button)
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleLogin();
+  };
+
   // Render login if not authenticated
   return (
     <div className="min-h-screen flex">
@@ -87,7 +94,7 @@ const Login: React.FC = () => {
               Get started by entering your Employee ID & Mobile Number to access the supervisor dashboard
             </p>
 
-            <div className="space-y-6">
+            <form className="space-y-6" onSubmit={handleFormSubmit}>
               {/* Employee ID Field */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -123,13 +130,9 @@ const Login: React.FC = () => {
               </div>
 
               {/* Continue Button */}
-              <button 
-                onClick={handleLogin}
-                className="w-full bg-blue-600 text-white py-3 px-4 rounded-md font-medium hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
-              >
-                Continue
-              </button>
-            </div>
+              <PrimaryButton text="Continue" onClick={handleLogin} className='bg-primary-700 hover:bg-primary-600 text-white w-full font-medium' />
+
+            </form>
           </div>
 
           {/* Footer */}
@@ -143,11 +146,5 @@ const Login: React.FC = () => {
 };
 
 export default Login;
-
-
-
-
-
-
 
 

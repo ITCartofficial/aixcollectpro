@@ -23,21 +23,25 @@ const columns: TableColumn<AttendanceSummary>[] = [
     {
         key: "checkInTime",
         label: "Risk Area",
+        headerAlign:'center',
         className: "text-center font-medium",
     },
     {
         key: "checkOutTime",
         label: "Risk Factor",
+        headerAlign:'center',
         className: "text-center font-medium",
     },
     {
         key: "totalHours",
         label: "Total Hours",
+        headerAlign:'center',
         className: "text-center font-medium",
     },
     {
         key: "lateLogin",
         label: "Late Login",
+        headerAlign:'center',
         className: "text-center font-medium",
         render: (value: boolean) => value ? "Yes" : "No",
     },

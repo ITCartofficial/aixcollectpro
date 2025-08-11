@@ -570,7 +570,6 @@ const DocumentVerificationTaskTable: React.FC = () => {
             label: 'Task Id',
             sortable: true,
             width: '120px',
-            className: 'text-center',
             render: (value) => <span className="font-medium">{value}</span>
         },
         {
@@ -590,6 +589,7 @@ const DocumentVerificationTaskTable: React.FC = () => {
             label: 'Doc Type',
             sortable: true,
             width: '120px',
+            headerAlign: 'center',
             className: 'text-center',
             render: (value) => <span className="font-medium">{value}</span>
         },
@@ -598,6 +598,7 @@ const DocumentVerificationTaskTable: React.FC = () => {
             label: 'Status',
             sortable: true,
             width: '120px',
+            headerAlign:'center',
             className: 'text-center',
             render: (value) => {
                 const getVariant = (status: string) => {
@@ -628,8 +629,9 @@ const DocumentVerificationTaskTable: React.FC = () => {
             key: 'lastUpdated',
             label: 'Last Updated',
             sortable: true,
+            headerAlign: 'center',
+            className:"text-center",
             width: '160px',
-            className: 'text-center',
             render: (value) => <span className="font-medium">{value}</span>
         },
         {

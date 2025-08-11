@@ -1,46 +1,51 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const data = [
-        {
-            location: "Yeshwanthpur",
-            tasksAssigned: 190,
-            completed: 143,
-            collectionTotal: "₹4,72,000",
-            avgVisitValue: "₹3,302"
-        },
-        {
-            location: "Whitefield",
-            tasksAssigned: 200,
-            completed: 158,
-            collectionTotal: "₹5,16,000",
-            avgVisitValue: "₹3,265"
-        },
-        {
-            location: "Jayanagar",
-            tasksAssigned: 175,
-            completed: 125,
-            collectionTotal: "₹3,87,000",
-            avgVisitValue: "₹3,096"
-        },
-        {
-            location: "Rajajinagar",
-            tasksAssigned: 124,
-            completed: 96,
-            collectionTotal: "₹3,07,000",
-            avgVisitValue: "₹3,197"
-        }
-    ];
+    {
+        location: "Yeshwanthpur",
+        tasksAssigned: 190,
+        completed: 143,
+        collectionTotal: "₹4,72,000",
+        avgVisitValue: "₹3,302"
+    },
+    {
+        location: "Whitefield",
+        tasksAssigned: 200,
+        completed: 158,
+        collectionTotal: "₹5,16,000",
+        avgVisitValue: "₹3,265"
+    },
+    {
+        location: "Jayanagar",
+        tasksAssigned: 175,
+        completed: 125,
+        collectionTotal: "₹3,87,000",
+        avgVisitValue: "₹3,096"
+    },
+    {
+        location: "Rajajinagar",
+        tasksAssigned: 124,
+        completed: 96,
+        collectionTotal: "₹3,07,000",
+        avgVisitValue: "₹3,197"
+    }
+];
 
 
 const LocationWiseCollectionSummary = () => {
+    const navigate = useNavigate();
+
+    const handleViewAll = () => {
+        navigate("/collection-metrics");
+    }
+    
     return (
         <div className="bg-white p-4 rounded-lg">
             <div className="flex justify-between items-center mb-4">
                 <h2 className="text-lg font-semibold text-gray-900">Location-Wise Collection Summary </h2>
-                <Link to="/locationwise-summary"
-                    className="text-primary-700 text-sm font-medium hover:text-blue-500 transition-colors cursor-pointer">
+                <button className="text-primary-700 text-sm font-medium hover:text-blue-500 transition-colors cursor-pointer" onClick={handleViewAll}>
                     View all →
-                </Link>
+                </button>
             </div>
 
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">

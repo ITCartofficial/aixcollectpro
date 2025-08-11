@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import ProfileTabSection from "./profile/ProfileTabSection";
 import UserDetails from "./profile/UserDetails";
 
@@ -16,8 +17,10 @@ const userData = {
 };
 
 const ProfileSettings = () => {
+    const navigate = useNavigate();
     const handleEdit = () => {
-        console.log(`Edit profile clicked by ITCartofficial at 2025-07-30 10:26:13`);
+        navigate('/profile');
+
     };
 
     const handleApplyLeave = () => {

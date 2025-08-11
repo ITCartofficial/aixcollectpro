@@ -159,98 +159,91 @@ const FieldAgentsTable: React.FC = () => {
     navigate(`/team-management/agent-profile/${agent.agentId}`);
   };
 
-  // Table columns configuration
-  const columns: TableColumn<FieldAgent>[] = [
-    {
-      key: "name",
-      label: "Agent Name",
-      sortable: true,
-      width: "200px",
-      render: (value, row) => (
-        <div className="flex items-center space-x-3">
-          <Avatar name={value} image={row.avatar} size="md" />
-          <span className="font-medium text-gray-900">{value}</span>
-        </div>
-      ),
-    },
-    {
-      key: "totalVisits",
-      label: "Total Visits",
-      sortable: true,
-      width: "120px",
-      className: "text-center",
-      render: (value) => <span className="font-medium">{value}</span>,
-    },
-    {
-      key: "paidVisits",
-      label: "Paid Visits",
-      sortable: true,
-      width: "120px",
-      className: "text-center",
-      render: (value) => <span className="font-medium">{value}</span>,
-    },
-    {
-      key: "amountCollected",
-      label: "Amount Collected",
-      sortable: true,
-      width: "160px",
-      className: "text-center",
-      render: (value) => (
-        <span className="font-medium">₹{value.toLocaleString()}</span>
-      ),
-    },
-    {
-      key: "location",
-      label: "Location",
-      sortable: true,
-      width: "150px",
-      className: "text-center",
-      render: (value) => <span className="text-gray-700">{value}</span>,
-    },
-    {
-      key: "status",
-      label: "Status",
-      sortable: true,
-      width: "120px",
-      className: "text-center",
-      render: (value) => {
-        const variant =
-          value === "On Road"
-            ? "success"
-            : value === "In Active"
-            ? "danger"
-            : "info";
-        return <Badge variant={variant}>{value}</Badge>;
-      },
-    },
-    {
-      key: "lastSynced",
-      label: "Last Synced",
-      sortable: true,
-      width: "120px",
-      className: "text-center",
-      render: (value) => <span className="text-gray-600">{value}</span>,
-    },
-    {
-      key: "id",
-      label: "Action",
-      sortable: false,
-      width: "100px",
-      className: "text-center",
-      render: (_, row) => (
-        <button
-          className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-full text-sm flex items-center space-x-1 cursor-pointer"
-          onClick={(e) => {
-            e.stopPropagation();
-            handleViewAgent(row);
-          }}
-        >
-          <FaEye className="w-4 h-4" />
-          <span>View</span>
-        </button>
-      ),
-    },
-  ];
+    // Table columns configuration
+    const columns: TableColumn<FieldAgent>[] = [
+        {
+            key: 'name',
+            label: 'Agent Name',
+            sortable: true,
+            width: '200px',
+            render: (value, row) => (
+                <div className="flex items-center space-x-3">
+                    <Avatar name={value} image={row.avatar} size="md" />
+                    <span className="font-medium text-gray-900">{value}</span>
+                </div>
+            )
+        },
+        {
+            key: 'totalVisits',
+            label: 'Total Visits',
+            sortable: true,
+            width: '120px',
+            className: 'text-center',
+            render: (value) => <span className="font-medium">{value}</span>
+        },
+        {
+            key: 'paidVisits',
+            label: 'Paid Visits',
+            sortable: true,
+            width: '120px',
+            className: 'text-center',
+            render: (value) => <span className="font-medium">{value}</span>
+        },
+        {
+            key: 'amountCollected',
+            label: 'Amount Collected',
+            sortable: true,
+            width: '160px',
+            className: 'text-center',
+            render: (value) => <span className="font-medium">₹{value.toLocaleString()}</span>
+        },
+        {
+            key: 'location',
+            label: 'Location',
+            sortable: true,
+            width: '150px',
+            className:"text-center",
+            render: (value) => <span className="text-gray-700">{value}</span>
+        },
+        {
+            key: 'status',
+            label: 'Status',
+            sortable: true,
+            width: '120px',
+            className: 'text-center',
+            render: (value) => {
+                const variant = value === 'On Road' ? 'success' : value === 'In Active' ? 'danger' : 'info';
+                return <Badge variant={variant}>{value}</Badge>;
+            }
+        },
+        {
+            key: 'lastSynced',
+            label: 'Last Synced',
+            sortable: true,
+            width: '120px',
+            className: 'text-center',
+            render: (value) => <span className="text-gray-600">{value}</span>
+        },
+        {
+            key: 'id',
+            label: 'Action',
+            sortable: false,
+            width: '100px',
+            className: 'text-center',
+            render: (_, row) => (
+                <button
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-full text-sm flex items-center space-x-1 cursor-pointer"
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        handleViewAgent(row);
+                    }}
+                >
+                    <FaEye className="w-4 h-4" />
+                    <span>View</span>
+                </button>
+            )
+        }
+    ];
 
   return (
     <div className="mt-4 bg-white rounded-lg p-6">

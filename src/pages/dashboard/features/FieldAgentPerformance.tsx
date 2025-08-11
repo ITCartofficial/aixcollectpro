@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PerformanceCard from "../../../components/ui/Card/PerformanceCard";
 
 
 const FieldAgentPerformance = () => {
+    const navigate =useNavigate();
     const fieldAgents = [
         {
             initials: 'RK',
@@ -51,15 +52,17 @@ const FieldAgentPerformance = () => {
             amountCollected: 58000,
         },
     ];
+    const handleViewAll=()=> {
+    navigate("/collection-metrics");
+    }
 
     return (
         <div className="bg-white p-4 rounded-lg">
             <div className="flex justify-between items-center mb-4">
                 <h2 className="text-lg font-semibold text-gray-900">Field Agent Performance</h2>
-                <Link to="/field-agent-performance"
-                    className="text-primary-700 text-sm font-medium hover:text-blue-500 transition-colors cursor-pointer">
+                <button className="text-primary-700 text-sm font-medium hover:text-blue-500 transition-colors cursor-pointer" onClick={handleViewAll}>
                     View all →
-                </Link>
+                </button>
             </div>
 
             {/* Vertical scrollable container showing 2 cards initially */}

@@ -34,7 +34,6 @@ const Dashboard = () => {
     <div className="w-full h-full flex flex-col gap-6">
       <TitleSection onAssignTaskClick={openModal} />
       <TaskAssignmentModal isOpen={isModalOpen} onClose={closeModal} />
-
       <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 mr-3">
         <div className="lg:col-span-5">
           <TaskSection />

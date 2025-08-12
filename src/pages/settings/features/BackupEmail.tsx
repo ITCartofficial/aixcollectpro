@@ -71,7 +71,7 @@ const BackupEmailModal: React.FC<BackupEmailModalProps> = ({
               <PrimaryButton
                 text="Continue"
                 onClick={handleContinue}
-                className="w-full py-5 rounded-lg text-base font-semibold bg-[#0064E1] hover:bg-[#0055C4] transitiont text-white"
+                className="w-full py-3 px-4 rounded-lg text-base font-semibold bg-[#0064E1] hover:bg-[#0055C4] transitiont text-white"
               />
             </div>
           </div>

@@ -31,7 +31,7 @@ const TaskDetail: React.FC<TaskDetailProps> = ({
       {/* Heading */}
       <h1 className="text-xl lg:text-xl font-bold text-black mb-2">
         Barrower Name
-        </h1>
+      </h1>
 
       {/* Card */}
       <div className="w-full rounded-lg bg-white px-6 py-6 flex flex-col lg:flex-row gap-6 items-start justify-between border border-gray-200">
@@ -70,11 +70,14 @@ const TaskDetail: React.FC<TaskDetailProps> = ({
 
         {/* Right: Agent and Buttons */}
         <div className="flex flex-col justify-between items-end h-full gap-4">
-          <div className="flex items-center gap-3">
+          <div className="text-xs text-gray-500 mb-2">
+            Assigned Agent
+           <div className="flex items-center gap-3 mt-2">
             <div className="w-10 h-10 rounded-full bg-[#00838F] text-white flex items-center justify-center text-sm font-medium">
               {agentInitials}
             </div>
-            <p className="text-sm text-gray-900 font-medium">{agentName}</p>
+            <p className="text-sm text-gray-900 font-medium ">{agentName}</p>
+           </div>
           </div>
           <div className="flex items-center gap-3">
             <button className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100">

@@ -145,7 +145,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ taskDetails, loanInformation }) => 
           Task Details
         </h1>
         <div className="border border-gray-200 rounded-lg p-4">
-          <div className="grid grid-cols-4 gap-y-10 text-sm">
+          <div className="grid grid-cols-4 gap-y-5 text-sm">
             <div>
               <span className="text-gray-500">Task Type</span>
               <p className="font-medium">{taskDetails.taskType}</p>
@@ -169,7 +169,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ taskDetails, loanInformation }) => 
             </div>
 
             <div>
-              <span className="text-gray-500">Recommended Time</span>
+              <span className="text-gray-500 mr-2">Recommended Time</span>
               <p className="font-medium">{taskDetails.recommendedTime}</p>
             </div>
             <div className="col-span-2">
@@ -186,7 +186,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ taskDetails, loanInformation }) => 
           Loan Information
         </h1>
         <div className="border border-gray-200 rounded-lg p-4">
-          <div className="grid grid-cols-5 gap-y-15 text-sm">
+          <div className="grid grid-cols-5 gap-y-5 text-sm mb-9.5">
             <div>
               <span className="text-gray-500">Loan Category</span>
               <p className="font-medium">{loanInformation.loanCategory}</p>

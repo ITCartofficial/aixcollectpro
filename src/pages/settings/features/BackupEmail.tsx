@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PrimaryButton from "../../../components/ui/Buttons/PrimaryButton";
+import ReusableModal from "../../../components/ui/Modal/ReusableModal";
 
 interface BackupEmailModalProps {
   isOpen: boolean;
@@ -16,16 +17,26 @@ const BackupEmailModal: React.FC<BackupEmailModalProps> = ({
 }) => {
   const [email, setEmail] = useState(initialEmail);
 
-  if (!isOpen) return null;
-
   const handleContinue = () => {
     if (onSubmit) onSubmit(email);
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#CACACA]/80">
+    <ReusableModal
+      isOpen={isOpen}
+      onClose={onClose}
+      size="xl"
+      height="auto"
+      backgroundColor="bg-white"
+      showCloseButton={false} // We render our own close button inside
+      closeOnOverlayClick={true}
+      className="p-0"
+      headerClassName="hidden"
+      contentClassName="p-0 flex items-center justify-center"
+      overlayClassName="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+    >
       <div
-        className="relative bg-white rounded-[12px] shadow-xl"
+        className="relative bg-white rounded-[12px]"
         style={{ width: "798px", height: "492px" }}
       >
         {/* Close button */}
@@ -71,13 +82,14 @@ const BackupEmailModal: React.FC<BackupEmailModalProps> = ({
               <PrimaryButton
                 text="Continue"
                 onClick={handleContinue}
-                className="w-full py-3 px-4 rounded-lg text-base font-semibold bg-[#0064E1] hover:bg-[#0055C4] transitiont text-white"
+                className="w-full py-4 px-4 rounded-lg text-base font-semibold bg-[#0064E1] hover:bg-[#0055C4] transition text-white"
               />
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </ReusableModal>
   );
 };
+
 export default BackupEmailModal;

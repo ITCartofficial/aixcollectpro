@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import PrimaryButton from "../../../components/ui/Buttons/PrimaryButton";
-import Password_shield from "../../../assets/Password_Shield.png"
+import Password_shield from "../../../assets/Password_Shield.png";
+import ReusableModal from "../../../components/ui/Modal/ReusableModal";
 
 interface BackupEmailOTPModalProps {
     isOpen: boolean;
@@ -17,8 +18,6 @@ const BackupEmailOTP: React.FC<BackupEmailOTPModalProps> = ({
 }) => {
     const [otp, setOtp] = React.useState(Array(OTP_LENGTH).fill(""));
     const inputsRef = useRef<Array<HTMLInputElement | null>>([]);
-
-    if (!isOpen) return null;
 
     const handleChange = (idx: number, value: string) => {
         if (!/^\d*$/.test(value)) return;
@@ -42,9 +41,21 @@ const BackupEmailOTP: React.FC<BackupEmailOTPModalProps> = ({
     };
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#CACACA]/80">
+        <ReusableModal
+            isOpen={isOpen}
+            onClose={onClose}
+            size="xl"
+            height="auto"
+            backgroundColor="bg-white"
+            showCloseButton={false}
+            closeOnOverlayClick={true}
+            className="p-0"
+            headerClassName="hidden"
+            contentClassName="p-0 flex items-center justify-center"
+            overlayClassName="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+        >
             <div
-                className="relative bg-white rounded-[12px] shadow-xl flex flex-col items-center"
+                className="relative bg-white rounded-[12px]  flex flex-col items-center"
                 style={{ width: "772px", height: "598px" }}
             >
                 {/* Close button */}
@@ -90,15 +101,14 @@ const BackupEmailOTP: React.FC<BackupEmailOTPModalProps> = ({
                             <PrimaryButton
                                 text="Verify & Add"
                                 onClick={handleVerify}
-                                className="w-full py-3 px-4 rounded-lg text-base font-semibold bg-[#0064E1] hover:bg-[#0055C4] transition text-white"
+                                className="w-full py-4 px-4 rounded-lg text-base font-semibold bg-[#0064E1] hover:bg-[#0055C4] transition text-white"
                             />
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </ReusableModal>
     );
 };
 
 export default BackupEmailOTP;
-

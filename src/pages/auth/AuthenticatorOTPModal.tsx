@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import PrimaryButton from "../../components/ui/Buttons/PrimaryButton";
 import Authenticator from "../../assets/Authenticator.png";
 import ReusableModal from "../../components/ui/Modal/ReusableModal";
@@ -18,6 +19,7 @@ const AuthenticatorOTPModal: React.FC<AuthenticatorOTPModalProps> = ({
 }) => {
     const [otp, setOtp] = React.useState(Array(OTP_LENGTH).fill(""));
     const inputsRef = useRef<Array<HTMLInputElement | null>>([]);
+    const navigate = useNavigate();
 
     const handleChange = (idx: number, value: string) => {
         if (!/^\d*$/.test(value)) return;
@@ -37,8 +39,12 @@ const AuthenticatorOTPModal: React.FC<AuthenticatorOTPModalProps> = ({
     };
 
     const handleVerify = () => {
+    if (otp.join("").length === OTP_LENGTH) {
+        localStorage.setItem('isAuthenticated', 'true');
         if (onVerify) onVerify(otp.join(""));
-    };
+        navigate("/"); // This loads DashboardLayout and Dashboard
+    }
+};
 
     return (
         <ReusableModal

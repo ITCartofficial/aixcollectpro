@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import OtpVerification from "../auth/OtpVerification";
-// import AuthenticatorOTPModal from './AddReuseableModel'; // <-- Import your modal wrapper for Authentication
-import homedashbord from "../../assets/homedashbord.png"; // <-- Import your image
+import homedashbord from "../../assets/homedashbord.png"; 
+import { dummyUsers } from '../../utils/auth';
 
 const Login: React.FC = () => {
   const [employeeId, setEmployeeId] = useState('');
@@ -9,9 +9,7 @@ const Login: React.FC = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const [errors, setErrors] = useState<{ employeeId?: string; phoneNumber?: string }>({});
   const [step, setStep] = useState<'login' | 'otp'>('login');
-  // const [isAuthenticated, setIsAuthenticated] = useState(
-  //   typeof window !== "undefined" && localStorage.getItem('isAuthenticated') === 'true'
-  // );
+
 
   // Validation functions
   const validateEmployeeId = (id: string) => {
@@ -65,13 +63,6 @@ const Login: React.FC = () => {
       setPhoneNumber(value);
     }
   };
-
-  // Redirect to dashboard if already authenticated
-  // useEffect(() => {
-  //   if (isAuthenticated) {
-  //     window.location.href = '/';
-  //   }
-  // }, [isAuthenticated]);
 
   // Main render logic
   if (step === 'otp') {

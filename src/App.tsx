@@ -19,8 +19,6 @@ const App = () => {
           path="/*"
           element={isAuthenticated ? <ProtectedRoutes /> : <PublicRoutes />}
         />
-
-
       </Routes>
     </>
   )

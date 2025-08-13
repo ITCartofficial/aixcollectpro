@@ -204,6 +204,8 @@ interface DropdownOption {
 interface DropdownProps {
   label?: string;
   required?: boolean;
+  label?: string;
+  required?: boolean;
   options: DropdownOption[];
   value?: string | string[];
   onChange: (value: string | string[]) => void;
@@ -215,6 +217,8 @@ interface DropdownProps {
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
+  label,
+  required = false,
   label,
   required = false,
   options,
@@ -319,6 +323,13 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <div ref={dropdownRef} className={`relative ${className}`}>
+      {/* Label block added here. No style changes to dropdown itself! */}
+      {label && (
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          {label}
+          {required && <span className="text-red-500 ml-1">*</span>}
+        </label>
+      )}
       {/* Label block added here. No style changes to dropdown itself! */}
       {label && (
         <label className="block text-sm font-medium text-gray-700 mb-2">

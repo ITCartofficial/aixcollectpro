@@ -11,6 +11,8 @@ interface ReusableModalProps {
   backgroundColor?: string;
   showCloseButton?: boolean;
   closeOnOverlayClick?: boolean;
+  hideHeader?: boolean;            
+  hideHeaderBorder?: boolean;     
   className?: string;
   headerClassName?: string;
   contentClassName?: string;
@@ -27,6 +29,8 @@ const ReusableModal: React.FC<ReusableModalProps> = ({
   backgroundColor = 'bg-white',
   showCloseButton = true,
   closeOnOverlayClick = true,
+  hideHeader = false,            // <-- NEW default: false
+  hideHeaderBorder = false,      // <-- NEW default: false
   className = '',
   headerClassName = '',
   contentClassName = '',
@@ -81,8 +85,15 @@ const ReusableModal: React.FC<ReusableModalProps> = ({
         `}
         onClick={(e) => e.stopPropagation()}
       >
-        {(title || showCloseButton) && (
-          <div className={`flex items-center justify-between px-6 py-2 border-b border-gray-200 ${headerClassName}`}>
+        {/* Header section: only render if not hidden */}
+        {!hideHeader && (title || showCloseButton) && (
+          <div
+            className={`
+              flex items-center justify-between px-6 py-2
+              ${hideHeaderBorder ? '' : 'border-b border-gray-200'}
+              ${headerClassName}
+            `}
+          >
             {title && (
               <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
             )}
@@ -96,6 +107,18 @@ const ReusableModal: React.FC<ReusableModalProps> = ({
               </button>
             )}
           </div>
+        )}
+
+        {/* If header is fully hidden, still render close icon absolutely in the corner if showCloseButton */}
+        {hideHeader && showCloseButton && (
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors cursor-pointer z-10"
+            aria-label="Close modal"
+            type="button"
+          >
+            <IoClose className="w-5 h-5 text-gray-500" />
+          </button>
         )}
 
         <div className={`${height === 'auto' ? 'overflow-y-auto' : 'overflow-hidden h-full'} ${contentClassName}`}>

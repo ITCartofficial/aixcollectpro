@@ -2,6 +2,7 @@
   {
     "id": "1",
     "name": "Rakesh Kumar",
+    "agentId":"AGT-1",
     "totalVisits": 9,
     "paidVisits": 7,
     "amountCollected": 89000,
@@ -13,6 +14,7 @@
   {
     "id": "2",
     "name": "Ajay Singh",
+    "agentId":"AGT-3",
     "totalVisits": 8,
     "paidVisits": 6,
     "amountCollected": 73500,
@@ -24,6 +26,7 @@
   {
     "id": "3",
     "name": "Vinod Rao",
+    "agentId":"AGT-2",
     "totalVisits": 7,
     "paidVisits": 5,
     "amountCollected": 69000,

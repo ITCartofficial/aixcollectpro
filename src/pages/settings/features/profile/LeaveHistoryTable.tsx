@@ -41,6 +41,7 @@ const columns: TableColumn<LeaveRequests>[] = [
     {
         key: "leaveType",
         label: "Leave Type",
+        headerAlign:'center',
         className: "text-center font-medium",
         render: (value: string) => (
             <div className="text-sm text-gray-700">{value}</div>
@@ -50,6 +51,7 @@ const columns: TableColumn<LeaveRequests>[] = [
         key: "days",
         label: "Days",
         width: "120px",
+        headerAlign:'center',
         className: "text-center font-medium",
         render: (value: number) => (
             <div className="text-sm text-gray-700">{value}</div>
@@ -58,7 +60,7 @@ const columns: TableColumn<LeaveRequests>[] = [
     {
         key: "notes",
         label: "Notes",
-        className: "text-center font-medium",
+        className: "font-medium",
         render: (value: string) => (
             <div className="text-sm text-gray-700">{value}</div>
         )

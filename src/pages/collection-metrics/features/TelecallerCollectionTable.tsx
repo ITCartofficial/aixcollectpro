@@ -131,6 +131,7 @@ const TelecallerCollectionTable: React.FC<TelecallerCollectionTableProps> = ({ o
       label: "Total Visits",
       sortable: true,
       width: "120px",
+      headerAlign: 'center',
       className: "text-center",
       render: v => <span className="font-medium">{v}</span>
     },
@@ -139,6 +140,7 @@ const TelecallerCollectionTable: React.FC<TelecallerCollectionTableProps> = ({ o
       label: "Paid",
       sortable: true,
       width: "90px",
+      headerAlign: 'center',
       className: "text-center",
       render: v => <span className="font-medium">{v}</span>
     },
@@ -147,6 +149,7 @@ const TelecallerCollectionTable: React.FC<TelecallerCollectionTableProps> = ({ o
       label: "Collection",
       sortable: true,
       width: "120px",
+      headerAlign: 'center',
       className: "text-center",
       render: v => <span className="font-medium">₹{v.toLocaleString("en-IN")}</span>
     },
@@ -155,6 +158,7 @@ const TelecallerCollectionTable: React.FC<TelecallerCollectionTableProps> = ({ o
       label: "PTP",
       sortable: true,
       width: "100px",
+      headerAlign: 'center',
       className: "text-center",
       render: v => <span className="font-medium">{v}</span>
     },
@@ -163,7 +167,7 @@ const TelecallerCollectionTable: React.FC<TelecallerCollectionTableProps> = ({ o
       label: "Language",
       sortable: false,
       width: "140px",
-      className: "text-center",
+      className: "text-left",
       render: v => (
         <span className="font-medium">
           {Array.isArray(v) ? v.join(", ") : v}
@@ -175,6 +179,7 @@ const TelecallerCollectionTable: React.FC<TelecallerCollectionTableProps> = ({ o
       label: "Last Visit",
       sortable: true,
       width: "100px",
+      headerAlign: 'center',
       className: "text-center",
       render: v => <span className="font-medium">{v}</span>
     },

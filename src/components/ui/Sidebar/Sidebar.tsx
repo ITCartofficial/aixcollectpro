@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { 
-  MdDashboard, 
-  MdPeople, 
-  MdTask, 
-  MdBarChart, 
-  MdDescription, 
-  MdNotificationImportant, 
-  MdEventAvailable, 
-  MdInsights, 
-  MdAssessment, 
-  MdSettings, 
+import {
+  MdDashboard,
+  MdPeople,
+  MdTask,
+  MdBarChart,
+  MdDescription,
+  MdNotificationImportant,
+  MdEventAvailable,
+  MdInsights,
+  MdAssessment,
+  MdSettings,
   MdLogout,
   MdChevronLeft,
   MdChevronRight,
@@ -41,7 +41,8 @@ const Sidebar: React.FC = () => {
   ];
 
   const handleLogout = () => {
-    console.log('Logout clicked');
+    localStorage.removeItem("isAuthenticated");
+    window.location.href = "/login";
   };
 
   const isActiveRoute = (path: string) => {
@@ -53,9 +54,8 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <div className={`bg-white h-full transition-all duration-300 ease-in-out rounded-lg ${
-      isCollapsed ? 'w-16' : 'w-[260px]'
-    } flex flex-col overflow-hidden`}>
+    <div className={`bg-white h-full transition-all duration-300 ease-in-out rounded-lg ${isCollapsed ? 'w-16' : 'w-[260px]'
+      } flex flex-col overflow-hidden`}>
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-gray-200 flex-shrink-0">
         {!isCollapsed && (
@@ -82,11 +82,10 @@ const Sidebar: React.FC = () => {
             <li key={item.id} className={` ${isCollapsed ? 'px-2' : 'px-4'}`}>
               <Link
                 to={item.path}
-                className={`w-full flex items-center ${isCollapsed ? '' : 'px-4'} py-3 text-left transition-colors hover:bg-neutral-100 rounded-lg ${
-                  isActiveRoute(item.path)
+                className={`w-full flex items-center ${isCollapsed ? '' : 'px-4'} py-3 text-left transition-colors hover:bg-neutral-100 rounded-lg ${isActiveRoute(item.path)
                     ? 'bg-primary-700 text-white hover:bg-primary-700'
                     : 'text-neutral-600'
-                }`}
+                  }`}
               >
                 <span className={`text-xl flex-shrink-0 ${isCollapsed ? 'mx-auto' : 'mr-3'}`}>
                   {item.icon}
@@ -106,9 +105,8 @@ const Sidebar: React.FC = () => {
       <div className="bg-white border-t border-gray-200 p-4 flex-shrink-0">
         <button
           onClick={handleLogout}
-          className={`w-full flex items-center text-red-500 hover:bg-red-50 transition-colors rounded-lg cursor-pointer ${
-            isCollapsed ? 'justify-center py-3' : 'px-4 py-2'
-          }`}
+          className={`w-full flex items-center text-red-500 hover:bg-red-50 transition-colors rounded-lg cursor-pointer ${isCollapsed ? 'justify-center py-3' : 'px-4 py-2'
+            }`}
         >
           <span className={`text-xl flex-shrink-0 ${isCollapsed ? '' : 'mr-3'}`}>
             <MdLogout />
@@ -117,7 +115,7 @@ const Sidebar: React.FC = () => {
             <span className="font-medium whitespace-nowrap">Logout</span>
           )}
         </button>
-      </div>       
+      </div>
     </div>
   );
 };

@@ -29,7 +29,9 @@ const Login: React.FC = () => {
   };
 
   // Handle login
-  const handleLogin = () => {
+  const handleLogin = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+
     const employeeIdError = validateEmployeeId(employeeId);
     const phoneNumberError = validatePhoneNumber(phoneNumber);
 
@@ -39,6 +41,18 @@ const Login: React.FC = () => {
     });
 
     if (employeeIdError || phoneNumberError) return;
+
+    // Role-based check
+    const user = dummyUsers.find(
+      u => u.employeeId === employeeId && u.phoneNumber === phoneNumber
+    );
+    if (!user) {
+      setErrors({
+        employeeId: "",
+        phoneNumber: "Invalid credentials",
+      });
+      return;
+    }
 
     setStep('otp');
   };
@@ -70,7 +84,6 @@ const Login: React.FC = () => {
     );
   }
 
-  // Render login if not authenticated
   return (
     <div className="min-h-screen flex bg-[#f6f7fa]">
       {/* Left Panel - Welcome Section */}
@@ -115,9 +128,10 @@ const Login: React.FC = () => {
                 <input
                   type="text"
                   value={employeeId}
-                  onChange={(e) => setEmployeeId(e.target.value)}
+                  onChange={e => setEmployeeId(e.target.value)}
                   placeholder="SUP-112345"
                   className={`w-full px-4 py-3 border ${errors.employeeId ? "border-red-500" : "border-gray-300"} rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors`}
+                  autoComplete="username"
                 />
                 {errors.employeeId && (
                   <p className="mt-2 text-sm text-red-600">{errors.employeeId}</p>
@@ -134,6 +148,7 @@ const Login: React.FC = () => {
                   onChange={handlePhoneChange}
                   placeholder="+91 xxxxx xxx98"
                   className={`w-full px-4 py-3 border ${errors.phoneNumber ? "border-red-500" : "border-gray-300"} rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors`}
+                  autoComplete="current-password"
                 />
                 {errors.phoneNumber && (
                   <p className="mt-2 text-sm text-red-600">{errors.phoneNumber}</p>

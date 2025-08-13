@@ -43,7 +43,7 @@ const columns: TableColumn<RegularizationRequests>[] = [
     {
         key: "notes",
         label: "Notes",
-        className: "text-center font-medium",
+        className: "font-medium",
         render: (value: string) => (
             <div className="text-sm text-gray-700">{value}</div>
         )
@@ -60,6 +60,7 @@ const columns: TableColumn<RegularizationRequests>[] = [
     {
         key: "status",
         label: "Action",
+        headerAlign:'center',
         width: "300px",
         className: "text-center font-medium",
         render: (value: string) => <Badge variant={getStatusVariant(value)}>{value}</Badge>,

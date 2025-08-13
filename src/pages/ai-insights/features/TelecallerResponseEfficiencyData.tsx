@@ -100,6 +100,7 @@ const TelecallerResponseEfficiencyTable: React.FC<TelecallerResponseEfficiencyTa
             label: "Avg. Call Duration",
             sortable: true,
             width: "110px",
+            headerAlign:'center',
             className: "text-center",
             render: v => <span className="font-medium">{v} Min</span>
         },
@@ -107,6 +108,7 @@ const TelecallerResponseEfficiencyTable: React.FC<TelecallerResponseEfficiencyTa
             key: "responseRate",
             label: "Response Rate",
             width: "80px",
+            headerAlign:'center',
             className: "text-center",
             render: v => <span className="font-medium">{v}%</span>
         },
@@ -114,6 +116,7 @@ const TelecallerResponseEfficiencyTable: React.FC<TelecallerResponseEfficiencyTa
             key: "followUpConversion",
             label: "Follow-Up Conversion",
             width: "90px",
+            headerAlign:'center',
             className: "text-center",
             render: value => <span className="font-medium text-gray-900">{value}%</span>
         },
@@ -121,6 +124,7 @@ const TelecallerResponseEfficiencyTable: React.FC<TelecallerResponseEfficiencyTa
             key: "ptpAccuracy",
             label: "PTP Accuracy ",
             width: "120px",
+            headerAlign:'center',
             className: "text-center",
             render: value => <span className="font-medium text-gray-900">{value}%</span>
         },
@@ -128,6 +132,7 @@ const TelecallerResponseEfficiencyTable: React.FC<TelecallerResponseEfficiencyTa
             key: "efficiencyRating",
             label: "Efficiency Rating",
             width: "140px",
+            headerAlign:'center',
             className: "text-center",
             render: (value: string) => <Badge variant={getEfficiencyRating(value)}>{value}</Badge>
         }

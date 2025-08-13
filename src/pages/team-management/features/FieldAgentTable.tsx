@@ -154,6 +154,7 @@ const FieldAgentsTable: React.FC = () => {
             label: 'Total Visits',
             sortable: true,
             width: '120px',
+            headerAlign: 'center',
             className: 'text-center',
             render: (value) => <span className="font-medium">{value}</span>
         },
@@ -162,6 +163,7 @@ const FieldAgentsTable: React.FC = () => {
             label: 'Paid Visits',
             sortable: true,
             width: '120px',
+            headerAlign: 'center',
             className: 'text-center',
             render: (value) => <span className="font-medium">{value}</span>
         },
@@ -170,6 +172,7 @@ const FieldAgentsTable: React.FC = () => {
             label: 'Amount Collected',
             sortable: true,
             width: '160px',
+            headerAlign: 'center',
             className: 'text-center',
             render: (value) => <span className="font-medium">₹{value.toLocaleString()}</span>
         },
@@ -178,6 +181,7 @@ const FieldAgentsTable: React.FC = () => {
             label: 'Location',
             sortable: true,
             width: '150px',
+            headerAlign: 'center',
             className:"text-center",
             render: (value) => <span className="text-gray-700">{value}</span>
         },
@@ -186,6 +190,7 @@ const FieldAgentsTable: React.FC = () => {
             label: 'Status',
             sortable: true,
             width: '120px',
+            headerAlign: 'center',
             className: 'text-center',
             render: (value) => {
                 const variant = value === 'On Road' ? 'success' : value === 'In Active' ? 'danger' : 'info';
@@ -197,6 +202,7 @@ const FieldAgentsTable: React.FC = () => {
             label: 'Last Synced',
             sortable: true,
             width: '120px',
+            headerAlign: 'center',
             className: 'text-center',
             render: (value) => <span className="text-gray-600">{value}</span>
         },

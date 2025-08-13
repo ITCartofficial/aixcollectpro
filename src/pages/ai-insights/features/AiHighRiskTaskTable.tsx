@@ -113,15 +113,13 @@ const AiHighRiskTaskTable: React.FC = () => {
       key: "riskType",
       label: "Total Visits",
       width: "110px",
-      className: "text-center",
       render: v => <span className="font-medium">{v}</span>
     },
     {
       key: "location",
-      label: "Paid",
+      label: "Location",
       sortable: true,
       width: "80px",
-      className: "text-center",
       render: v => <span className="font-medium">{v}</span>
     },
     {
@@ -129,7 +127,6 @@ const AiHighRiskTaskTable: React.FC = () => {
       label: " Assigned Agent",
       sortable: true,
       width: "90px",
-      className: "text-center",
       render: (value, row) => (
         <div className="flex items-center space-x-3">
           <Avatar name={value} image={row.avatar} size="md" />
@@ -141,7 +138,6 @@ const AiHighRiskTaskTable: React.FC = () => {
       key: "flagReason",
       label: "Flag Reason",
       width: "120px",
-      className: "text-center",
       render: v => <span className="font-medium">{v.toLocaleString("en-IN")}</span>
     },
     {
@@ -149,6 +145,7 @@ const AiHighRiskTaskTable: React.FC = () => {
       label: "Last Update",
       sortable: true,
       width: "140px",
+      headerAlign: 'center',
       className: "text-center",
       render: v => <span className="font-medium">{v}</span>
     }

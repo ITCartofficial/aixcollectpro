@@ -3,6 +3,8 @@ import ReusableModal from '../../../components/ui/Modal/ReusableModal';
 import { FaEdit, FaUpload } from 'react-icons/fa';
 import { FaBots } from 'react-icons/fa6';
 import { HiOutlineCloudUpload } from 'react-icons/hi';
+import TaskCreationForm from '../../../components/forms/TaskCreationForm';
+
 
 interface TaskAssignmentModalProps {
   isOpen: boolean;
@@ -39,30 +41,20 @@ const options: Option[] = [
   },
 ];
 
-const initialManualForm = {
-  caseType: '',
-  name: '',
-  mobile: '',
-  alt1: '',
-  alt2: '',
-  email: '',
-  address1: '',
-  address2: '',
-  city: '',
-};
+
 
 const TaskAssignmentModal: React.FC<TaskAssignmentModalProps> = ({ isOpen, onClose }) => {
   const [selectedOption, setSelectedOption] = useState<OptionType | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [manualForm, setManualForm] = useState(initialManualForm);
+  // const [manualForm, setManualForm] = useState(initialManualForm);
 
   // Reset state whenever modal opens
   useEffect(() => {
     if (isOpen) {
       setSelectedOption(null);
       setSelectedFile(null);
-      setManualForm(initialManualForm);
+
     }
   }, [isOpen]);
 
@@ -100,16 +92,12 @@ const TaskAssignmentModal: React.FC<TaskAssignmentModalProps> = ({ isOpen, onClo
     alert('Download Excel template');
   };
 
-  const handleManualFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setManualForm((prev) => ({ ...prev, [name]: value }));
-  };
+
 
   // Back button: go to card selection
   const handleBack = () => {
     setSelectedOption(null);
     setSelectedFile(null);
-    setManualForm(initialManualForm);
   };
 
   // Dummy upload handler
@@ -261,80 +249,12 @@ const TaskAssignmentModal: React.FC<TaskAssignmentModalProps> = ({ isOpen, onClo
     );
   } else if (selectedOption === 'create-manual') {
     modalContent = (
-      <div>
-        <div className="font-semibold text-lg mb-4">Manual Task Creation Form</div>
-        <form className="space-y-6">
-          <div>
-            <label className="block text-sm font-medium mb-1">Case Type*</label>
-            <select
-              className="border border-gray-300 rounded-lg px-3 py-2 w-full text-sm"
-              name="caseType"
-              value={manualForm.caseType}
-              onChange={handleManualFormChange}
-            >
-              <option value="">Select Type</option>
-              <option value="type1">Type 1</option>
-              <option value="type2">Type 2</option>
-            </select>
-          </div>
-          {/* Borrower Details */}
-          <div className="font-semibold text-base mt-4 mb-2">Borrower Details</div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div>
-              <label className="block text-xs font-medium mb-1">Name*</label>
-              <input className="border border-gray-300 rounded-lg px-3 py-2 w-full text-sm" name="name" value={manualForm.name} onChange={handleManualFormChange} />
-            </div>
-            <div>
-              <label className="block text-xs font-medium mb-1">Mobile Number*</label>
-              <input className="border border-gray-300 rounded-lg px-3 py-2 w-full text-sm" name="mobile" value={manualForm.mobile} onChange={handleManualFormChange} />
-            </div>
-            <div>
-              <label className="block text-xs font-medium mb-1">Alternate Number 1*</label>
-              <input className="border border-gray-300 rounded-lg px-3 py-2 w-full text-sm" name="alt1" value={manualForm.alt1} onChange={handleManualFormChange} />
-            </div>
-            <div>
-              <label className="block text-xs font-medium mb-1">Alternate Number 2*</label>
-              <input className="border border-gray-300 rounded-lg px-3 py-2 w-full text-sm" name="alt2" value={manualForm.alt2} onChange={handleManualFormChange} />
-            </div>
-            <div>
-              <label className="block text-xs font-medium mb-1">Email ID (Optional)</label>
-              <input className="border border-gray-300 rounded-lg px-3 py-2 w-full text-sm" name="email" value={manualForm.email} onChange={handleManualFormChange} />
-            </div>
-            <div>
-              <label className="block text-xs font-medium mb-1">Address Line 1*</label>
-              <input className="border border-gray-300 rounded-lg px-3 py-2 w-full text-sm" name="address1" value={manualForm.address1} onChange={handleManualFormChange} />
-            </div>
-            <div>
-              <label className="block text-xs font-medium mb-1">Address Line 2</label>
-              <input className="border border-gray-300 rounded-lg px-3 py-2 w-full text-sm" name="address2" value={manualForm.address2} onChange={handleManualFormChange} />
-            </div>
-            <div>
-              <label className="block text-xs font-medium mb-1">City*</label>
-              <input className="border border-gray-300 rounded-lg px-3 py-2 w-full text-sm" name="city" value={manualForm.city} onChange={handleManualFormChange} />
-            </div>
-          </div>
-          <div className="flex justify-end gap-3 mt-8">
-            <button
-              type="button"
-              onClick={handleBack}
-              className="px-5 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition"
-            >
-              Back
-            </button>
-            <button
-              type="submit"
-              className="px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition"
-            >
-              Create
-            </button>
-          </div>
-        </form>
-      </div>
+      <TaskCreationForm/>
     );
   } else {
     // Card selection UI
     modalContent = (
-      <div className="flex gap-4 p-6">
+      <div className="flex gap-4 px-3">
         {options.map((option) => {
           const IconComponent = option.icon;
           return (

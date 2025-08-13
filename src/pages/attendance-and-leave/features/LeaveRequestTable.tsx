@@ -201,7 +201,7 @@ const LeaveRequestTable: React.FC<LeaveRequestTableProps> = ({ onTabChange, acti
             label: 'Role',
             sortable: true,
             width: '130px',
-            className: 'text-center',
+            className: 'text-left',
             render: (value) => <span className="font-medium">{value}</span>
         },
         {
@@ -209,6 +209,7 @@ const LeaveRequestTable: React.FC<LeaveRequestTableProps> = ({ onTabChange, acti
             label: 'Leave From - To',
             sortable: true,
             width: '180px',
+            headerAlign:"center",
             className: 'text-center',
             render: (value) => <span className="font-medium">{value}</span>
         },
@@ -217,6 +218,7 @@ const LeaveRequestTable: React.FC<LeaveRequestTableProps> = ({ onTabChange, acti
             label: 'Days',
             sortable: false,
             width: '100px',
+            headerAlign:"center",
             className: 'text-center',
             render: (value) => <span className="font-medium">{value}</span>
         },
@@ -225,7 +227,6 @@ const LeaveRequestTable: React.FC<LeaveRequestTableProps> = ({ onTabChange, acti
             label: 'Leave Type',
             sortable: false,
             width: '150px',
-            className: 'text-center',
             render: (value) => <span className="font-medium">{value}</span>
         },
         {

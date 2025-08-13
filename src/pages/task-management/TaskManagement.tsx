@@ -11,6 +11,7 @@ import PrimaryButton from "../../components/ui/Buttons/PrimaryButton";
 import TelecallersTaskTable from "./features/TelecallersTaskTable";
 import FieldAgentsTaskTable from "./features/FieldAgentsTaskTable";
 import OutlineButton from "../../components/ui/Buttons/OutlineButton";
+import TaskAssignmentModal from "../dashboard/features/TaskAssignmentModal";
 
 const statsData: StatsData[] = [
   {
@@ -43,16 +44,17 @@ const statsData: StatsData[] = [
     value: "₹3150",
     icon: <PiHandCoinsDuotone className="w-5 h-5" />,
   },
-]
+];
 
-type TabType = "fieldTask" | "telecallerTask" ;
+type TabType = "fieldTask" | "telecallerTask";
 
-const TaskManagement = () => {
+const TaskManagement: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>("fieldTask");
+  const [isModalOpen, setModalOpen] = useState(false);
 
-  const handleTabChange = (tab: TabType) => {
-    setActiveTab(tab);
-  };
+  const handleTabChange = (tab: TabType) => setActiveTab(tab);
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
 
   return (
     <div className="mr-3">
@@ -64,27 +66,29 @@ const TaskManagement = () => {
           <div className="flex items-center gap-4 h-10">
             <PrimaryButton
               text="Field Task"
-              className={`w-32 ${
-                activeTab === "fieldTask"
-                  ? "bg-primary-700 text-white"
-                  : "bg-white text-primary-700 hover:bg-primary-700 hover:text-white"
-              }`}
+              className={`w-32 ${activeTab === "fieldTask"
+                ? "bg-primary-700 text-white"
+                : "bg-white text-primary-700 hover:bg-primary-700 hover:text-white"
+                }`}
               onClick={() => handleTabChange("fieldTask")}
             />
             <PrimaryButton
               text="Telecalling Task"
-              className={`w-40 ${
-                activeTab === "telecallerTask"
-                  ? "bg-primary-700 text-white"
-                  : "bg-white text-primary-700 hover:bg-primary-700 hover:text-white"
-              }`}
+              className={`w-40 ${activeTab === "telecallerTask"
+                ? "bg-primary-700 text-white"
+                : "bg-white text-primary-700 hover:bg-primary-700 hover:text-white"
+                }`}
               onClick={() => handleTabChange("telecallerTask")}
             />
           </div>
           <div className="flex gap-4">
             <DateRangePickerInput />
-            <OutlineButton text="Export CSV" className="w-36"/>
-            <PrimaryButton text="+Assign Task" className="w-36 bg-primary-700 hover:bg-primary-600 text-white" />
+            <OutlineButton text="Export CSV" className="w-36" />
+            <PrimaryButton
+              text="+Assign Task"
+              className="w-36 bg-primary-700 hover:bg-primary-600 text-white"
+              onClick={openModal}/>
+            <TaskAssignmentModal isOpen={isModalOpen} onClose={closeModal} />
           </div>
         </div>
       </div>

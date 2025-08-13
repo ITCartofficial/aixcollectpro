@@ -10,8 +10,6 @@ import type { CollectionData } from "./features/CollectionPerformanceGraph"
 import LocationWiseCollectionSummary from "./features/LocationWiseCollectionSummary"
 import VisitSuccessMatrics from "./features/VisitSuccessMatrics"
 import FlaggedTaskCard from "./features/FlaggedTaskCard"
-import TaskAssignmentModal from "./features/TaskAssignmentModal"
-import { useState } from "react"
 import LiveAgentTrackingSection from "./features/LiveAgentTrackingSection"
 import AgentActivityFeedTable from "./features/AgentActivityFeedTable"
 
@@ -28,14 +26,10 @@ const data: CollectionData[] = [
 
 
 const Dashboard = () => {
-  const [isModalOpen, setModalOpen] = useState(false);
 
-  const openModal = () => setModalOpen(true);
-  const closeModal = () => setModalOpen(false);
   return (
     <div className="w-full h-full flex flex-col gap-6">
-      <TitleSection onAssignTaskClick={openModal} />
-      <TaskAssignmentModal isOpen={isModalOpen} onClose={closeModal} />
+      <TitleSection  />
 
       <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 mr-3">
         <div className="lg:col-span-5"><TaskSection /></div>
@@ -61,3 +55,15 @@ const Dashboard = () => {
 }
 
 export default Dashboard
+
+
+
+
+
+
+
+
+
+
+
+

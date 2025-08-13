@@ -16,41 +16,41 @@ import TaskDetails from '../pages/task-management/task-details/[id]';
 import Profile from '../pages/profile/Profile';
 import AgentProfile from '../pages/team-management/agent-profile/[id]';
 import TelecallerProfile from '../pages/team-management/telecaller-profile/[id]';
+
 // import About from '../pages/about/About';
 
 export const ProtectedRoutes: React.FC = () => {
-    return (
-        <Routes>
-            {/* Routes WITH sidebar */}
-            <Route path="/" element={<DashboardLayout />}>
-                <Route index element={<Dashboard />} />
-                <Route path="profile" element={<Profile />} />
+  return (
+    <Routes>
+      {/* Routes WITH sidebar */}
+      <Route path="/" element={<DashboardLayout />}>
+        <Route index element={<Dashboard />} />
+        <Route path="profile" element={<Profile />} />
 
-                <Route path="team-management" element={<TeamManagement />} />
-                <Route path="team-management/agent-profile/:id" element={<AgentProfile />} />
-                <Route path="team-management/telecaller-profile/:id" element={<TelecallerProfile />} />
+        <Route path="team-management" element={<TeamManagement />} />
+        <Route path="team-management/agent-profile/:id" element={<AgentProfile />} />
+        <Route path="team-management/telecaller-profile/:id" element={<TelecallerProfile />} />
 
-                <Route path="task-management" element={<TaskManagement />} />
-                <Route path="task-details/:id" element={<TaskDetails />} />
+        <Route path="task-management" element={<TaskManagement />} />
+        <Route path="task-details/:id" element={<TaskDetails />} />
 
-                <Route path="collection-metrics" element={<CollectionMetrics />} />
-                <Route path="documents" element={<Documents />} />
-                <Route path="alerts-and-escalations" element={<AlertsEscalations />} />
-                <Route path="attendance-leave" element={<AttendanceLeave />} />
-                <Route path="ai-insights" element={<AiInsights />} />
-                <Route path="reports" element={<Reports />} />
-                <Route path="settings" element={<Settings />} />
-            </Route>
+        <Route path="collection-metrics" element={<CollectionMetrics />} />
+        <Route path="documents" element={<Documents />} />
+        <Route path="alerts-and-escalations" element={<AlertsEscalations />} />
+        <Route path="attendance-leave" element={<AttendanceLeave />} />
+        <Route path="ai-insights" element={<AiInsights />} />
+        <Route path="reports" element={<Reports />} />
+        <Route path="settings" element={<Settings />} />
+      </Route>
 
-            {/* Routes WITHOUT sidebar */}
-            <Route path="/" element={<DashboardLayout showSidebar={false} />}>
-                {/* <Route path="privacy-policy" element={<PrivacyPolicy />} /> */}
-                {/* Add more routes that don't need sidebar here */}
-            </Route>
-        </Routes>
-    );
+      {/* Routes WITHOUT sidebar */}
+      <Route path="/" element={<DashboardLayout showSidebar={false} />}>
+        {/* <Route path="privacy-policy" element={<PrivacyPolicy />} /> */}
+        {/* Add more routes that don't need sidebar here */}
+      </Route>
+    </Routes>
+  );
 };
-
 
 
 

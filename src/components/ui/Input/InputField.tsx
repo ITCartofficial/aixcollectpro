@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import type { ChangeEvent, InputHTMLAttributes } from 'react';
+import type { ChangeEvent, InputHTMLAttributes, TextareaHTMLAttributes } from 'react';
 
-// Define the props interface for the InputField component
+// Extend props to support textarea
 interface InputFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
   label?: string;
   placeholder?: string;
   type?: string;
   value?: string;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   required?: boolean;
   disabled?: boolean;
   error?: string;
   helperText?: string;
   className?: string;
+  multiline?: boolean;
+  rows?: number;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -26,9 +28,29 @@ const InputField: React.FC<InputFieldProps> = ({
   error = "",
   helperText = "",
   className = "",
+  multiline = false,
+  rows = 4,
   ...props
 }) => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
+
+  // Common styles for input/textarea
+  const inputStyles = `
+    w-full px-3 py-2 border rounded-md text-sm
+    transition-colors duration-200 ease-in-out
+    placeholder-gray-400
+    ${isFocused 
+      ? 'border-blue-500 ring-1 ring-blue-500' 
+      : error 
+        ? 'border-red-500' 
+        : 'border-gray-300'
+    }
+    ${disabled 
+      ? 'bg-gray-100 text-gray-500 cursor-not-allowed' 
+      : 'bg-white text-gray-900 hover:border-gray-400'
+    }
+    focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500
+  `;
 
   return (
     <div className={`w-full ${className}`}>
@@ -40,33 +62,33 @@ const InputField: React.FC<InputFieldProps> = ({
       )}
       
       <div className="relative">
-        <input
-          type={type}
-          value={value}
-          onChange={onChange}
-          placeholder={placeholder}
-          required={required}
-          disabled={disabled}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          className={`
-            w-full px-3 py-2 border rounded-md text-sm
-            transition-colors duration-200 ease-in-out
-            placeholder-gray-400
-            ${isFocused 
-              ? 'border-blue-500 ring-1 ring-blue-500' 
-              : error 
-                ? 'border-red-500' 
-                : 'border-gray-300'
-            }
-            ${disabled 
-              ? 'bg-gray-100 text-gray-500 cursor-not-allowed' 
-              : 'bg-white text-gray-900 hover:border-gray-400'
-            }
-            focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500
-          `}
-          {...props}
-        />
+        {multiline ? (
+          <textarea
+            value={value}
+            onChange={onChange as (event: ChangeEvent<HTMLTextAreaElement>) => void}
+            placeholder={placeholder}
+            required={required}
+            disabled={disabled}
+            rows={rows}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            className={inputStyles}
+            {...(props as TextareaHTMLAttributes<HTMLTextAreaElement>)}
+          />
+        ) : (
+          <input
+            type={type}
+            value={value}
+            onChange={onChange as (event: ChangeEvent<HTMLInputElement>) => void}
+            placeholder={placeholder}
+            required={required}
+            disabled={disabled}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            className={inputStyles}
+            {...props}
+          />
+        )}
       </div>
       
       {error && (

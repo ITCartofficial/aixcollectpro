@@ -3,6 +3,7 @@ import InputField from "../ui/Input/InputField";
 import Dropdown from "../common/Dropdown";
 import DatePickerInput from "../ui/Input/DatePickerInput";
 
+
 const caseTypeOptions = [
   { label: "Collection", value: "collection" },
   { label: "KYC", value: "kyc" },

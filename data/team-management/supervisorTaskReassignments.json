@@ -1,0 +1,446 @@
+[
+  {
+    "taskId": "TASK-24501",
+    "borrowerName": "Anil Kumar",
+    "taskType": "Collection",
+    "oldAgent": "Vinod Rao",
+    "status": "Flagged",
+    "collectionStatus": "PTP",
+    "dueDate": "10 June, 2025",
+    "newAgent": "Rakesh Kumar",
+    "lastUpdated": "10:21 AM",
+    "avatar": "",
+    "oldAgentAvatar": "",
+    "newAgentAvatar": "",
+    "reassignedBy": "Supervisor",
+    "reassignedDate": "09 June, 2025",
+    "reason": "Agent availability",
+    "expandedDetails": {
+      "taskDetails": {
+        "recommendedTime": "2-3 hours",
+        "notes": "Customer prefers evening calls",
+        "amount": "₹25,000"
+      },
+      "loanInformation": {
+        "loanCategory": "Personal Loan",
+        "loanAmount": "₹2,50,000",
+        "loanNumber": "PL-2024-001",
+        "bankName": "HDFC Bank",
+        "netAmount": "₹25,000",
+        "dueDate": "10 June, 2025",
+        "pos": "15 days",
+        "tos": "30 days"
+      },
+      "recentActivity": [
+        {
+          "type": "reassignment",
+          "date": "09 June, 2025",
+          "description": "Task reassigned from Vinod Rao to Rakesh Kumar",
+          "status": "completed"
+        },
+        {
+          "type": "call",
+          "date": "08 June, 2025",
+          "description": "Customer promised to pay by 10th June",
+          "status": "completed"
+        }
+      ]
+    }
+  },
+  {
+    "taskId": "TASK-24502",
+    "borrowerName": "Leela Sharma",
+    "taskType": "KYC",
+    "oldAgent": "Rakesh Kumar",
+    "status": "Flagged",
+    "collectionStatus": "Paid",
+    "dueDate": "09 June, 2025",
+    "newAgent": "Vinod Rao",
+    "lastUpdated": "09:55 AM",
+    "avatar": "",
+    "oldAgentAvatar": "",
+    "newAgentAvatar": "",
+    "reassignedBy": "Supervisor",
+    "reassignedDate": "08 June, 2025",
+    "reason": "Specialization required",
+    "expandedDetails": {
+      "taskDetails": {
+        "recommendedTime": "1-2 hours",
+        "notes": "Document verification pending",
+        "amount": "₹0"
+      },
+      "loanInformation": {
+        "loanCategory": "Home Loan",
+        "loanAmount": "₹15,00,000",
+        "loanNumber": "HL-2024-002",
+        "bankName": "SBI",
+        "netAmount": "₹0",
+        "dueDate": "09 June, 2025",
+        "pos": "5 days",
+        "tos": "10 days"
+      },
+      "recentActivity": [
+        {
+          "type": "reassignment",
+          "date": "08 June, 2025",
+          "description": "Task reassigned from Rakesh Kumar to Vinod Rao",
+          "status": "completed"
+        },
+        {
+          "type": "document",
+          "date": "07 June, 2025",
+          "description": "KYC documents uploaded",
+          "status": "pending"
+        }
+      ]
+    }
+  },
+  {
+    "taskId": "TASK-24503",
+    "borrowerName": "Raj Malhotra",
+    "taskType": "Collection",
+    "oldAgent": "Ajay Singh",
+    "status": "Flagged",
+    "collectionStatus": "ID",
+    "dueDate": "09 June, 2025",
+    "newAgent": "Ajay Singh",
+    "lastUpdated": "Yesterday",
+    "avatar": "",
+    "oldAgentAvatar": "",
+    "newAgentAvatar": "",
+    "reassignedBy": "Supervisor",
+    "reassignedDate": "08 June, 2025",
+    "reason": "Customer request",
+    "expandedDetails": {
+      "taskDetails": {
+        "recommendedTime": "3-4 hours",
+        "notes": "High priority customer",
+        "amount": "₹50,000"
+      },
+      "loanInformation": {
+        "loanCategory": "Business Loan",
+        "loanAmount": "₹5,00,000",
+        "loanNumber": "BL-2024-003",
+        "bankName": "ICICI Bank",
+        "netAmount": "₹50,000",
+        "dueDate": "09 June, 2025",
+        "pos": "20 days",
+        "tos": "35 days"
+      },
+      "recentActivity": [
+        {
+          "type": "reassignment",
+          "date": "08 June, 2025",
+          "description": "Task kept with Ajay Singh due to customer preference",
+          "status": "completed"
+        }
+      ]
+    }
+  },
+  {
+    "taskId": "TASK-24504",
+    "borrowerName": "Jyoti Shetty",
+    "taskType": "Collection",
+    "oldAgent": "Vinod Rao",
+    "status": "Flagged",
+    "collectionStatus": "PTPD",
+    "dueDate": "10 June, 2025",
+    "newAgent": "Manoj Pillai",
+    "lastUpdated": "10:22 AM",
+    "avatar": "",
+    "oldAgentAvatar": "",
+    "newAgentAvatar": "",
+    "reassignedBy": "Supervisor",
+    "reassignedDate": "09 June, 2025",
+    "reason": "Workload balancing",
+    "expandedDetails": {
+      "taskDetails": {
+        "recommendedTime": "2-3 hours",
+        "notes": "Customer agreed to pay in installments",
+        "amount": "₹35,000"
+      },
+      "loanInformation": {
+        "loanCategory": "Personal Loan",
+        "loanAmount": "₹3,50,000",
+        "loanNumber": "PL-2024-004",
+        "bankName": "Axis Bank",
+        "netAmount": "₹35,000",
+        "dueDate": "10 June, 2025",
+        "pos": "18 days",
+        "tos": "25 days"
+      },
+      "recentActivity": [
+        {
+          "type": "reassignment",
+          "date": "09 June, 2025",
+          "description": "Task reassigned from Vinod Rao to Manoj Pillai",
+          "status": "completed"
+        },
+        {
+          "type": "call",
+          "date": "08 June, 2025",
+          "description": "Customer agreed to payment plan",
+          "status": "completed"
+        }
+      ]
+    }
+  },
+  {
+    "taskId": "TASK-24505",
+    "borrowerName": "Sameer Reddy",
+    "taskType": "Collection",
+    "oldAgent": "Rakesh Kumar",
+    "status": "Pending",
+    "collectionStatus": "TNC",
+    "dueDate": "11 June, 2025",
+    "newAgent": "Rakesh Kumar",
+    "lastUpdated": "10:02 AM",
+    "avatar": "",
+    "oldAgentAvatar": "",
+    "newAgentAvatar": "",
+    "reassignedBy": "Supervisor",
+    "reassignedDate": "10 June, 2025",
+    "reason": "Agent expertise",
+    "expandedDetails": {
+      "taskDetails": {
+        "recommendedTime": "1-2 hours",
+        "notes": "Customer not contactable",
+        "amount": "₹15,000"
+      },
+      "loanInformation": {
+        "loanCategory": "Credit Card",
+        "loanAmount": "₹1,50,000",
+        "loanNumber": "CC-2024-005",
+        "bankName": "HDFC Bank",
+        "netAmount": "₹15,000",
+        "dueDate": "11 June, 2025",
+        "pos": "10 days",
+        "tos": "15 days"
+      },
+      "recentActivity": [
+        {
+          "type": "reassignment",
+          "date": "10 June, 2025",
+          "description": "Task kept with Rakesh Kumar for continuity",
+          "status": "completed"
+        }
+      ]
+    }
+  },
+  {
+    "taskId": "TASK-24506",
+    "borrowerName": "Neha Verma",
+    "taskType": "Collection",
+    "oldAgent": "Vinod Rao",
+    "status": "Flagged",
+    "collectionStatus": "Paid",
+    "dueDate": "09 June, 2025",
+    "newAgent": "Ajay Singh",
+    "lastUpdated": "08:45 AM",
+    "avatar": "",
+    "oldAgentAvatar": "",
+    "newAgentAvatar": "",
+    "reassignedBy": "Supervisor",
+    "reassignedDate": "08 June, 2025",
+    "reason": "Geographic proximity",
+    "expandedDetails": {
+      "taskDetails": {
+        "recommendedTime": "1-2 hours",
+        "notes": "Payment received, verification needed",
+        "amount": "₹20,000"
+      },
+      "loanInformation": {
+        "loanCategory": "Vehicle Loan",
+        "loanAmount": "₹8,00,000",
+        "loanNumber": "VL-2024-006",
+        "bankName": "SBI",
+        "netAmount": "₹20,000",
+        "dueDate": "09 June, 2025",
+        "pos": "8 days",
+        "tos": "12 days"
+      },
+      "recentActivity": [
+        {
+          "type": "reassignment",
+          "date": "08 June, 2025",
+          "description": "Task reassigned from Vinod Rao to Ajay Singh",
+          "status": "completed"
+        },
+        {
+          "type": "payment",
+          "date": "08 June, 2025",
+          "description": "Payment received and verified",
+          "status": "completed"
+        }
+      ]
+    }
+  },
+  {
+    "taskId": "TASK-24507",
+    "borrowerName": "Arvind Menon",
+    "taskType": "Collection",
+    "oldAgent": "Rakesh Kumar",
+    "status": "Flagged",
+    "collectionStatus": "FI",
+    "dueDate": "10 June, 2025",
+    "newAgent": "Rakesh Kumar",
+    "lastUpdated": "09:33 AM",
+    "avatar": "",
+    "oldAgentAvatar": "",
+    "newAgentAvatar": "",
+    "reassignedBy": "Supervisor",
+    "reassignedDate": "09 June, 2025",
+    "reason": "Case complexity",
+    "expandedDetails": {
+      "taskDetails": {
+        "recommendedTime": "4-5 hours",
+        "notes": "Field investigation required",
+        "amount": "₹75,000"
+      },
+      "loanInformation": {
+        "loanCategory": "Personal Loan",
+        "loanAmount": "₹7,50,000",
+        "loanNumber": "PL-2024-007",
+        "bankName": "ICICI Bank",
+        "netAmount": "₹75,000",
+        "dueDate": "10 June, 2025",
+        "pos": "25 days",
+        "tos": "40 days"
+      },
+      "recentActivity": [
+        {
+          "type": "reassignment",
+          "date": "09 June, 2025",
+          "description": "Task kept with Rakesh Kumar for field investigation",
+          "status": "completed"
+        }
+      ]
+    }
+  },
+  {
+    "taskId": "TASK-24508",
+    "borrowerName": "Suman Joshi",
+    "taskType": "KYC",
+    "oldAgent": "Ajay Singh",
+    "status": "Pending",
+    "collectionStatus": "TNC",
+    "dueDate": "11 June, 2025",
+    "newAgent": "Vinod Rao",
+    "lastUpdated": "10:27 AM",
+    "avatar": "",
+    "oldAgentAvatar": "",
+    "newAgentAvatar": "",
+    "reassignedBy": "Supervisor",
+    "reassignedDate": "10 June, 2025",
+    "reason": "Document expertise",
+    "expandedDetails": {
+      "taskDetails": {
+        "recommendedTime": "2-3 hours",
+        "notes": "Address verification pending",
+        "amount": "₹0"
+      },
+      "loanInformation": {
+        "loanCategory": "Home Loan",
+        "loanAmount": "₹25,00,000",
+        "loanNumber": "HL-2024-008",
+        "bankName": "Axis Bank",
+        "netAmount": "₹0",
+        "dueDate": "11 June, 2025",
+        "pos": "12 days",
+        "tos": "18 days"
+      },
+      "recentActivity": [
+        {
+          "type": "reassignment",
+          "date": "10 June, 2025",
+          "description": "Task reassigned from Ajay Singh to Vinod Rao",
+          "status": "completed"
+        }
+      ]
+    }
+  },
+  {
+    "taskId": "TASK-24509",
+    "borrowerName": "Deepak Naik",
+    "taskType": "Collection",
+    "oldAgent": "Manoj Pillai",
+    "status": "Flagged",
+    "collectionStatus": "PTPD",
+    "dueDate": "09 June, 2025",
+    "newAgent": "Manoj Pillai",
+    "lastUpdated": "Yesterday",
+    "avatar": "",
+    "oldAgentAvatar": "",
+    "newAgentAvatar": "",
+    "reassignedBy": "Supervisor",
+    "reassignedDate": "08 June, 2025",
+    "reason": "Customer relationship",
+    "expandedDetails": {
+      "taskDetails": {
+        "recommendedTime": "2-3 hours",
+        "notes": "Customer has good payment history",
+        "amount": "₹40,000"
+      },
+      "loanInformation": {
+        "loanCategory": "Business Loan",
+        "loanAmount": "₹10,00,000",
+        "loanNumber": "BL-2024-009",
+        "bankName": "HDFC Bank",
+        "netAmount": "₹40,000",
+        "dueDate": "09 June, 2025",
+        "pos": "22 days",
+        "tos": "30 days"
+      },
+      "recentActivity": [
+        {
+          "type": "reassignment",
+          "date": "08 June, 2025",
+          "description": "Task kept with Manoj Pillai due to customer rapport",
+          "status": "completed"
+        }
+      ]
+    }
+  },
+  {
+    "taskId": "TASK-24510",
+    "borrowerName": "Ritu Sharma",
+    "taskType": "Collection",
+    "oldAgent": "Vinod Rao",
+    "status": "Pending",
+    "collectionStatus": "FI",
+    "dueDate": "08 June, 2025",
+    "newAgent": "Rakesh Kumar",
+    "lastUpdated": "Yesterday",
+    "avatar": "",
+    "oldAgentAvatar": "",
+    "newAgentAvatar": "",
+    "reassignedBy": "Supervisor",
+    "reassignedDate": "07 June, 2025",
+    "reason": "Urgent priority",
+    "expandedDetails": {
+      "taskDetails": {
+        "recommendedTime": "3-4 hours",
+        "notes": "Overdue case, immediate attention required",
+        "amount": "₹60,000"
+      },
+      "loanInformation": {
+        "loanCategory": "Credit Card",
+        "loanAmount": "₹2,00,000",
+        "loanNumber": "CC-2024-010",
+        "bankName": "SBI",
+        "netAmount": "₹60,000",
+        "dueDate": "08 June, 2025",
+        "pos": "30 days",
+        "tos": "45 days"
+      },
+      "recentActivity": [
+        {
+          "type": "reassignment",
+          "date": "07 June, 2025",
+          "description": "Task reassigned from Vinod Rao to Rakesh Kumar",
+          "status": "completed"
+        }
+      ]
+    }
+  }
+]

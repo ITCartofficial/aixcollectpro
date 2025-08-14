@@ -16,6 +16,8 @@ import TaskDetails from '../pages/task-management/task-details/[id]';
 import Profile from '../pages/profile/Profile';
 import AgentProfile from '../pages/team-management/agent-profile/[id]';
 import TelecallerProfile from '../pages/team-management/telecaller-profile/[id]';
+import SupervisorProfile from '../pages/team-management/supervisor-profile/[id]';
+import IssueLogged from '../pages/issue-logged/IssueLogged';
 // import About from '../pages/about/About';
 
 export const ProtectedRoutes: React.FC = () => {
@@ -27,6 +29,7 @@ export const ProtectedRoutes: React.FC = () => {
                 <Route path="profile" element={<Profile />} />
 
                 <Route path="team-management" element={<TeamManagement />} />
+                <Route path="/team-management/supervisor-profile/:supervisorId" element={<SupervisorProfile />} />
                 <Route path="team-management/agent-profile/:agentId" element={<AgentProfile />} />
                 <Route path="team-management/telecaller-profile/:id" element={<TelecallerProfile />} />
 
@@ -35,6 +38,8 @@ export const ProtectedRoutes: React.FC = () => {
 
                 <Route path="collection-metrics" element={<CollectionMetrics />} />
                 <Route path="documents" element={<Documents />} />
+                <Route path="issue-logged" element={<IssueLogged />} />
+                
                 <Route path="alerts-and-escalations" element={<AlertsEscalations />} />
                 <Route path="attendance-leave" element={<AttendanceLeave />} />
                 <Route path="ai-insights" element={<AiInsights />} />

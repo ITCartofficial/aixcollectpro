@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import IssueLoggedIcon  from "../../../assets/icons/issuelogged.svg?react"
 import { Link, useLocation } from 'react-router-dom';
 import {
   MdDashboard,
@@ -33,6 +34,8 @@ const Sidebar: React.FC = () => {
     { id: 'task', label: 'Task Management', icon: <MdTask />, path: '/task-management' },
     { id: 'metrics', label: 'Collection Metrics', icon: <MdBarChart />, path: '/collection-metrics' },
     { id: 'documents', label: 'Documents', icon: <MdDescription />, path: '/documents' },
+    { id: 'issuelogged', label: 'Issue Logged', icon: <IssueLoggedIcon className='text-white' />, path: '/issue-logged' },
+
     { id: 'alerts', label: 'Alerts & Escalations', icon: <MdNotificationImportant />, path: '/alerts-and-escalations' },
     { id: 'attendance', label: 'Attendance & Leave', icon: <MdEventAvailable />, path: '/attendance-leave' },
     { id: 'insights', label: 'AI Insights', icon: <MdInsights />, path: '/ai-insights' },

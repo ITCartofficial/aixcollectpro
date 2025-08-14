@@ -1,7 +1,9 @@
-import type { TableColumn } from "../../../../components/ui/Table/DataTable";
-import DataTable from "../../../../components/ui/Table/DataTable";
-import regularizationRequests from "../../../../../data/settings/regularizationRequests.json";
-import Badge from "../../../../components/ui/Table/Badge";
+import Badge from "../../../../../components/ui/Table/Badge";
+import type { TableColumn } from "../../../../../components/ui/Table/DataTable";
+import DataTable from "../../../../../components/ui/Table/DataTable";
+import regularizationRequests from "../../../../../../data/settings/regularizationRequests.json";
+import { RxDotsVertical } from "react-icons/rx";
+
 
 interface RegularizationRequests {
     id: string;
@@ -63,9 +65,21 @@ const columns: TableColumn<RegularizationRequests>[] = [
         className: "text-center font-medium",
         render: (value: string) => <Badge variant={getStatusVariant(value)}>{value}</Badge>,
     },
+    {
+      key: "id",
+      label: "",
+      sortable: false,
+      width: "50px",
+      className: "text-center",
+      render: () => (
+        <button className="text-gray-400 hover:text-gray-600 px-2 py-1 rounded hover:bg-gray-100 transition-colors cursor-pointer">
+          <RxDotsVertical className="w-4 h-4" />
+        </button>
+      ),
+    },
 ];
 
-const RegularizationHistory: React.FC = () => {
+const SupervisorRegularizationHistory: React.FC = () => {
     // Fix the type issue by adding type assertion for status
     const data: RegularizationRequests[] = regularizationRequests
         .filter(item => item.status === 'Approved' || item.status === 'Rejected')
@@ -94,7 +108,7 @@ const RegularizationHistory: React.FC = () => {
     );
 };
 
-export default RegularizationHistory;
+export default SupervisorRegularizationHistory;
 
 
 

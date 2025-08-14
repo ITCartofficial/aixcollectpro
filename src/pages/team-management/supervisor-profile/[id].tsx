@@ -1,10 +1,9 @@
-// import OutlineButton from "../../components/ui/Buttons/OutlineButton";
 import { FaHome, FaWhatsapp } from "react-icons/fa";
 import PrimaryButton from "../../../components/ui/Buttons/PrimaryButton";
 import DateRangePickerInput from "../../../components/ui/Input/DateRangePickerInput";
 import Avatar from "../../../components/ui/Table/Avatar";
 import { FiPhoneCall } from "react-icons/fi";
-import TabConfigurations from "./features/tabsections/TabConfigurations";
+import TabConfig from "./features/tabconfigurations/TabConfig";
 
 
 interface UserProfileProps {
@@ -21,7 +20,7 @@ interface UserProfileProps {
   status?: "online" | "offline";
 }
 
-const TelecallerProfile: React.FC<UserProfileProps> = ({
+const SupervisorProfile: React.FC<UserProfileProps> = ({
   role = "Field Collection Agent",
   vendor = "ITcart",
   dateOfJoining = "12 February 2023",
@@ -190,9 +189,9 @@ const TelecallerProfile: React.FC<UserProfileProps> = ({
       </div>
       {/* Tab navigation */}
       <div className="mt-3">
-        <TabConfigurations />
+        <TabConfig />
       </div>
     </div>
   );
 };
-export default TelecallerProfile;
+export default SupervisorProfile;

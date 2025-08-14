@@ -1,7 +1,8 @@
-import type { TableColumn } from "../../../../components/ui/Table/DataTable";
-import DataTable from "../../../../components/ui/Table/DataTable";
-import regularizationRequests from "../../../../../data/settings/regularizationRequests.json";
-import Badge from "../../../../components/ui/Table/Badge";
+import Badge from "../../../../../components/ui/Table/Badge";
+import type { TableColumn } from "../../../../../components/ui/Table/DataTable";
+import DataTable from "../../../../../components/ui/Table/DataTable";
+import regularizationRequests from "../../../../../../data/settings/regularizationRequests.json";
+
 
 interface RegularizationRequests {
     id: string;
@@ -65,7 +66,7 @@ const columns: TableColumn<RegularizationRequests>[] = [
     },
 ];
 
-const RegularizationHistory: React.FC = () => {
+const TelecallerRegularizationHistory: React.FC = () => {
     // Fix the type issue by adding type assertion for status
     const data: RegularizationRequests[] = regularizationRequests
         .filter(item => item.status === 'Approved' || item.status === 'Rejected')
@@ -94,7 +95,7 @@ const RegularizationHistory: React.FC = () => {
     );
 };
 
-export default RegularizationHistory;
+export default TelecallerRegularizationHistory;
 
 
 

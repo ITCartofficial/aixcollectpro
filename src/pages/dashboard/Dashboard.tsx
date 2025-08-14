@@ -64,6 +64,7 @@ const Dashboard = () => {
         {/* <div className="lg:col-span-5"><AiAlertAndInsightCard /></div> */}
         <div className="col-span-10 bg-white rounded-lg shadow p-6">
           <LiveAgentTrackingSection />
+
           <AgentActivityFeedTable />
         </div>
       </div>

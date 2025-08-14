@@ -1,4 +1,3 @@
-import OutlinesButton from "../../components/ui/Buttons/OutlineButton"
 import PrimaryButton from "../../components/ui/Buttons/PrimaryButton"
 import type { StatsData } from "../../components/ui/Card/StatsCard"
 import StatsCardSection from "../../components/common/StatsCardSection"
@@ -51,8 +50,7 @@ const Documents = () => {
           Documents
         </h1>
         <div className="flex gap-4">
-          <OutlinesButton text="Upload Document" className="min-w-40" />
-          <PrimaryButton text="AI Verify" className="w-42 bg-primary-700 hover:bg-primary-600 text-white" />
+          <PrimaryButton text="AI Verify" className="w-36 bg-primary-700 hover:bg-primary-600 text-white" />
         </div>
       </div>
       <StatsCardSection cardData={statsData} />

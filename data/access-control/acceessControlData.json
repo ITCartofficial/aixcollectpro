@@ -1,0 +1,134 @@
+[
+  {
+    "id": "1",
+    "employeeId": "1001",
+    "name": "Rakesh Nair",
+    "mobileNumber": "+91 89276 87821",
+    "role": "Global Admin (Current User)",
+    "status": "Active",
+    "department": "IT",
+    "lastLogin": "2025-08-18 11:05 AM",
+    "createdDate": "2024-01-15"
+  },
+  {
+    "id": "2", 
+    "employeeId": "1012",
+    "name": "Ananya Iyer",
+    "mobileNumber": "+91 99276 87821",
+    "role": "Global Admin",
+    "status": "Active",
+    "department": "IT",
+    "lastLogin": "2025-08-18 10:30 AM",
+    "createdDate": "2024-02-20"
+  },
+  {
+    "id": "3",
+    "employeeId": "1012",
+    "name": "Arjun Mehta", 
+    "mobileNumber": "+91 99276 87821",
+    "role": "Supervisor User",
+    "status": "Active",
+    "department": "Operations",
+    "lastLogin": "2025-08-18 09:15 AM",
+    "createdDate": "2024-03-10"
+  },
+  {
+    "id": "4",
+    "employeeId": "1012",
+    "name": "Ravi Deshmukh",
+    "mobileNumber": "+91 99276 87821", 
+    "role": "Agent User",
+    "status": "Active",
+    "department": "Customer Service",
+    "lastLogin": "2025-08-18 08:45 AM",
+    "createdDate": "2024-04-05"
+  },
+  {
+    "id": "5",
+    "employeeId": "1012",
+    "name": "Sneha Kulkarni",
+    "mobileNumber": "+91 99276 87821",
+    "role": "Telecaller User",
+    "status": "Active", 
+    "department": "Sales",
+    "lastLogin": "2025-08-17 06:30 PM",
+    "createdDate": "2024-05-18"
+  },
+  {
+    "id": "6",
+    "employeeId": "1001",
+    "name": "Vikram Nair",
+    "mobileNumber": "+91 89276 87821",
+    "role": "Agent User",
+    "status": "Active",
+    "department": "Customer Service", 
+    "lastLogin": "2025-08-17 05:20 PM",
+    "createdDate": "2024-06-22"
+  },
+  {
+    "id": "7",
+    "employeeId": "1012",
+    "name": "Amit Chaudhary",
+    "mobileNumber": "+91 99276 87821",
+    "role": "Agent User", 
+    "status": "Inactive",
+    "department": "Customer Service",
+    "lastLogin": "2025-08-16 03:10 PM", 
+    "createdDate": "2024-07-14"
+  },
+  {
+    "id": "8",
+    "employeeId": "1012", 
+    "name": "Pooja Reddy",
+    "mobileNumber": "+91 99276 87821",
+    "role": "Super Visor User",
+    "status": "Active",
+    "department": "Operations",
+    "lastLogin": "2025-08-18 07:25 AM",
+    "createdDate": "2024-08-03"
+  },
+  {
+    "id": "9",
+    "employeeId": "1012",
+    "name": "Divya Joshi", 
+    "mobileNumber": "+91 99276 87821",
+    "role": "Super Admin",
+    "status": "Active",
+    "department": "IT",
+    "lastLogin": "2025-08-18 10:50 AM",
+    "createdDate": "2024-01-28"
+  },
+  {
+    "id": "10",
+    "employeeId": "1012",
+    "name": "Manish Patel",
+    "mobileNumber": "+91 99276 87821",
+    "role": "Super Admin",
+    "status": "Active", 
+    "department": "Operations",
+    "lastLogin": "2025-08-18 09:40 AM",
+    "createdDate": "2024-09-12"
+  },
+  {
+    "id": "11",
+    "employeeId": "1013",
+    "name": "Priya Sharma",
+    "mobileNumber": "+91 98765 43210",
+    "role": "Agent User",
+    "status": "Active",
+    "department": "Customer Service",
+    "lastLogin": "2025-08-18 08:30 AM",
+    "createdDate": "2024-10-15"
+  },
+  {
+    "id": "12",
+    "employeeId": "1014",
+    "name": "Rohit Gupta",
+    "mobileNumber": "+91 87654 32109",
+    "role": "Telecaller User",
+    "status": "Suspended",
+    "department": "Sales",
+    "lastLogin": "2025-08-15 02:15 PM",
+    "createdDate": "2024-11-08"
+  }
+]

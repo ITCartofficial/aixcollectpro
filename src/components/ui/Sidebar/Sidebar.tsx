@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import IssueLoggedIcon  from "../../../assets/icons/issuelogged.svg?react"
+import AccessControlIcon from "../../../assets/icons/accesscontrol.svg?react"
 import { Link, useLocation } from 'react-router-dom';
 import {
   MdDashboard,
@@ -40,6 +41,8 @@ const Sidebar: React.FC = () => {
     { id: 'attendance', label: 'Attendance & Leave', icon: <MdEventAvailable />, path: '/attendance-leave' },
     { id: 'insights', label: 'AI Insights', icon: <MdInsights />, path: '/ai-insights' },
     { id: 'reports', label: 'Reports', icon: <MdAssessment />, path: '/reports' },
+    { id: 'accesscontrol', label: 'Access Control',icon: <AccessControlIcon />, path: '/access-control' },
+
     { id: 'settings', label: 'Settings', icon: <MdSettings />, path: '/settings' },
   ];
 

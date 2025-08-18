@@ -16,6 +16,7 @@
     "submittedDate": "21 June, 2025",
     "avatar": "https://ui-avatars.com/api/?name=Anil+Kumar&background=ff6b6b&color=fff",
     "agentAvatar": "https://ui-avatars.com/api/?name=Rakesh+Kumar&background=4ecdc4&color=fff",
+    "actionTakes": "₹5,340 collected via UPI",
     "expandedDetails": {
       "taskDetails": {
         "recommendedTime": "Today, 11:30 AM - 12:30 PM",
@@ -59,6 +60,7 @@
     "submittedDate": "21 June, 2025",
     "avatar": "https://ui-avatars.com/api/?name=Leela+Sharma&background=45b7d1&color=fff",
     "agentAvatar": "https://ui-avatars.com/api/?name=Vinod+Rao&background=f39c12&color=fff",
+    "actionTakes": "KYC verification completed successfully",
     "expandedDetails": {
       "taskDetails": {
         "recommendedTime": "Today, 10:00 AM - 11:00 AM",
@@ -98,6 +100,7 @@
     "lastUpdated": "Yesterday",
     "avatar": "https://ui-avatars.com/api/?name=Raj+Malhotra&background=e74c3c&color=fff",
     "agentAvatar": "https://ui-avatars.com/api/?name=Ajay+Singh&background=9b59b6&color=fff",
+    "actionTakes": "Visit attempted — customer unavailable",
     "expandedDetails": {
       "taskDetails": {
         "recommendedTime": "Tomorrow, 02:00 PM - 03:00 PM",
@@ -137,6 +140,7 @@
     "lastUpdated": "10:22 AM",
     "avatar": "https://ui-avatars.com/api/?name=Jyoti+Shetty&background=8e44ad&color=fff",
     "agentAvatar": "https://ui-avatars.com/api/?name=Manoj+Pillai&background=27ae60&color=fff",
+    "actionTakes": "Marked as Promise to Pay by tomorrow",
     "expandedDetails": {
       "taskDetails": {
         "recommendedTime": "Today, 01:00 PM - 02:00 PM",

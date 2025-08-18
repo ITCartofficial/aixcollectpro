@@ -113,6 +113,10 @@ import { LuChartNoAxesCombined, LuUserCheck } from "react-icons/lu";
 import { FaBusinessTime } from "react-icons/fa";
 import { MdOutlineSchedule } from "react-icons/md";
 import OutlineButton from "../../components/ui/Buttons/OutlineButton";
+import AddMemberModal from "./features/AddMemberModal";
+import TaskAssignmentModal from "../dashboard/features/TaskAssignmentModal";
+
+
 
 const statsData: StatsData[] = [
   {
@@ -156,6 +160,16 @@ const TeamManagement = () => {
     setActiveTab(tab);
   };
 
+  // State for Add Member Modal
+  const [isAddMemberModalOpen, setAddMemberModalOpen] = useState(false);
+  const openAddMemberModal = () => setAddMemberModalOpen(true);
+  const closeAddMemberModal = () => setAddMemberModalOpen(false);
+
+  // State for Task Assignment Modal
+  const [isTaskAssignmentModalOpen, setTaskAssignmentModalOpen] = useState(false);
+  const openTaskAssignmentModal = () => setTaskAssignmentModalOpen(true);
+  const closeTaskAssignmentModal = () => setTaskAssignmentModalOpen(false);
+
   return (
     <div className="mr-3">
       <h1 className="text-xl lg:text-2xl font-bold text-black mb-5 mt-4">
@@ -192,12 +206,17 @@ const TeamManagement = () => {
               onClick={() => handleTabChange("telecaller")}
             />
           </div>
-          <div className="flex gap-4">
-            <OutlineButton text="+Add New Member" />
+
+          <div className="flex gap-x-4">
+            <OutlineButton text="+Add New Member" onClick={openAddMemberModal} />
+            <AddMemberModal isOpen={isAddMemberModalOpen} onClose={closeAddMemberModal} />
+
             <PrimaryButton
               text="+Assign Task"
               className="w-36 bg-primary-700 hover:bg-primary-600 text-white"
+              onClick={openTaskAssignmentModal}
             />
+            <TaskAssignmentModal isOpen={isTaskAssignmentModalOpen} onClose={closeTaskAssignmentModal} />
           </div>
         </div>
       </div>

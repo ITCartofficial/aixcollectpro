@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import PrimaryButton from "../../components/ui/Buttons/PrimaryButton";
 import Authenticator from "../../assets/Authenticator.png";
 import ReusableModal from "../../components/ui/Modal/ReusableModal";
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { authSagaActions } from '../../store/sagas/authSaga';
 
 interface AuthenticatorOtpModalProps {
     isOpen: boolean;
@@ -19,7 +20,10 @@ const AuthenticatorOtpModal: React.FC<AuthenticatorOtpModalProps> = ({
 }) => {
     const [otp, setOtp] = React.useState(Array(OTP_LENGTH).fill(""));
     const inputsRef = useRef<Array<HTMLInputElement | null>>([]);
-    const navigate = useNavigate();
+    const dispatch = useAppDispatch();
+    
+    // Redux state
+    const { isVerifyingAuthenticator, authenticatorError } = useAppSelector((state) => state.auth);
 
     const handleChange = (idx: number, value: string) => {
         if (!/^\d*$/.test(value)) return;
@@ -39,12 +43,13 @@ const AuthenticatorOtpModal: React.FC<AuthenticatorOtpModalProps> = ({
     };
 
     const handleVerify = () => {
-    if (otp.join("").length === OTP_LENGTH) {
-        localStorage.setItem('isAuthenticated', 'true');
-        if (onVerify) onVerify(otp.join(""));
-        navigate("/"); // This loads DashboardLayout and Dashboard
-    }
-};
+        if (otp.join("").length === OTP_LENGTH) {
+            // Dispatch authenticator verification to saga
+            dispatch(authSagaActions.verifyAuthenticatorRequest({ otp: otp.join("") }));
+            // Note: Navigation is handled via Redux state changes in App.tsx
+            if (onVerify) onVerify(otp.join(""));
+        }
+    };
 
     return (
         <ReusableModal
@@ -85,6 +90,14 @@ const AuthenticatorOtpModal: React.FC<AuthenticatorOtpModalProps> = ({
                     <p className="text-gray-600 text-center mb-10 text-base px-2 leading-6">
                         Use your authentication app to enter the 6-digit code for enhanced security.
                     </p>
+                    
+                    {/* Display authenticator error if any */}
+                    {authenticatorError && (
+                        <div className="w-[600px] mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+                            {authenticatorError}
+                        </div>
+                    )}
+                    
                     {/* OTP Inputs */}
                     <div className="flex justify-center gap-7 mb-12">
                         {otp.map((digit, idx) => (
@@ -99,6 +112,7 @@ const AuthenticatorOtpModal: React.FC<AuthenticatorOtpModalProps> = ({
                                 onKeyDown={e => handleKeyDown(e, idx)}
                                 className="w-[80px] h-[64px] text-center text-2xl font-bold border border-[#CACACA] rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#1890FF] transition"
                                 autoFocus={idx === 0}
+                                disabled={isVerifyingAuthenticator}
                             />
                         ))}
                     </div>
@@ -106,9 +120,9 @@ const AuthenticatorOtpModal: React.FC<AuthenticatorOtpModalProps> = ({
                     <div className="w-full flex justify-center">
                         <div className="w-[600px]">
                             <PrimaryButton
-                                text="Verify & Login"
+                                text={isVerifyingAuthenticator ? "Verifying..." : "Verify & Login"}
                                 onClick={handleVerify}
-                                className="w-full py-4 px-4 rounded-lg text-base font-semibold bg-[#0064E1] hover:bg-[#0055C4] transition text-white"
+                                className={`w-full py-4 px-4 rounded-lg text-base font-semibold bg-[#0064E1] hover:bg-[#0055C4] transition text-white ${isVerifyingAuthenticator ? 'opacity-50 cursor-not-allowed' : ''}`}
                             />
                         </div>
                     </div>

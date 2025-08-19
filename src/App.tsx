@@ -1,12 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
 import { PublicRoutes } from './routes/PublicRoutes';
 import { ProtectedRoutes } from './routes/ProtectedRoutes';
-
+import { useAppSelector } from './store/hooks';
 
 const App = () => {
-  // For development purposes - simulating authentication
-  // Replace this with your actual auth logic later
-  const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+  // Use Redux state instead of localStorage
+  const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
 
   return (
     <>

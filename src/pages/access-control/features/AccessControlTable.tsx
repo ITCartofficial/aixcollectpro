@@ -11,6 +11,8 @@ import accessControlData from "../../../../data/access-control/acceessControlDat
 import PopupMenu, {
   type PopupPosition,
 } from "../../../components/ui/Table/PopupMenu";
+import EditMemberModal from "./EditMemberModal";
+import ViewProfileModal from "./ViewProfileModal";
 
 interface AccessControlUser {
   id: string;
@@ -19,6 +21,10 @@ interface AccessControlUser {
   mobileNumber: string;
   role: string;
   avatar?: string;
+  email?: string;
+  location?: string;
+  joinedOn?: string;
+  vendor?: string;
 }
 
 const AccessControlTable: React.FC = () => {
@@ -37,8 +43,9 @@ const AccessControlTable: React.FC = () => {
     top: 0,
     left: 0,
   });
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [userToEdit, setUserToEdit] = useState<AccessControlUser | null>(null);
   const popupRef = useRef<HTMLDivElement>(null);
-
 
   // --- Handle outside click to close popup
   useEffect(() => {
@@ -100,8 +107,23 @@ const AccessControlTable: React.FC = () => {
   // --- Handle popup action
   const handlePopupAction = (action: string) => {
     if (!selectedUser) return;
+
+    if (action === "edit") {
+      setUserToEdit(selectedUser); // Set the user to edit
+      setShowEditModal(true);
+      setShowPopup(false);
+      return;
+    }
+
     console.log(`Action: ${action} for user:`, selectedUser.name);
     setShowPopup(false);
+  };
+
+  // --- Close edit modal
+  const handleCloseEditModal = () => {
+    setShowEditModal(false);
+    setUserToEdit(null);
+    setSelectedUser(null);
   };
 
   const roleOptions = [
@@ -142,8 +164,13 @@ const AccessControlTable: React.FC = () => {
     setSelectedRows(selected);
   };
 
+  // In your component:
+  const [showProfileModal, setShowProfileModal] = useState(false);
+  const [userToView, setUserToView] = useState<AccessControlUser | null>(null);
   const handleViewUser = (user: AccessControlUser) => {
-    console.log("Viewing user:", user);
+    // console.log("Viewing user:", user);
+    setUserToView(user);
+    setShowProfileModal(true);
   };
 
   // Table Columns
@@ -281,7 +308,35 @@ const AccessControlTable: React.FC = () => {
         onClose={() => setShowPopup(false)}
         onAction={handlePopupAction}
         popupRef={popupRef}
-        menuItems={selectedUser ? getMenuItems(selectedUser.role) : []} // ✅ dynamic
+        menuItems={selectedUser ? getMenuItems(selectedUser.role) : []}
+      />
+
+      <EditMemberModal
+        isOpen={showEditModal}
+        onClose={handleCloseEditModal}
+        userData={userToEdit}
+      />
+      <ViewProfileModal
+        closeOnOverlayClick={true}
+        isOpen={showProfileModal}
+        onClose={() => {
+          setShowProfileModal(false);
+          setUserToView(null);
+        }}
+        userData={
+          userToView
+            ? {
+                name: userToView.name,
+                phone: userToView.mobileNumber,
+                email: userToView.email ?? "",
+                role: userToView.role,
+                vendor: userToView.vendor ?? "",
+                employeeID: userToView.employeeId,
+                joinedOn: userToView.joinedOn ?? "",
+                location: userToView.location ?? "",
+              }
+            : null
+        }
       />
     </div>
   );

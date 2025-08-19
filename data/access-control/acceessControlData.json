@@ -3,12 +3,16 @@
     "id": "1",
     "employeeId": "1001",
     "name": "Rakesh Nair",
-    "mobileNumber": "+91 89276 87821",
+    "mobileNumber": "+91 89276 XXXXX",
     "role": "Global Admin (Current User)",
     "status": "Active",
     "department": "IT",
     "lastLogin": "2025-08-18 11:05 AM",
-    "createdDate": "2024-01-15"
+    "joinedOn": "2024-01-15",
+    "vendor":"Delloite",
+    "avatar":"",
+    "location":"MG Road",
+    "email":"a.a@gmail.com"
   },
   {
     "id": "2", 
@@ -19,7 +23,11 @@
     "status": "Active",
     "department": "IT",
     "lastLogin": "2025-08-18 10:30 AM",
-    "createdDate": "2024-02-20"
+    "joinedOn": "2024-02-20",
+    "vendor":"Delloite",
+    "avatar":"",
+    "location":"MG Road",
+    "email":"a.a@gmail.com"
   },
   {
     "id": "3",
@@ -30,7 +38,11 @@
     "status": "Active",
     "department": "Operations",
     "lastLogin": "2025-08-18 09:15 AM",
-    "createdDate": "2024-03-10"
+    "joinedOn": "2024-03-10",
+    "vendor":"Delloite",
+    "avatar":"",
+    "location":"MG Road",
+    "email":"a.a@gmail.com"
   },
   {
     "id": "4",
@@ -41,7 +53,12 @@
     "status": "Active",
     "department": "Customer Service",
     "lastLogin": "2025-08-18 08:45 AM",
-    "createdDate": "2024-04-05"
+    "joinedOn": "2024-04-05",
+    "vendor":"Delloite",
+    "avatar":"",
+    "location":"MG Road",
+    "email":"a.a@gmail.com"
+ 
   },
   {
     "id": "5",
@@ -52,7 +69,11 @@
     "status": "Active", 
     "department": "Sales",
     "lastLogin": "2025-08-17 06:30 PM",
-    "createdDate": "2024-05-18"
+    "joinedOn": "2024-05-18",
+    "vendor":"Delloite",
+    "avatar":"",
+    "location":"MG Road",
+    "email":"a.a@gmail.com"
   },
   {
     "id": "6",
@@ -63,7 +84,11 @@
     "status": "Active",
     "department": "Customer Service", 
     "lastLogin": "2025-08-17 05:20 PM",
-    "createdDate": "2024-06-22"
+    "joinedOn": "2024-06-22",
+    "vendor":"Delloite",
+    "avatar":"",
+    "location":"MG Road",
+    "email":"a.a@gmail.com"
   },
   {
     "id": "7",
@@ -74,7 +99,11 @@
     "status": "Inactive",
     "department": "Customer Service",
     "lastLogin": "2025-08-16 03:10 PM", 
-    "createdDate": "2024-07-14"
+    "joinedOn": "2024-07-14",
+    "vendor":"Delloite",
+    "avatar":"",
+    "location":"MG Road",
+    "email":"a.a@gmail.com"
   },
   {
     "id": "8",
@@ -85,7 +114,11 @@
     "status": "Active",
     "department": "Operations",
     "lastLogin": "2025-08-18 07:25 AM",
-    "createdDate": "2024-08-03"
+    "joinedOn": "2024-08-03",
+    "vendor":"Delloite",
+    "avatar":"",
+    "location":"MG Road",
+    "email":"a.a@gmail.com"
   },
   {
     "id": "9",
@@ -96,7 +129,11 @@
     "status": "Active",
     "department": "IT",
     "lastLogin": "2025-08-18 10:50 AM",
-    "createdDate": "2024-01-28"
+    "joinedOn": "2024-01-28",
+    "vendor":"Delloite",
+    "avatar":"",
+    "location":"MG Road",
+    "email":"a.a@gmail.com"
   },
   {
     "id": "10",
@@ -107,7 +144,11 @@
     "status": "Active", 
     "department": "Operations",
     "lastLogin": "2025-08-18 09:40 AM",
-    "createdDate": "2024-09-12"
+    "joinedOn": "2024-09-12",
+    "vendor":"Delloite",
+    "avatar":"",
+    "location":"MG Road",
+    "email":"a.a@gmail.com"
   },
   {
     "id": "11",
@@ -118,7 +159,11 @@
     "status": "Active",
     "department": "Customer Service",
     "lastLogin": "2025-08-18 08:30 AM",
-    "createdDate": "2024-10-15"
+    "joinedOn": "2024-10-15",
+    "vendor":"Delloite",
+    "avatar":"",
+    "location":"MG Road",
+    "email":"a.a@gmail.com"
   },
   {
     "id": "12",
@@ -129,6 +174,10 @@
     "status": "Suspended",
     "department": "Sales",
     "lastLogin": "2025-08-15 02:15 PM",
-    "createdDate": "2024-11-08"
+    "joinedOn": "2024-11-08",
+    "vendor":"Delloite",
+    "avatar":"",
+    "location":"MG Road",
+    "email":"a.a@gmail.com"
   }
 ]

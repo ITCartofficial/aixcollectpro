@@ -1,34 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Dropdown from "../common/Dropdown";
 import InputField from "../ui/Input/InputField";
 import DatePickerInput from "../ui/Input/DatePickerInput";
 import OutlineButton from "../ui/Buttons/OutlineButton";
 import PrimaryButton from "../ui/Buttons/PrimaryButton";
 
-const roleOptions = [
-  { label: "Global Admin", value: "global-admin" },
-  { label: "Super Admin", value: "super-admin" },
-  { label: "Supervisor User (Admin)", value: "supervisor-user-admin" },
-  { label: "Field Agent User", value: "field-agent" },
-  { label: "Telecaller", value: "telecaller" },
-];
-
 const cityOptions = [
-  { label: "Bengaluru", value: "bengaluru" },
-  { label: "Mumbai", value: "mumbai" },
-  { label: "Delhi", value: "delhi" },
-];
-const reportingOptions = [
-  { label: "Manager 1", value: "manager1" },
-  { label: "Manager 2", value: "manager2" },
-];
-const languageOptions = [
-  { label: "English", value: "english" },
-  { label: "Hindi", value: "hindi" },
-  { label: "Kannada", value: "kannada" },
+  { label: "Bengaluru", value: "Bengaluru" },
+  { label: "Mumbai", value: "Mumbai" },
+  { label: "Delhi", value: "Delhi" },
 ];
 
-interface AddMemberFormFields {
+const reportingOptions = [
+  { label: "Manager 1", value: "Manager 1" },
+  { label: "Manager 2", value: "Manager 2" },
+];
+
+const languageOptions = [
+  { label: "English", value: "English" },
+  { label: "Hindi", value: "Hindi" },
+  { label: "Kannada", value: "Kannada" },
+];
+
+interface AccessControlUser {
+  id: string;
+  employeeId: string;
+  name: string;
+  mobileNumber: string;
+  role: string;
+  avatar?: string;
+  email?: string;
+  vendor?: string;
+  dateOfJoining?: string;
+  city?: string;
+  reportingTo?: string;
+  languages?: string[];
+}
+
+interface EditMemberFormFields {
   role: string;
   firstName: string;
   lastName: string;
@@ -42,7 +51,7 @@ interface AddMemberFormFields {
   languages: string[];
 }
 
-const initialFormState: AddMemberFormFields = {
+const initialFormState: EditMemberFormFields = {
   role: "",
   firstName: "",
   lastName: "",
@@ -56,28 +65,194 @@ const initialFormState: AddMemberFormFields = {
   languages: [],
 };
 
-const EditMemberForm: React.FC = () => {
-  const [form, setForm] = useState<AddMemberFormFields>(initialFormState);
+interface EditMemberFormProps {
+  userData?: AccessControlUser | null;
+  onUpdate?: (updatedUser: AccessControlUser) => void;
+  onCancel?: () => void;
+}
 
-  const handleChange = (field: keyof AddMemberFormFields, value: any) => {
+const EditMemberForm: React.FC<EditMemberFormProps> = ({
+  userData,
+  onUpdate,
+  onCancel,
+}) => {
+  const [form, setForm] = useState<EditMemberFormFields>(initialFormState);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState<Partial<EditMemberFormFields>>({});
+
+  // Populate form when userData changes
+  useEffect(() => {
+    if (userData) {
+      // Split name into first and last name (assuming space-separated)
+      const nameParts = userData.name.split(" ");
+      const firstName = nameParts[0] || "";
+      const lastName = nameParts.slice(1).join(" ") || "";
+
+      setForm({
+        role: userData.role || "",
+        firstName: firstName,
+        lastName: lastName,
+        mobile: userData.mobileNumber || "",
+        email: userData.email || "",
+        empId: userData.employeeId || "",
+        vendor: userData.vendor || "ITCart",
+        dateOfJoining: userData.dateOfJoining
+          ? new Date(userData.dateOfJoining)
+          : null,
+        city: userData.city || "",
+        reportingTo: userData.reportingTo || "",
+        languages: userData.languages || [],
+      });
+    } else {
+      setForm(initialFormState);
+    }
+  }, [userData]);
+
+  const handleChange = (field: keyof EditMemberFormFields, value: any) => {
     setForm((prev) => ({ ...prev, [field]: value }));
+
+    if (errors[field]) {
+      setErrors((prev) => ({ ...prev, [field]: undefined }));
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const validateForm = (): boolean => {
+    const newErrors: Partial<EditMemberFormFields> = {};
+
+    if (!form.firstName.trim()) {
+      newErrors.firstName = "First name is required";
+    }
+    if (!form.lastName.trim()) {
+      newErrors.lastName = "Last name is required";
+    }
+    if (!form.mobile.trim()) {
+      newErrors.mobile = "Mobile number is required";
+    } else if (!/^\d{10}$/.test(form.mobile.replace(/\D/g, ""))) {
+      newErrors.mobile = "Please enter a valid 10-digit mobile number";
+    }
+    if (!form.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+    if (!form.empId.trim()) {
+      newErrors.empId = "Employee ID is required";
+    }
+    if (!form.city) {
+      newErrors.city = "City is required";
+    }
+    if (
+      form.role !== "Global Admin" &&
+      form.role !== "Super Admin" &&
+      !form.reportingTo
+    ) {
+      newErrors.reportingTo = "Reporting to is required";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // API call function to update user
+  const updateUserInDatabase = async (
+    updatedUserData: AccessControlUser
+  ): Promise<AccessControlUser> => {
+    // Replace this with your actual API endpoint
+    const response = await fetch(`/api/users/${updatedUserData.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedUserData),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return await response.json();
+  };
+
+  const handleSubmit = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+
+    if (!validateForm() || !userData) {
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const updatedUserData: AccessControlUser = {
+        ...userData,
+        name: `${form.firstName} ${form.lastName}`.trim(),
+        mobileNumber: form.mobile,
+        email: form.email,
+        employeeId: form.empId,
+        vendor: form.vendor,
+        dateOfJoining: form.dateOfJoining
+          ? form.dateOfJoining.toISOString()
+          : userData.dateOfJoining,
+        city: form.city,
+        reportingTo: form.reportingTo,
+        languages: form.languages,
+      };
+
+      const updatedUser = await updateUserInDatabase(updatedUserData);
+
+      if (onUpdate) {
+        onUpdate(updatedUser);
+      }
+
+      alert("User updated successfully!");
+    } catch (error) {
+      alert("Failed to update user. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleCancel = () => {
+    if (userData) {
+      const nameParts = userData.name.split(" ");
+      const firstName = nameParts[0] || "";
+      const lastName = nameParts.slice(1).join(" ") || "";
+
+      setForm({
+        role: userData.role || "",
+        firstName: firstName,
+        lastName: lastName,
+        mobile: userData.mobileNumber || "",
+        email: userData.email || "",
+        empId: userData.employeeId || "",
+        vendor: userData.vendor || "ITCart",
+        dateOfJoining: userData.dateOfJoining
+          ? new Date(userData.dateOfJoining)
+          : null,
+        city: userData.city || "",
+        reportingTo: userData.reportingTo || "",
+        languages: userData.languages || [],
+      });
+    } else {
+      setForm(initialFormState);
+    }
+    setErrors({});
+    if (onCancel) {
+      onCancel();
+    }
   };
 
   return (
-    <form className="max-w-5xl mx-auto px-2" onSubmit={handleSubmit}>
-      {/* Select Role */}
-      <div className="mb-8 max-w-[400px]">
-        <Dropdown
-          label="Select Role"
+    <form className="max-w-5xl mx-auto px-2">
+      {/* Role - Now as disabled InputField */}
+      <div className="max-w-[400px]">
+        <InputField
+          label="Role"
           required
-          options={roleOptions}
           value={form.role}
-          onChange={(v) => handleChange("role", v as string)}
-          placeholder="Select Role"
+          disabled
+          placeholder="Role"
+          className="bg-gray-50"
         />
       </div>
 
@@ -90,6 +265,7 @@ const EditMemberForm: React.FC = () => {
           value={form.firstName}
           onChange={(e) => handleChange("firstName", e.target.value)}
           placeholder="Enter First name"
+          error={errors.firstName}
         />
         <InputField
           label="Last Name"
@@ -97,6 +273,7 @@ const EditMemberForm: React.FC = () => {
           value={form.lastName}
           onChange={(e) => handleChange("lastName", e.target.value)}
           placeholder="Enter Last Name"
+          error={errors.lastName}
         />
         <InputField
           label="Mobile Number"
@@ -104,6 +281,7 @@ const EditMemberForm: React.FC = () => {
           value={form.mobile}
           onChange={(e) => handleChange("mobile", e.target.value)}
           placeholder="Enter mobile number"
+          error={errors.mobile}
         />
         <InputField
           label="Email ID"
@@ -111,6 +289,7 @@ const EditMemberForm: React.FC = () => {
           value={form.email}
           onChange={(e) => handleChange("email", e.target.value)}
           placeholder="Enter email"
+          error={errors.email}
         />
         <InputField
           label="Employee ID"
@@ -118,6 +297,7 @@ const EditMemberForm: React.FC = () => {
           value={form.empId}
           onChange={(e) => handleChange("empId", e.target.value)}
           placeholder="Enter ID number"
+          error={errors.empId}
         />
         <InputField
           label="Vendor"
@@ -141,7 +321,7 @@ const EditMemberForm: React.FC = () => {
           placeholder="Search & Select City"
           required
         />
-        {form.role !== "global-admin" && form.role !== "super-admin" && (
+        {form.role !== "Global Admin" && form.role !== "Super Admin" && (
           <>
             <Dropdown
               label="Reporting to"
@@ -166,10 +346,11 @@ const EditMemberForm: React.FC = () => {
 
       {/* Actions */}
       <div className="flex justify-end gap-4 mt-8">
-        <OutlineButton text="Cancel" className="w-32" />
+        <OutlineButton text="Cancel" className="w-32" onClick={handleCancel} />
         <PrimaryButton
-          text="Invite"
-          className="w-32 bg-primary-700 hover:bg-primary-600 text-white"
+          text={isLoading ? "Updating..." : "Update"}
+          className="w-32 bg-primary-700 hover:bg-primary-600 text-white disabled:bg-gray-400"
+          onClick={handleSubmit}
         />
       </div>
     </form>

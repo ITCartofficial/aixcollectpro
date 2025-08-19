@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 import PrimaryButton from "../../../components/ui/Buttons/PrimaryButton";
 import Password_shield from "../../../assets/Password_Shield.png";
 import ReusableModal from "../../../components/ui/Modal/ReusableModal";
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import { authSagaActions } from '../../../store/sagas/authSaga';
 
 interface BackupEmailOTPModalProps {
     isOpen: boolean;
@@ -18,6 +20,10 @@ const BackupEmailOTP: React.FC<BackupEmailOTPModalProps> = ({
 }) => {
     const [otp, setOtp] = React.useState(Array(OTP_LENGTH).fill(""));
     const inputsRef = useRef<Array<HTMLInputElement | null>>([]);
+    const dispatch = useAppDispatch();
+    
+    // Redux state
+    const { isVerifyingEmailOtp, emailOtpError } = useAppSelector((state) => state.auth);
 
     const handleChange = (idx: number, value: string) => {
         if (!/^\d*$/.test(value)) return;
@@ -37,7 +43,11 @@ const BackupEmailOTP: React.FC<BackupEmailOTPModalProps> = ({
     };
 
     const handleVerify = () => {
-        if (onVerify) onVerify(otp.join(""));
+        if (otp.join("").length === OTP_LENGTH) {
+            // Dispatch email OTP verification to saga
+            dispatch(authSagaActions.verifyEmailOtpRequest({ otp: otp.join("") }));
+            if (onVerify) onVerify(otp.join(""));
+        }
     };
 
     return (
@@ -77,6 +87,13 @@ const BackupEmailOTP: React.FC<BackupEmailOTPModalProps> = ({
                         and activate backup report delivery
                     </p>
 
+                    {/* Display email OTP error if any */}
+                    {emailOtpError && (
+                        <div className="w-[600px] mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+                            {emailOtpError}
+                        </div>
+                    )}
+
                     {/* OTP Inputs */}
                     <div className="flex justify-center gap-7 mb-12">
                         {otp.map((digit, idx) => (
@@ -91,6 +108,7 @@ const BackupEmailOTP: React.FC<BackupEmailOTPModalProps> = ({
                                 onKeyDown={e => handleKeyDown(e, idx)}
                                 className="w-[80px] h-[64px] text-center text-2xl font-bold border border-[#CACACA] rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#1890FF] transition"
                                 autoFocus={idx === 0}
+                                disabled={isVerifyingEmailOtp}
                             />
                         ))}
                     </div>
@@ -99,9 +117,9 @@ const BackupEmailOTP: React.FC<BackupEmailOTPModalProps> = ({
                     <div className="w-full flex justify-center">
                         <div className="w-[600px]">
                             <PrimaryButton
-                                text="Verify & Add"
+                                text={isVerifyingEmailOtp ? "Verifying..." : "Verify & Add"}
                                 onClick={handleVerify}
-                                className="w-full py-4 px-4 rounded-lg text-base font-semibold bg-[#0064E1] hover:bg-[#0055C4] transition text-white"
+                                className={`w-full py-4 px-4 rounded-lg text-base font-semibold bg-[#0064E1] hover:bg-[#0055C4] transition text-white ${isVerifyingEmailOtp ? 'opacity-50 cursor-not-allowed' : ''}`}
                             />
                         </div>
                     </div>

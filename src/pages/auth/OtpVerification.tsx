@@ -120,16 +120,26 @@
 import React from "react";
 import PrimaryButton from "../../components/ui/Buttons/PrimaryButton";
 import homedashbord from "../../assets/homedashbord.png";
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { authSagaActions } from '../../store/sagas/authSaga';
 
 interface OtpVerificationProps {
-  onVerify: () => void;
+  onVerify: () => void; // Keep for backward compatibility, but will use Redux internally
 }
 
 const OtpVerification: React.FC<OtpVerificationProps> = ({ onVerify }) => {
   const [otp, setOtp] = React.useState("");
+  const dispatch = useAppDispatch();
+  
+  // Redux state
+  const { isVerifyingOtp, otpError } = useAppSelector((state) => state.auth);
 
   const handleVerify = () => {
     if (otp.length === 6) {
+      // Dispatch OTP verification to saga
+      dispatch(authSagaActions.verifyOtpRequest({ otp }));
+      // Note: The actual step transition is handled in the saga and slice
+      // onVerify is called but actual state management happens via Redux
       onVerify();
     } else {
       alert("Please enter a valid 6-digit OTP");
@@ -172,6 +182,14 @@ const OtpVerification: React.FC<OtpVerificationProps> = ({ onVerify }) => {
               We've sent a 6-digit OTP to your registered mobile number / email.<br />
               Please enter it below to verify your identity.
             </p>
+            
+            {/* Display OTP error if any */}
+            {otpError && (
+              <div className="w-full mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+                {otpError}
+              </div>
+            )}
+            
             <div className="w-full mb-7">
               <label
                 htmlFor="otp"
@@ -187,12 +205,13 @@ const OtpVerification: React.FC<OtpVerificationProps> = ({ onVerify }) => {
                 value={otp}
                 onChange={e => setOtp(e.target.value.replace(/\D/g, ""))}
                 className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-lg tracking-widest transition-colors"
+                disabled={isVerifyingOtp}
               />
             </div>
             <PrimaryButton
-              text="Verify"
+              text={isVerifyingOtp ? "Verifying..." : "Verify"}
               onClick={handleVerify}
-              className="w-full py-3 px-4 rounded-md text-base font-semibold bg-[#0064E1] hover:bg-[#0055C4] transition text-white"
+              className={`w-full py-3 px-4 rounded-md text-base font-semibold bg-[#0064E1] hover:bg-[#0055C4] transition text-white ${isVerifyingOtp ? 'opacity-50 cursor-not-allowed' : ''}`}
             />
           </div>
         </div>

@@ -3,6 +3,8 @@ import SearchBar from "../../common/Searchbar";
 import NotificationDropdown from "./NotificationDropdown";
 import type { Notification } from "./NotificationDropdown";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import { logout } from '../../../store/slices/authSlice';
 
 interface User {
   name: string;
@@ -24,11 +26,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({
-  user = {
-    name: "Arjun Kannan",
-    designation: "Supervisor",
-    avatar: undefined
-  },
+  user: propUser,
   notifications = [
     {
       id: "1",
@@ -89,6 +87,22 @@ const Header: React.FC<HeaderProps> = ({
   onLogoutClick
 }) => {
   const navigate = useNavigate(); 
+  const dispatch = useAppDispatch();
+  
+  // Get user from Redux store
+  const reduxUser = useAppSelector((state) => state.auth.user);
+  
+  // Use Redux user data if available, otherwise fall back to prop user or default
+  const user = reduxUser ? {
+    name: reduxUser.username,
+    designation: reduxUser.role === 'global_admin' ? 'Global Admin' : 
+                reduxUser.role === 'super_admin' ? 'Super Admin' : 'Supervisor',
+    avatar: undefined
+  } : propUser || {
+    name: "Arjun Kannan",
+    designation: "Supervisor",
+    avatar: undefined
+  }; 
 
   // Handler functions with default implementations
   const handleSearch = (query: string): void => {
@@ -153,8 +167,9 @@ const Header: React.FC<HeaderProps> = ({
     if (onLogoutClick) {
       onLogoutClick();
     } else {
-      localStorage.removeItem("isAuthenticated");
-      window.location.href = "/login";
+      // Use Redux logout action to clear state and persist storage
+      dispatch(logout());
+      navigate('/auth/login');
     }
   };
 

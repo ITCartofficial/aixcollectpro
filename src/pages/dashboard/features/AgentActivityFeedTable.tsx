@@ -163,7 +163,7 @@ const AgentActivityFeedTable = () => {
 
   return (
     <div className= "w-full">
-      <h3 className="pt-4 pb-4 text-sm font-medium text-gray-700">
+      <h3 className="pt-4 pb-4 text-sm font-medium text-neutral-700">
         Agent Activity Feed
       </h3>
       <DataTable

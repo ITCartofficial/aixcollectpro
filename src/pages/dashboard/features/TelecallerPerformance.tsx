@@ -62,9 +62,9 @@ const TelecallerPerformance = () => {
     return (
         <div className="bg-white p-4 rounded-lg">
             <div className="flex justify-between items-center mb-4">
-                <h2 className="text-lg font-semibold text-gray-900">Tele Caller Performance</h2>
+                <h2 className="text-lg font-semibold text-neutral-700">Tele Caller Performance</h2>
                 <button 
-                    className="text-primary-700 text-sm font-medium hover:text-blue-500 transition-colors cursor-pointer" onClick={handleViewAll}>
+                    className="text-primary-700 text-sm font-medium hover:text-primary-500 transition-colors cursor-pointer" onClick={handleViewAll}>
                     View all →
                 </button>
             </div>

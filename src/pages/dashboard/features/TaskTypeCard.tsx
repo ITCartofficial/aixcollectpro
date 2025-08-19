@@ -201,7 +201,7 @@ const TaskTypeCard: React.FC<TaskTypeCardProps> = ({
                 <h2 className="text-regular font-semibold text-neutral-700">{title}</h2>
                 <div className="relative">
                     <select
-                        className="appearance-none bg-white border border-neutral-300 rounded-sm font-medium px-3 py-2 pr-8 text-xs text-black focus:outline-none focus:ring-1 focus:primary-500 focus:border-none cursor-pointer"
+                        className="appearance-none bg-white border border-neutral-300 rounded-sm font-medium px-3 py-2 pr-8 text-xs text-neutral-700 focus:outline-none focus:ring-1 focus:primary-500 focus:border-none cursor-pointer"
                         value={timeFrame}
                         onChange={handleTimeFrameChange}
                     >
@@ -210,7 +210,7 @@ const TaskTypeCard: React.FC<TaskTypeCardProps> = ({
                         ))}
                     </select>
                     <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                        <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
                     </div>
@@ -233,7 +233,7 @@ const TaskTypeCard: React.FC<TaskTypeCardProps> = ({
                 {showLegend && (
                     <div className="w-full max-w-sm space-y-3">
                         {/* Legend Headers */}
-                        <div className="flex items-center justify-between pb-2 border-b border-neutral-200">
+                        <div className="flex items-center justify-between pb-2 border-b border-neutral-300">
                             <div className="flex items-center space-x-3">
                                 <div className="w-3 h-3 flex-shrink-0"></div>
                                 <span className="text-xs font-medium text-neutral-500">Task</span>

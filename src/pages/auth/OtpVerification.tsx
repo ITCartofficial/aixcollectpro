@@ -27,20 +27,20 @@ const OtpVerification: React.FC<OtpVerificationProps> = ({ onVerify }) => {
   };
 
   return (
-    <div className="min-h-screen flex bg-[#f6f7fa]">
+    <div className="min-h-screen flex bg-white">
       {/* Left Panel */}
-      <div className="flex-1 flex flex-col justify-center items-center bg-blue-600 rounded-l-[12px] px-8 py-8">
+      <div className="flex-1 flex flex-col justify-center items-center bg-primary-600 rounded-l-[12px] px-8 py-8">
         <div className="flex flex-col items-center w-full">
           <img
             src={homedashbord}
             alt="Dashboard"
-            className="w-full max-w-full mb-8 rounded-lg"
+            className="w-full max-w-[600px] mb-8 rounded-lg shadow-lg bg-white"
             style={{ objectFit: "contain" }}
           />
           <h1 className="text-3xl font-bold text-white mb-4 text-center">
             Welcome Back to AiXCollectPro
           </h1>
-          <p className="text-lg text-blue-100 text-center max-w-lg">
+          <p className="text-lg text-white text-center max-w-lg">
             Monitor your team, manage tasks, and drive recovery with real-time insights.
           </p>
         </div>
@@ -50,24 +50,24 @@ const OtpVerification: React.FC<OtpVerificationProps> = ({ onVerify }) => {
       <div className="flex-1 flex flex-col bg-white rounded-r-[12px] px-8 py-12 relative">
         {/* Heading up */}
         <div className="w-full max-w-lg mx-auto">
-          <h1 className="text-4xl font-bold text-gray-900 mb-15 mt-2 text-left">
+          <h1 className="text-4xl font-bold text-neutral-700  mb-15 mt-2 text-left">
             AiXCollectPro
           </h1>
         </div>
         {/* Middle form */}
         <div className="w-full max-w-lg mx-auto flex-1 flex flex-col justify-center">
           <div className="flex flex-col items-start gap-0">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-1">
+            <h3 className="text-2xl font-semibold text-neutral-700 mb-1">
               Enter OTP to Continue
             </h3>
-            <p className="text-gray-700 mb-6 text-sm font-normal">
+            <p className="text-neutral-700  mb-6 text-sm font-normal">
               We&apos;ve sent a 6-digit OTP to your registered mobile number / email.<br />
               Please enter it below to verify your identity.
             </p>
             <div className="w-full mb-7">
               <label
                 htmlFor="otp"
-                className="block text-sm font-semibold text-gray-700 mb-2"
+                className="block text-sm font-semibold text-neutral-700  mb-2"
               >
                 OTP
               </label>
@@ -78,19 +78,19 @@ const OtpVerification: React.FC<OtpVerificationProps> = ({ onVerify }) => {
                 maxLength={6}
                 value={otp}
                 onChange={e => setOtp(e.target.value.replace(/\D/g, ""))}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-lg tracking-widest transition-colors"
+                className="w-full px-4 py-3 border border-neutral-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none text-lg tracking-widest transition-colors"
               />
             </div>
             <PrimaryButton
               text="Verify"
               onClick={handleVerify}
-              className="w-full py-3 px-4 rounded-md text-base font-semibold bg-[#0064E1] hover:bg-[#0055C4] transition text-white"
+              className="w-full py-3 px-4 rounded-md text-base font-semibold bg-primary-700 hover:bg-primary-700 transition text-white"
             />
           </div>
         </div>
         {/* Copyright bottom, centered horizontally */}
         <div className=" left-0 w-full flex justify-center">
-          <span className="text-md text-gray-500 opacity-70">
+          <span className="text-md text-neutral-600 opacity-70">
             ©copyright 2025, AiXCollectPro - All Rights Reserved
           </span>
         </div>

@@ -82,17 +82,17 @@ const ReusableModal: React.FC<ReusableModalProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         {(title || showCloseButton) && (
-          <div className={`flex items-center justify-between px-6 py-2 border-b border-gray-200 ${headerClassName}`}>
+          <div className={`flex items-center justify-between px-6 py-2 border-b border-neutral-200 ${headerClassName}`}>
             {title && (
-              <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
+              <h2 className="text-xl font-semibold text-neutral-700">{title}</h2>
             )}
             {showCloseButton && (
               <button
                 onClick={onClose}
-                className="p-2 hover:bg-gray-100 rounded-full transition-colors ml-auto cursor-pointer"
+                className="p-2 hover:bg-neutral-100 rounded-full transition-colors ml-auto cursor-pointer"
                 aria-label="Close modal"
               >
-                <IoClose className="w-5 h-5 text-gray-500" />
+                <IoClose className="w-5 h-5 text-neutral-500" />
               </button>
             )}
           </div>

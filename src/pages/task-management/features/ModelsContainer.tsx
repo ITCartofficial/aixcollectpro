@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import ReusableModal from "../../../components/ui/Modal/ReusableModal";
 import ReassignTaskModal from "../popup-models/ReassignTaskModal";
 import RescheduleTaskModal from "../popup-models/RescheduleTaskModal";
 import UpdateTaskLocationModal from "../popup-models/UpdateTaskLocationModal";
 import FlagTaskReviewModal from "../popup-models/FlagTaskReviewModal";
 import AddNotesTaskModal from "../popup-models/AddNotesTaskModal";
+import EditTaskModel from "../popup-models/EditTaskModel";
 
 // Types for props
 type ModalType =
@@ -19,6 +20,7 @@ type ModalType =
 interface ModelsContainerProps {
   activeModal: ModalType;
   setActiveModal: React.Dispatch<React.SetStateAction<ModalType>>;
+  // All shared options for dropdowns, etc.
   cityOptions: { label: string; value: string }[];
   stateOptions: { label: string; value: string }[];
   flagReasons: { label: string; value: string }[];
@@ -33,35 +35,35 @@ const ModelsContainer: React.FC<ModelsContainerProps> = ({
   flagReasons,
   notesCategories,
 }) => {
-  // Reassign
+  // Example state for each modal:
+  // (You can organize these by modal if you want even cleaner code)
   const agentOptions = [
     { label: "Rakesh Kumar", value: "1" },
     { label: "Suresh Singh", value: "2" },
   ];
-  const [selectedAgent, setSelectedAgent] = useState(agentOptions[0].value);
-  const [reassignReason, setReassignReason] = useState("");
+  const [selectedAgent, setSelectedAgent] = React.useState(agentOptions[0].value);
+  const [reassignReason, setReassignReason] = React.useState("");
 
-  // Reschedule (before reusable timepicker)
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [selectedTime, setSelectedTime] = useState(""); // just a string
-  const [rescheduleReason, setRescheduleReason] = useState("");
+  const [selectedDate, setSelectedDate] = React.useState<Date | null>(null);
+  const [selectedTime, setSelectedTime] = React.useState(""); // just a string for time
+  const [rescheduleReason, setRescheduleReason] = React.useState("");
 
-  // Update Location
-  const [addressLine1, setAddressLine1] = useState("");
-  const [addressLine2, setAddressLine2] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [pincode, setPincode] = useState("");
-  const [locationReason, setLocationReason] = useState("");
+  const [addressLine1, setAddressLine1] = React.useState("");
+  const [addressLine2, setAddressLine2] = React.useState("");
+  const [city, setCity] = React.useState("");
+  const [state, setState] = React.useState("");
+  const [pincode, setPincode] = React.useState("");
+  const [locationReason, setLocationReason] = React.useState("");
 
-  // Flag
-  const [selectedReason, setSelectedReason] = useState("");
-  const [flagNotes, setFlagNotes] = useState("");
+  const [selectedReason, setSelectedReason] = React.useState("");
+  const [flagNotes, setFlagNotes] = React.useState("");
 
-  // Add Notes
-  const [notesDate, setNotesDate] = useState<Date | null>(null);
-  const [notesCategory, setNotesCategory] = useState("");
-  const [notesText, setNotesText] = useState("");
+  const [notesDate, setNotesDate] = React.useState<Date | null>(null);
+  const [notesCategory, setNotesCategory] = React.useState("");
+  const [notesText, setNotesText] = React.useState("");
+
+  // Example Edit Task Model: you can pass a task object or handle as needed
+  // const [editTask, setEditTask] = React.useState<TaskType | undefined>(initialTask);
 
   // Modal action handlers
   const handleReassign = () => {
@@ -178,7 +180,14 @@ const ModelsContainer: React.FC<ModelsContainerProps> = ({
           onAddNote={handleAddNotes}
         />
       )}
-      {/* You can add the edit modal or other modals similarly */}
+      {activeModal === "edit" && (
+        <EditTaskModel
+          // Pass props for EditTaskModel as needed (e.g. task, onCancel, onSave, etc.)
+          // task={editTask}
+          // onCancel={() => setActiveModal(null)}
+          // onSave={handleEditSave}
+        />
+      )}
     </ReusableModal>
   );
 };

@@ -27,7 +27,7 @@ const data = [
 const VisitSuccessMatrics = () => {
     return (
         <div className="bg-white p-4 rounded-lg">
-            <h2 className="text-lg font-semibold text-gray-900">Visit Success Metrics</h2>
+            <h2 className="text-lg font-semibold text-neutral-700">Visit Success Metrics</h2>
             <div className="bg-white rounded-lg shadow-sm overflow-hidden mt-4">
                 <table className="w-full">
                     <thead>

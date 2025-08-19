@@ -42,8 +42,8 @@ const LocationWiseCollectionSummary = () => {
     return (
         <div className="bg-white p-4 rounded-lg">
             <div className="flex justify-between items-center mb-4">
-                <h2 className="text-lg font-semibold text-gray-900">Location-Wise Collection Summary </h2>
-                <button className="text-primary-700 text-sm font-medium hover:text-blue-500 transition-colors cursor-pointer" onClick={handleViewAll}>
+                <h2 className="text-lg font-semibold text-neutral-700">Location-Wise Collection Summary </h2>
+                <button className="text-primary-700 text-sm font-medium hover:text-primary-500 transition-colors cursor-pointer" onClick={handleViewAll}>
                     View all →
                 </button>
             </div>
@@ -69,7 +69,7 @@ const LocationWiseCollectionSummary = () => {
                             </th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-200">
+                    <tbody className="divide-y divide-neutral-300">
                         {data.map((row, index) => (
                             <tr key={index} className="hover:bg-gray-50">
                                 <td className="px-4 py-[15px] text-sm text-neutral-600 font-regular">

@@ -67,14 +67,14 @@ function ExpandedRowContent<T>({
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 {/* Task Details */}
                 <div className="bg-white p-4 rounded-lg border border-neutral-400 col-span-3">
-                    <h4 className="font-semibold text-gray-900 mb-3">Task Details</h4>
+                    <h4 className="font-semibold text-neutral-700 mb-3">Task Details</h4>
                     <div className="space-y-2">
                         <div>
-                            <span className="text-sm text-gray-600">Recommended Time</span>
+                            <span className="text-sm text-neutral-600">Recommended Time</span>
                             <p className="text-sm font-medium">{taskDetails?.recommendedTime || "N/A"}</p>
                         </div>
                         <div>
-                            <span className="text-sm text-gray-600">Notes</span>
+                            <span className="text-sm text-neutral-600">Notes</span>
                             <p className="text-sm">{taskDetails?.notes || "N/A"}</p>
                         </div>
                     </div>
@@ -82,38 +82,38 @@ function ExpandedRowContent<T>({
 
                 {/* Loan Information */}
                 <div className="bg-white p-4 rounded-lg border border-neutral-400 col-span-6">
-                    <h4 className="font-semibold text-gray-900 mb-3">Loan Information</h4>
+                    <h4 className="font-semibold text-neutral-700 mb-3">Loan Information</h4>
                     <div className="grid grid-cols-4 gap-4 text-sm">
                         <div>
-                            <span className="text-gray-600">Loan Category</span>
+                            <span className="text-neutral-600">Loan Category</span>
                             <p className="font-medium">{loanInformation?.loanCategory || "N/A"}</p>
                         </div>
                         <div>
-                            <span className="text-gray-600">Loan Amount</span>
+                            <span className="text-neutral-600">Loan Amount</span>
                             <p className="font-medium">{loanInformation?.loanAmount || "N/A"}</p>
                         </div>
                         <div>
-                            <span className="text-gray-600">Loan Number</span>
+                            <span className="text-neutral-600">Loan Number</span>
                             <p className="font-medium">{loanInformation?.loanNumber || "N/A"}</p>
                         </div>
                         <div>
-                            <span className="text-gray-600">Bank Name</span>
+                            <span className="text-neutral-600">Bank Name</span>
                             <p className="font-medium">{loanInformation?.bankName || "N/A"}</p>
                         </div>
                         <div>
-                            <span className="text-gray-600">Net Amount</span>
+                            <span className="text-neutral-600">Net Amount</span>
                             <p className="font-medium">{loanInformation?.netAmount || "N/A"}</p>
                         </div>
                         <div>
-                            <span className="text-gray-600">Due Date</span>
+                            <span className="text-neutral-600">Due Date</span>
                             <p className="font-medium">{loanInformation?.dueDate || "N/A"}</p>
                         </div>
                         <div>
-                            <span className="text-gray-600">POS</span>
+                            <span className="text-neutral-600">POS</span>
                             <p className="font-medium">{loanInformation?.pos || "N/A"}</p>
                         </div>
                         <div>
-                            <span className="text-gray-600">TOS</span>
+                            <span className="text-neutral-600">TOS</span>
                             <p className="font-medium">{loanInformation?.tos || "N/A"}</p>
                         </div>
                     </div>
@@ -121,7 +121,7 @@ function ExpandedRowContent<T>({
 
                 {/* Recent Activity */}
                 <div className="bg-white p-4 rounded-lg border border-neutral-400 col-span-3">
-                    <h4 className="font-semibold text-gray-900 mb-3">Recent Activity</h4>
+                    <h4 className="font-semibold text-neutral-700 mb-3">Recent Activity</h4>
                     <div className="space-y-3">
                         {recentActivity && recentActivity.length > 0 ? (
                             recentActivity.map((activity, index) => (
@@ -133,12 +133,12 @@ function ExpandedRowContent<T>({
                                     />
                                     <div className="flex-1">
                                         <div className="flex items-center justify-between">
-                                            <span className="text-sm font-medium text-gray-900">{activity.type}</span>
-                                            <span className="text-xs text-gray-500">{activity.date}</span>
+                                            <span className="text-sm font-medium text-neutral-700">{activity.type}</span>
+                                            <span className="text-xs text-neutral-500">{activity.date}</span>
                                         </div>
-                                        <p className="text-sm text-gray-600 mt-1">{activity.description}</p>
+                                        <p className="text-sm text-neutral-600 mt-1">{activity.description}</p>
                                         <div className="flex justify-end items-center mt-3 gap-2">
-                                            <button className="flex items-center gap-[6px] bg-blue-600 text-white py-[5px] px-4 rounded-full text-sm hover:bg-blue-700 transition-colors cursor-pointer"
+                                            <button className="flex items-center gap-[6px] bg-primary-600 text-white py-[5px] px-4 rounded-full text-sm hover:bg-primary-700 transition-colors cursor-pointer"
                                                 onClick={() => {
                                                     if (row && (row as any).taskId) {
                                                         navigate(`/task-details/${(row as any).taskId}`);
@@ -149,7 +149,7 @@ function ExpandedRowContent<T>({
                                             </button>
                                             <button onClick={(e) => onMenuClick(row, e)}
                                                 className="p-1 hover:bg-gray-100 rounded transition-colors duration-150">
-                                                <HiOutlineDotsVertical className="w-6 h-6 cursor-pointer text-gray-500" />
+                                                <HiOutlineDotsVertical className="w-6 h-6 cursor-pointer text-neutral-500" />
                                             </button>
                                         </div>
                                     </div>

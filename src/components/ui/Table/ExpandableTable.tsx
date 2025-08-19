@@ -205,11 +205,11 @@ const ExpandableTable = <T extends ExpandableRowData>({
     return (
         <div className={`bg-white rounded-lg shadow-sm ${className}`}>
             <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
-                    <thead className="bg-gray-50">
+                <table className="min-w-full divide-y divide-neutral-200">
+                    <thead className="bg-neutral-50">
                         <tr>
                             {enableSelection && (
-                                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-12">
+                                <th className="px-4 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider w-12">
                                     <input
                                         type="checkbox"
                                         checked={isAllSelected}
@@ -217,14 +217,14 @@ const ExpandableTable = <T extends ExpandableRowData>({
                                             if (input) input.indeterminate = isPartiallySelected;
                                         }}
                                         onChange={(e) => handleSelectAll(e.target.checked)}
-                                        className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded cursor-pointer"
+                                        className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-neutral-300 rounded cursor-pointer"
                                     />
                                 </th>
                             )}
                             {columns.map((column) => (
                                 <th
                                     key={column.key.toString()}
-                                    className={`px-3 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider ${column.sortable && sortable ? 'cursor-pointer hover:bg-gray-100' : ''
+                                    className={`px-3 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider ${column.sortable && sortable ? 'cursor-pointer hover:bg-gray-100' : ''
                                         } ${getColumnAlign(column.align)} ${column.className || ''}`}
                                     style={column.width ? { width: column.width } : {}}
                                     onClick={() => column.sortable && sortable && handleSort(column.key)}
@@ -236,7 +236,7 @@ const ExpandableTable = <T extends ExpandableRowData>({
                                 </th>
                             ))}
                             {enableExpansion && (
-                                <th className="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider w-12">
+                                <th className="px-3 py-3 text-center text-xs font-medium text-neutral-500 uppercase tracking-wider w-12">
                                     {/* Expand/Collapse column */}
                                 </th>
                             )}
@@ -245,7 +245,7 @@ const ExpandableTable = <T extends ExpandableRowData>({
                     <tbody className="bg-white divide-y divide-gray-200">
                         {displayedData.length === 0 ? (
                             <tr>
-                                <td colSpan={columns.length + (enableSelection ? 1 : 0) + (enableExpansion ? 1 : 0)} className="px-6 py-12 text-center text-gray-500">
+                                <td colSpan={columns.length + (enableSelection ? 1 : 0) + (enableExpansion ? 1 : 0)} className="px-6 py-12 text-center text-neutral-500">
                                     {emptyMessage}
                                 </td>
                             </tr>
@@ -253,14 +253,14 @@ const ExpandableTable = <T extends ExpandableRowData>({
                             displayedData.map((row, idx) => (
                                 <React.Fragment key={`${getRowId(row)}-${idx}`}>
                                     {/* Main Row */}
-                                    <tr key={`${getRowId(row)}-main-${idx}`} className="hover:bg-gray-50">
+                                    <tr key={`${getRowId(row)}-main-${idx}`} className="hover:bg-neutral-50">
                                         {enableSelection && (
                                             <td className="px-4 py-4 whitespace-nowrap w-12">
                                                 <input
                                                     type="checkbox"
                                                     checked={isRowSelected(row)}
                                                     onChange={(e) => handleRowSelect(row, e.target.checked)}
-                                                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded cursor-pointer"
+                                                    className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-neutral-300 rounded cursor-pointer"
                                                 />
                                             </td>
                                         )}
@@ -276,7 +276,7 @@ const ExpandableTable = <T extends ExpandableRowData>({
                                             <td className="px-3 py-4 whitespace-nowrap w-12 text-center">
                                                 <button
                                                     onClick={() => toggleRowExpansion(getRowId(row))}
-                                                    className="text-gray-600 hover:text-gray-800 cursor-pointer transition-colors duration-200"
+                                                    className="text-neutral-700 hover:neutral-700 cursor-pointer transition-colors duration-200"
                                                 >
                                                     {expandedRow === getRowId(row) ?
                                                         <FaChevronUp className="w-4 h-4" /> :
@@ -304,10 +304,10 @@ const ExpandableTable = <T extends ExpandableRowData>({
 
             {/* New Pagination UI */}
             {pagination && totalPages > 1 && (
-                <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200">
+                <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-neutral-200">
                     {/* Left side - Items count */}
                     <div className="flex items-center space-x-2">
-                        <span className="text-sm text-gray-700">
+                        <span className="text-sm text-neutral-700">
                             {Math.min((currentPage - 1) * pageSize + 1, sortedData.length)}-{Math.min(currentPage * pageSize, sortedData.length)} of {sortedData.length} Items
                         </span>
                     </div>
@@ -318,13 +318,13 @@ const ExpandableTable = <T extends ExpandableRowData>({
                         <button
                             onClick={() => setCurrentPage(1)}
                             disabled={currentPage === 1}
-                            className="px-3 py-1 text-sm text-gray-500 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 cursor-pointer">
+                            className="px-3 py-1 text-sm text-neutral-500 hover:text-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 cursor-pointer">
                             <FiChevronsLeft /> Prev
                         </button>
                         <button
                             onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                             disabled={currentPage === 1}
-                            className="px-3 py-1 text-sm text-gray-500 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 cursor-pointer">
+                            className="px-3 py-1 text-sm text-neutral-500 hover:text-neutral-700disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 cursor-pointer">
                             <FiChevronLeft /> Prev
                         </button>
 
@@ -335,7 +335,7 @@ const ExpandableTable = <T extends ExpandableRowData>({
                                 onClick={() => setCurrentPage(page)}
                                 className={`px-3 py-1 text-sm rounded ${currentPage === page
                                     ? 'bg-blue-500 text-white'
-                                    : 'text-gray-700 hover:bg-gray-100 cursor-pointer'
+                                    : 'text-neutral-700 hover:bg-neutral-100 cursor-pointer'
                                     }`}>
                                 {page}
                             </button>
@@ -345,13 +345,13 @@ const ExpandableTable = <T extends ExpandableRowData>({
                         <button
                             onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                             disabled={currentPage === totalPages}
-                            className="px-3 py-1 text-sm text-gray-500 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 cursor-pointer">
+                            className="px-3 py-1 text-sm text-neutral-500 hover:text-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 cursor-pointer">
                             Next <FiChevronRight />
                         </button>
                         <button
                             onClick={() => setCurrentPage(totalPages)}
                             disabled={currentPage === totalPages}
-                            className="px-3 py-1 text-sm text-gray-500 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 cursor-pointer">
+                            className="px-3 py-1 text-sm text-neutral-500 hover:text-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 cursor-pointer">
                             Next <FiChevronsRight />
                         </button>
                     </div>
@@ -361,14 +361,14 @@ const ExpandableTable = <T extends ExpandableRowData>({
                         <select
                             value={pageSize}
                             onChange={(e) => handlePageSizeChange(Number(e.target.value))}
-                            className="border border-gray-300 rounded px-2 py-1 text-sm text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer">
+                            className="border border-neutral-300 rounded px-2 py-1 text-sm text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 cursor-pointer">
                             {pageSizeOptions.map((size) => (
                                 <option key={size} value={size}>
                                     {size}
                                 </option>
                             ))}
                         </select>
-                        <span className="text-sm text-gray-700">Items per Page</span>
+                        <span className="text-sm text-neutral-700">Items per Page</span>
                     </div>
                 </div>
             )}

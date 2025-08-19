@@ -70,7 +70,7 @@ const CollectionPerformanceGraph: React.FC<CollectionPerformanceGraphProps> = ({
     const formattedValue = `${currency}${(value).toFixed(1)}L`;
 
     return `
-      <div class="bg-blue-600 text-white px-3 py-2 rounded-lg shadow-lg">
+      <div class="bg-primary-600 text-white px-3 py-2 rounded-lg shadow-lg">
         <div class="font-medium">${formattedDate}</div>
         <div class="text-lg font-bold">${formattedValue}</div>
       </div>
@@ -95,14 +95,14 @@ const CollectionPerformanceGraph: React.FC<CollectionPerformanceGraphProps> = ({
     <div className={`bg-white rounded-lg p-4 ${className}`}>
       {/* Header with title and time filter */}
       <div className="flex justify-between items-center">
-        <h2 className="text-xl font-semibold text-gray-800">{title}</h2>
+        <h2 className="text-xl font-semibold text-neutral-700">{title}</h2>
         
         {/* Time Filter Dropdown */}
         <div className="relative">
           <select
             value={selectedTimeFilter}
             onChange={(e) => handleTimeFilterChange(e.target.value)}
-            className="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 text-sm font-medium text-gray-700 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 cursor-pointer"
+            className="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 text-sm font-medium text-neutral-600 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 cursor-pointer"
           >
             {timeFilterOptions.map((option) => (
               <option key={option} value={option}>
@@ -111,7 +111,7 @@ const CollectionPerformanceGraph: React.FC<CollectionPerformanceGraphProps> = ({
             ))}
           </select>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-            <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           </div>

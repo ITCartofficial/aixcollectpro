@@ -3,27 +3,39 @@ import PrimaryButton from "../../../components/ui/Buttons/PrimaryButton";
 import OutlineButton from "../../../components/ui/Buttons/OutlineButton";
 import InputField from "../../../components/ui/Input/InputField";
 import DatePickerInput from "../../../components/ui/Input/DatePickerInput";
+import TimeRangePickerInput from "../../../components/ui/Input/TimeRangePickerInput";
+import type { TimeRangeValue } from "../../../components/ui/Input/TimeRangePickerInput";
+
+
 
 interface RescheduleTaskModalProps {
   selectedDate: Date | null;
   setSelectedDate: (date: Date | null) => void;
-  selectedTime: string;
-  setSelectedTime: (time: string) => void;
+  timeRange: TimeRangeValue | null;
+  setTimeRange: (range: TimeRangeValue | null) => void;
   reason: string;
   setReason: (reason: string) => void;
   onCancel: () => void;
   onReschedule: () => void;
+  errorDate?: string;
+  errorTime?: string;
+  errorReason?: string;
+  disabled?: boolean;
 }
 
 const RescheduleTaskModal: React.FC<RescheduleTaskModalProps> = ({
   selectedDate,
   setSelectedDate,
-  selectedTime,
-  setSelectedTime,
+  timeRange,
+  setTimeRange,
   reason,
   setReason,
   onCancel,
   onReschedule,
+  errorDate = "",
+  errorTime = "",
+  errorReason = "",
+  disabled = false,
 }) => (
   <div className="w-full">
     <h2 className="text-xl font-semibold mb-4 mt-2">
@@ -38,21 +50,24 @@ const RescheduleTaskModal: React.FC<RescheduleTaskModalProps> = ({
         label="Select New Date"
         required
         value={selectedDate}
-        onChange={v => setSelectedDate(v as Date)}
+        onChange={setSelectedDate}
         placeholder="Select Date"
+        error={errorDate}
         className="w-full"
+        // disabled={disabled}
       />
     </div>
     {/* Select Recommended Time */}
     <div className="mb-5 w-full">
-      <InputField
+      <TimeRangePickerInput
         label="Select Recommended Time"
         required
-        value={selectedTime}
-        onChange={e => setSelectedTime(e.target.value)}
+        value={timeRange || undefined}
+        onChange={setTimeRange}
         placeholder="Select Time"
-        type="time"
+        error={errorTime}
         className="w-full"
+        // disabled={disabled}
       />
     </div>
     {/* Reason for Reschedule */}
@@ -67,6 +82,8 @@ const RescheduleTaskModal: React.FC<RescheduleTaskModalProps> = ({
         rows={4}
         className="w-full resize-none"
         style={{ minHeight: 80, maxHeight: 120 }}
+        error={errorReason}
+        disabled={disabled}
       />
     </div>
     {/* Buttons */}
@@ -75,11 +92,13 @@ const RescheduleTaskModal: React.FC<RescheduleTaskModalProps> = ({
         text="Cancel"
         onClick={onCancel}
         className="px-8 py-2 rounded-lg font-semibold text-[#0064E1] border-[#0064E1] text-base"
+        // disabled={disabled}
       />
       <PrimaryButton
         text="Reschedule Task"
         onClick={onReschedule}
         className="text-white px-8 py-2 rounded-lg font-semibold bg-[#0064E1] hover:bg-[#0055C4] transition text-base"
+        // disabled={disabled}
       />
     </div>
   </div>

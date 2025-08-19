@@ -17,8 +17,8 @@ const TaskSection = () => {
         <div className="bg-white rounded-lg p-4 shadow-[0px_1px_3px_0px_rgba(0, 81, 175, 0.10)]">
             <div className="flex justify-between py-4 px-4 mb-3">
                 <div>
-                    <h3 className="text-sm font-medium text-gray-500">{taskCountCardData.title}</h3>
-                    <span className="text-3xl font-bold text-gray-900">{taskCountCardData.totalCount}</span>
+                    <h3 className="text-sm font-medium text-neutral-500">{taskCountCardData.title}</h3>
+                    <span className="text-3xl font-bold text-neutral-700">{taskCountCardData.totalCount}</span>
                 </div>
                 <div className="w-[52px] h-[52px] bg-primary-100 flex items-center justify-center rounded-lg">
                     <MdChecklist className="text-3xl text-primary-700" />

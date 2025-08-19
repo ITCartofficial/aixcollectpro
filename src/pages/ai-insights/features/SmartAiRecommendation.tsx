@@ -23,7 +23,7 @@ const SmartAiRecommendation: React.FC = () => {
                 {displayedData.map((item) => (
                     <div key={item.id} className="mb-5 last:mb-0">
                         <div className="font-bold text-[17px] leading-tight mb-1">{item.title}</div>
-                        <div className="text-gray-700 text-[15px] leading-snug">{item.description}</div>
+                        <div className="text-neutral-700 text-[15px] leading-snug">{item.description}</div>
                     </div>
                 ))}
             </div>

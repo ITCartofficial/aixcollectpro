@@ -72,7 +72,7 @@ const UpdateTaskLocationModal: React.FC<UpdateTaskLocationModalUIProps> = ({
     {/* City Dropdown */}
     <div className="mb-5 w-full">
       <Dropdown
-        label="City*"
+        label="City"
         required
         options={cityOptions}
         value={city}
@@ -84,7 +84,7 @@ const UpdateTaskLocationModal: React.FC<UpdateTaskLocationModalUIProps> = ({
     {/* State Dropdown */}
     <div className="mb-5 w-full">
       <Dropdown
-        label="State*"
+        label="State"
         required
         options={stateOptions}
         value={state}
@@ -96,7 +96,7 @@ const UpdateTaskLocationModal: React.FC<UpdateTaskLocationModalUIProps> = ({
     {/* Pincode */}
     <div className="mb-5 w-full">
       <InputField
-        label="Pincode*"
+        label="Pincode"
         required
         value={pincode}
         onChange={e => setPincode(e.target.value)}

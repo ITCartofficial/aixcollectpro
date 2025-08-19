@@ -412,7 +412,7 @@ const agentSummary: AgentSummaryCard[] = [
     },
     {
         label: "Idle Agents (>90 min)",
-        icon: <MdOutlineAccessTimeFilled className="w-5 h-5 text-[#FE9B0E]" />,
+        icon: <MdOutlineAccessTimeFilled className="w-5 h-5 text-secondary-500" />,
         count: AGENTS.filter(a => a.status === "Idle").length,
         iconBg: "bg-yellow-100",
     },
@@ -424,7 +424,7 @@ const agentSummary: AgentSummaryCard[] = [
     },
     {
         label: "On Leave Agents",
-        icon: <MdOutlineAccessTimeFilled className="w-5 h-5 text-[#2563eb]" />,
+        icon: <MdOutlineAccessTimeFilled className="w-5 h-5 text-primary-700" />,
         count: 0,
         iconBg: "bg-blue-100",
     },
@@ -449,8 +449,8 @@ const LiveAgentTrackingSection = () => {
             {/* Header: Title left, Filters right */}
             <div className="flex items-center justify-between flex-wrap gap-y-2 mb-4">
                 <div className="flex gap-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Live Agent Tracking</h3>
-                    <span className="text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded-full mt-1 inline-block">Last Synced: 02:30 PM</span>
+                    <h3 className="text-lg font-semibold text-neutral-700">Live Agent Tracking</h3>
+                    <span className="text-xs bg-neutral-100 text-neutral-500 px-2 py-1 rounded-full mt-1 inline-block">Last Synced: 02:30 PM</span>
                 </div>
                 <div className="flex gap-2 flex-wrap">
                     <Dropdown
@@ -488,13 +488,13 @@ const LiveAgentTrackingSection = () => {
             <div className="grid grid-cols-10 gap-6">
                 {/* Map section: span 7 */}
                 <div className="col-span-10 md:col-span-7 relative min-w-[400px]">
-                    <div className="relative w-full h-[360px] rounded-md overflow-hidden bg-gray-100">
+                    <div className="relative w-full h-[360px] rounded-md overflow-hidden bg-neutral-100">
                         <AgentLiveTrackingMap agents={filteredAgents} />
                     </div>
                 </div>
                 {/* Card section: span 3 */}
                 <div className="col-span-10 md:col-span-3 flex flex-col gap-4">
-                    <div className="text-sm font-semibold text-gray-700 mb-1">Agent Status Summary</div>
+                    <div className="text-sm font-semibold text-neutral-700 mb-1">Agent Status Summary</div>
                     <AgentStatusSummaryCard
                         summary={agentSummary} />
                     <PrimaryButton text="View All Agents" className="bg-primary-700 hover:bg-primary-600 text-white" />

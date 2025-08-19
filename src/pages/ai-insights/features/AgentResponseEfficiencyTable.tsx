@@ -90,7 +90,7 @@ const AgentResponseEfficiencyTable: React.FC = () => {
             render: (value, row) => (
                 <div className="flex items-center space-x-3">
                     <Avatar name={value} image={row.avatar} size="md" />
-                    <span className="font-medium text-gray-900">{value}</span>
+                    <span className="font-medium text-neutral-700">{value}</span>
                 </div>
             )
         },
@@ -115,14 +115,14 @@ const AgentResponseEfficiencyTable: React.FC = () => {
             label: "On-Visit Conversion",
             width: "90px",
             className: "text-center",
-            render: value => <span className="font-medium text-gray-900">{value}%</span>
+            render: value => <span className="font-medium text-neutral-700">{value}%</span>
         },
         {
             key: "geoCoverageAccuracy",
             label: "Geo Coverage Accuracy",
             width: "120px",
             className: "text-center",
-            render: value => <span className="font-medium text-gray-900">{value}%</span>
+            render: value => <span className="font-medium text-neutral-700">{value}%</span>
         },
         {
             key: "efficiencyRating",
@@ -138,11 +138,11 @@ const AgentResponseEfficiencyTable: React.FC = () => {
             {/* FILTERS AND SEARCH SECTION */}
             <div className="bg-white py-4 px-1 rounded-lg flex flex-wrap items-center gap-4">
                 {/* Tab Navigation */}
-                <div className="flex border-b border-gray-200">
+                <div className="flex border-b border-neutral-200">
                     <button
                         className={`px-4 py-2 text-base border-b-2 transition-colors cursor-pointer ${activeTab === 'agentResponse'
-                            ? 'border-blue-500 text-neutral-700 font-semibold'
-                            : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 font-medium'
+                            ? 'border-primary-500 text-neutral-700 font-semibold'
+                            : 'border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300 font-medium'
                             }`}
                         onClick={() => handleTabChange('agentResponse')}
                     >
@@ -150,8 +150,8 @@ const AgentResponseEfficiencyTable: React.FC = () => {
                     </button>
                     <button
                         className={`px-4 py-2 text-base border-b-2 transition-colors cursor-pointer ${activeTab === 'telecallerResponse'
-                            ? 'border-blue-500 text-neutral-700 font-semibold'
-                            : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 font-medium'
+                            ? 'border-primary-500 text-neutral-700 font-semibold'
+                            : 'border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300 font-medium'
                             }`}
                         onClick={() => handleTabChange('telecallerResponse')}
                     >
@@ -170,12 +170,12 @@ const AgentResponseEfficiencyTable: React.FC = () => {
             {selectedRows.length > 0 && (
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
                     <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-blue-900">
+                        <span className="text-sm font-medium text-primary-700">
                             {selectedRows.length} item{selectedRows.length > 1 ? "s" : ""} selected
                         </span>
                         <button
                             onClick={() => setSelectedRows([])}
-                            className="text-sm text-blue-700 hover:text-blue-900 cursor-pointer"
+                            className="text-sm text-primary-700 hover:text-primary-700 cursor-pointer"
                         >
                             Clear selection
                         </button>

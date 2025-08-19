@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import OtpVerification from "../auth/OtpVerification";
 import homedashbord from "../../assets/homedashbord.png"; 
 import { dummyUsers } from '../../utils/auth';
+import PrimaryButton from '../../components/ui/Buttons/PrimaryButton';
 
 const Login: React.FC = () => {
   const [employeeId, setEmployeeId] = useState('');
@@ -76,20 +77,20 @@ const Login: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen flex bg-[#f6f7fa]">
+    <div className="min-h-screen flex bg-white">
       {/* Left Panel - Welcome Section */}
-      <div className="flex-1 flex flex-col justify-center items-center bg-blue-600 rounded-l-[12px] px-8 py-8">
+      <div className="flex-1 flex flex-col justify-center items-center bg-primary-700 rounded-l-[12px] px-8 py-8">
         <div className="flex flex-col items-center w-full">
           <img
             src={homedashbord}
             alt="Dashboard"
-            className="w-full max-w-[420px] mb-8 rounded-lg shadow-lg bg-white"
+            className="w-full max-w-[600px] mb-8 rounded-lg shadow-lg bg-white"
             style={{ objectFit: "contain" }}
           />
           <h1 className="text-3xl font-bold text-white mb-4 text-center drop-shadow">
             Welcome Back to AiXCollectPro
           </h1>
-          <p className="text-lg text-blue-100 text-center max-w-md">
+          <p className="text-lg text-white text-center max-w-md">
             Monitor your team, manage tasks, and drive recovery with real-time insights.
           </p>
         </div>
@@ -100,20 +101,20 @@ const Login: React.FC = () => {
         <div className="w-full max-w-md mx-auto">
           {/* Logo/Title */}
           <div className="mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2 text-left">AiXCollectPro</h2>
+            <h2 className="text-3xl font-bold text-neutral-700 mb-2 text-left">AiXCollectPro</h2>
           </div>
           {/* Login Form */}
           <div className="mb-8">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-2 text-left">
+            <h3 className="text-2xl font-semibold text-neutral-700 mb-2 text-left">
               Log in to AiXCollectPro
             </h3>
-            <p className="text-gray-600 mb-8 text-left">
+            <p className="text-neutral-700 mb-8 text-left">
               Get started by entering your Employee ID & Mobile Number to access the supervisor dashboard
             </p>
             <div className="space-y-6">
               {/* Employee ID Field */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-neutral-600 mb-2">
                   Employee ID
                 </label>
                 <input
@@ -121,7 +122,7 @@ const Login: React.FC = () => {
                   value={employeeId}
                   onChange={e => setEmployeeId(e.target.value)}
                   placeholder="SUP-112345"
-                  className={`w-full px-4 py-3 border ${errors.employeeId ? "border-red-500" : "border-gray-300"} rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors`}
+                  className={`w-full px-4 py-3 border ${errors.employeeId ? "border-red-500" : "border-neutral-300"} rounded-md focus:ring-2 focus:ring-primary-600 focus:border-primary-600 outline-none transition-colors`}
                   autoComplete="username"
                 />
                 {errors.employeeId && (
@@ -130,7 +131,7 @@ const Login: React.FC = () => {
               </div>
               {/* Phone Number Field */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-neutral-600 mb-2">
                   Phone number
                 </label>
                 <input
@@ -138,7 +139,7 @@ const Login: React.FC = () => {
                   value={phoneNumber}
                   onChange={handlePhoneChange}
                   placeholder="+91 xxxxx xxx98"
-                  className={`w-full px-4 py-3 border ${errors.phoneNumber ? "border-red-500" : "border-gray-300"} rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors`}
+                  className={`w-full px-4 py-3 border ${errors.phoneNumber ? "border-red-500" : "border-gray-300"} rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors`}
                   autoComplete="current-password"
                 />
                 {errors.phoneNumber && (
@@ -154,19 +155,18 @@ const Login: React.FC = () => {
                   id="rememberMe"
                   className="mr-2"
                 />
-                <label htmlFor="rememberMe" className="text-sm text-gray-700 select-none">Remember Me</label>
+                <label htmlFor="rememberMe" className="text-sm text-neutral-600 select-none">Remember Me</label>
               </div>
               {/* Continue Button */}
-              <button
+              <PrimaryButton
+                text="Continue"
                 onClick={handleLogin}
-                className="w-full bg-[#1877F2] text-white py-3 px-4 rounded-md font-medium hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
-              >
-                Continue
-              </button>
+                className="w-full py-4 px-4 rounded-lg text-base font-semibold bg-primary-700 hover:bg-primary-700 transition text-white"
+              />
             </div>
           </div>
           {/* Footer */}
-          <div className="text-center text-sm text-gray-500 mt-10">
+          <div className="text-center text-sm text-neutral-600 mt-10">
             ©copyright 2025, AiXCollectPro - All Rights Reserved
           </div>
         </div>

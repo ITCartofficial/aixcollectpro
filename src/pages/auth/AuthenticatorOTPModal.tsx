@@ -4,7 +4,7 @@ import PrimaryButton from "../../components/ui/Buttons/PrimaryButton";
 import Authenticator from "../../assets/Authenticator.png";
 import ReusableModal from "../../components/ui/Modal/ReusableModal";
 
-interface AuthenticatorOTPModalProps {
+interface AuthenticatorOtpModalProps {
     isOpen: boolean;
     onClose: () => void;
     onVerify?: (otp: string) => void;
@@ -12,7 +12,7 @@ interface AuthenticatorOTPModalProps {
 
 const OTP_LENGTH = 6;
 
-const AuthenticatorOTPModal: React.FC<AuthenticatorOTPModalProps> = ({
+const AuthenticatorOtpModal: React.FC<AuthenticatorOtpModalProps> = ({
     isOpen,
     onClose,
     onVerify,
@@ -118,4 +118,4 @@ const AuthenticatorOTPModal: React.FC<AuthenticatorOTPModalProps> = ({
     );
 };
 
-export default AuthenticatorOTPModal;
+export default AuthenticatorOtpModal;

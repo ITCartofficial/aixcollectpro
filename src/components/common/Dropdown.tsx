@@ -1,11 +1,11 @@
 // import { useState, useEffect, useRef } from 'react';
 // import { FaChevronDown, FaSearch } from 'react-icons/fa';
-
+ 
 // interface DropdownOption {
 //   label: string;
 //   value: string;
 // }
-
+ 
 // interface DropdownProps {
 //   options: DropdownOption[];
 //   value?: string | string[];
@@ -15,9 +15,8 @@
 //   multiSelect?: boolean;
 //   className?: string;
 //   disabled?: boolean;
-//   required?: boolean;
 // }
-
+ 
 // const Dropdown: React.FC<DropdownProps> = ({
 //   options,
 //   value,
@@ -31,7 +30,7 @@
 //   const [isOpen, setIsOpen] = useState(false);
 //   const [searchTerm, setSearchTerm] = useState('');
 //   const dropdownRef = useRef<HTMLDivElement>(null);
-
+ 
 //   // Close dropdown when clicking outside
 //   useEffect(() => {
 //     const handleClickOutside = (event: MouseEvent) => {
@@ -39,19 +38,19 @@
 //         setIsOpen(false);
 //       }
 //     };
-
+ 
 //     if (isOpen) {
 //       document.addEventListener('mousedown', handleClickOutside);
 //     }
-
+ 
 //     return () => {
 //       document.removeEventListener('mousedown', handleClickOutside);
 //     };
 //   }, [isOpen]);
-
+ 
 //   // Prepare sorted options: "All" first, then selected, then unselected (all matching search)
 //   let sortedOptions: DropdownOption[] = [];
-
+ 
 //   if (multiSelect) {
 //     const selectedValues = Array.isArray(value) ? value : [];
 //     // "All" option
@@ -77,7 +76,7 @@
 //       opt.label.toLowerCase().includes(searchTerm.toLowerCase())
 //     );
 //   }
-
+ 
 //   const getDisplayText = () => {
 //     if (multiSelect) {
 //       const selectedValues = Array.isArray(value) ? value : [];
@@ -94,7 +93,7 @@
 //       return option?.label || placeholder;
 //     }
 //   };
-
+ 
 //   const handleSelect = (optionValue: string) => {
 //     if (multiSelect) {
 //       let currentValues = Array.isArray(value) ? value : [];
@@ -118,7 +117,7 @@
 //       setIsOpen(false);
 //     }
 //   };
-
+ 
 //   return (
 //     <div ref={dropdownRef} className={`relative ${className}`}>
 //       <button
@@ -133,7 +132,7 @@
 //         </span>
 //         <FaChevronDown className={`w-4 h-4 text-gray-500 transition-transform ${isOpen ? 'transform rotate-180' : ''}`} />
 //       </button>
-
+ 
 //       {isOpen && (
 //         <div className="absolute top-full left-0 mt-1 w-full bg-white border border-gray-300 rounded-md shadow-lg z-50 max-h-60 overflow-hidden">
 //           {searchable && (
@@ -150,7 +149,7 @@
 //               </div>
 //             </div>
 //           )}
-
+ 
 //           <div className="max-h-40 overflow-y-auto">
 //             {sortedOptions.length === 0 ? (
 //               <div className="px-4 py-2 text-sm text-gray-500">No options found</div>
@@ -183,24 +182,25 @@
 //     </div>
 //   );
 // };
-
+ 
 // export default Dropdown;
-
-
-
-
-
-
-
-// Dropdown component with label 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+// Dropdown component with label
 import { useState, useEffect, useRef } from 'react';
 import { FaChevronDown, FaSearch } from 'react-icons/fa';
-
+ 
 interface DropdownOption {
   label: string;
   value: string;
 }
-
+ 
 interface DropdownProps {
   label?: string;
   required?: boolean;
@@ -213,7 +213,7 @@ interface DropdownProps {
   className?: string;
   disabled?: boolean;
 }
-
+ 
 const Dropdown: React.FC<DropdownProps> = ({
   label,
   required = false,
@@ -229,7 +229,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const dropdownRef = useRef<HTMLDivElement>(null);
-
+ 
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -237,19 +237,19 @@ const Dropdown: React.FC<DropdownProps> = ({
         setIsOpen(false);
       }
     };
-
+ 
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
-
+ 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen]);
-
+ 
   // Prepare sorted options: "All" first, then selected, then unselected (all matching search)
   let sortedOptions: DropdownOption[] = [];
-
+ 
   if (multiSelect) {
     const selectedValues = Array.isArray(value) ? value : [];
     // "All" option
@@ -275,7 +275,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       opt.label.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }
-
+ 
   const getDisplayText = () => {
     if (multiSelect) {
       const selectedValues = Array.isArray(value) ? value : [];
@@ -284,7 +284,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         const option = options.find(opt => opt.value === selectedValues[0]);
         return option?.label || placeholder;
       }
-      return `${selectedValues.length} option applied`;
+      return `${selectedValues.length} filter applied`;
     } else {
       if (!value || (Array.isArray(value) && value.length === 0)) return placeholder;
       const selectedValue = Array.isArray(value) ? value[0] : value;
@@ -292,7 +292,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       return option?.label || placeholder;
     }
   };
-
+ 
   const handleSelect = (optionValue: string) => {
     if (multiSelect) {
       let currentValues = Array.isArray(value) ? value : [];
@@ -316,7 +316,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       setIsOpen(false);
     }
   };
-
+ 
   return (
     <div ref={dropdownRef} className={`relative ${className}`}>
       {/* Label block added here. No style changes to dropdown itself! */}
@@ -338,7 +338,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         </span>
         <FaChevronDown className={`w-4 h-4 text-neutral-500 transition-transform ${isOpen ? 'transform rotate-180' : ''}`} />
       </button>
-
+ 
       {isOpen && (
         <div className="absolute top-full left-0 mt-1 w-full bg-white border border-neutral-300 rounded-md shadow-lg z-50 max-h-60 overflow-hidden">
           {searchable && (
@@ -355,7 +355,7 @@ const Dropdown: React.FC<DropdownProps> = ({
               </div>
             </div>
           )}
-
+ 
           <div className="max-h-40 overflow-y-auto">
             {sortedOptions.length === 0 ? (
               <div className="px-4 py-2 text-sm text-neutral-500">No options found</div>
@@ -388,5 +388,6 @@ const Dropdown: React.FC<DropdownProps> = ({
     </div>
   );
 };
-
+ 
 export default Dropdown;
+ 

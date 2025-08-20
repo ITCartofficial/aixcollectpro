@@ -348,7 +348,7 @@ const AlertsTable: React.FC = () => {
             width: '130px',
             render: (value) => (
                 <div className="flex items-center space-x-3">
-                    <span className="font-medium text-gray-900">{value}</span>
+                    <span className="font-medium text-neutral-700">{value}</span>
                 </div>
             )
         },
@@ -388,7 +388,7 @@ const AlertsTable: React.FC = () => {
             className: 'text-center',
             render: (_, row) => (
                 <button
-                    className="text-black px-3 py-1 text-sm flex items-center space-x-1 cursor-pointer hover:bg-gray-100 rounded"
+                    className="text-neutral-700 px-3 py-1 text-sm flex items-center space-x-1 cursor-pointer hover:bg-neutral-100 rounded"
                     onClick={(e) => handleViewTask(row, e)}
                 >
                     <RxDotsVertical className="w-4 h-4" />
@@ -403,7 +403,7 @@ const AlertsTable: React.FC = () => {
             {/* FILTERS AND SEARCH SECTION */}
             <div className="bg-white p-4 rounded-lg mb-4">
                 <div className="flex flex-wrap items-center gap-4">
-                    <span className="text-sm font-medium text-gray-700">Filter by:</span>
+                    <span className="text-sm font-medium text-neutral-700">Filter by:</span>
 
                     {/* Date/Time Filter Dropdown */}
                     <Dropdown
@@ -471,7 +471,7 @@ const AlertsTable: React.FC = () => {
                         </span>
                         <button
                             onClick={() => setSelectedRows([])}
-                            className="text-sm text-blue-700 hover:text-blue-900 cursor-pointer"
+                            className="text-sm text-primary-700 hover:text-primary-700 cursor-pointer"
                         >
                             Clear selection
                         </button>
@@ -501,7 +501,7 @@ const AlertsTable: React.FC = () => {
             {showPopup && selectedAlert && (
                 <div
                     ref={popupRef}
-                    className="fixed z-50 bg-white border border-gray-200 rounded-lg shadow-lg py-2 min-w-[180px]"
+                    className="fixed z-50 bg-white border border-neutral-200 rounded-lg shadow-lg py-2 min-w-[180px]"
                     style={{
                         top: popupPosition.top,
                         left: popupPosition.left,
@@ -509,7 +509,7 @@ const AlertsTable: React.FC = () => {
                     <div className="py-1">
                         <button
                             onClick={handleEscalateAlert}
-                            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center space-x-2 cursor-pointer"
+                            className="w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50 flex items-center space-x-2 cursor-pointer"
                         >
                             <span>Escalate</span>
                         </button>
@@ -517,7 +517,7 @@ const AlertsTable: React.FC = () => {
                         {selectedAlert.status === 'Pending' && (
                             <button
                                 onClick={handleResolveAlert}
-                                className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center space-x-2 cursor-pointer">
+                                className="w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50 flex items-center space-x-2 cursor-pointer">
                                 <span>Mark as Resolved</span>
                             </button>
                         )}

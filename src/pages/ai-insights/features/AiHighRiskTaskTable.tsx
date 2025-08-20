@@ -190,7 +190,7 @@ const AiHighRiskTaskTable: React.FC = () => {
             </span>
             <button
               onClick={() => setSelectedRows([])}
-              className="text-sm text-blue-700 hover:text-primary-700 cursor-pointer"
+              className="text-sm text-primary-700 hover:text-primary-700 cursor-pointer"
             >
               Clear selection
             </button>

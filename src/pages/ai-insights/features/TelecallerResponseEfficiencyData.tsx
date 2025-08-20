@@ -118,7 +118,7 @@ const TelecallerResponseEfficiencyTable: React.FC<TelecallerResponseEfficiencyTa
             width: "90px",
             headerAlign:'center',
             className: "text-center",
-            render: value => <span className="font-medium text-neutral-900">{value}%</span>
+            render: value => <span className="font-medium text-neutral-700">{value}%</span>
         },
         {
             key: "ptpAccuracy",
@@ -126,7 +126,7 @@ const TelecallerResponseEfficiencyTable: React.FC<TelecallerResponseEfficiencyTa
             width: "120px",
             headerAlign:'center',
             className: "text-center",
-            render: value => <span className="font-medium text-neutral-900">{value}%</span>
+            render: value => <span className="font-medium text-neutral-700">{value}%</span>
         },
         {
             key: "efficiencyRating",
@@ -155,7 +155,7 @@ const TelecallerResponseEfficiencyTable: React.FC<TelecallerResponseEfficiencyTa
                     </button>
                     <button
                         className={`px-4 py-2 text-base border-b-2 transition-colors cursor-pointer ${activeTab === 'telecallerResponse'
-                            ? 'border-blue-500 text-neutral-700 font-semibold'
+                            ? 'border-primary-500 text-neutral-700 font-semibold'
                             : 'border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300 font-medium'
                             }`}
                         onClick={() => handleTabChange('telecallerResponse')}

@@ -321,7 +321,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     <div ref={dropdownRef} className={`relative ${className}`}>
       {/* Label block added here. No style changes to dropdown itself! */}
       {label && (
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-sm font-medium text-neutral-700 mb-2">
           {label}
           {required && <span className="text-red-500 ml-1">*</span>}
         </label>
@@ -329,28 +329,28 @@ const Dropdown: React.FC<DropdownProps> = ({
       <button
         onClick={() => !disabled && setIsOpen(!isOpen)}
         disabled={disabled}
-        className={`flex items-center justify-between w-full px-3 py-2 text-sm border border-gray-300 rounded-md bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+        className={`flex items-center justify-between w-full px-3 py-2 text-sm border border-neutral-300 rounded-md bg-white hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-primary-500 ${
           disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
         }`}
       >
-        <span className={`${getDisplayText() === placeholder ? 'text-gray-400' : 'text-gray-900'}`}>
+        <span className={`${getDisplayText() === placeholder ? 'text-neutral-400' : 'text-neutral-700'}`}>
           {getDisplayText()}
         </span>
-        <FaChevronDown className={`w-4 h-4 text-gray-500 transition-transform ${isOpen ? 'transform rotate-180' : ''}`} />
+        <FaChevronDown className={`w-4 h-4 text-neutral-500 transition-transform ${isOpen ? 'transform rotate-180' : ''}`} />
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-1 w-full bg-white border border-gray-300 rounded-md shadow-lg z-50 max-h-60 overflow-hidden">
+        <div className="absolute top-full left-0 mt-1 w-full bg-white border border-neutral-300 rounded-md shadow-lg z-50 max-h-60 overflow-hidden">
           {searchable && (
-            <div className="p-2 border-b border-gray-200">
+            <div className="p-2 border-b border-neutral-200">
               <div className="relative">
-                <FaSearch className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
+                <FaSearch className="absolute left-3 top-2.5 h-4 w-4 text-neutral-400" />
                 <input
                   type="text"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   placeholder="Search..."
-                  className="block w-full pl-9 pr-3 py-2 border border-gray-200 rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="block w-full pl-9 pr-3 py-2 border border-neutral-200 rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-primary-500"
                 />
               </div>
             </div>
@@ -358,16 +358,16 @@ const Dropdown: React.FC<DropdownProps> = ({
 
           <div className="max-h-40 overflow-y-auto">
             {sortedOptions.length === 0 ? (
-              <div className="px-4 py-2 text-sm text-gray-500">No options found</div>
+              <div className="px-4 py-2 text-sm text-neutral-500">No options found</div>
             ) : (
               sortedOptions.map((option) => (
                 <div
                   key={option.value}
                   onClick={() => handleSelect(option.value)}
-                  className={`flex items-center px-4 py-2 text-sm cursor-pointer hover:bg-gray-100 ${
+                  className={`flex items-center px-4 py-2 text-sm cursor-pointer hover:bg-neutral-100 ${
                     multiSelect
                       ? (Array.isArray(value) && value.includes(option.value)) ? 'bg-blue-50' : ''
-                      : (value === option.value ? 'bg-blue-50 text-blue-700' : 'text-gray-700')
+                      : (value === option.value ? 'bg-blue-50 text-primary-700' : 'text-neutral-700')
                   }`}
                 >
                   {multiSelect && (
@@ -375,7 +375,7 @@ const Dropdown: React.FC<DropdownProps> = ({
                       type="checkbox"
                       checked={Array.isArray(value) && value.includes(option.value)}
                       readOnly
-                      className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mr-3"
+                      className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-neutral-300 rounded mr-3"
                     />
                   )}
                   <span>{option.label}</span>

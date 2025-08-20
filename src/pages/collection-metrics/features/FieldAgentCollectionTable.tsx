@@ -103,7 +103,7 @@ const FieldAgentCollectionTable: React.FC = () => {
       className: "text-center",
       render: (value, row) => (
         <div className="flex items-center space-x-2">
-          <span className="font-medium text-gray-900">{value}</span>
+          <span className="font-medium text-neutral-700">{value}</span>
           {row.rank === 1 && (
             <div className="flex items-center gap-1 bg-[#B8FAD8] rounded-full px-2 py-1">
               <FaAward className="w-3 h-3 text-[#10854C] rotate-180" />
@@ -121,7 +121,7 @@ const FieldAgentCollectionTable: React.FC = () => {
       render: (value, row) => (
         <div className="flex items-center space-x-3">
           <Avatar name={value} image={row.avatar} size="md" />
-          <span className="font-medium text-gray-900">{value}</span>
+          <span className="font-medium text-neutral-700">{value}</span>
         </div>
       )
     },
@@ -193,7 +193,7 @@ const FieldAgentCollectionTable: React.FC = () => {
       className: "text-center",
       render: (_, row) => (
         <button
-          className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-full text-sm flex items-center space-x-1 cursor-pointer"
+          className="bg-primary-600 hover:bg-primary-700 text-white px-3 py-1 rounded-full text-sm flex items-center space-x-1 cursor-pointer"
           onClick={e => {
             e.stopPropagation();
             handleViewAgent(row);
@@ -211,11 +211,11 @@ const FieldAgentCollectionTable: React.FC = () => {
       {/* FILTERS AND SEARCH SECTION */}
       <div className="bg-white p-4 rounded-lg flex flex-wrap items-center gap-4">
         {/* Tab Navigation */}
-        <div className="flex border-b border-gray-200">
+        <div className="flex border-b border-neutral-200">
           <button
             className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors cursor-pointer ${activeTab === 'fieldAgentCollection'
-              ? 'border-blue-500 text-blue-600'
-              : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+              ? 'border-primary-500 text-primary-600'
+              : 'border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300'
               }`}
             onClick={() => handleTabChange('fieldAgentCollection')}
           >
@@ -223,15 +223,15 @@ const FieldAgentCollectionTable: React.FC = () => {
           </button>
           <button
             className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors cursor-pointer ${activeTab === 'telecallerCollection'
-              ? 'border-blue-500 text-blue-600'
-              : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+              ? 'border-primary-500 text-primary-600'
+              : 'border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300'
               }`}
             onClick={() => handleTabChange('telecallerCollection')}
           >
             Telecaller Collection Table
           </button>
         </div>
-        <span className="text-sm font-medium text-gray-700">Filter by:</span>
+        <span className="text-sm font-medium text-neutral-700">Filter by:</span>
         <Dropdown
           options={locationOptions}
           value={selectedLocation}
@@ -251,12 +251,12 @@ const FieldAgentCollectionTable: React.FC = () => {
       {selectedRows.length > 0 && (
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
           <div className="flex items-center justify-between">
-            <span className="text-sm font-medium text-blue-900">
+            <span className="text-sm font-medium text-primary-700">
               {selectedRows.length} item{selectedRows.length > 1 ? "s" : ""} selected
             </span>
             <button
               onClick={() => setSelectedRows([])}
-              className="text-sm text-blue-700 hover:text-blue-900 cursor-pointer"
+              className="text-sm text-primary-700 hover:text-primary-700 cursor-pointer"
             >
               Clear selection
             </button>

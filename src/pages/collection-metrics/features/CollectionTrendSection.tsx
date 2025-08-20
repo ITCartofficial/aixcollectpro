@@ -47,7 +47,7 @@ const CollectionTrendSection: React.FC = () => {
                 />
             </div>
             <div className="flex gap-6 mb-1">
-                <h3 className="text-3xl font-bold text-gray-900">₹5,82,000</h3>
+                <h3 className="text-3xl font-bold text-neutral-900">₹5,82,000</h3>
                 <div className="flex items-center gap-2">
                     <FiTrendingUp className="w-4 h-4 text-green-500" />
                     <span className="text-green-500 font-medium">+11.8%</span>

@@ -107,7 +107,7 @@ const TaskCreationForm: React.FC = () => {
         {!showAltAddress && (
           <button
             type="button"
-            className="text-blue-600 font-semibold text-sm hover:underline"
+            className="text-primary-600 font-semibold text-sm hover:underline"
             onClick={() => setShowAltAddress(true)}
           >
             + Add Another Address
@@ -189,10 +189,10 @@ const TaskCreationForm: React.FC = () => {
 
       {/* Actions */}
       <div className="flex justify-end gap-4 mt-8">
-        <button type="button" className="px-6 py-2 border border-blue-600 text-blue-600 rounded hover:bg-blue-50 font-semibold">
+        <button type="button" className="px-6 py-2 border border-primary-600 text-primary-600 rounded hover:bg-blue-50 font-semibold">
           Cancel
         </button>
-        <button type="submit" className="px-6 py-2 bg-blue-600 text-white rounded font-semibold hover:bg-blue-700">
+        <button type="submit" className="px-6 py-2 bg-primary-600 text-white rounded font-semibold hover:bg-primary-700">
           Create
         </button>
       </div>

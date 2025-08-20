@@ -115,15 +115,15 @@ const TaskAssignmentModal: React.FC<TaskAssignmentModalProps> = ({ isOpen, onClo
     modalContent = (
       <div>
         {/* Download Template */}
-        <div className="flex justify-between items-center bg-[#F8FAFF] border border-[#E6E9F4] rounded-lg px-6 py-4 mb-6 shadow-sm">
+        <div className="flex justify-between items-center bg-white border border-neutral-400 rounded-lg px-6 py-4 mb-6 shadow-sm">
           <div>
             <div className="font-semibold text-sm">Download Template for Bulk Upload</div>
-            <div className="text-xs text-gray-500">
+            <div className="text-xs text-neutral-500">
               Sample columns with Task ID, Borrower Name, Mobile, Address, Task Type, Location, Amount.
             </div>
           </div>
           <button
-            className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-5 py-2 rounded transition"
+            className="bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium px-5 py-2 rounded transition"
             onClick={handleDownloadTemplate}
           >
             Download Excel
@@ -131,22 +131,22 @@ const TaskAssignmentModal: React.FC<TaskAssignmentModalProps> = ({ isOpen, onClo
         </div>
         {/* Upload Excel */}
         <div className="mb-2 font-medium text-sm">Upload Excel</div>
-        <div className="text-xs text-gray-500 mb-2">
+        <div className="text-xs text-neutral-500 mb-2">
           Tasks will be listed in the Task Management section for manual assignment to agents or telecallers.
         </div>
         <div
           onClick={triggerFileUpload}
           onDragOver={handleDragOver}
           onDrop={handleDrop}
-          className="border-2 border-dashed border-[#B7C0D8] rounded-lg px-0 py-8 text-center cursor-pointer transition-colors hover:border-blue-400 relative mb-6"
+          className="border-2 border-dashed border-neutral-400 rounded-lg px-0 py-8 text-center cursor-pointer transition-colors hover:border-primary-400 relative mb-6"
         >
-          <HiOutlineCloudUpload className="mx-auto text-4xl text-blue-400 mb-2" />
-          <div className="font-medium text-gray-900">Drag and drop or browse to upload.</div>
-          <div className="text-xs text-gray-500 mt-1">
+          <HiOutlineCloudUpload className="mx-auto text-4xl text-primary-400 mb-2" />
+          <div className="font-medium text-neutral-900">Drag and drop or browse to upload.</div>
+          <div className="text-xs text-neutral-500 mt-1">
             Supported file format: .xls, .xlsx
           </div>
           {selectedFile && (
-            <div className="mt-2 text-xs text-blue-700 font-semibold">{selectedFile.name}</div>
+            <div className="mt-2 text-xs text-primary-700 font-semibold">{selectedFile.name}</div>
           )}
           <input
             ref={fileInputRef}
@@ -160,7 +160,7 @@ const TaskAssignmentModal: React.FC<TaskAssignmentModalProps> = ({ isOpen, onClo
           <button
             type="button"
             onClick={handleBack}
-            className="px-5 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition"
+            className="px-5 py-2 text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-md hover:bg-neutral-50 transition"
           >
             Back
           </button>
@@ -168,7 +168,7 @@ const TaskAssignmentModal: React.FC<TaskAssignmentModalProps> = ({ isOpen, onClo
             type="button"
             onClick={handleUpload}
             disabled={!selectedFile}
-            className="px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition"
+            className="px-5 py-2 text-sm font-medium text-white bg-primary-600 rounded-md hover:bg-primary-700 disabled:bg-neutral-300 disabled:cursor-not-allowed transition"
           >
             Upload
           </button>
@@ -179,15 +179,15 @@ const TaskAssignmentModal: React.FC<TaskAssignmentModalProps> = ({ isOpen, onClo
     modalContent = (
       <div>
         {/* Download Template */}
-        <div className="flex justify-between items-center bg-[#F8FAFF] border border-[#E6E9F4] rounded-lg px-6 py-4 mb-6 shadow-sm">
+        <div className="flex justify-between items-center bg-white border border-neutral-400 rounded-lg px-6 py-4 mb-6 shadow-sm">
           <div>
             <div className="font-semibold text-sm">Download Template for Bulk Upload</div>
-            <div className="text-xs text-gray-500">
+            <div className="text-xs text-neutral-500">
               Sample columns with Task ID, Borrower Name, Mobile, Address, Task Type, Location, Amount.
             </div>
           </div>
           <button
-            className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-5 py-2 rounded transition"
+            className="bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium px-5 py-2 rounded transition"
             onClick={handleDownloadTemplate}
           >
             Download Excel
@@ -195,18 +195,18 @@ const TaskAssignmentModal: React.FC<TaskAssignmentModalProps> = ({ isOpen, onClo
         </div>
         {/* Upload Excel */}
         <div className="mb-2 font-medium text-sm">Upload Excel</div>
-        <div className="text-xs text-gray-500 mb-2">
+        <div className="text-xs text-neutral-500 mb-2">
           The system will auto-assign tasks to agents or telecallers based on location, language, availability, and performance metrics.
         </div>
         <div
           onClick={triggerFileUpload}
           onDragOver={handleDragOver}
           onDrop={handleDrop}
-          className="border-2 border-dashed border-[#B7C0D8] rounded-lg px-0 py-8 text-center cursor-pointer transition-colors hover:border-blue-400 relative mb-6"
+          className="border-2 border-dashed border-neutral-400 rounded-lg px-0 py-8 text-center cursor-pointer transition-colors hover:border-blue-400 relative mb-6"
         >
-          <HiOutlineCloudUpload className="mx-auto text-4xl text-blue-400 mb-2" />
-          <div className="font-medium text-gray-900">Drag and drop or browse to upload.</div>
-          <div className="text-xs text-gray-500 mt-1">
+          <HiOutlineCloudUpload className="mx-auto text-4xl text-primary-400 mb-2" />
+          <div className="font-medium text-neutral-700">Drag and drop or browse to upload.</div>
+          <div className="text-xs text-neutral-500 mt-1">
             Supported file format: .xls, .xlsx
           </div>
           {selectedFile && (
@@ -223,16 +223,16 @@ const TaskAssignmentModal: React.FC<TaskAssignmentModalProps> = ({ isOpen, onClo
         {/* Assignment Summary */}
         <div className="mt-6">
           <div className="font-semibold text-sm mb-1">Assignment Summary</div>
-          <div className="text-xs text-gray-500">
+          <div className="text-xs text-neutral-500">
             Here you’ll see a summary of the task assignment results based on your uploaded Excel and the AI’s allocation logic. (UI placeholder)
           </div>
-          <button className="text-blue-600 text-xs mt-2 font-medium">Edit</button>
+          <button className="text-primary-600 text-xs mt-2 font-medium">Edit</button>
         </div>
         <div className="flex justify-end gap-3 mt-8">
           <button
             type="button"
             onClick={handleBack}
-            className="px-5 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition"
+            className="px-5 py-2 text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-md hover:bg-neutral-50 transition"
           >
             Back
           </button>
@@ -240,7 +240,7 @@ const TaskAssignmentModal: React.FC<TaskAssignmentModalProps> = ({ isOpen, onClo
             type="button"
             onClick={handleUpload}
             disabled={!selectedFile}
-            className="px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition"
+            className="px-5 py-2 text-sm font-medium text-white bg-primary-600 rounded-md hover:bg-primary-700 disabled:bg-neutral-300 disabled:cursor-not-allowed transition"
           >
             Upload
           </button>
@@ -265,15 +265,15 @@ const TaskAssignmentModal: React.FC<TaskAssignmentModalProps> = ({ isOpen, onClo
               className={`
                 flex-1 flex flex-col justify-center items-center rounded-lg border transition-all duration-200 p-8
                 cursor-pointer outline-none
-                border-blue-500
-                bg-white text-gray-900 hover:bg-blue-600 hover:text-white
+                border-primary-500
+                bg-white text-neutral-900 hover:bg-primary-600 hover:text-white
                 group
               `}
               style={{ minWidth: 250, minHeight: 220 }}
             >
-              <IconComponent className="mb-6 text-4xl text-blue-600 group-hover:text-white" />
+              <IconComponent className="mb-6 text-4xl text-primary-600 group-hover:text-white" />
               <span className="font-semibold text-lg mb-2 text-center group-hover:text-white">{option.title}</span>
-              <span className="text-sm text-center text-gray-500 group-hover:text-white/80">{option.description}</span>
+              <span className="text-sm text-center text-neutral-500 group-hover:text-white/80">{option.description}</span>
             </button>
           );
         })}

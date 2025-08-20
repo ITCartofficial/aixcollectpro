@@ -250,30 +250,30 @@ const AgentInfoCard: React.FC<{ agent: Agent; onClose: () => void }> = ({
   agent,
   onClose,
 }) => (
-  <div className="absolute left-0 right-0 mx-auto z-50 w-96 bg-white rounded-lg shadow-lg p-4 top-6 border border-gray-100">
+  <div className="absolute left-0 right-0 mx-auto z-50 w-96 bg-white rounded-lg shadow-lg p-4 top-6 border border-neutral-100">
     <div className="flex justify-between items-center">
       <div className="flex items-center gap-3">
         <div className="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold text-lg uppercase">
           {getInitials(agent.name)}
         </div>
-        <span className="font-medium text-lg text-gray-900">{agent.name}</span>
+        <span className="font-medium text-lg text-neutral-700">{agent.name}</span>
       </div>
-      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${agent.status === "On-Road" ? "bg-emerald-100 text-emerald-700" : agent.status === "Idle" ? "bg-yellow-100 text-yellow-700" : "bg-gray-200 text-gray-700"}`}>
+      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${agent.status === "On-Road" ? "bg-emerald-100 text-emerald-700" : agent.status === "Idle" ? "bg-yellow-100 text-yellow-700" : "bg-neutral-200 text-neutral-700"}`}>
         {agent.status}
       </span>
     </div>
-    <div className="mt-2 mb-1 text-gray-700 text-[15px]">
+    <div className="mt-2 mb-1 text-neutral-700 text-[15px]">
       <span className="font-semibold">Last Check in :</span> <span className="font-medium">{agent.lastCheckIn}</span>
       <span className="mx-2">|</span>
       <span className="font-semibold">Current Location :</span> <span className="font-medium">{agent.currentLocation}</span>
     </div>
-    <div className="mb-2 text-gray-700 text-[15px]">
+    <div className="mb-2 text-neutral-700 text-[15px]">
       Task : <span className="font-semibold">{agent.completed} Completed</span>, <span className="font-semibold">{agent.pending} pending</span>
     </div>
     <div className="flex justify-end">
       <a
         href={agent.profileUrl || "#"}
-        className="bg-blue-600 text-white px-4 py-1.5 rounded font-medium flex items-center gap-2 text-sm hover:bg-blue-700 transition"
+        className="bg-primary-600 text-white px-4 py-1.5 rounded font-medium flex items-center gap-2 text-sm hover:bg-primary-700 transition"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -283,7 +283,7 @@ const AgentInfoCard: React.FC<{ agent: Agent; onClose: () => void }> = ({
         View Profile
       </a>
       <button
-        className="ml-2 text-gray-400 hover:text-gray-600 text-lg"
+        className="ml-2 text-neutral-400 hover:text-neutral-600 text-lg"
         onClick={onClose}
         aria-label="Close"
       >
@@ -340,7 +340,7 @@ const AgentLiveTrackingMap: React.FC<AgentLiveTrackingMapProps> = ({ agents }) =
     }
   }, [simAgents, selectedAgent]);
 
-  if (!isLoaded) return <div className="h-96 flex justify-center items-center text-gray-500">Loading map...</div>;
+  if (!isLoaded) return <div className="h-96 flex justify-center items-center text-neutral-500">Loading map...</div>;
 
   return (
     <div className="relative">

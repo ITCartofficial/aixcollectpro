@@ -104,7 +104,7 @@ const TelecallerCollectionTable: React.FC<TelecallerCollectionTableProps> = ({ o
       className: "text-center",
       render: (value, row) => (
         <div className="flex items-center space-x-2">
-          <span className="font-medium text-gray-900">{value}</span>
+          <span className="font-medium text-neutral-700">{value}</span>
           {row.rank === 1 && (
             <div className="flex items-center gap-1 bg-[#B8FAD8] rounded-full px-2 py-1">
               <FaAward className="w-3 h-3 text-[#10854C] rotate-180" />
@@ -122,7 +122,7 @@ const TelecallerCollectionTable: React.FC<TelecallerCollectionTableProps> = ({ o
       render: (value, row) => (
         <div className="flex items-center space-x-3">
           <Avatar name={value} image={row.avatar} size="md" />
-          <span className="font-medium text-gray-900">{value}</span>
+          <span className="font-medium text-neutral-700">{value}</span>
         </div>
       )
     },
@@ -191,7 +191,7 @@ const TelecallerCollectionTable: React.FC<TelecallerCollectionTableProps> = ({ o
       className: "text-center",
       render: (_, row) => (
         <button
-          className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-full text-sm flex items-center space-x-1 cursor-pointer"
+          className="bg-primary-700 hover:bg-primary-700 text-white px-3 py-1 rounded-full text-sm flex items-center space-x-1 cursor-pointer"
           onClick={e => {
             e.stopPropagation();
             handleViewAgent(row);
@@ -211,19 +211,19 @@ const TelecallerCollectionTable: React.FC<TelecallerCollectionTableProps> = ({ o
         {/* Tab Navigation */}
         <div className="flex border-b border-gray-200">
           <button className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors cursor-pointer ${activeTab === 'fieldAgentCollection'
-            ? 'border-blue-500 text-blue-600'
-            : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+            ? 'border-primary-500 text-primary-600'
+            : 'border-transparent text-ry-7-500 hover:text-ry-7-700 hover:border-ry-7-300'
             }`}
             onClick={() => handleTabChange('fieldAgentCollection')}>Field Agent Collection Table
           </button>
           <button className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors cursor-pointer ${activeTab === 'telecallerCollection'
-            ? 'border-blue-500 text-blue-600'
-            : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+            ? 'border-primary-500 text-primary-600'
+            : 'border-transparent text-ry-7-500 hover:text-gray-700 hover:border-ry-7-300'
             }`}
             onClick={() => handleTabChange('telecallerCollection')}>Telecaller Collection Table
           </button>
         </div>
-        <span className="text-sm font-medium text-gray-700">Filter by:</span>
+        <span className="text-sm font-medium text-ry-7-700">Filter by:</span>
         <Dropdown
           options={languageOptions}
           value={selectedLanguage}
@@ -248,7 +248,7 @@ const TelecallerCollectionTable: React.FC<TelecallerCollectionTableProps> = ({ o
             </span>
             <button
               onClick={() => setSelectedRows([])}
-              className="text-sm text-blue-700 hover:text-blue-900 cursor-pointer"
+              className="text-sm text-primary-700 hover:text-primary-700 cursor-pointer"
             >
               Clear selection
             </button>

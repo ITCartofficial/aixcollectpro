@@ -102,7 +102,7 @@ const CollectionPerformanceGraph: React.FC<CollectionPerformanceGraphProps> = ({
           <select
             value={selectedTimeFilter}
             onChange={(e) => handleTimeFilterChange(e.target.value)}
-            className="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 text-sm font-medium text-neutral-600 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 cursor-pointer"
+            className="appearance-none bg-white border border-neutral-300 rounded-lg px-4 py-2 pr-8 text-sm font-medium text-neutral-600 hover:border-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 cursor-pointer"
           >
             {timeFilterOptions.map((option) => (
               <option key={option} value={option}>

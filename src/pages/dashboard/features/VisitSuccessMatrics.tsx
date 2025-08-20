@@ -43,7 +43,7 @@ const VisitSuccessMatrics = () => {
                             </th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-200">
+                    <tbody className="divide-y divide-neutral-200">
                         {data.map((row, index) => (
                             <tr key={index} className="hover:bg-gray-50">
                                 <td className="px-4 py-[15px] text-sm text-neutral-600 font-regular">

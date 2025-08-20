@@ -52,7 +52,7 @@ const CollectionMetrics = () => {
   return (
     <div className="mr-4">
       <div className="w-full h-12 flex justify-between items-center mt-4">
-        <h1 className="text-xl lg:text-2xl font-bold text-black mb-5 mt-4">
+        <h1 className="text-xl lg:text-2xl font-bold text-neutral-700 mb-5 mt-4">
           Collection Metrics
         </h1>
         <div className="flex gap-4">

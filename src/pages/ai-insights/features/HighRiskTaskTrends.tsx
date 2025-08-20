@@ -51,8 +51,8 @@ const HighRiskTaskTrendCard: React.FC = () => {
                 <div className="flex items-center gap-7">
                     {/* Legend */}
                     <div className="flex items-center space-x-2">
-                        <span className="w-4 h-1.5 rounded-full bg-blue-600 inline-block" />
-                        <span className="text-sm text-gray-700 font-medium">
+                        <span className="w-4 h-1.5 rounded-full bg-primary-600 inline-block" />
+                        <span className="text-sm text-neutral-700 font-medium">
                             High-Risk Tasks
                         </span>
                     </div>

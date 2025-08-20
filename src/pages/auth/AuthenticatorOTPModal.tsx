@@ -66,7 +66,7 @@ const AuthenticatorOtpModal: React.FC<AuthenticatorOtpModalProps> = ({
             >
                 {/* Close button */}
                 <button
-                    className="absolute top-7 right-7 text-gray-400 hover:text-gray-600 text-2xl"
+                    className="absolute top-7 right-7 text-neutral-600 hover:text-neutral-600 text-2xl"
                     onClick={onClose}
                     aria-label="Close"
                 >
@@ -82,7 +82,7 @@ const AuthenticatorOtpModal: React.FC<AuthenticatorOtpModalProps> = ({
                     />
                     {/* Title */}
                     <h2 className="text-xl font-semibold text-center mb-2">Verify Your Identity</h2>
-                    <p className="text-gray-600 text-center mb-10 text-base px-2 leading-6">
+                    <p className="text-neutral-600 text-center mb-10 text-base px-2 leading-6">
                         Use your authentication app to enter the 6-digit code for enhanced security.
                     </p>
                     {/* OTP Inputs */}
@@ -97,7 +97,7 @@ const AuthenticatorOtpModal: React.FC<AuthenticatorOtpModalProps> = ({
                                 value={digit}
                                 onChange={e => handleChange(idx, e.target.value)}
                                 onKeyDown={e => handleKeyDown(e, idx)}
-                                className="w-[80px] h-[64px] text-center text-2xl font-bold border border-[#CACACA] rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#1890FF] transition"
+                                className="w-[80px] h-[64px] text-center text-2xl font-bold border border-neutral-500 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary-700 transition"
                                 autoFocus={idx === 0}
                             />
                         ))}
@@ -108,7 +108,7 @@ const AuthenticatorOtpModal: React.FC<AuthenticatorOtpModalProps> = ({
                             <PrimaryButton
                                 text="Verify & Login"
                                 onClick={handleVerify}
-                                className="w-full py-4 px-4 rounded-lg text-base font-semibold bg-[#0064E1] hover:bg-[#0055C4] transition text-white"
+                                className="w-full py-4 px-4 rounded-lg text-base font-semibold bg-primary-700 hover:bg-primary-700 transition text-white"
                             />
                         </div>
                     </div>

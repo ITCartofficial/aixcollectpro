@@ -145,20 +145,20 @@ const Sidebar: React.FC = () => {
       } flex flex-col overflow-hidden`}
     >
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-gray-200 flex-shrink-0">
+      <div className="flex items-center justify-between p-4 border-b border-neutral-200 flex-shrink-0">
         {!isCollapsed && (
-          <h1 className="text-xl font-semibold text-gray-800 whitespace-nowrap overflow-hidden">
+          <h1 className="text-xl font-semibold text-neutral-700  whitespace-nowrap overflow-hidden">
             AiXCollectPro
           </h1>
         )}
         <button
           onClick={toggleSidebar}
-          className="p-1 rounded-lg hover:bg-gray-100 transition-colors flex-shrink-0 cursor-pointer"
+          className="p-1 rounded-lg hover:bg-neutral-100 transition-colors flex-shrink-0 cursor-pointer"
         >
           {isCollapsed ? (
-            <MdChevronRight className="w-5 h-5 text-gray-600" />
+            <MdChevronRight className="w-5 h-5 text-neutral-600" />
           ) : (
-            <MdChevronLeft className="w-5 h-5 text-gray-600" />
+            <MdChevronLeft className="w-5 h-5 text-neutral-600" />
           )}
         </button>
       </div>
@@ -200,7 +200,7 @@ const Sidebar: React.FC = () => {
       </nav>
 
       {/* Logout - Fixed at bottom */}
-      <div className="bg-white border-t border-gray-200 p-4 flex-shrink-0">
+      <div className="bg-white border-t border-neutral-200 p-4 flex-shrink-0">
         <button
           onClick={handleLogout}
           className={`w-full flex items-center text-red-500 hover:bg-red-50 transition-colors rounded-lg cursor-pointer ${

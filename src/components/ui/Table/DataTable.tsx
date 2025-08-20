@@ -199,7 +199,7 @@ const DataTable = <T extends Record<string, any>>({
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
       </div>
     );
   }
@@ -210,11 +210,11 @@ const DataTable = <T extends Record<string, any>>({
   return (
     <div className={`bg-white rounded-lg ${className}`}>
       <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className={`bg-gray-50 ${headerClassName}`}>
+        <table className="min-w-full divide-y divide-neutral-200">
+          <thead className={`bg-neutral-50 ${headerClassName}`}>
             <tr>
               {selectable && (
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-12">
+                <th className="px-4 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider w-12">
                   <input
                     type="checkbox"
                     checked={isAllSelected}
@@ -222,7 +222,7 @@ const DataTable = <T extends Record<string, any>>({
                       if (input) input.indeterminate = isPartiallySelected;
                     }}
                     onChange={(e) => handleSelectAll(e.target.checked)}
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded cursor-pointer"
+                    className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-neutral-300 rounded cursor-pointer"
                   />
                 </th>
               )}
@@ -231,8 +231,8 @@ const DataTable = <T extends Record<string, any>>({
                   key={index}
                   className={`
                     px-3 py-3
-                    text-xs font-medium text-gray-500 uppercase tracking-wider
-                    ${column.sortable && sortable ? 'cursor-pointer hover:bg-gray-100' : ''}
+                    text-xs font-medium text-neutral-500 uppercase tracking-wider
+                    ${column.sortable && sortable ? 'cursor-pointer hover:bg-neutral-100' : ''}
                     ${getHeaderAlignClass(column.headerAlign)}
                     ${column.className || ''}
                   `}
@@ -247,12 +247,12 @@ const DataTable = <T extends Record<string, any>>({
               ))}
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-white divide-y divide-neutral-200">
             {paginatedData.length === 0 ? (
               <tr>
                 <td
                   colSpan={columns.length + (selectable ? 1 : 0)}
-                  className="px-6 py-12 text-center text-gray-500"
+                  className="px-6 py-12 text-center text-neutral-500"
                 >
                   {emptyMessage}
                 </td>
@@ -274,7 +274,7 @@ const DataTable = <T extends Record<string, any>>({
                           handleRowSelect(row, e.target.checked);
                         }}
                         onClick={(e) => e.stopPropagation()} // Prevent row click when clicking checkbox
-                        className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded cursor-pointer"
+                        className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-neutral-300 rounded cursor-pointer"
                       />
                     </td>
                   )}
@@ -299,10 +299,10 @@ const DataTable = <T extends Record<string, any>>({
 
       {/* New Pagination UI */}
       {showPagination && (
-        <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200">
+        <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-neutral-200">
           {/* Left side - Items count */}
           <div className="flex items-center space-x-2">
-            <span className="text-sm text-gray-700">
+            <span className="text-sm text-neutral-700">
               {Math.min((currentPage - 1) * pageSize + 1, sortedData.length)}-{Math.min(currentPage * pageSize, sortedData.length)} of {sortedData.length} Items
             </span>
           </div>
@@ -313,14 +313,14 @@ const DataTable = <T extends Record<string, any>>({
             <button
               onClick={() => setCurrentPage(1)}
               disabled={currentPage === 1}
-              className="px-3 py-1 text-sm text-gray-500 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 cursor-pointer"
+              className="px-3 py-1 text-sm text-neutral-500 hover:text-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 cursor-pointer"
             >
               <FiChevronsLeft /> Prev
             </button>
             <button
               onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
-              className="px-3 py-1 text-sm text-gray-500 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 cursor-pointer"
+              className="px-3 py-1 text-sm text-neutral-500 hover:text-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 cursor-pointer"
             >
               <FiChevronLeft /> Prev
             </button>
@@ -332,7 +332,7 @@ const DataTable = <T extends Record<string, any>>({
                 onClick={() => setCurrentPage(page)}
                 className={`px-3 py-1 text-sm rounded ${currentPage === page
                   ? 'bg-blue-500 text-white'
-                  : 'text-gray-700 hover:bg-gray-100 cursor-pointer'
+                  : 'text-gray-700 hover:bg-neutral-100 cursor-pointer'
                   }`}
               >
                 {page}
@@ -343,14 +343,14 @@ const DataTable = <T extends Record<string, any>>({
             <button
               onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
               disabled={currentPage === totalPages}
-              className="px-3 py-1 text-sm text-gray-500 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 cursor-pointer"
+              className="px-3 py-1 text-sm text-neutral-500 hover:text-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 cursor-pointer"
             >
               Next <FiChevronRight />
             </button>
             <button
               onClick={() => setCurrentPage(totalPages)}
               disabled={currentPage === totalPages}
-              className="px-3 py-1 text-sm text-gray-500 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 cursor-pointer"
+              className="px-3 py-1 text-sm text-neutral-500 hover:text-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 cursor-pointer"
             >
               Next <FiChevronsRight />
             </button>
@@ -361,7 +361,7 @@ const DataTable = <T extends Record<string, any>>({
             <select
               value={pageSize}
               onChange={(e) => handlePageSizeChange(Number(e.target.value))}
-              className="border border-gray-300 rounded px-2 py-1 text-sm text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-neutral-300 rounded px-2 py-1 text-sm text-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500"
             >
               {pageSizeOptions.map((size) => (
                 <option key={size} value={size}>
@@ -369,7 +369,7 @@ const DataTable = <T extends Record<string, any>>({
                 </option>
               ))}
             </select>
-            <span className="text-sm text-gray-700">Items per Page</span>
+            <span className="text-sm text-neutral-700">Items per Page</span>
           </div>
         </div>
       )}

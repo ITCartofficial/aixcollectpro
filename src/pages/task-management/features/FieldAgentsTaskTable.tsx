@@ -1,7 +1,6 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import Dropdown from "../../../components/common/Dropdown";
 import SearchBar from "../../../components/common/Searchbar";
-
 import fieldAgentTaskData from "../../../../data/task-management/fieldAgentsTask.json";
 import ExpandableTable from "../../../components/ui/Table/ExpandableTable";
 import type { TableColumn } from "../../../components/ui/Table/ExpandableTable";
@@ -9,6 +8,7 @@ import Badge from "../../../components/ui/Table/Badge";
 import Avatar from "../../../components/ui/Table/Avatar";
 import ExpandedRowContent, { type RecentActivityItem } from "../../../components/ui/Table/ExpandedRowContent";
 import PopupMenu, { type PopupPosition } from "../../../components/ui/Table/PopupMenu";
+import ModelsContainer from "./ModelsContainer";// <-- Import your ModelsContainer
 
 interface FieldAgentsTask {
     id: string;
@@ -47,13 +47,37 @@ interface FieldAgentsTask {
 
 interface FilterState {
     status: string;
-    agent: string[];      // <-- Multi-select
+    agent: string[];
     collectionStatus: string;
     taskType: string;
     dateRange: string;
-    location: string[];   // <-- Multi-select
+    location: string[];
     searchQuery: string;
 }
+
+// --- Dropdown Options ---
+const cityOptions = [
+    { label: "Mumbai", value: "Mumbai" },
+    { label: "Delhi", value: "Delhi" },
+    { label: "Bengaluru", value: "Bengaluru" },
+    { label: "Chennai", value: "Chennai" },
+];
+const stateOptions = [
+    { label: "Maharashtra", value: "Maharashtra" },
+    { label: "Karnataka", value: "Karnataka" },
+    { label: "Tamil Nadu", value: "Tamil Nadu" },
+    { label: "Delhi", value: "Delhi" },
+];
+const flagReasons = [
+    { label: "Needs Escalation", value: "escalation" },
+    { label: "Supervisor Attention", value: "supervisor" },
+    { label: "Others", value: "others" },
+];
+const notesCategories = [
+    { label: "Others", value: "others" },
+    { label: "Progress Update", value: "progress" },
+    { label: "Borrower Remark", value: "borrower" },
+];
 
 const popupMenuItems = [
     { label: "Mark as Complete", action: "mark_complete" },
@@ -74,20 +98,66 @@ const FieldAgentTaskTable: React.FC = () => {
     const [popupPosition, setPopupPosition] = useState<PopupPosition>({ top: 0, left: 0 });
     const popupRef = useRef<HTMLDivElement>(null);
 
-    const fieldTask: FieldAgentsTask[] = Array.isArray(fieldAgentTaskData)
-        ? (fieldAgentTaskData as any[]).map((task: any) => ({
-            ...task,
-            id: task.taskId || task.id,
-        }))
-        : [];
+    // Modal logic is moved to ModelsContainer!
+    const [activeModal, setActiveModal] = useState<
+        | "reassign"
+        | "reschedule"
+        | "updateLocation"
+        | "flag"
+        | "addNotes"
+        | "edit"
+        | null
+    >(null);
+
+    // Pass selected task to modal
+    // const [setModalTask] = useState<FieldAgentsTask | null>(null);
+
+    // Handle popup actions to open ModelsContainer modal
+    const handlePopupAction = useCallback(
+        (action: string) => {
+            if (!selectedTask) return;
+            if (
+                ["reassign", "reschedule", "update_location", "flag", "add_notes", "edit"].includes(action)
+            ) {
+                let modalKey: typeof activeModal = null;
+                switch (action) {
+                    case "reassign":
+                        modalKey = "reassign";
+                        break;
+                    case "reschedule":
+                        modalKey = "reschedule";
+                        break;
+                    case "update_location":
+                        modalKey = "updateLocation";
+                        break;
+                    case "flag":
+                        modalKey = "flag";
+                        break;
+                    case "add_notes":
+                        modalKey = "addNotes";
+                        break;
+                    case "edit":
+                        modalKey = "edit";
+                        break;
+                    default:
+                        break;
+                }
+                setActiveModal(modalKey);
+                // setModalTask(selectedTask);
+                setShowPopup(false);
+            }
+            // ... other actions
+        },
+        [selectedTask]
+    );
 
     const [filters, setFilters] = useState<FilterState>({
         status: "",
-        agent: [""],        // default: All
+        agent: [""],
         collectionStatus: "",
         taskType: "",
         dateRange: "",
-        location: [""],     // default: All
+        location: [""],
         searchQuery: "",
     });
 
@@ -105,6 +175,13 @@ const FieldAgentTaskTable: React.FC = () => {
             return () => document.removeEventListener("mousedown", handleClickOutside);
         }
     }, [showPopup]);
+
+    const fieldTask: FieldAgentsTask[] = Array.isArray(fieldAgentTaskData)
+        ? (fieldAgentTaskData as any[]).map((task: any) => ({
+            ...task,
+            id: task.taskId || task.id,
+        }))
+        : [];
 
     const filterOptions = useMemo(
         () => ({
@@ -151,9 +228,8 @@ const FieldAgentTaskTable: React.FC = () => {
         [fieldTask]
     );
 
-    // --- Multi-select filter handler for agent & location ---
+    // Multi-select filter handler for agent & location
     const handleFilterChange = useCallback((filterType: keyof FilterState, value: string | string[]) => {
-        // For agent/location, handle multi-select and "All" option
         if (filterType === "agent" || filterType === "location") {
             let arr = Array.isArray(value) ? value : [value];
             if (arr.includes("")) {
@@ -173,7 +249,7 @@ const FieldAgentTaskTable: React.FC = () => {
         }
     }, []);
 
-    // --- Filtering logic ---
+    // Filtering logic
     const filteredData = useMemo(() => {
         let filtered = fieldTask;
 
@@ -187,7 +263,6 @@ const FieldAgentTaskTable: React.FC = () => {
                     task.agent?.toLowerCase().includes(query)
             );
         }
-        // Filters
         Object.entries(filters).forEach(([key, value]) => {
             if (value && key !== "searchQuery") {
                 if (key === "agent" || key === "location") {
@@ -209,7 +284,6 @@ const FieldAgentTaskTable: React.FC = () => {
         return filtered;
     }, [fieldTask, filters]);
 
-    // Other unchanged handlers...
     const handleSearch = useCallback(
         (query: string) => {
             handleFilterChange("searchQuery", query);
@@ -247,14 +321,6 @@ const FieldAgentTaskTable: React.FC = () => {
         setSelectedTask(task);
         setShowPopup(true);
     }, []);
-
-    const handlePopupAction = useCallback(
-        (action: string) => {
-            if (!selectedTask) return;
-            console.log(`Action: ${action} for task:`, selectedTask.taskId);
-        },
-        [selectedTask]
-    );
 
     const closePopup = useCallback(() => {
         setShowPopup(false);
@@ -358,7 +424,7 @@ const FieldAgentTaskTable: React.FC = () => {
             {
                 key: "collectionStatus",
                 label: "Collection Status",
-                className:'text-center',
+                className: 'text-center',
                 sortable: true,
                 render: (value: string) => <Badge variant={getCollectionStatusVariant(value)}>{value}</Badge>,
             },
@@ -393,7 +459,7 @@ const FieldAgentTaskTable: React.FC = () => {
         <div className="mt-4 bg-white h-max rounded-lg p-4">
             {/* Filters and Search */}
             <div className="flex flex-wrap items-center gap-4 p-4">
-                <span className="text-sm font-medium text-gray-700">Filter by:</span>
+                <span className="text-sm font-medium text-neutral-700 ">Filter by:</span>
                 <Dropdown
                     options={filterOptions.status}
                     value={filters.status}
@@ -444,14 +510,14 @@ const FieldAgentTaskTable: React.FC = () => {
 
             {/* Selected Items Display */}
             {selectedRows.length > 0 && (
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                <div className="bg-blue-50 border border-neutral-200 rounded-lg p-4 mb-4">
                     <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-blue-900">
+                        <span className="text-sm font-medium text-primary-700">
                             {selectedRows.length} task{selectedRows.length > 1 ? "s" : ""} selected
                         </span>
                         <button
                             onClick={clearSelection}
-                            className="text-sm text-blue-700 hover:text-blue-900 cursor-pointer transition-colors duration-200"
+                            className="text-sm text-primary-700 hover:text-primary-700 cursor-pointer transition-colors duration-200"
                         >
                             Clear selection
                         </button>
@@ -483,6 +549,18 @@ const FieldAgentTaskTable: React.FC = () => {
                 onAction={handlePopupAction}
                 popupRef={popupRef}
                 menuItems={popupMenuItems}
+            />
+
+            {/* ModelsContainer for all modals */}
+            <ModelsContainer
+                activeModal={activeModal}
+                setActiveModal={setActiveModal}
+                // modalTask={modalTask}
+                cityOptions={cityOptions}
+                stateOptions={stateOptions}
+                flagReasons={flagReasons}
+                notesCategories={notesCategories}
+                // You can pass more props as needed!
             />
         </div>
     );

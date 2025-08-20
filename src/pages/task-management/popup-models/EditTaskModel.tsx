@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import InputField from "../ui/Input/InputField";
-import Dropdown from "../common/Dropdown";
-import DatePickerInput from "../ui/Input/DatePickerInput";
+import InputField from "../../../components/ui/Input/InputField";
+import Dropdown from "../../../components/common/Dropdown";
+import DatePickerInput from "../../../components/ui/Input/DatePickerInput";
 
-
+// All dropdown options (reuse from creation form)
 const caseTypeOptions = [
   { label: "Collection", value: "collection" },
   { label: "KYC", value: "kyc" },
@@ -35,48 +35,83 @@ const loanCategoryOptions = [
   { label: "Auto Loan", value: "auto" },
 ];
 
-const TaskCreationForm: React.FC = () => {
-  // Main address fields
-  const [caseType, setCaseType] = useState<string>("");
-  const [borrowerName, setBorrowerName] = useState<string>("");
-  const [mobileNumber, setMobileNumber] = useState<string>("");
-  const [altNumber1, setAltNumber1] = useState<string>("");
-  const [altNumber2, setAltNumber2] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [address1, setAddress1] = useState<string>("");
-  const [address2, setAddress2] = useState<string>("");
-  const [city, setCity] = useState<string>("");
-  const [state, setState] = useState<string>("");
-  const [pincode, setPincode] = useState<string>("");
-  // Alternative address fields (for "+ Add Another Address")
-  const [showAltAddress, setShowAltAddress] = useState(false);
-  const [altAddress1, setAltAddress1] = useState<string>("");
-  const [altAddress2, setAltAddress2] = useState<string>("");
-  const [altCity, setAltCity] = useState<string>("");
-  const [altState, setAltState] = useState<string>("");
-  const [altPincode, setAltPincode] = useState<string>("");
+// Example: get these from props, backend API, or router location.state
+const initialTask = {
+  caseType: "collection",
+  borrowerName: "John Doe",
+  mobileNumber: "9876543210",
+  altNumber1: "9123456789",
+  altNumber2: "",
+  email: "john@example.com",
+  address1: "123 Main St",
+  address2: "Near Market",
+  city: "bengaluru",
+  state: "karnataka",
+  pincode: "560001",
+  showAltAddress: true,
+  altAddress1: "Flat 102",
+  altAddress2: "Sunrise Apartments",
+  altCity: "mumbai",
+  altState: "maharashtra",
+  altPincode: "400001",
+  taskType: "collection",
+  scheduleDate: new Date("2025-08-19"),
+  recommendedTime: "10:00 AM",
+  note: "This is a note.",
+  loanNumber: "LN123456789",
+  bank: "hdfc",
+  loanCategory: "personal",
+  loanAmount: "500000",
+  dueAmount: "25000",
+  dueDate: new Date("2025-09-15"),
+  penalInterest: "500",
+  overdueDays: "15",
+  pos: "80000",
+  tos: "120000"
+};
 
-  // Other fields...
-  const [taskType, setTaskType] = useState<string>("");
-  const [scheduleDate, setScheduleDate] = useState<Date | null>(null);
-  const [recommendedTime, setRecommendedTime] = useState<string>("");
-  const [note, setNote] = useState<string>("");
-  const [loanNumber, setLoanNumber] = useState<string>("");
-  const [bank, setBank] = useState<string>("");
-  const [loanCategory, setLoanCategory] = useState<string>("");
-  const [loanAmount, setLoanAmount] = useState<string>("");
-  const [dueAmount, setDueAmount] = useState<string>("");
-  const [dueDate, setDueDate] = useState<Date | null>(null);
-  const [penalInterest, setPenalInterest] = useState<string>("");
-  const [overdueDays, setOverdueDays] = useState<string>("");
-  const [pos, setPOS] = useState<string>("");
-  const [tos, setTOS] = useState<string>("");
+const EditTaskModel: React.FC<{ task?: typeof initialTask }> = ({ task = initialTask }) => {
+  // Form state, prefilled
+  const [caseType, setCaseType] = useState<string>(task.caseType);
+  const [borrowerName, setBorrowerName] = useState<string>(task.borrowerName);
+  const [mobileNumber, setMobileNumber] = useState<string>(task.mobileNumber);
+  const [altNumber1, setAltNumber1] = useState<string>(task.altNumber1);
+  const [altNumber2, setAltNumber2] = useState<string>(task.altNumber2);
+  const [email, setEmail] = useState<string>(task.email);
+  const [address1, setAddress1] = useState<string>(task.address1);
+  const [address2, setAddress2] = useState<string>(task.address2);
+  const [city, setCity] = useState<string>(task.city);
+  const [state, setState] = useState<string>(task.state);
+  const [pincode, setPincode] = useState<string>(task.pincode);
 
-  // Add form validation & submit logic if needed
+  const [showAltAddress, setShowAltAddress] = useState<boolean>(task.showAltAddress);
+  const [altAddress1, setAltAddress1] = useState<string>(task.altAddress1);
+  const [altAddress2, setAltAddress2] = useState<string>(task.altAddress2);
+  const [altCity, setAltCity] = useState<string>(task.altCity);
+  const [altState, setAltState] = useState<string>(task.altState);
+  const [altPincode, setAltPincode] = useState<string>(task.altPincode);
+
+  const [taskType, setTaskType] = useState<string>(task.taskType);
+  const [scheduleDate, setScheduleDate] = useState<Date | null>(task.scheduleDate);
+  const [recommendedTime, setRecommendedTime] = useState<string>(task.recommendedTime);
+  const [note, setNote] = useState<string>(task.note);
+
+  const [loanNumber, setLoanNumber] = useState<string>(task.loanNumber);
+  const [bank, setBank] = useState<string>(task.bank);
+  const [loanCategory, setLoanCategory] = useState<string>(task.loanCategory);
+  const [loanAmount, setLoanAmount] = useState<string>(task.loanAmount);
+  const [dueAmount, setDueAmount] = useState<string>(task.dueAmount);
+  const [dueDate, setDueDate] = useState<Date | null>(task.dueDate);
+  const [penalInterest, setPenalInterest] = useState<string>(task.penalInterest);
+  const [overdueDays, setOverdueDays] = useState<string>(task.overdueDays);
+  const [pos, setPOS] = useState<string>(task.pos);
+  const [tos, setTOS] = useState<string>(task.tos);
+
+  // Add validation/submit logic as needed
 
   return (
     <form className="max-w-[900px] mx-auto px-2">
-      <h2 className="text-xl font-semibold mb-8">Manual Task Creation Form</h2>
+      <h2 className="text-xl font-semibold mb-8">Edit Task</h2>
 
       {/* Case Type */}
       <div className="mb-8">
@@ -200,4 +235,4 @@ const TaskCreationForm: React.FC = () => {
   );
 };
 
-export default TaskCreationForm;
+export default EditTaskModel;

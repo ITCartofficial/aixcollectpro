@@ -105,7 +105,7 @@ const AiHighRiskTaskTable: React.FC = () => {
       render: (value, row) => (
         <div className="flex items-center space-x-3">
           <Avatar name={value} image={row.avatar} size="md" />
-          <span className="font-medium text-gray-900">{value}</span>
+          <span className="font-medium text-neutral-700">{value}</span>
         </div>
       )
     },
@@ -130,7 +130,7 @@ const AiHighRiskTaskTable: React.FC = () => {
       render: (value, row) => (
         <div className="flex items-center space-x-3">
           <Avatar name={value} image={row.avatar} size="md" />
-          <span className="font-medium text-gray-900">{value}</span>
+          <span className="font-medium text-neutral-700">{value}</span>
         </div>
       )
     },
@@ -156,7 +156,7 @@ const AiHighRiskTaskTable: React.FC = () => {
       {/* FILTERS AND SEARCH SECTION */}
       <div className="bg-white py-4 px-1 rounded-lg flex flex-wrap items-center gap-4">
         <h2 className="text-base font-semibold text-neutral-700">AI High Risk Tasks</h2>
-        <span className="text-sm font-medium text-gray-700">Filter by:</span>
+        <span className="text-sm font-medium text-neutral-700">Filter by:</span>
         <Dropdown
           options={riskTypeOptions}
           value={selectedRiskType}
@@ -185,12 +185,12 @@ const AiHighRiskTaskTable: React.FC = () => {
       {selectedRows.length > 0 && (
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
           <div className="flex items-center justify-between">
-            <span className="text-sm font-medium text-blue-900">
+            <span className="text-sm font-medium text-primary-900">
               {selectedRows.length} item{selectedRows.length > 1 ? "s" : ""} selected
             </span>
             <button
               onClick={() => setSelectedRows([])}
-              className="text-sm text-blue-700 hover:text-blue-900 cursor-pointer"
+              className="text-sm text-blue-700 hover:text-primary-700 cursor-pointer"
             >
               Clear selection
             </button>

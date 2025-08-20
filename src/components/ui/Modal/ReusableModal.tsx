@@ -95,15 +95,15 @@ const ReusableModal: React.FC<ReusableModalProps> = ({
             `}
           >
             {title && (
-              <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
+              <h2 className="text-xl font-semibold text-neutral-700">{title}</h2>
             )}
             {showCloseButton && (
               <button
                 onClick={onClose}
-                className="p-2 hover:bg-gray-100 rounded-full transition-colors ml-auto cursor-pointer"
+                className="p-2 hover:bg-neutral-100 rounded-full transition-colors ml-auto cursor-pointer"
                 aria-label="Close modal"
               >
-                <IoClose className="w-5 h-5 text-gray-500" />
+                <IoClose className="w-5 h-5 text-neutral-500" />
               </button>
             )}
           </div>

@@ -30,12 +30,12 @@ const TabConfigurations: React.FC<TabConfigurationsProps> = ({ agentData }) => {
     {
       label: "KPI",
       value: "kpi",
-      component: AgentKPI,
+      component: (props) =><AgentKPI agentData={props.agentData} />,
     },
     {
       label: "KRI",
       value: "kri",
-      component: AgentKRI,
+      component: (props) =><AgentKRI agentData={props.agentData} />,
     },
     {
       label: "Tasks",
@@ -45,7 +45,7 @@ const TabConfigurations: React.FC<TabConfigurationsProps> = ({ agentData }) => {
     {
       label: "Attendance",
       value: "attendance",
-      component: AgentAttendance,
+      component:  (props) => <AgentAttendance agentData={props.agentData} />,
     },
     {
       label: "Leave & Request",

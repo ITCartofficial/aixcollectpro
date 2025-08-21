@@ -13,7 +13,11 @@ interface TaskAssignmentModalProps {
   onClose: () => void;
 }
 
-type OptionType = "upload-manual" | "create-manual" | "upload-ai" | "edit-assign";
+type OptionType =
+  | "upload-manual"
+  | "create-manual"
+  | "upload-ai"
+  | "edit-assign";
 
 // Rename the local interface to avoid conflicts
 interface TaskOption {
@@ -53,6 +57,11 @@ const TaskAssignmentModal: React.FC<TaskAssignmentModalProps> = ({
   const [selectedOption, setSelectedOption] = useState<OptionType | null>(null);
   const [isSuccessState, setIsSuccessState] = useState(false);
   const [showEditAssign, setShowEditAssign] = useState(false);
+  const [uploadAIState, setUploadAIState] = useState({
+    showAssignmentSummary: false,
+    hasSelectedFile: false,
+    fileName: "",
+  });
 
   // Reset state whenever modal opens
   useEffect(() => {
@@ -60,6 +69,11 @@ const TaskAssignmentModal: React.FC<TaskAssignmentModalProps> = ({
       setSelectedOption(null);
       setIsSuccessState(false);
       setShowEditAssign(false);
+      setUploadAIState({
+        showAssignmentSummary: false,
+        hasSelectedFile: false,
+        fileName: "",
+      });
     }
   }, [isOpen]);
 
@@ -82,13 +96,45 @@ const TaskAssignmentModal: React.FC<TaskAssignmentModalProps> = ({
   // Handle edit button click
   const handleEditClick = () => {
     setShowEditAssign(true);
+    setUploadAIState({
+      showAssignmentSummary: true,
+      hasSelectedFile: true,
+      fileName: "uploaded-file.xlsx", 
+    });
+  };
+
+  // Handle back from edit assign to upload AI component
+  const handleBackFromEditAssign = () => {
+    setShowEditAssign(false);
+  };
+
+  // Handle update from edit assign - this will go back to UploadAIComponent with updated data
+  const handleUpdateFromEditAssign = (updatedData: any) => {
+    console.log("Updated data:", updatedData);
+    // Go back to UploadAIComponent
+    setShowEditAssign(false);
+    setIsSuccessState(false);
+  };
+
+  // Custom close handler based on current state
+  const handleModalClose = () => {
+    if (showEditAssign) {
+      handleBackFromEditAssign();
+    } else {
+      onClose();
+    }
   };
 
   // Render content based on selectedOption and showEditAssign
   let modalContent: React.ReactNode;
 
   if (showEditAssign) {
-    modalContent = <AIEditAssignTask />;
+    modalContent = (
+      <AIEditAssignTask
+        onCancel={handleBackFromEditAssign}
+        onUpdate={handleUpdateFromEditAssign}
+      />
+    );
   } else if (selectedOption === "upload-manual") {
     modalContent = <UploadManualComponent onBack={handleBack} />;
   } else if (selectedOption === "upload-ai") {
@@ -97,6 +143,9 @@ const TaskAssignmentModal: React.FC<TaskAssignmentModalProps> = ({
         onBack={handleBack}
         onSuccessStateChange={handleSuccessStateChange}
         onEditClick={handleEditClick}
+        showAssignmentSummary={uploadAIState.showAssignmentSummary}
+        hasSelectedFile={uploadAIState.hasSelectedFile}
+        fileName={uploadAIState.fileName}
       />
     );
   } else if (selectedOption === "create-manual") {
@@ -113,17 +162,18 @@ const TaskAssignmentModal: React.FC<TaskAssignmentModalProps> = ({
   // Determine if title should be shown
   const showTitle = !isSuccessState;
   let modalTitle = "Assign Task";
-  
+
   if (showEditAssign) {
     modalTitle = "Edit Assigned Task";
   } else if (selectedOption) {
-    modalTitle = options.find((opt) => opt.id === selectedOption)?.title ?? "Assign Task";
+    modalTitle =
+      options.find((opt) => opt.id === selectedOption)?.title ?? "Assign Task";
   }
 
   return (
     <ReusableModal
       isOpen={isOpen}
-      onClose={onClose}
+      onClose={handleModalClose} 
       title={showTitle ? modalTitle : ""}
       size="xl"
       height="auto"

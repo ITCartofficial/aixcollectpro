@@ -77,7 +77,7 @@ const columns: TableColumn<LeaveRequests>[] = [
 const LeaveHistory: React.FC = () => {
     // Process data with proper type casting and filter out pending requests
     const data: LeaveRequests[] = leaveRequests
-        .filter(item => item.status === 'Approved' || item.status === 'Rejected') // Only show approved and rejected
+        .filter(item => item.status === 'Approved' || item.status === 'Rejected')
         .map((item, index) => ({
             ...item,
             id: `leaveRequest-${index}`,
@@ -94,7 +94,7 @@ const LeaveHistory: React.FC = () => {
                 sortable={false}
                 pageSize={5}
                 pagination={true}
-                selectable={false}
+                selectable={true}
                 className="shadow-sm"
                 rowClassName="h-16"
                 headerClassName="h-12 bg-gray-50"

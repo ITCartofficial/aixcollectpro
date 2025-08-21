@@ -168,8 +168,8 @@ const OtpVerification: React.FC<OtpVerificationProps> = ({ onVerify }) => {
             <h3 className="text-2xl font-semibold text-neutral-700 mb-1">
               Enter OTP to Continue
             </h3>
-            <p className="text-gray-700 mb-6 text-sm font-normal">
-              We've sent a 6-digit OTP to your registered mobile number / email.<br />
+            <p className="text-neutral-700  mb-6 text-sm font-normal">
+              We&apos;ve sent a 6-digit OTP to your registered mobile number / email.<br />
               Please enter it below to verify your identity.
             </p>
             <div className="w-full mb-7">

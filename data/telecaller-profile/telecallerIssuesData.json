@@ -1,0 +1,134 @@
+[
+    {
+        "id": "ISSUE-1204",
+        "category": "Missed GPS Check-In",
+        "notes": "Forgot to check in due to network lag when I reached the location.",
+        "date": "11 June, 2025",
+        "status": "Pending",
+        "agent_name": "Rohit Kumar",
+        "priority": "Medium",
+        "created_by": "Agent",
+        "location": "Sector 21, Noida"
+    },
+    {
+        "id": "ISSUE-1205",
+        "category": "Task Sync Error",
+        "notes": "Completed the task but it didn't reflect due to sync failure.",
+        "date": "10 June, 2025",
+        "status": "Justified",
+        "agent_name": "Ananya Sharma",
+        "priority": "High",
+        "created_by": "Agent",
+        "location": "MG Road, Bangalore"
+    },
+    {
+        "id": "ISSUE-1204",
+        "category": "Missed GPS Check-In",
+        "notes": "Forgot to check in due to network lag when I reached the location.",
+        "date": "09 June, 2025",
+        "status": "Justified",
+        "agent_name": "Priya Singh",
+        "priority": "Medium",
+        "created_by": "Agent",
+        "location": "Connaught Place, Delhi"
+    },
+    {
+        "id": "ISSUE-1204",
+        "category": "Missed GPS Check-In",
+        "notes": "Forgot to check in due to network lag when I reached the location.",
+        "date": "08 June, 2025",
+        "status": "Partially",
+        "agent_name": "Ajay Patel",
+        "priority": "Low",
+        "created_by": "Agent",
+        "location": "Satellite, Ahmedabad"
+    },
+    {
+        "id": "ISSUE-1206",
+        "category": "App Malfunction",
+        "notes": "App crashed multiple times during field visit, couldn't complete documentation.",
+        "date": "11 June, 2025",
+        "status": "Pending",
+        "agent_name": "Neha Gupta",
+        "priority": "High",
+        "created_by": "Agent",
+        "location": "Banjara Hills, Hyderabad"
+    },
+    {
+        "id": "ISSUE-1207",
+        "category": "Document Upload Error",
+        "notes": "Unable to upload customer documents due to server timeout issues.",
+        "date": "10 June, 2025",
+        "status": "Justified",
+        "agent_name": "Sana Ahmed",
+        "priority": "Medium",
+        "created_by": "Agent",
+        "location": "Park Street, Kolkata"
+    },
+    {
+        "id": "ISSUE-1208",
+        "category": "Network Connectivity",
+        "notes": "Poor network coverage in the area prevented proper task completion.",
+        "date": "09 June, 2025",
+        "status": "Pending",
+        "agent_name": "Mahesh Reddy",
+        "priority": "Medium",
+        "created_by": "Agent",
+        "location": "Hitech City, Hyderabad"
+    },
+    {
+        "id": "ISSUE-1209",
+        "category": "Customer Unavailable",
+        "notes": "Customer was not available despite confirmed appointment, had to reschedule.",
+        "date": "08 June, 2025",
+        "status": "Partially",
+        "agent_name": "Ravi Verma",
+        "priority": "Low",
+        "created_by": "Agent",
+        "location": "Cyber City, Gurgaon"
+    },
+    {
+        "id": "ISSUE-1210",
+        "category": "Equipment Failure",
+        "notes": "Handheld device battery died during field work, couldn't complete digital forms.",
+        "date": "11 June, 2025",
+        "status": "Justified",
+        "agent_name": "Deepak Singh",
+        "priority": "High",
+        "created_by": "Agent",
+        "location": "Gomti Nagar, Lucknow"
+    },
+    {
+        "id": "ISSUE-1211",
+        "category": "Wrong Address Information",
+        "notes": "Provided address was incorrect, spent extra time locating correct address.",
+        "date": "10 June, 2025",
+        "status": "Pending",
+        "agent_name": "Kavya Nair",
+        "priority": "Medium",
+        "created_by": "Agent",
+        "location": "Infopark, Kochi"
+    },
+    {
+        "id": "ISSUE-1212",
+        "category": "System Access Error",
+        "notes": "Unable to access central database for customer verification.",
+        "date": "09 June, 2025",
+        "status": "Justified",
+        "agent_name": "Amit Kumar",
+        "priority": "High",
+        "created_by": "Agent",
+        "location": "Salt Lake, Kolkata"
+    },
+    {
+        "id": "ISSUE-1213",
+        "category": "Weather Conditions",
+        "notes": "Heavy rain prevented outdoor task completion for safety reasons.",
+        "date": "08 June, 2025",
+        "status": "Justified",
+        "agent_name": "Sunita Devi",
+        "priority": "Low",
+        "created_by": "Agent",
+        "location": "Patna Junction, Patna"
+    }
+]

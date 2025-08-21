@@ -52,7 +52,8 @@
         "agent_name": "Neha Gupta",
         "priority": "High",
         "created_by": "Agent",
-        "location": "Banjara Hills, Hyderabad"
+        "location": "Banjara Hills, Hyderabad",
+        "avatar": ""
     },
     {
         "id": "ISSUE-1207",
@@ -63,7 +64,8 @@
         "agent_name": "Sana Ahmed",
         "priority": "Medium",
         "created_by": "Agent",
-        "location": "Park Street, Kolkata"
+        "location": "Park Street, Kolkata",
+        "avatar": ""
     },
     {
         "id": "ISSUE-1208",
@@ -74,7 +76,8 @@
         "agent_name": "Mahesh Reddy",
         "priority": "Medium",
         "created_by": "Agent",
-        "location": "Hitech City, Hyderabad"
+        "location": "Hitech City, Hyderabad",
+        "avatar": ""
     },
     {
         "id": "ISSUE-1209",
@@ -85,7 +88,8 @@
         "agent_name": "Ravi Verma",
         "priority": "Low",
         "created_by": "Agent",
-        "location": "Cyber City, Gurgaon"
+        "location": "Cyber City, Gurgaon",
+        "avatar": ""
     },
     {
         "id": "ISSUE-1210",
@@ -96,7 +100,8 @@
         "agent_name": "Deepak Singh",
         "priority": "High",
         "created_by": "Agent",
-        "location": "Gomti Nagar, Lucknow"
+        "location": "Gomti Nagar, Lucknow",
+        "avatar": ""
     },
     {
         "id": "ISSUE-1211",
@@ -107,7 +112,8 @@
         "agent_name": "Kavya Nair",
         "priority": "Medium",
         "created_by": "Agent",
-        "location": "Infopark, Kochi"
+        "location": "Infopark, Kochi",
+        "avatar": ""
     },
     {
         "id": "ISSUE-1212",
@@ -118,7 +124,8 @@
         "agent_name": "Amit Kumar",
         "priority": "High",
         "created_by": "Agent",
-        "location": "Salt Lake, Kolkata"
+        "location": "Salt Lake, Kolkata",
+        "avatar": ""
     },
     {
         "id": "ISSUE-1213",
@@ -129,6 +136,7 @@
         "agent_name": "Sunita Devi",
         "priority": "Low",
         "created_by": "Agent",
-        "location": "Patna Junction, Patna"
+        "location": "Patna Junction, Patna",
+        "avatar": ""
     }
 ]

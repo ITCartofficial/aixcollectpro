@@ -83,7 +83,7 @@ const RegularizationHistory: React.FC = () => {
                 sortable={false}
                 pageSize={5}
                 pagination={true}
-                selectable={false}
+                selectable={true}
                 className="shadow-sm"
                 rowClassName="h-16"
                 headerClassName="h-12 bg-gray-50"

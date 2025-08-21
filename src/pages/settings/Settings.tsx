@@ -7,6 +7,7 @@ import LanguageSettings from "./features/LanguageSettings";
 import AiConfiguration from "./features/AiConfiguration";
 import ExportBackup from "./features/ExportBackup";
 import ProfileSettings from "./features/ProfileSettings";
+import ProfileUpdateRequests from "./features/ProfileUpdateRequests";
 
 const Settings = () => {
   const [activeTab, setActiveTab] = useState<string>("profile");
@@ -16,6 +17,12 @@ const Settings = () => {
       label: "Profile",
       component: ProfileSettings,
       width: "w-full sm:w-41"
+    },
+    {
+      id: "profileUpdateRequests",
+      label: "Profile Update Requests",
+      component: ProfileUpdateRequests,
+      width: "w-full sm:w-54"
     },
     {
       id: "security",
@@ -64,7 +71,6 @@ const Settings = () => {
           className="w-auto px-6 bg-primary-700 hover:bg-primary-600 text-white" 
         />
       </div>
-
       {/* Tab Buttons and Content Section */}
       <div className="w-full">
         <TabButtonSection

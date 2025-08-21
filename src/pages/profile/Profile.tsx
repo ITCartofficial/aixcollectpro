@@ -82,7 +82,7 @@ const Profile = () => {
     <div className="mr-4">
       {/* Header Title Section */}
       <div className="w-full h-12 flex justify-between items-center mt-4">
-        <h1 className="text-xl lg:text-2xl font-bold text-black mb-5 mt-4">Edit Profile</h1>
+        <h1 className="text-xl lg:text-2xl font-bold text-neutral-700 mb-5 mt-4">Edit Profile</h1>
         <div className="flex gap-4">
           <PrimaryButton text="Check-in" className="w-42 bg-primary-700 hover:bg-primary-600 text-white" />
         </div>
@@ -90,7 +90,7 @@ const Profile = () => {
       <div className="bg-white rounded-lg p-6 mt-6">
         <div className="flex flex-col md:flex-row items-center gap-6">
           <div className="flex gap-x-6 items-center">
-            <div className="w-40 h-40 rounded-full object-cover border bg-gray-200 flex items-center justify-center text-3xl font-bold text-white overflow-hidden">
+            <div className="w-40 h-40 rounded-full object-cover border bg-neutral-200 flex items-center justify-center text-3xl font-bold text-white overflow-hidden">
               {avatarPreview ? (
                 <img
                   src={avatarPreview}
@@ -98,7 +98,7 @@ const Profile = () => {
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <span className="bg-blue-600 w-full h-full flex items-center justify-center">
+                <span className="bg-primary-600 w-full h-full flex items-center justify-center">
                   {getInitials(profile.firstName, profile.lastName)}
                 </span>
               )}
@@ -127,7 +127,7 @@ const Profile = () => {
         <hr className="my-6 text-neutral-300" />
 
         <h2 className="text-lg font-semibold mb-1">Profile Settings</h2>
-        <p className="text-sm text-gray-500 mb-6">
+        <p className="text-sm text-neutral-500 mb-6">
           You can update your personal and contact details
         </p>
 
@@ -170,7 +170,7 @@ const Profile = () => {
               <select
                 value={profile.countryCode}
                 onChange={handleCountryCodeChange}
-                className="border border-neutral-300 focus:outline-1 rounded-l px-4 py-3 text-sm bg-gray-50">
+                className="border border-neutral-300 focus:outline-1 rounded-l px-4 py-3 text-sm bg-neutral-50">
                 <option value="+91">+91</option>
                 <option value="+1">+1</option>
                 <option value="+44">+44</option>

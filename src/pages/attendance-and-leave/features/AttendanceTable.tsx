@@ -315,14 +315,14 @@ const AttendanceTable: React.FC = () => {
 
             {/* SELECTED ITEMS DISPLAY SECTION */}
             {selectedRows.length > 0 && (
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                <div className="bg-primary-50 border border-primary-200 rounded-lg p-4 mb-4">
                     <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-blue-700">
+                        <span className="text-sm font-medium text-primary-700">
                             {selectedRows.length} item{selectedRows.length > 1 ? 's' : ''} selected
                         </span>
                         <button
                             onClick={() => setSelectedRows([])}
-                            className="text-sm text-blue-700 hover:text-blue-700 cursor-pointer"
+                            className="text-sm text-primary-700 hover:text-primary-700 cursor-pointer"
                         >
                             Clear selection
                         </button>

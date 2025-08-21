@@ -6,8 +6,8 @@ import UpdateTaskLocationModal from "../popup-models/UpdateTaskLocationModal";
 import FlagTaskReviewModal from "../popup-models/FlagTaskReviewModal";
 import AddNotesTaskModal from "../popup-models/AddNotesTaskModal";
 import EditTaskModel from "../popup-models/EditTaskModel";
+import type { TimeRangeValue } from "../../../components/ui/Input/TimeRangePickerInput";
 
-// Types for props
 type ModalType =
   | "reassign"
   | "reschedule"
@@ -20,11 +20,11 @@ type ModalType =
 interface ModelsContainerProps {
   activeModal: ModalType;
   setActiveModal: React.Dispatch<React.SetStateAction<ModalType>>;
-  // All shared options for dropdowns, etc.
   cityOptions: { label: string; value: string }[];
   stateOptions: { label: string; value: string }[];
   flagReasons: { label: string; value: string }[];
   notesCategories: { label: string; value: string }[];
+  modalTask?: any; // For passing prefilled data to EditTaskModel if needed
 }
 
 const ModelsContainer: React.FC<ModelsContainerProps> = ({
@@ -34,9 +34,9 @@ const ModelsContainer: React.FC<ModelsContainerProps> = ({
   stateOptions,
   flagReasons,
   notesCategories,
+  modalTask,
 }) => {
-  // Example state for each modal:
-  // (You can organize these by modal if you want even cleaner code)
+  // Reassign Modal State
   const agentOptions = [
     { label: "Rakesh Kumar", value: "1" },
     { label: "Suresh Singh", value: "2" },
@@ -44,10 +44,12 @@ const ModelsContainer: React.FC<ModelsContainerProps> = ({
   const [selectedAgent, setSelectedAgent] = React.useState(agentOptions[0].value);
   const [reassignReason, setReassignReason] = React.useState("");
 
+  // Reschedule Modal State
   const [selectedDate, setSelectedDate] = React.useState<Date | null>(null);
-  const [selectedTime, setSelectedTime] = React.useState(""); // just a string for time
+  const [timeRange, setTimeRange] = React.useState<TimeRangeValue | null>(null);
   const [rescheduleReason, setRescheduleReason] = React.useState("");
 
+  // Update Location Modal State
   const [addressLine1, setAddressLine1] = React.useState("");
   const [addressLine2, setAddressLine2] = React.useState("");
   const [city, setCity] = React.useState("");
@@ -55,15 +57,14 @@ const ModelsContainer: React.FC<ModelsContainerProps> = ({
   const [pincode, setPincode] = React.useState("");
   const [locationReason, setLocationReason] = React.useState("");
 
+  // Flag Modal State
   const [selectedReason, setSelectedReason] = React.useState("");
   const [flagNotes, setFlagNotes] = React.useState("");
 
+  // Add Notes Modal State
   const [notesDate, setNotesDate] = React.useState<Date | null>(null);
   const [notesCategory, setNotesCategory] = React.useState("");
   const [notesText, setNotesText] = React.useState("");
-
-  // Example Edit Task Model: you can pass a task object or handle as needed
-  // const [editTask, setEditTask] = React.useState<TaskType | undefined>(initialTask);
 
   // Modal action handlers
   const handleReassign = () => {
@@ -75,7 +76,7 @@ const ModelsContainer: React.FC<ModelsContainerProps> = ({
   const handleReschedule = () => {
     setActiveModal(null);
     setSelectedDate(null);
-    setSelectedTime("");
+    setTimeRange(null);
     setRescheduleReason("");
   };
 
@@ -128,8 +129,8 @@ const ModelsContainer: React.FC<ModelsContainerProps> = ({
         <RescheduleTaskModal
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
-          selectedTime={selectedTime}
-          setSelectedTime={setSelectedTime}
+          timeRange={timeRange}
+          setTimeRange={setTimeRange}
           reason={rescheduleReason}
           setReason={setRescheduleReason}
           onCancel={() => setActiveModal(null)}
@@ -182,10 +183,8 @@ const ModelsContainer: React.FC<ModelsContainerProps> = ({
       )}
       {activeModal === "edit" && (
         <EditTaskModel
-          // Pass props for EditTaskModel as needed (e.g. task, onCancel, onSave, etc.)
-          // task={editTask}
-          // onCancel={() => setActiveModal(null)}
-          // onSave={handleEditSave}
+          task={modalTask}
+          // onCancel={() => setActiveModal(null)} // Uncomment if you want Cancel support
         />
       )}
     </ReusableModal>

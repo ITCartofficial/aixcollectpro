@@ -41,7 +41,7 @@ const RescheduleTaskModal: React.FC<RescheduleTaskModalProps> = ({
     <h2 className="text-xl font-semibold mb-4 mt-2">
       Reschedule Task Visit
     </h2>
-    <p className="text-gray-700 mb-7 text-base">
+    <p className="text-neutral-700 mb-7 text-base">
       Update the scheduled visit time based on agent or borrower request.
     </p>
     {/* Select New Date */}
@@ -91,13 +91,13 @@ const RescheduleTaskModal: React.FC<RescheduleTaskModalProps> = ({
       <OutlineButton
         text="Cancel"
         onClick={onCancel}
-        className="px-8 py-2 rounded-lg font-semibold text-[#0064E1] border-[#0064E1] text-base"
+        className="px-8 py-2 rounded-lg font-semibold text-primary-700 border-primary-700 text-base"
         // disabled={disabled}
       />
       <PrimaryButton
         text="Reschedule Task"
         onClick={onReschedule}
-        className="text-white px-8 py-2 rounded-lg font-semibold bg-[#0064E1] hover:bg-[#0055C4] transition text-base"
+        className="text-white px-8 py-2 rounded-lg font-semibold bg-primary-700 hover:bg-primary-700 transition text-base"
         // disabled={disabled}
       />
     </div>

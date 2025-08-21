@@ -62,7 +62,7 @@ const UserDetails: React.FC<UserDetailsProps> = ({
     }
 
     return (
-      <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-semibold text-lg sm:text-xl lg:text-2xl shadow-md">
+      <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-white font-semibold text-lg sm:text-xl lg:text-2xl shadow-md">
         {initials}
       </div>
     );
@@ -76,26 +76,26 @@ const UserDetails: React.FC<UserDetailsProps> = ({
         <div className="flex items-center space-x-4 mb-6">
           <Avatar />
           <div className="flex-1 min-w-0">
-            <h3 className="text-base font-semibold text-gray-900 mb-2">{name}</h3>
+            <h3 className="text-base font-semibold text-neutral-700 mb-2">{name}</h3>
             <div className="flex items-center gap-2 mb-3">
               <Badge variant="success">{status}</Badge>
               <button
-                className="text-[#1976F6] text-sm font-medium flex items-center gap-1 hover:text-[#1565C0] transition-colors"
+                className="text-primary-700 text-sm font-medium flex items-center gap-1 hover:text-primary-700 transition-colors"
                 onClick={onEdit}>
                 Edit
                 <RiEdit2Line className="w-4 h-4" />
               </button>
             </div>
             <div className="space-y-1">
-              <p className="text-sm text-gray-600 font-medium">{phone}</p>
-              <p className="text-sm text-gray-600 font-medium">{email}</p>
+              <p className="text-sm text-neutral-600 font-medium">{phone}</p>
+              <p className="text-sm text-neutral-600 font-medium">{email}</p>
             </div>
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
           <div>
-            <div className="text-xs text-gray-400 mb-1">Role</div>
+            <div className="text-xs text-neutral-400 mb-1">Role</div>
             <div className="text-sm text-gray-900 font-medium">{role}</div>
           </div>
           <div>
@@ -166,28 +166,28 @@ const UserDetails: React.FC<UserDetailsProps> = ({
         {/* Details Grid - 2 Columns */}
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <div className="text-xs text-gray-400 mb-1">Role</div>
-            <div className="text-sm text-gray-900 font-medium">{role}</div>
+            <div className="text-xs text-neutral-400 mb-1">Role</div>
+            <div className="text-sm text-neutral-900 font-medium">{role}</div>
           </div>
           <div>
-            <div className="text-xs text-gray-400 mb-1">Employee ID</div>
-            <div className="text-sm text-gray-900 font-medium">{employeeId}</div>
+            <div className="text-xs text-neutral-400 mb-1">Employee ID</div>
+            <div className="text-sm text-neutral-900 font-medium">{employeeId}</div>
           </div>
           <div>
-            <div className="text-xs text-gray-400 mb-1">Location</div>
-            <div className="text-sm text-gray-900 font-medium">{location}</div>
+            <div className="text-xs text-neutral-400 mb-1">Location</div>
+            <div className="text-sm text-neutral-900 font-medium">{location}</div>
           </div>
           <div>
-            <div className="text-xs text-gray-400 mb-1">Vendor</div>
-            <div className="text-sm text-gray-900 font-medium">{vendor}</div>
+            <div className="text-xs text-neutral-400 mb-1">Vendor</div>
+            <div className="text-sm text-neutral-900 font-medium">{vendor}</div>
           </div>
           <div className="col-span-2">
-            <div className="text-xs text-gray-400 mb-1">Reporting Manager</div>
-            <div className="text-sm text-gray-900 font-medium">{reportingManager}</div>
+            <div className="text-xs text-neutral-400 mb-1">Reporting Manager</div>
+            <div className="text-sm text-neutral-900 font-medium">{reportingManager}</div>
           </div>
           <div className="col-span-2">
-            <div className="text-xs text-gray-400 mb-1">Joined On</div>
-            <div className="text-sm text-gray-900 font-medium">{joinedOn}</div>
+            <div className="text-xs text-neutral-400 mb-1">Joined On</div>
+            <div className="text-sm text-neutral-900 font-medium">{joinedOn}</div>
           </div>
         </div>
       </div>
@@ -196,14 +196,14 @@ const UserDetails: React.FC<UserDetailsProps> = ({
       <div className="hidden lg:grid lg:grid-cols-10 gap-6 h-full">
 
         {/* Left: Avatar + Name + Contact */}
-        <div className="col-span-4 flex items-center border-r border-gray-200 pr-6">
+        <div className="col-span-4 flex items-center border-r border-neutral-200 pr-6">
           <div className="flex items-center space-x-4 w-full">
             <Avatar />
             <div className="flex-1 min-w-0">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">{name}</h3>
+              <h3 className="text-lg font-semibold text-neutral-900 mb-2">{name}</h3>
               <div className="space-y-1">
-                <div className="text-sm text-gray-600 truncate">{phone}</div>
-                <div className="text-sm text-gray-600 truncate">{email}</div>
+                <div className="text-sm text-neutral-600 truncate">{phone}</div>
+                <div className="text-sm text-neutral-600 truncate">{email}</div>
               </div>
             </div>
           </div>
@@ -212,28 +212,28 @@ const UserDetails: React.FC<UserDetailsProps> = ({
         {/* Center: Details Grid */}
         <div className="col-span-4 grid grid-cols-2 lg:grid-cols-3 gap-4 content-start">
           <div>
-            <div className="text-xs text-gray-400 mb-1">Role</div>
-            <div className="text-sm text-gray-900 font-medium">{role}</div>
+            <div className="text-xs text-neutral-400 mb-1">Role</div>
+            <div className="text-sm text-neutral-900 font-medium">{role}</div>
           </div>
           <div>
-            <div className="text-xs text-gray-400 mb-1">Employee ID</div>
-            <div className="text-sm text-gray-900 font-medium">{employeeId}</div>
+            <div className="text-xs text-neutral-400 mb-1">Employee ID</div>
+            <div className="text-sm text-neutral-900 font-medium">{employeeId}</div>
           </div>
           <div>
-            <div className="text-xs text-gray-400 mb-1">Location</div>
-            <div className="text-sm text-gray-900 font-medium">{location}</div>
+            <div className="text-xs text-neutral-400 mb-1">Location</div>
+            <div className="text-sm text-neutral-900 font-medium">{location}</div>
           </div>
           <div>
-            <div className="text-xs text-gray-400 mb-1">Vendor</div>
-            <div className="text-sm text-gray-900 font-medium">{vendor}</div>
+            <div className="text-xs text-neutral-400 mb-1">Vendor</div>
+            <div className="text-sm text-neutral-900 font-medium">{vendor}</div>
           </div>
           <div className="lg:col-span-2">
             <div className="text-xs text-gray-400 mb-1">Reporting Manager</div>
             <div className="text-sm text-gray-900 font-medium">{reportingManager}</div>
           </div>
           <div className="col-span-2 lg:col-span-1">
-            <div className="text-xs text-gray-400 mb-1">Joined On</div>
-            <div className="text-sm text-gray-900 font-medium">{joinedOn}</div>
+            <div className="text-xs text-neutral-400 mb-1">Joined On</div>
+            <div className="text-sm text-neutral-900 font-medium">{joinedOn}</div>
           </div>
         </div>
 
@@ -243,7 +243,7 @@ const UserDetails: React.FC<UserDetailsProps> = ({
             <div className="flex gap-x-3 items-center">
               <Badge variant="success" className="px-6">{status}</Badge>
               <button
-                className="text-[#1976F6] text-sm font-medium cursor-pointer flex items-center gap-1 hover:text-[#1565C0] transition-colors"
+                className="text-primary-700 text-sm font-medium cursor-pointer flex items-center gap-1 hover:text-[#1565C0] transition-colors"
                 onClick={onEdit}>
                 Edit
                 <RiEdit2Line className="w-4 h-4" />

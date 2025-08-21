@@ -169,7 +169,7 @@ const FieldAgentsTable: React.FC = () => {
             render: (value, row) => (
                 <div className="flex items-center space-x-3">
                     <Avatar name={value} image={row.avatar} size="md" />
-                    <span className="font-medium text-gray-900">{value}</span>
+                    <span className="font-medium text-neutral-700">{value}</span>
                 </div>
             )
         },
@@ -204,7 +204,7 @@ const FieldAgentsTable: React.FC = () => {
             width: '150px',
             headerAlign: "center",
             className:"text-center",
-            render: (value) => <span className="text-gray-700">{value}</span>
+            render: (value) => <span className="text-neutral-700">{value}</span>
         },
         {
             key: 'status',
@@ -224,7 +224,7 @@ const FieldAgentsTable: React.FC = () => {
             sortable: true,
             width: '120px',
             className: 'text-center',
-            render: (value) => <span className="text-gray-600">{value}</span>
+            render: (value) => <span className="text-neutral-600">{value}</span>
         },
         {
             key: 'id',
@@ -234,7 +234,7 @@ const FieldAgentsTable: React.FC = () => {
             className: 'text-center',
             render: (_, row) => (
                 <button
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-full text-sm flex items-center space-x-1 cursor-pointer"
+                    className="bg-primary-600 hover:bg-primary-700 text-white px-3 py-1 rounded-full text-sm flex items-center space-x-1 cursor-pointer"
                     onClick={(e) => {
                         e.stopPropagation();
                         handleViewAgent(row);
@@ -252,7 +252,7 @@ const FieldAgentsTable: React.FC = () => {
       {/* Filters and Search */}
       <div className="bg-white p-4 rounded-lg">
         <div className="flex flex-wrap items-center gap-4">
-          <span className="text-sm font-medium text-gray-700">Filter by:</span>
+          <span className="text-sm font-medium text-neutral-700">Filter by:</span>
 
           <Dropdown
             options={locationOptions}
@@ -292,7 +292,7 @@ const FieldAgentsTable: React.FC = () => {
 
       {/* Selected Items Display */}
       {selectedRows.length > 0 && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+        <div className="bg-primary-50 border border-primary-200 rounded-lg p-4 mb-4">
           <div className="flex items-center justify-between">
             <span className="text-sm font-medium text-blue-900">
               {selectedRows.length} agent{selectedRows.length > 1 ? "s" : ""}{" "}
@@ -300,7 +300,7 @@ const FieldAgentsTable: React.FC = () => {
             </span>
             <button
               onClick={() => setSelectedRows([])}
-              className="text-sm text-blue-700 hover:text-blue-900 cursor-pointer"
+              className="text-sm text-primary-700 hover:text-primary-900 cursor-pointer"
             >
               Clear selection
             </button>

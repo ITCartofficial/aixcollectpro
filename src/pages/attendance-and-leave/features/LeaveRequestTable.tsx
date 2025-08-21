@@ -303,7 +303,7 @@ const LeaveRequestTable: React.FC<LeaveRequestTableProps> = ({ onTabChange, acti
                         <button
                             className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors cursor-pointer ${activeTab === 'attendance'
                                 ? 'border-primary-500 text-primary-600'
-                                : 'border-transparent text-gray-500 hover:text-neutral-700 hover:border-neutral-300'
+                                : 'border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300'
                                 }`}
                             onClick={() => handleTabChange('attendance')}
                         >
@@ -353,9 +353,9 @@ const LeaveRequestTable: React.FC<LeaveRequestTableProps> = ({ onTabChange, acti
 
             {/* SELECTED ITEMS DISPLAY SECTION */}
             {selectedRows.length > 0 && (
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                <div className="bg-primary-50 border border-primary-200 rounded-lg p-4 mb-4">
                     <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-blue-900">
+                        <span className="text-sm font-medium text-primary-700">
                             {selectedRows.length} item{selectedRows.length > 1 ? 's' : ''} selected
                         </span>
                         <button

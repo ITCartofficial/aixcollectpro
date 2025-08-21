@@ -63,7 +63,7 @@ const FlaggedTaskCard = () => {
                     </thead>
                     <tbody className="divide-y divide-neutral-200">
                         {data.map((row, index) => (
-                            <tr key={index} className="hover:bg-gray-50">
+                            <tr key={index} className="hover:bg-neutral-50">
                                 <td className="px-4 py-[15px] text-sm text-neutral-600 font-regular">
                                     {row.taskId}
                                 </td>

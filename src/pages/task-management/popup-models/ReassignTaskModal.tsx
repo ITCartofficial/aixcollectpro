@@ -27,7 +27,7 @@ const ReassignTaskModal: React.FC<ReassignTaskModalUIProps> = ({
     <h2 className="text-xl font-semibold mb-4 mt-2">
       Reassign Task to Another Agent
     </h2>
-    <p className="text-gray-700 mb-7 text-base">
+    <p className="text-neutral-700 mb-7 text-base">
       Select a different agent for this task due to availability, location, or performance issues.
     </p>
     <div className="mb-5 w-full">
@@ -58,12 +58,12 @@ const ReassignTaskModal: React.FC<ReassignTaskModalUIProps> = ({
       <OutlineButton
         text="Cancel"
         onClick={onCancel}
-        className="px-8 py-2 rounded-lg font-semibold text-[#0064E1] border-[#0064E1] text-base"
+        className="px-8 py-2 rounded-lg font-semibold text-primary-700 border-primary-700 text-base"
       />
       <PrimaryButton
         text="Reassign Task"
         onClick={onReassign}
-        className="px-8 py-2 rounded-lg font-semibold bg-[#0064E1] hover:bg-[#0055C4] transition text-base text-white"
+        className="px-8 py-2 rounded-lg font-semibold bg-primary-700 hover:bg-primary-700 transition text-base text-white"
       />
     </div>
   </div>

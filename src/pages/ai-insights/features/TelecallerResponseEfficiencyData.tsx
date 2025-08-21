@@ -146,7 +146,7 @@ const TelecallerResponseEfficiencyTable: React.FC<TelecallerResponseEfficiencyTa
                 <div className="flex border-b border-neutral-200">
                     <button
                         className={`px-4 py-2 text-base border-b-2 transition-colors cursor-pointer ${activeTab === 'agentResponse'
-                            ? 'border-blue-500 text-neutral-700 font-semibold'
+                            ? 'border-primary-500 text-neutral-700 font-semibold'
                             : 'border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300 font-medium'
                             }`}
                         onClick={() => handleTabChange('agentResponse')}
@@ -173,7 +173,7 @@ const TelecallerResponseEfficiencyTable: React.FC<TelecallerResponseEfficiencyTa
             </div>
 
             {selectedRows.length > 0 && (
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                <div className="bg-blue-50 border border-primary-200 rounded-lg p-4 mb-4">
                     <div className="flex items-center justify-between">
                         <span className="text-sm font-medium text-primary-700">
                             {selectedRows.length} item{selectedRows.length > 1 ? "s" : ""} selected

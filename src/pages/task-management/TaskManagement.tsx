@@ -58,7 +58,7 @@ const TaskManagement: React.FC = () => {
 
   return (
     <div className="mr-3">
-      <h1 className="text-xl lg:text-2xl font-bold text-black mb-5 mt-4">
+      <h1 className="text-xl lg:text-2xl font-bold text-neutral-700 mb-5 mt-4">
         Task Management
       </h1>
       <div className="w-full flex sm:w-auto">
@@ -86,7 +86,7 @@ const TaskManagement: React.FC = () => {
             <OutlineButton text="Export CSV" className="w-36" />
             <PrimaryButton
               text="+Assign Task"
-              className="w-36 bg-primary-700 hover:bg-primary-600 text-white"
+              className="w-36 bg-primary-700 hover:bg-primary-700 text-white"
               onClick={openModal}/>
             <TaskAssignmentModal isOpen={isModalOpen} onClose={closeModal} />
           </div>

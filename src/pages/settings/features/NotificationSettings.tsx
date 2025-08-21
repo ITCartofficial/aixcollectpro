@@ -28,12 +28,12 @@ const NotificationSettings: React.FC = () => {
   return (
     <div className="max-w-full mx-auto mr-3 bg-white rounded-lg shadow px-8 py-7">
       <h2 className="text-xl font-semibold mb-1">Notification Settings</h2>
-      <div className="text-gray-600 mb-6 text-sm">
+      <div className="text-neutral-600 mb-6 text-sm">
         Set alert preferences across platform activities
       </div>
  
       {/* Task Assignment Alerts */}
-      <div className="flex items-center justify-between py-4 border-b border-gray-200">
+      <div className="flex items-center justify-between py-4 border-b border-neutral-200">
         <span className="font-medium">Task Assignment Alerts</span>
         <ToggleSwitch
           checked={taskAlerts}
@@ -45,7 +45,7 @@ const NotificationSettings: React.FC = () => {
       </div>
  
       {/* Escalation Notifications */}
-      <div className="flex items-center justify-between py-4 border-b border-gray-200">
+      <div className="flex items-center justify-between py-4 border-b border-neutral-200">
         <span className="font-medium">Escalation Notifications</span>
         <ToggleSwitch
           checked={escalation}
@@ -57,7 +57,7 @@ const NotificationSettings: React.FC = () => {
       </div>
  
       {/* Agent Inactivity Notifications */}
-      <div className="flex items-center justify-between py-4 border-b border-gray-200">
+      <div className="flex items-center justify-between py-4 border-b border-neutral-200">
         <span className="font-medium">Agent Inactivity Notifications</span>
         <ToggleSwitch
           checked={inactivity}
@@ -69,7 +69,7 @@ const NotificationSettings: React.FC = () => {
       </div>
  
       {/* AI Insight Summaries */}
-      <div className="flex items-center justify-between py-4 border-b border-gray-200">
+      <div className="flex items-center justify-between py-4 border-b border-neutral-200">
         <span className="font-medium">AI Insight Summaries</span>
         <ToggleSwitch
           checked={aiSummary}
@@ -81,7 +81,7 @@ const NotificationSettings: React.FC = () => {
       </div>
  
       {/* Daily Email Reports */}
-      <div className="flex items-center justify-between py-4 border-b border-gray-200">
+      <div className="flex items-center justify-between py-4 border-b border-neutral-200">
         <span className="font-medium">Daily Email Reports</span>
         <ToggleSwitch
           checked={dailyReports}

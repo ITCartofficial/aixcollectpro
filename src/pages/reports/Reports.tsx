@@ -152,10 +152,10 @@ const Reports: React.FC = () => {
   return (
     <div className="mr-4">
       <div className="w-full h-12 flex justify-between items-center mt-4 mb-5">
-        <h1 className="text-xl lg:text-2xl font-bold text-black">Reports</h1>
+        <h1 className="text-xl lg:text-2xl font-bold text-neutral-700">Reports</h1>
         <div className="flex gap-4">
           <DateRangePickerInput />
-          <PrimaryButton text="Export Report" className="w-42 bg-primary-700 hover:bg-primary-600 text-white" />
+          <PrimaryButton text="Export Report" className="w-42 bg-primary-700 hover:bg-primary-700 text-white" />
         </div>
       </div>
 

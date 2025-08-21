@@ -115,13 +115,13 @@ const WorkforceAttendanceCard: React.FC<WorkforceAttendanceCardProps> = ({
               className="p-1 rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed">
               <FaChevronLeft className="w-3 h-3 text-neutral-600" />
             </button>
-            <span className="text-sm text-gray-600">
+            <span className="text-sm text-neutral-600">
               {startItem} - {endItem} of {totalItems}
             </span>
             <button
               onClick={handleNextPage}
               disabled={currentPage >= totalPages}
-              className="p-1 rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed">
+              className="p-1 rounded hover:bg-neutral-100 disabled:opacity-50 disabled:cursor-not-allowed">
               <FaChevronRight className="w-3 h-3 text-neutral-600" />
             </button>
           </div>
@@ -131,15 +131,15 @@ const WorkforceAttendanceCard: React.FC<WorkforceAttendanceCardProps> = ({
         <div className="flex flex-col sm:flex-row md:items-center gap-4 sm:gap-6">
           <div className="flex items-center gap-2">
             <div className="w-4 h-2 rounded" style={{ backgroundColor: statusColors.present }} />
-            <span className="text-sm text-gray-700">Present</span>
+            <span className="text-sm text-neutral-700">Present</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-4 h-2 rounded" style={{ backgroundColor: statusColors.absent }} />
-            <span className="text-sm text-gray-700">Absent</span>
+            <span className="text-sm text-neutral-700">Absent</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-4 h-2 rounded" style={{ backgroundColor: statusColors.late }} />
-            <span className="text-sm text-gray-700">Late</span>
+            <span className="text-sm text-neutral-700">Late</span>
           </div>
         </div>
       </div>

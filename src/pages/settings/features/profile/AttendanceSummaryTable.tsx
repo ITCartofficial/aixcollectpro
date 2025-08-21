@@ -53,7 +53,7 @@ const columns: TableColumn<AttendanceSummary>[] = [
         className: 'text-right',
         render: () => (
             <button
-                className="text-black px-3 py-1 text-sm flex items-center space-x-1 cursor-pointer hover:bg-gray-100 rounded">
+                className="text-neutral-700 px-3 py-1 text-sm flex items-center space-x-1 cursor-pointer hover:bg-neutral-100 rounded">
                 <RxDotsVertical className="w-4 h-4" />
             </button>
         )
@@ -77,14 +77,14 @@ const AttendanceSummaryTable: React.FC = () => {
         <div className="bg-white rounded-lg">
             {/* SELECTED ITEMS DISPLAY SECTION */}
             {selectedRows.length > 0 && (
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                <div className="bg-primary-50 border border-primary-200 rounded-lg p-4 mb-4">
                     <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-blue-900">
+                        <span className="text-sm font-medium text-primary-700">
                             {selectedRows.length} alert{selectedRows.length > 1 ? 's' : ''} selected
                         </span>
                         <button
                             onClick={() => setSelectedRows([])}
-                            className="text-sm text-blue-700 hover:text-blue-900 cursor-pointer">
+                            className="text-sm text-primary-700 hover:text-primary-700 cursor-pointer">
                             Clear selection
                         </button>
                     </div>

@@ -44,7 +44,7 @@ const columns: TableColumn<LeaveRequests>[] = [
         headerAlign:'center',
         className: "text-center font-medium",
         render: (value: string) => (
-            <div className="text-sm text-gray-700">{value}</div>
+            <div className="text-sm text-neutral-700">{value}</div>
         )
     },
     {
@@ -54,7 +54,7 @@ const columns: TableColumn<LeaveRequests>[] = [
         headerAlign:'center',
         className: "text-center font-medium",
         render: (value: number) => (
-            <div className="text-sm text-gray-700">{value}</div>
+            <div className="text-sm text-neutral-700">{value}</div>
         )
     },
     {
@@ -62,7 +62,7 @@ const columns: TableColumn<LeaveRequests>[] = [
         label: "Notes",
         className: "font-medium",
         render: (value: string) => (
-            <div className="text-sm text-gray-700">{value}</div>
+            <div className="text-sm text-neutral-700">{value}</div>
         )
     },
     {

@@ -106,7 +106,7 @@ const AgentIssueLogged = () => {
       width: "30px",
       className: "text-right",
       render: () => (
-        <button className="text-black px-3 py-1 text-sm flex items-center space-x-1 cursor-pointer hover:bg-gray-100 rounded">
+        <button className="text-neutral-700 px-3 py-1 text-sm flex items-center space-x-1 cursor-pointer hover:bg-neutral-100 rounded">
           <RxDotsVertical className="w-4 h-4" />
         </button>
       ),
@@ -118,7 +118,7 @@ const AgentIssueLogged = () => {
     <div className="mt-4 bg-white rounded-lg relative">
       {/* SELECTED ITEMS DISPLAY SECTION */}
       {selectedRows.length > 0 && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+        <div className="bg-primary-50 border border-primary-200 rounded-lg p-4 mb-4">
           <div className="flex items-center justify-between">
             <span className="text-sm font-medium text-blue-900">
               {selectedRows.length} issue{selectedRows.length > 1 ? "s" : ""}{" "}
@@ -126,7 +126,7 @@ const AgentIssueLogged = () => {
             </span>
             <button
               onClick={() => setSelectedRows([])}
-              className="text-sm text-blue-700 hover:text-blue-900 cursor-pointer"
+              className="text-sm text-primary-700 hover:text-primary-700 cursor-pointer"
             >
               Clear selection
             </button>

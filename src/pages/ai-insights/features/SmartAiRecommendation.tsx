@@ -15,7 +15,7 @@ const SmartAiRecommendation: React.FC = () => {
         <div className="bg-white rounded-lg p-4 md:p-6">
             <h2 className="text-base md:text-lg font-semibold flex-1 mb-5">Smart AI Recommendation</h2>
             <div
-                className="border border-blue-300 rounded-xl bg-white px-6 py-5"
+                className="border border-primary-300 rounded-xl bg-white px-6 py-5"
                 style={{
                     boxShadow: "0 1px 6px 0 rgba(32,80,177,.03)"
                 }}

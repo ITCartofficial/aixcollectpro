@@ -45,7 +45,7 @@ const UpdateTaskLocationModal: React.FC<UpdateTaskLocationModalUIProps> = ({
     <h2 className="text-xl font-semibold mb-4 mt-2">
       Update Task Location
     </h2>
-    <p className="text-gray-700 mb-7 text-base">
+    <p className="text-neutral-700 mb-7 text-base">
       Use this if the current location is inaccurate or has changed.
     </p>
     {/* Address Line 1 */}
@@ -123,12 +123,12 @@ const UpdateTaskLocationModal: React.FC<UpdateTaskLocationModalUIProps> = ({
       <OutlineButton
         text="Cancel"
         onClick={onCancel}
-        className="px-8 py-2 rounded-lg font-semibold text-[#0064E1] border-[#0064E1] text-base"
+        className="px-8 py-2 rounded-lg font-semibold text-primary-700 border-primary-700 text-base"
       />
       <PrimaryButton
         text="Update Task"
         onClick={onUpdate}
-        className="px-8 py-2 rounded-lg font-semibold bg-[#0064E1] hover:bg-[#0055C4] transition text-base text-white"
+        className="px-8 py-2 rounded-lg font-semibold bg-primary-700 hover:bg-primary-700 transition text-base text-white"
       />
     </div>
   </div>

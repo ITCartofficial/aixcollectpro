@@ -68,13 +68,13 @@ const RecentActivitySidebar: React.FC = () => {
               isLast={index === activities.length - 1}
             >
               {/* Your original card */}
-              <div className="bg-gray-50 p-3 rounded-lg shadow-sm">
+              <div className="bg-neutral-50 p-3 rounded-lg shadow-sm">
                 <div className="flex justify-between items-center">
-                  <p className="font-semibold text-gray-800">
+                  <p className="font-semibold text-neutral-700">
                     {activity.location}
                   </p>
                   <div>
-                    <p className="text-sm text-gray-500 py-[6px] px-4 bg-neutral-400 rounded-full">
+                    <p className="text-sm text-neutral-500 py-[6px] px-4 bg-neutral-400 rounded-full">
                       {index === 0 ? "Last Updated" : "Updated"} :{" "}
                       {activity.time}
                     </p>
@@ -89,8 +89,8 @@ const RecentActivitySidebar: React.FC = () => {
                     </p>
                   </div>
                 </div>
-                <p className="text-sm text-gray-600 mt-0.5">{activity.type}</p>
-                <p className="text-sm text-gray-500">{activity.note}</p>
+                <p className="text-sm text-neutral-600 mt-0.5">{activity.type}</p>
+                <p className="text-sm text-neutral-500">{activity.note}</p>
               </div>
             </TimelineItem>
           ))}

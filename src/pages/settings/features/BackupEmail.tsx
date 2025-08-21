@@ -41,7 +41,7 @@ const BackupEmailModal: React.FC<BackupEmailModalProps> = ({
       >
         {/* Close button */}
         <button
-          className="absolute top-7 right-7 text-gray-400 hover:text-gray-600 text-2xl"
+          className="absolute top-7 right-7 text-neutral-400 hover:text-neutral-600 text-2xl"
           onClick={onClose}
           aria-label="Close"
         >
@@ -52,7 +52,7 @@ const BackupEmailModal: React.FC<BackupEmailModalProps> = ({
           <h2 className="text-2xl font-semibold text-center mb-2 mt-2">
             Add Backup Email for Reports
           </h2>
-          <p className="text-gray-600 text-center mb-10 text-base px-10 pt-4">
+          <p className="text-neutral-600 text-center mb-10 text-base px-10 pt-4">
             Ensure your critical reports are also delivered to a backup email for redundancy or team sharing. You can update or remove this anytime from settings.
           </p>
           {/* Email field */}
@@ -61,7 +61,7 @@ const BackupEmailModal: React.FC<BackupEmailModalProps> = ({
               <input
                 type="email"
                 id="backup-email"
-                className="w-full border border-gray-500 bg-white rounded-lg px-4 pt-7 pb-3 text-base focus:outline-none font-semibold transition"
+                className="w-full border border-neutral-500 bg-white rounded-lg px-4 pt-7 pb-3 text-base focus:outline-none font-semibold transition"
                 placeholder=" "
                 value={email}
                 autoFocus
@@ -70,7 +70,7 @@ const BackupEmailModal: React.FC<BackupEmailModalProps> = ({
               />
               <label
                 htmlFor="backup-email"
-                className="absolute left-4 top-2 text-gray-400 text-sm pointer-events-none"
+                className="absolute left-4 top-2 text-neutral-400 text-sm pointer-events-none"
               >
                 Email
               </label>
@@ -82,7 +82,7 @@ const BackupEmailModal: React.FC<BackupEmailModalProps> = ({
               <PrimaryButton
                 text="Continue"
                 onClick={handleContinue}
-                className="w-full py-4 px-4 rounded-lg text-base font-semibold bg-[#0064E1] hover:bg-[#0055C4] transition text-white"
+                className="w-full py-4 px-4 rounded-lg text-base font-semibold bg-primary-700 hover:bg-primary-700 transition text-white"
               />
             </div>
           </div>

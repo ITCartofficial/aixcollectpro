@@ -24,6 +24,7 @@ const TitleSection: React.FC = () => {
                         <span className="text--600 text-xs sm:text-sm block sm:inline mt-1 sm:mt-0">
                             (Last Updated: 2hrs Ago)
                         </span>
+                        </span>
                     </p>
                 </div>
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full lg:w-auto">

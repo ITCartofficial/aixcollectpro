@@ -32,12 +32,12 @@ const AiConfiguration: React.FC = () => {
   return (
     <div className="max-w-full mx-auto mr-3 bg-white rounded-lg shadow px-8 py-7">
       <h2 className="text-xl font-semibold mb-1">AI Configuration Settings</h2>
-      <div className="text-gray-600 mb-6 text-sm">
+      <div className="text-neutral-600 mb-6 text-sm">
         Control the behavior and sensitivity of AI on the platform
       </div>
  
       {/* Enable AI Suggestions */}
-      <div className="flex items-center justify-between py-4 border-b border-gray-200">
+      <div className="flex items-center justify-between py-4 border-b border-neutral-200">
         <span className="font-medium">Enable AI Suggestions</span>
         <ToggleSwitch
           checked={aiSuggestions}
@@ -48,7 +48,7 @@ const AiConfiguration: React.FC = () => {
       </div>
  
       {/* Auto Task Prioritization */}
-      <div className="flex items-center justify-between py-4 border-b border-gray-200">
+      <div className="flex items-center justify-between py-4 border-b border-neutral-200">
         <span className="font-medium">Auto Task Prioritization</span>
         <ToggleSwitch
           checked={autoTaskPrioritization}
@@ -59,7 +59,7 @@ const AiConfiguration: React.FC = () => {
       </div>
  
       {/* AI Sensitivity for Risk Flags */}
-      <div className="flex items-center justify-between py-4 border-b border-gray-200">
+      <div className="flex items-center justify-between py-4 border-b border-neutral-200">
         <span className="font-medium">AI Sensitivity for Risk Flags</span>
         <div className="min-w-[140px]">
           <Dropdown
@@ -72,7 +72,7 @@ const AiConfiguration: React.FC = () => {
       </div>
  
       {/* AI Insight Frequency */}
-      <div className="flex items-center justify-between py-4 border-b border-gray-200">
+      <div className="flex items-center justify-between py-4 border-b border-neutral-200">
         <span className="font-medium">AI Insight Frequency</span>
         <div className="min-w-[140px]">
           <Dropdown

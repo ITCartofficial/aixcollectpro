@@ -87,7 +87,7 @@ const columns: TableColumn<AttendanceSummary>[] = [
     render: () => (
       <div className="flex justify-center">
         <button
-          className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-full text-sm flex items-center space-x-1 cursor-pointer"
+          className="bg-primary-600 hover:bg-primary-700 text-white px-3 py-1 rounded-full text-sm flex items-center space-x-1 cursor-pointer"
           onClick={(e) => {
             e.stopPropagation();
           }}
@@ -105,7 +105,7 @@ const columns: TableColumn<AttendanceSummary>[] = [
     width: "50px",
     className: "text-right",
     render: () => (
-      <button className="text-black px-2 py-1 text-sm flex items-center cursor-pointer hover:bg-gray-100 rounded">
+      <button className="text-neutral-700 px-2 py-1 text-sm flex items-center cursor-pointer hover:bg-neutral-100 rounded">
         <RxDotsVertical className="w-4 h-4" />
       </button>
     ),
@@ -130,7 +130,7 @@ const AttendanceSummary: React.FC = () => {
   return (
     <div className="bg-white rounded-lg">
       {selectedRows.length > 0 && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4 mt-4">
+        <div className="bg-neutral-50 border border-neutral-200 rounded-lg p-4 mb-4 mt-4">
           <div className="flex items-center justify-between">
             <span className="text-sm font-medium text-blue-900">
               {selectedRows.length} record{selectedRows.length > 1 ? "s" : ""}{" "}
@@ -138,7 +138,7 @@ const AttendanceSummary: React.FC = () => {
             </span>
             <button
               onClick={() => setSelectedRows([])}
-              className="text-sm text-blue-700 hover:text-blue-900 cursor-pointer"
+              className="text-sm text-primary-700 hover:text-primary-700 cursor-pointer"
             >
               Clear selection
             </button>

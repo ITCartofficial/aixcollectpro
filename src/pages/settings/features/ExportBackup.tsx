@@ -88,12 +88,12 @@ const ExportBackup: React.FC = () => {
     return (
         <div className="max-w-full mx-auto mr-3 bg-white rounded-lg shadow px-8 py-7">
             <h2 className="text-xl font-semibold mb-1">Export & Backup Settings</h2>
-            <div className="text-gray-600 mb-6 text-sm">
+            <div className="text-neutral-600 mb-6 text-sm">
                 Manage automatic export and report backup delivery
             </div>
 
             {/* Auto Export Frequency */}
-            <div className="flex items-center justify-between py-4 border-b border-gray-200">
+            <div className="flex items-center justify-between py-4 border-b border-neutral-200">
                 <span className="font-medium">Auto Export Frequency</span>
                 <div className="w-48">
                     <Dropdown
@@ -106,7 +106,7 @@ const ExportBackup: React.FC = () => {
             </div>
 
             {/* Preferred Export Format */}
-            <div className="flex items-center justify-between py-4 border-b border-gray-200">
+            <div className="flex items-center justify-between py-4 border-b border-neutral-200">
                 <span className="font-medium">Preferred Export Format</span>
                 <div className="w-48">
                     <Dropdown
@@ -119,7 +119,7 @@ const ExportBackup: React.FC = () => {
             </div>
 
             {/* Reports to Auto-Export */}
-            <div className="flex items-center justify-between py-4 border-b border-gray-200">
+            <div className="flex items-center justify-between py-4 border-b border-neutral-200">
                 <span className="font-medium">Reports to Auto-Export</span>
                 <div className="w-48">
                     <Dropdown
@@ -133,7 +133,7 @@ const ExportBackup: React.FC = () => {
             </div>
 
             {/* Backup Email Recipients */}
-            <div className="flex items-center justify-between py-4 border-b border-gray-200">
+            <div className="flex items-center justify-between py-4 border-b border-neutral-200">
                 <span className="font-medium">Backup Email Recipients</span>
                 <button
                     className="text-primary-700 text-sm font-normal cursor-pointer"
@@ -146,10 +146,10 @@ const ExportBackup: React.FC = () => {
             {/* Show added backup emails */}
             {backupEmails.length > 0 && (
                 <div className="mb-4">
-                    <span className="text-sm text-gray-700 font-medium">
+                    <span className="text-sm text-neutral-700 font-medium">
                         Added Backup Emails:
                     </span>
-                    <ul className="list-disc list-inside text-sm text-gray-600">
+                    <ul className="list-disc list-inside text-sm text-neutral-600">
                         {backupEmails.map((email, idx) => (
                             <li key={idx}>{email}</li>
                         ))}

@@ -29,14 +29,14 @@ const TaskDetail: React.FC<TaskDetailProps> = ({
   return (
     <div className="w-full flex flex-col gap-3">
       {/* Heading */}
-      <h1 className="text-xl lg:text-xl font-bold text-black mb-2">
+      <h1 className="text-xl lg:text-xl font-bold text-neutral-700 mb-2">
         Barrower Name
       </h1>
 
       {/* Card */}
-      <div className="w-full rounded-lg bg-white px-6 py-6 flex flex-col lg:flex-row gap-6 items-start justify-between border border-gray-200">
+      <div className="w-full rounded-lg bg-white px-6 py-6 flex flex-col lg:flex-row gap-6 items-start justify-between border border-neutral-200">
         {/* Left: User Profile */}
-        <div className=" gap-4 items-center flex border-r border-gray-200 pr-6">
+        <div className=" gap-4 items-center flex border-r border-neutral-200 pr-6">
           <div className="w-16 h-16 lg:w-24 lg:h-24 rounded-full bg-[#E13900] flex items-center justify-center text-white font-bold text-xl">
             {name
               .split(" ")
@@ -45,8 +45,8 @@ const TaskDetail: React.FC<TaskDetailProps> = ({
               .toUpperCase()}
           </div>
           <div>
-            <h3 className="font-semibold text-gray-900 text-lg">{name}</h3>
-            <p className="text-sm text-gray-600">
+            <h3 className="font-semibold text-neutral-700 text-lg">{name}</h3>
+            <p className="text-sm text-neutral-600">
               {phone} | {email}
             </p>
           </div>
@@ -55,36 +55,36 @@ const TaskDetail: React.FC<TaskDetailProps> = ({
         {/* Middle: Alternate Numbers & Addresses */}
         <div className="flex flex-col lg:flex-row gap-6 flex-[2]">
           <div>
-            <p className="text-xs text-gray-400">Alt Number 1</p>
-            <p className="text-sm text-gray-900 font-medium mb-2">{altNumber1}</p>
-            <p className="text-xs text-gray-400">Primary Address 1</p>
-            <p className="text-sm text-gray-900 font-medium">{address1}</p>
+            <p className="text-xs text-neutral-400">Alt Number 1</p>
+            <p className="text-sm text-neutral-700 font-medium mb-2">{altNumber1}</p>
+            <p className="text-xs text-neutral-400">Primary Address 1</p>
+            <p className="text-sm text-neutral-700 font-medium">{address1}</p>
           </div>
           <div>
-            <p className="text-xs text-gray-400">Alt Number 2</p>
-            <p className="text-sm text-gray-900 font-medium mb-2">{altNumber2}</p>
-            <p className="text-xs text-gray-400">Primary Address 2</p>
-            <p className="text-sm text-gray-900 font-medium">{address2}</p>
+            <p className="text-xs text-neutral-400">Alt Number 2</p>
+            <p className="text-sm text-neutral-700 font-medium mb-2">{altNumber2}</p>
+            <p className="text-xs text-neutral-400">Primary Address 2</p>
+            <p className="text-sm text-neutral-700 font-medium">{address2}</p>
           </div>
         </div>
 
         {/* Right: Agent and Buttons */}
         <div className="flex flex-col justify-between items-end h-full gap-4">
-          <div className="text-xs text-gray-500 mb-2">
+          <div className="text-xs text-neutral-500 mb-2">
             Assigned Agent
            <div className="flex items-center gap-3 mt-2">
             <div className="w-10 h-10 rounded-full bg-[#00838F] text-white flex items-center justify-center text-sm font-medium">
               {agentInitials}
             </div>
-            <p className="text-sm text-gray-900 font-medium ">{agentName}</p>
+            <p className="text-sm text-neutral-900 font-medium ">{agentName}</p>
            </div>
           </div>
           <div className="flex items-center gap-3">
-            <button className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100">
-              <FiPhone className="text-gray-600 text-lg" />
+            <button className="w-8 h-8 rounded-full border border-neutral-300 flex items-center justify-center hover:bg-neutral-100">
+              <FiPhone className="text-neutral-600 text-lg" />
             </button>
-            <button className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100">
-              <FiMapPin className="text-gray-600 text-lg" />
+            <button className="w-8 h-8 rounded-full border border-neutral-300 flex items-center justify-center hover:bg-neutral-100">
+              <FiMapPin className="text-neutral-600 text-lg" />
             </button>
             <OutlineButton
               onClick={onViewMap}

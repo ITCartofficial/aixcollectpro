@@ -44,7 +44,7 @@ const columns: TableColumn<RegularizationRequests>[] = [
         label: "Notes",
         className: "font-medium",
         render: (value: string) => (
-            <div className="text-sm text-gray-700">{value}</div>
+            <div className="text-sm text-neutral-700">{value}</div>
         )
     },
     {
@@ -52,7 +52,7 @@ const columns: TableColumn<RegularizationRequests>[] = [
         label: "Requested At",
         className: "text-left font-medium",
         render: (value: string) => (
-            <div className="text-sm text-gray-700">{value}</div>
+            <div className="text-sm text-neutral-700">{value}</div>
         )
     },
     {

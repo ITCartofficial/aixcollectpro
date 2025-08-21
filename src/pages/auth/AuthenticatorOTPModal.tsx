@@ -56,12 +56,12 @@ const AuthenticatorOtpModal: React.FC<AuthenticatorOtpModalProps> = ({
             showCloseButton={false}
             closeOnOverlayClick={true}
             className="p-0"
-            headerClassName="hidden"
+            headerClassName=" "
             contentClassName="p-0 flex items-center justify-center"
-            overlayClassName="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+            // overlayClassName="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
         >
             <div
-                className="relative rounded-[12px] flex flex-col items-center bg-white"
+                className="relative bg-white rounded-[12px]"
                 style={{ width: "772px", height: "598px" }}
             >
                 {/* Close button */}
@@ -97,7 +97,7 @@ const AuthenticatorOtpModal: React.FC<AuthenticatorOtpModalProps> = ({
                                 value={digit}
                                 onChange={e => handleChange(idx, e.target.value)}
                                 onKeyDown={e => handleKeyDown(e, idx)}
-                                className="w-[80px] h-[64px] text-center text-2xl font-bold border border-neutral-500 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary-700 transition"
+                                className="w-[80px] h-[64px] text-neutral-700 text-center text-2xl font-bold border border-neutral-500 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary-700 transition"
                                 autoFocus={idx === 0}
                             />
                         ))}

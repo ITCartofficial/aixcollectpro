@@ -333,7 +333,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
         }`}
       >
-        <span className={`${getDisplayText() === placeholder ? 'text-neutral-400' : 'text-neutral-700'}`}>
+        <span className={`${getDisplayText() === placeholder ? 'text-neutral-700' : 'text-neutral-700'}`}>
           {getDisplayText()}
         </span>
         <FaChevronDown className={`w-4 h-4 text-neutral-500 transition-transform ${isOpen ? 'transform rotate-180' : ''}`} />

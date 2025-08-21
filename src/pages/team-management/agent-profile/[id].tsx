@@ -50,7 +50,7 @@ const AgentProfile: React.FC<UserProfileProps> = ({
       {/* Header Section */}
       <div className="w-full flex  justify-between items-start md:items-center gap-4 mb-6">
         <div>
-          <h1 className="text-xl lg:text-2xl font-bold text-black">
+          <h1 className="text-xl lg:text-2xl font-bold text-neutral-700">
             {agentData?.agent ?? "Unknown Agent"}
           </h1>
           <div className="flex items-center gap-y-2">
@@ -66,7 +66,7 @@ const AgentProfile: React.FC<UserProfileProps> = ({
           />
         </div>
       </div>
-      <div className="mx-auto shadow-2xl border-gray-600 rounded-lg  overflow-hidden bg-white">
+      <div className="mx-auto shadow-2xl border-neutral-600 rounded-lg  overflow-hidden bg-white">
         {/* Header Section */}
         <div className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -84,13 +84,13 @@ const AgentProfile: React.FC<UserProfileProps> = ({
 
               {/* Name and Contact */}
               <div className="flex-1 min-w-0">
-                <h1 className="text-xl sm:text-2xl font-bold text-gray-900 truncate">
+                <h1 className="text-xl sm:text-2xl font-bold text-neutral-700 truncate">
                   {agentData?.agent}
                 </h1>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 mt-1">
-                  <p className="text-gray-600 text-sm sm:text-base">{phone}</p>
+                  <p className="text-neutral-600 text-sm sm:text-base">{phone}</p>
                   <p>|</p>
-                  <p className="text-gray-600 text-sm sm:text-base truncate">
+                  <p className="text-neutral-600 text-sm sm:text-base truncate">
                     {email}
                   </p>
                 </div>
@@ -107,14 +107,14 @@ const AgentProfile: React.FC<UserProfileProps> = ({
                 >
                   {status === "online" ? "On-Board" : "Off-Board"}
                 </span>
-                <span className="text-xs text-gray-700 px-3 py-1 bg-gray-200 border border-gray-300 rounded-full">
+                <span className="text-xs text-neutral-700 px-3 py-1 bg-neutral-200 border border-neutral-300 rounded-full">
                   Last Synced: 03:30 PM
                 </span>
               </div>
 
               {/* Performance Score - Bottom */}
               <div className="bg-orange-100 px-8 py-1 rounded-md">
-                <span className="text-xs text-gray-600">
+                <span className="text-xs text-neutral-600">
                   Your Performance Score
                 </span>
                 <div className="bg-orange-500 text-white px-2 py-1 rounded text-sm font-semibold ml-2 inline-block">
@@ -137,52 +137,52 @@ const AgentProfile: React.FC<UserProfileProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-1">
               {/* Role */}
               <div>
-                <label className="block text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
+                <label className="block text-xs font-medium text-neutral-500 uppercase tracking-wide mb-1">
                   Role
                 </label>
-                <p className="text-gray-900 font-medium">{role}</p>
+                <p className="text-neutral-700 font-medium">{role}</p>
               </div>
 
               {/* Employee ID */}
               <div>
-                <label className="block text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
+                <label className="block text-xs font-medium text-neutral-500 uppercase tracking-wide mb-1">
                   Employee ID
                 </label>
-                <p className="text-gray-900 font-medium">
+                <p className="text-neutral-700 font-medium">
                   {agentData?.agentId ?? "null"}
                 </p>
               </div>
 
               {/* Vendor */}
               <div>
-                <label className="block text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
+                <label className="block text-xs font-medium text-neutral-500 uppercase tracking-wide mb-1">
                   Vendor
                 </label>
-                <p className="text-gray-900 font-medium">{vendor}</p>
+                <p className="text-neutral-700 font-medium">{vendor}</p>
               </div>
 
               {/* Date of Joining */}
               <div>
-                <label className="block text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
+                <label className="block text-xs font-medium text-neutral-500 uppercase tracking-wide mb-1">
                   Date of Joining
                 </label>
-                <p className="text-gray-900 font-medium">{dateOfJoining}</p>
+                <p className="text-neutral-700 font-medium">{dateOfJoining}</p>
               </div>
 
               {/* Location */}
               <div>
-                <label className="block text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
+                <label className="block text-xs font-medium text-neutral-500 uppercase tracking-wide mb-1">
                   Location
                 </label>
-                <p className="text-gray-900 font-medium">{location}</p>
+                <p className="text-neutral-700 font-medium">{location}</p>
               </div>
 
               {/* Reporting Manager */}
               <div>
-                <label className="block text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
+                <label className="block text-xs font-medium text-neutral-500 uppercase tracking-wide mb-1">
                   Reporting Manager
                 </label>
-                <p className="text-gray-900 font-medium">{reportingManager}</p>
+                <p className="text-neutral-700 font-medium">{reportingManager}</p>
               </div>
             </div>
 
@@ -191,12 +191,12 @@ const AgentProfile: React.FC<UserProfileProps> = ({
               <PrimaryButton
                 text="WhatsApp"
                 icon={<FaWhatsapp size={16} />}
-                className="w-36 bg-white border border-gray-300 text-gray-700 hover:bg-gray-50"
+                className="w-36 bg-white border border-neutral-300 text-neutral-700 hover:bg-neutral-50"
               />
               <PrimaryButton
                 text="Call"
                 icon={<FiPhoneCall size={16} />}
-                className="w-36 bg-blue-600 hover:bg-blue-700 text-white"
+                className="w-36 bg-primary-600 hover:bg-primary-700 text-white"
               />
             </div>
           </div>

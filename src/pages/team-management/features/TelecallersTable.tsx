@@ -173,7 +173,7 @@ const TelecallersTable: React.FC = () => {
             render: (value, row) => (
                 <div className="flex items-center space-x-3">
                     <Avatar name={value} image={row.avatar} size="md" />
-                    <span className="font-medium text-gray-900">{value}</span>
+                    <span className="font-medium text-neutral-700">{value}</span>
                 </div>
             )
         },
@@ -210,7 +210,7 @@ const TelecallersTable: React.FC = () => {
             sortable: true,
             width: '150px',
             className: "text-left",
-            render: (value) => <span className="text-gray-700">{value}</span>
+            render: (value) => <span className="text-neutral-700">{value}</span>
         },
         {
             key: 'status',
@@ -231,7 +231,7 @@ const TelecallersTable: React.FC = () => {
             width: '120px',
             headerAlign: 'center',
             className: 'text-center',
-            render: (value) => <span className="text-gray-600">{value}</span>
+            render: (value) => <span className="text-neutral-600">{value}</span>
         },
         {
             key: 'id',
@@ -259,7 +259,7 @@ const TelecallersTable: React.FC = () => {
             {/* Filters and Search Section */}
             <div className="bg-white p-4 rounded-lg">
                 <div className="flex flex-wrap items-center gap-4">
-                    <span className="text-sm font-medium text-gray-700">Filter by:</span>
+                    <span className="text-sm font-medium text-neutral-700">Filter by:</span>
 
                     {/* Language Dropdown (Multi-select) */}
                     <Dropdown
@@ -310,7 +310,7 @@ const TelecallersTable: React.FC = () => {
                         </span>
                         <button
                             onClick={() => setSelectedRows([])}
-                            className="text-sm text-blue-700 hover:text-blue-900 cursor-pointer"
+                            className="text-sm text-primary-700 hover:text-primary-700 cursor-pointer"
                         >
                             Clear selection
                         </button>

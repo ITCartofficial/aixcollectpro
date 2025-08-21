@@ -45,7 +45,7 @@ const columns: TableColumn<RegularizationRequests>[] = [
         label: "Notes",
         className: "font-medium",
         render: (value: string) => (
-            <div className="text-sm text-gray-700">{value}</div>
+            <div className="text-sm text-neutral-700">{value}</div>
         )
     },
     {
@@ -54,7 +54,7 @@ const columns: TableColumn<RegularizationRequests>[] = [
         width: "200px",
         className: "text-left font-medium",
         render: (value: string) => (
-            <div className="text-sm text-gray-700">{value}</div>
+            <div className="text-sm text-neutral-700">{value}</div>
         )
     },
     {
@@ -73,7 +73,7 @@ const columns: TableColumn<RegularizationRequests>[] = [
         className: 'text-center',
         render: () => (
             <button
-                className="text-gray-400 hover:text-gray-600 px-2 py-1 rounded hover:bg-gray-100 transition-colors cursor-pointer">
+                className="text-neutral-400 hover:text-neutral-600 px-2 py-1 rounded hover:bg-neutral-100 transition-colors cursor-pointer">
                 <RxDotsVertical className="w-4 h-4" />
             </button>
         )
@@ -102,14 +102,14 @@ const RegularizationRequestTable: React.FC = () => {
             <h2 className="text-regular font-semibold text-neutral-700 pb-4">New Regularization Request</h2>
             {/* SELECTED ITEMS DISPLAY SECTION */}
             {selectedRows.length > 0 && (
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                <div className="bg-primary-50 border border-primary-200 rounded-lg p-4 mb-4">
                     <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-blue-900">
+                        <span className="text-sm font-medium text-primary-700">
                             {selectedRows.length} request{selectedRows.length > 1 ? 's' : ''} selected
                         </span>
                         <button
                             onClick={() => setSelectedRows([])}
-                            className="text-sm text-blue-700 hover:text-blue-900 cursor-pointer">
+                            className="text-sm text-primary-700 hover:text-primary-900 cursor-pointer">
                             Clear selection
                         </button>
                     </div>

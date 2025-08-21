@@ -62,13 +62,13 @@ const EscalationsRiskFlagsTrends: React.FC<EscalationsRiskFlagsTrendsProps> = ({
   return (
     <div className={`bg-white rounded-lg p-4 shadow-sm ${className}`}>
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-base font-semibold text-gray-900">
+        <h2 className="text-base font-semibold text-neutral-900">
           Escalations & Risk Flags Trends
         </h2>
 
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-          <span className="text-sm text-blue-600 font-medium">Escalation Rate over Time</span>
+          <div className="w-2 h-2 rounded-full bg-primary-500"></div>
+          <span className="text-sm text-primary-600 font-medium">Escalation Rate over Time</span>
         </div>
       </div>
 

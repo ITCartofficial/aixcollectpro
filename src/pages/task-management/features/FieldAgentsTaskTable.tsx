@@ -510,7 +510,7 @@ const FieldAgentTaskTable: React.FC = () => {
 
             {/* Selected Items Display */}
             {selectedRows.length > 0 && (
-                <div className="bg-blue-50 border border-neutral-200 rounded-lg p-4 mb-4">
+                <div className="bg-primary-50 border border-neutral-200 rounded-lg p-4 mb-4">
                     <div className="flex items-center justify-between">
                         <span className="text-sm font-medium text-primary-700">
                             {selectedRows.length} task{selectedRows.length > 1 ? "s" : ""} selected

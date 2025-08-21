@@ -14,7 +14,7 @@ const TaskDetailPage = () => {
       {/* Header */}
       <div className="w-full h-12 flex justify-between items-center mt-4 mb-4">
         <div className="items-center gap-2">
-          <h1 className="text-xl lg:text-2xl font-bold text-black mb-2">
+          <h1 className="text-xl lg:text-2xl font-bold text-neutral-700 mb-2">
             Task-24501
           </h1>
           <p>\ Task Management\Task-24501</p>
@@ -29,7 +29,7 @@ const TaskDetailPage = () => {
       </div>
 
       {/* Combined Card */}
-      <div className="bg-white rounded-lg shadow border border-gray-200 p-4 flex flex-col gap-6">
+      <div className="bg-white rounded-lg shadow border border-neutral-200 p-4 flex flex-col gap-6">
         {/* Borrower Details */}
         <TaskDetail
           name="Anil Kumar"

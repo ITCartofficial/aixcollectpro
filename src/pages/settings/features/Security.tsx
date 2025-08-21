@@ -25,12 +25,12 @@ const Security: React.FC = () => {
   return (
     <div className="max-w-full mx-auto mr-3 bg-white rounded-lg shadow px-8 py-7 ">
       <h2 className="text-xl font-semibold mb-1">Security Settings</h2>
-      <div className="text-gray-600 mb-6 text-sm">
+      <div className="text-neutral-600 mb-6 text-sm">
         Enable additional account protection
       </div>
  
       {/* Two-Factor Authentication */}
-      <div className="flex items-center justify-between py-4 border-b border-gray-200">
+      <div className="flex items-center justify-between py-4 border-b border-neutral-200">
         <div>
           <span className="font-medium">Two-Factor Authentication</span>
         </div>

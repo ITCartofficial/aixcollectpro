@@ -121,6 +121,8 @@ const EditTaskModel: React.FC<{ task?: typeof initialTask }> = ({ task = initial
           onChange={v => setCaseType(v as string)}
           placeholder="Select Type"
           className="max-w-md"
+          label="Case Type" 
+          required 
         />
       </div>
 
@@ -142,7 +144,7 @@ const EditTaskModel: React.FC<{ task?: typeof initialTask }> = ({ task = initial
         {!showAltAddress && (
           <button
             type="button"
-            className="text-blue-600 font-semibold text-sm hover:underline"
+            className="text-primary-700 font-semibold text-sm hover:underline"
             onClick={() => setShowAltAddress(true)}
           >
             + Add Another Address
@@ -224,10 +226,10 @@ const EditTaskModel: React.FC<{ task?: typeof initialTask }> = ({ task = initial
 
       {/* Actions */}
       <div className="flex justify-end gap-4 mt-8">
-        <button type="button" className="px-6 py-2 border border-blue-600 text-blue-600 rounded hover:bg-blue-50 font-semibold">
+        <button type="button" className="px-6 py-2 border border-primary-600 text-primary-600 rounded hover:bg-blue-50 font-semibold">
           Cancel
         </button>
-        <button type="submit" className="px-6 py-2 bg-blue-600 text-white rounded font-semibold hover:bg-blue-700">
+        <button type="submit" className="px-6 py-2 bg-primary-600 text-white rounded font-semibold hover:bg-primary-700">
           Create
         </button>
       </div>
@@ -236,3 +238,6 @@ const EditTaskModel: React.FC<{ task?: typeof initialTask }> = ({ task = initial
 };
 
 export default EditTaskModel;
+
+
+

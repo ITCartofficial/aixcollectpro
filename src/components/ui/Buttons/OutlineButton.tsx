@@ -2,6 +2,7 @@ type OutlineButtonProps = {
     text: string;
     onClick?: () => void;
     className?: string;
+    icon?: React.ReactNode;
 };
 
 const OutlineButton: React.FC<OutlineButtonProps> = ({ text, onClick, className}) => {

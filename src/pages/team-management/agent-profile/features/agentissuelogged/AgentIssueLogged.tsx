@@ -5,7 +5,6 @@ import Badge from "../../../../../components/ui/Table/Badge";
 import DataTable from "../../../../../components/ui/Table/DataTable";
 import { RxDotsVertical } from "react-icons/rx";
 
-// INTERFACE DEFINITIONS
 interface AgentIssueData {
   id: string;
   category: string;
@@ -18,29 +17,36 @@ interface AgentIssueData {
   location: string;
 }
 
-const AgentIssueLogged = () => {
+interface IssueLoggedProps {
+  agentData?: any;
+}
+
+const AgentIssueLogged: React.FC<IssueLoggedProps> = ({ agentData }) => {
+  
   const issuesData: AgentIssueData[] = agentIssuesData as AgentIssueData[];
+  
+  const agentSpecificData = agentData
+    ? issuesData.filter((issue) => issue.agent_name === agentData.name)
+    : issuesData;
+
   const [filteredData, setFilteredData] = useState<AgentIssueData[]>([]);
   const [selectedRows, setSelectedRows] = useState<AgentIssueData[]>([]);
 
-  // MAIN FILTER APPLICATION LOGIC
-  // Core function to apply all filters and search
   const applyAllFilters = () => {
-    let filtered = [...issuesData]; // Create a copy to avoid mutation
+    let filtered = [...agentSpecificData]; 
     setFilteredData(filtered);
   };
-  // FILTER EFFECTS - Auto-apply when dependencies change
+
   useEffect(() => {
     if (issuesData.length > 0) {
       applyAllFilters();
     }
-  }, [issuesData]);
+  }, [agentData, issuesData]); 
 
-  // Handle row selection changes
   const handleSelectionChange = (selected: AgentIssueData[]) => {
     setSelectedRows(selected);
   };
-  // TABLE COLUMN CONFIGURATION
+
   const columns: TableColumn<AgentIssueData>[] = [
     {
       key: "id",
@@ -113,10 +119,8 @@ const AgentIssueLogged = () => {
     },
   ];
 
-  // MAIN COMPONENT RENDER
   return (
     <div className="mt-4 bg-white rounded-lg relative">
-      {/* SELECTED ITEMS DISPLAY SECTION */}
       {selectedRows.length > 0 && (
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
           <div className="flex items-center justify-between">
@@ -133,8 +137,6 @@ const AgentIssueLogged = () => {
           </div>
         </div>
       )}
-
-      {/* DATA TABLE SECTION */}
       <div className="bg-white rounded-lg shadow-sm">
         <DataTable
           data={filteredData}
@@ -146,7 +148,7 @@ const AgentIssueLogged = () => {
           pagination={true}
           pageSize={10}
           className="shadow-sm"
-          emptyMessage="No issues found"
+          emptyMessage={agentData ? `No issues found for ${agentData.name}` : "No issues found"}
           getRowId={(row) => row.id}
         />
       </div>

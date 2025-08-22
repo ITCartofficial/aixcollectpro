@@ -1,8 +1,14 @@
 import React from "react";
 import SummaryCard from "../../../../../components/ui/Card/SummaryCard";
-const KPICardSection: React.FC = () => {
-  const kpiSummaryData = [
-    { title: "Total Assigned", value: "₹3,80,000" },
+import type { FieldAgent } from "../../../../../components/types/telecaller/telecallerTypes";
+
+interface KPICardSectionProps {
+  telecaller?: FieldAgent;
+}
+
+const KPICardSection: React.FC<KPICardSectionProps> = ({ telecaller }) => {
+   const defaultKpiData = [
+    { title: "Total Assigned", value: "₹3,800,000" },
     { title: "Total Collected", value: "₹3,80,000" },
     { title: "Collection Rate", value: 77.9, suffix: "%" },
     { title: "Accounts resolved", value: 52 },
@@ -13,8 +19,25 @@ const KPICardSection: React.FC = () => {
     { title: "Avg. Collection per Visit", value: "₹4,345" },
     { title: "Success Rate", value: 83, suffix: "%" },
     { title: "Dispute Resolution TAT", value: "1.8 Days" },
-    { title: "Pending Accounts", value: 18 },
+    { title: "Pending Accounts", value: 18888 },
   ];
+
+  // If agent data is available, use it to create KPI data
+  const kpiSummaryData = telecaller ? [
+    { title: "Total Assigned", value: telecaller.metrics.kpi.totalAssigned },
+    { title: "Total Collected", value: telecaller.metrics.kpi.totalCollected },
+    { title: "Collection Rate", value: telecaller.metrics.kpi.collectionRate },
+    { title: "Accounts resolved", value: telecaller.metrics.kpi.accountsResolved },
+    { title: "PTP conversion Rate", value: telecaller.metrics.kpi.ptpConversionRate },
+    { title: "Visit CompletionRate", value: telecaller.metrics.kpi.visitCompletionRate },
+    { title: "Field Utilization Rate", value: telecaller.metrics.kpi.fieldUtilizationRate },
+    { title: "Customer Score", value: telecaller.metrics.kpi.customerScore },
+    { title: "Avg. Collection per Visit", value: telecaller.metrics.kpi.avgCollectionPerVisit },
+    { title: "Success Rate", value: telecaller.metrics.kpi.successRate },
+    { title: "Dispute Resolution TAT", value: telecaller.metrics.kpi.disputeResolutionTAT },
+    { title: "Pending Accounts", value: telecaller.metrics.kpi.pendingAccounts },
+  ] : defaultKpiData;
+
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

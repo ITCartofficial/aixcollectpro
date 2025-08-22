@@ -5,7 +5,55 @@ import DateRangePickerInput from "../../../components/ui/Input/DateRangePickerIn
 import Avatar from "../../../components/ui/Table/Avatar";
 import { FiPhoneCall } from "react-icons/fi";
 import TabConfigurations from "./features/tabsections/TabConfigurations";
+import { useParams } from "react-router-dom";
+import telecallersData from "../../../../data/team-management/telecallersData.json";
+import OutlineButton from "../../../components/ui/Buttons/OutlineButton";
 
+interface Telecaller {
+  id: string;
+  name: string;
+  callsMade: number;
+  agentId: string;
+  paidCases: number;
+  amountCollected: number;
+  language: string;
+  status: "Active" | "Inactive" | "On Leave" | string;
+  lastSynced: string;
+  avatar?: string;
+  email: string;
+  role: string;
+  Vendor: string;
+  "Reporting Manager": string;
+  dateOfJoining: string;
+  performanceScore: string;
+  phone: string;
+  metrics: {
+    kpi: {
+      totalAssigned: string;
+      totalCollected: string;
+      collectionRate: string;
+      accountsResolved: number;
+      ptpConversionRate: string;
+      visitCompletionRate: string;
+      fieldUtilizationRate: string;
+      customerScore: number;
+      avgCollectionPerVisit: string;
+      successRate: string;
+      disputeResolutionTAT: string;
+      pendingAccounts: number;
+    };
+    kri: {
+      highCashHandling: string;
+      ptpBreakRate: string;
+      complaintRate: string;
+      agentAbsenteeism: string;
+      discrepancyReports: string;
+      unauthorizedVisits: number;
+      delayedDepositCases: string;
+      dropOffRate: string;
+    };
+  };
+}
 
 interface UserProfileProps {
   name?: string;
@@ -21,27 +69,41 @@ interface UserProfileProps {
   status?: "online" | "offline";
 }
 
-const TelecallerProfile: React.FC<UserProfileProps> = ({
-  role = "Field Collection Agent",
-  vendor = "ITcart",
-  dateOfJoining = "12 February 2023",
-  location = "Bangalore",
-  reportingManager = "Rakesh Nair",
-  performanceScore = "84.1/10",
-  status = "online",
-}) => {
+const TelecallerProfile: React.FC<UserProfileProps> = () => {
+  const { agentId } = useParams();
+  console.log("telecaller user Agent ID from params:", agentId);
+
+  // Find the telecaller data from telecallersData.json using agentId
+  const telecallerData: Telecaller | undefined = telecallersData.find(
+    (telecaller: Telecaller) => telecaller.agentId === agentId
+  );
+
+  console.log("Found telecaller data:", telecallerData);
+
+  if (!telecallerData) {
+    return (
+      <div className="p-4 w-full">
+        <div className="text-center py-8">
+          <h2 className="text-xl font-semibold text-gray-600">
+            Telecaller not found
+          </h2>
+          <p className="text-gray-500">No telecaller found with ID: {agentId}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="p-4 w-full">
       {/* Header Section */}
-      <div className="w-full flex  justify-between items-start md:items-center gap-4 mb-6">
+      <div className="w-full flex justify-between items-start md:items-center gap-4 mb-6">
         <div>
           <h1 className="text-xl lg:text-2xl font-bold text-black">
-            Rajesh Khan
+            {telecallerData.name}
           </h1>
           <div className="flex items-center gap-y-2">
             <FaHome className="w-4 h-4 text-neutral-500" />
-            <p>\Team Management \Rajesh Khan</p>
+            <p>\Team Management \{telecallerData.name}</p>
           </div>
         </div>
         <div className="flex items-center gap-3 sm:gap-4">
@@ -52,7 +114,8 @@ const TelecallerProfile: React.FC<UserProfileProps> = ({
           />
         </div>
       </div>
-      <div className="mx-auto shadow-2xl border-gray-600 rounded-lg  overflow-hidden bg-white">
+
+      <div className="mx-auto shadow-2xl border-gray-600 rounded-lg overflow-hidden bg-white">
         {/* Header Section */}
         <div className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -61,8 +124,8 @@ const TelecallerProfile: React.FC<UserProfileProps> = ({
               {/* Avatar */}
               <div className="relative">
                 <Avatar
-                  name="Mashud Ahmed"
-                  image=""
+                  name={telecallerData.name}
+                  image={telecallerData.avatar || ""}
                   size="xl"
                   bgColor="#039FAA"
                 />
@@ -71,13 +134,15 @@ const TelecallerProfile: React.FC<UserProfileProps> = ({
               {/* Name and Contact */}
               <div className="flex-1 min-w-0">
                 <h1 className="text-xl sm:text-2xl font-bold text-gray-900 truncate">
-                  Rajesh Khan
+                  {telecallerData.name}
                 </h1>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 mt-1">
-                  <p className="text-gray-600 text-sm sm:text-base">1234567</p>
+                  <p className="text-gray-600 text-sm sm:text-base">
+                    {telecallerData.phone}
+                  </p>
                   <p>|</p>
                   <p className="text-gray-600 text-sm sm:text-base truncate">
-                    rajesh@gmail.com
+                    {telecallerData.email}
                   </p>
                 </div>
               </div>
@@ -89,12 +154,19 @@ const TelecallerProfile: React.FC<UserProfileProps> = ({
               <div className="flex items-center gap-2">
                 <span
                   className="text-sm text-white px-3 py-1 rounded-full capitalize"
-                  style={{ backgroundColor: "#0C9D61" }}
+                  style={{
+                    backgroundColor:
+                      telecallerData.status === "Active"
+                        ? "#0C9D61"
+                        : telecallerData.status === "Inactive"
+                        ? "#F59E0B"
+                        : "#EF4444",
+                  }}
                 >
-                  {status === "online" ? "On-Board" : "Off-Board"}
+                  {telecallerData.status === "Active" ? "On-Board" : "Off-Board"}
                 </span>
                 <span className="text-xs text-gray-700 px-3 py-1 bg-gray-200 border border-gray-300 rounded-full">
-                  Last Synced: 03:30 PM
+                  Last Synced: {telecallerData.lastSynced}
                 </span>
               </div>
 
@@ -104,7 +176,7 @@ const TelecallerProfile: React.FC<UserProfileProps> = ({
                   Your Performance Score
                 </span>
                 <div className="bg-orange-500 text-white px-2 py-1 rounded text-sm font-semibold ml-2 inline-block">
-                  {performanceScore}
+                  {telecallerData.performanceScore}
                 </div>
               </div>
             </div>
@@ -112,7 +184,7 @@ const TelecallerProfile: React.FC<UserProfileProps> = ({
         </div>
 
         {/* Horizontal Divider */}
-        <div className=" sm:px-6 md:px-8 lg:px-16">
+        <div className="sm:px-6 md:px-8 lg:px-16">
           <div className="border-t border-neutral-300" />
         </div>
 
@@ -126,7 +198,7 @@ const TelecallerProfile: React.FC<UserProfileProps> = ({
                 <label className="block text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
                   Role
                 </label>
-                <p className="text-gray-900 font-medium">{role}</p>
+                <p className="text-gray-900 font-medium">{telecallerData.role}</p>
               </div>
 
               {/* Employee ID */}
@@ -134,9 +206,7 @@ const TelecallerProfile: React.FC<UserProfileProps> = ({
                 <label className="block text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
                   Employee ID
                 </label>
-                <p className="text-gray-900 font-medium">
-                  AGT-1
-                </p>
+                <p className="text-gray-900 font-medium">{telecallerData.agentId}</p>
               </div>
 
               {/* Vendor */}
@@ -144,7 +214,7 @@ const TelecallerProfile: React.FC<UserProfileProps> = ({
                 <label className="block text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
                   Vendor
                 </label>
-                <p className="text-gray-900 font-medium">{vendor}</p>
+                <p className="text-gray-900 font-medium">{telecallerData.Vendor}</p>
               </div>
 
               {/* Date of Joining */}
@@ -152,15 +222,19 @@ const TelecallerProfile: React.FC<UserProfileProps> = ({
                 <label className="block text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
                   Date of Joining
                 </label>
-                <p className="text-gray-900 font-medium">{dateOfJoining}</p>
+                <p className="text-gray-900 font-medium">
+                  {telecallerData.dateOfJoining}
+                </p>
               </div>
 
-              {/* Location */}
+              {/* Languages */}
               <div>
                 <label className="block text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
-                  Location
+                  Languages
                 </label>
-                <p className="text-gray-900 font-medium">{location}</p>
+                <p className="text-gray-900 font-medium">
+                  {telecallerData.language}
+                </p>
               </div>
 
               {/* Reporting Manager */}
@@ -168,13 +242,15 @@ const TelecallerProfile: React.FC<UserProfileProps> = ({
                 <label className="block text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
                   Reporting Manager
                 </label>
-                <p className="text-gray-900 font-medium">{reportingManager}</p>
+                <p className="text-gray-900 font-medium">
+                  {telecallerData["Reporting Manager"]}
+                </p>
               </div>
             </div>
 
             {/* Action Buttons - Right Side */}
             <div className="flex flex-row gap-3 sm:gap-4">
-              <PrimaryButton
+              <OutlineButton
                 text="WhatsApp"
                 icon={<FaWhatsapp size={16} />}
                 className="w-36 bg-white border border-gray-300 text-gray-700 hover:bg-gray-50"
@@ -188,11 +264,13 @@ const TelecallerProfile: React.FC<UserProfileProps> = ({
           </div>
         </div>
       </div>
+
       {/* Tab navigation */}
       <div className="mt-3">
-        <TabConfigurations />
+        <TabConfigurations telecallerData={telecallerData} />
       </div>
     </div>
   );
 };
+
 export default TelecallerProfile;

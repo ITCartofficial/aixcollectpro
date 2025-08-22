@@ -9,13 +9,10 @@ import AgentDocuments from "../agentdocuments/AgentDocuments";
 import AgentIssueLogged from "../agentissuelogged/AgentIssueLogged";
 import CombinedLocationAndActivity from "../agentlocationtracking/CombinedLocationAndActivity";
 import AgentTaskFeedback from "../agenttaskfeedback/AgentTaskFeedback";
-
-// Create specific components for each tab
-
-
+import attendanceData from "../../../../../../data/attendance/attendanceData.json";
 
 interface TabConfigurationsProps {
-  agentData: any; // You can replace `any` with a proper AgentData interface
+  agentData: any; 
 }
 
 interface TabConfig {
@@ -25,17 +22,29 @@ interface TabConfig {
 }
 
 const TabConfigurations: React.FC<TabConfigurationsProps> = ({ agentData }) => {
-  console.log("i am Agentdata", agentData);
+  console.log("I am TabConfig", agentData);
+
+  // Find corresponding attendance data for the agent
+  const agentAttendanceData = attendanceData.find(
+    (attendance: any) => attendance.id === agentData.agentId
+  );
+
+  // Merge agent data with attendance data
+  const mergedAgentData = {
+    ...agentData,
+    ...agentAttendanceData,
+  };
+
   const tabsConfig: TabConfig[] = [
     {
       label: "KPI",
       value: "kpi",
-      component: (props) =><AgentKPI agentData={props.agentData} />,
+      component: (props) => <AgentKPI agentData={props.agentData} />,
     },
     {
       label: "KRI",
       value: "kri",
-      component: (props) =><AgentKRI agentData={props.agentData} />,
+      component: (props) => <AgentKRI agentData={props.agentData} />,
     },
     {
       label: "Tasks",
@@ -45,7 +54,7 @@ const TabConfigurations: React.FC<TabConfigurationsProps> = ({ agentData }) => {
     {
       label: "Attendance",
       value: "attendance",
-      component:  (props) => <AgentAttendance agentData={props.agentData} />,
+      component: () => <AgentAttendance agentData={mergedAgentData} />,
     },
     {
       label: "Leave & Request",
@@ -55,12 +64,12 @@ const TabConfigurations: React.FC<TabConfigurationsProps> = ({ agentData }) => {
     {
       label: "Documents",
       value: "documents",
-      component: AgentDocuments,
+      component: (props) => <AgentDocuments agentData={props.agentData} />,
     },
     {
       label: "Issue Logged",
       value: "issue-logged",
-      component: AgentIssueLogged,
+      component: (props) => <AgentIssueLogged agentData={props.agentData} />,
     },
     {
       label: "Location Tracking",
@@ -70,7 +79,7 @@ const TabConfigurations: React.FC<TabConfigurationsProps> = ({ agentData }) => {
     {
       label: "Task Feedback",
       value: "task-feedback",
-      component: AgentTaskFeedback,
+      component: (props) => <AgentTaskFeedback agentData={props.agentData} /> ,
     },
   ];
 
@@ -106,7 +115,11 @@ const TabConfigurations: React.FC<TabConfigurationsProps> = ({ agentData }) => {
 
       {/* Tab Content */}
       <div className="min-h-[400px] pt-4">
-        {ActiveComponent ? <ActiveComponent agentData={agentData} /> : null}
+        {ActiveComponent ? (
+          <ActiveComponent
+            agentData={activeTab === "attendance" ? mergedAgentData : agentData}
+          />
+        ) : null}
       </div>
     </div>
   );

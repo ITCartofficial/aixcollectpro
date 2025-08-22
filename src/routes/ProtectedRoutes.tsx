@@ -39,7 +39,7 @@ export const ProtectedRoutes: React.FC = () => {
           element={<AgentProfile />}
         />
         <Route
-          path="team-management/telecaller-profile/:id"
+          path="team-management/telecaller-profile/:agentId"
           element={<TelecallerProfile />}
         />
 

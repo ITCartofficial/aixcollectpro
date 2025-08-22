@@ -1,54 +1,28 @@
 import { useState, useMemo, useCallback } from "react";
-import type { RecentActivityItem } from "../../../../../components/ui/Table/ExpandedRowContent";
 import DataTable, {
   type TableColumn,
 } from "../../../../../components/ui/Table/DataTable";
 import Avatar from "../../../../../components/ui/Table/Avatar";
 import rawData from "../../../../../../data/task-management/fieldAgentsTask.json";
 import { FaStar } from "react-icons/fa";
+import type { FieldAgentsTask } from "../../../../../components/types/fieldAgentTypes/fieldAgentTypes";
 
-interface FieldAgentsTask {
-  taskId: string;
-  borrowerName: string;
-  location: string;
-  docType?: string;
-  //   taskType: "Collection" | "KYC";
-  taskType: string; // Changed from union type to string
-  // status: "Completed" | "Pending" | "Flagged";
-  dueDate: string;
-  agent: string; //added
-  uploadedBy?: string;
-  lastUpdated: string;
-  confirmationStatus: string;
-  rating: number;
-  comments: string;
-  submittedDate: string;
-  avatar?: string;
-  agentAvatar?: string;
-  expandedDetails: {
-    taskDetails: {
-      recommendedTime: string;
-      notes: string;
-      amount: string;
-    };
-    loanInformation: {
-      loanCategory: string;
-      loanAmount: string;
-      loanNumber: string;
-      bankName: string;
-      netAmount: string;
-      dueDate: string;
-      pos: string;
-      tos: string;
-    };
-    recentActivity: Array<RecentActivityItem>;
-  };
+interface agenttaskfeedbackProps {
+  agentData: any;
 }
-const fieldAgentTaskData = rawData as FieldAgentsTask[];
-const AgentTaskFeedback = () => {
-  const [selectedRows, setSelectedRows] = useState<FieldAgentsTask[]>([]);
 
- 
+const AgentTaskFeedback: React.FC<agenttaskfeedbackProps> = ({ agentData }) => {
+  
+  const [selectedRows, setSelectedRows] = useState<FieldAgentsTask[]>([]);
+  const fieldAgentTaskData = rawData as FieldAgentsTask[];
+
+  const agentSpecificData = useMemo(() => {
+    if (!agentData || !agentData.name) {
+      return fieldAgentTaskData;
+    }
+    return fieldAgentTaskData.filter((task) => task.agent === agentData.name);
+  }, [agentData, fieldAgentTaskData]);
+
   const handleSelectionChange = (selected: FieldAgentsTask[]) => {
     setSelectedRows(selected);
   };
@@ -111,7 +85,6 @@ const AgentTaskFeedback = () => {
             <span className="text-gray-400">NA</span>
           ),
       },
-
       {
         key: "comments",
         label: "Comments",
@@ -125,7 +98,6 @@ const AgentTaskFeedback = () => {
           </span>
         ),
       },
-
       {
         key: "submittedDate",
         label: "Submitted Date",
@@ -140,7 +112,6 @@ const AgentTaskFeedback = () => {
           </span>
         ),
       },
-
       {
         key: "location",
         label: "Location",
@@ -154,7 +125,7 @@ const AgentTaskFeedback = () => {
   );
 
   return (
-    <div className=" bg-white h-max rounded-lg">
+    <div className="bg-white h-max rounded-lg">
       {selectedRows.length > 0 && (
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
           <div className="flex items-center justify-between">
@@ -173,7 +144,7 @@ const AgentTaskFeedback = () => {
       )}
 
       <DataTable
-        data={fieldAgentTaskData}
+        data={agentSpecificData}
         columns={columns}
         selectable={true}
         selectedRows={selectedRows}
@@ -182,7 +153,11 @@ const AgentTaskFeedback = () => {
         pagination={true}
         pageSize={5}
         className="shadow-sm"
-        emptyMessage="No tasks found for this agent"
+        emptyMessage={
+          agentData 
+            ? `No task feedback found for ${agentData.name}` 
+            : "No tasks found for this agent"
+        }
         getRowId={(row) => row.taskId}
       />
     </div>

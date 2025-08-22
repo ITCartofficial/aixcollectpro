@@ -1,7 +1,7 @@
 [
   {
     "taskId": "TASK-27401",
-    "borrowerName": "Anil Kumar",
+    "borrowerName": "Anil K",
     "docType": "Aadhaar",
     "status": "Verified",
     "uploadedBy": "Rakesh Kumar",
@@ -33,7 +33,7 @@
   },
   {
     "taskId": "TASK-27405",
-    "borrowerName": "Ashok Meena",
+    "borrowerName": "Ashok M",
     "docType": "PAN Card",
     "status": "Verified",
     "uploadedBy": "Rakesh Kumar",
@@ -65,7 +65,7 @@
   },
   {
     "taskId": "TASK-27409",
-    "borrowerName": "Kamlesh Tripathi",
+    "borrowerName": "Kamlesh T",
     "docType": "Voter ID",
     "status": "Rejected",
     "uploadedBy": "Rakesh Kumar",
@@ -73,7 +73,7 @@
   },
   {
     "taskId": "TASK-27500",
-    "borrowerName": "Jyoti Mehra",
+    "borrowerName": "Jyoti M",
     "docType": "PAN Card",
     "status": "Verified",
     "uploadedBy": "Ajay Singh",
@@ -81,7 +81,7 @@
   },  
   {
     "taskId": "TASK-27501",
-    "borrowerName": "Nikhil Verma",
+    "borrowerName": "Nikhil V",
     "docType": "Driving Lic.",
     "status": "Verified",
     "uploadedBy": "Rakesh Kumar",
@@ -113,7 +113,7 @@
   },
   {
     "taskId": "TASK-27505",
-    "borrowerName": "Deepak Malhotra",
+    "borrowerName": "Deepak M",
     "docType": "Aadhaar",
     "status": "Verified",
     "uploadedBy": "Rakesh Kumar",
@@ -121,7 +121,7 @@
   },
   {
     "taskId": "TASK-27506",
-    "borrowerName": "Ayesha Khan",
+    "borrowerName": "Ayesha K",
     "docType": "Driving Lic.",
     "status": "Pending",
     "uploadedBy": "Ajay Singh",

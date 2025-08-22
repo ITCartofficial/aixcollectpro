@@ -6,45 +6,11 @@ import ExpandableTable from "../../../components/ui/Table/ExpandableTable";
 import type { TableColumn } from "../../../components/ui/Table/ExpandableTable";
 import Badge from "../../../components/ui/Table/Badge";
 import Avatar from "../../../components/ui/Table/Avatar";
-import ExpandedRowContent, { type RecentActivityItem } from "../../../components/ui/Table/ExpandedRowContent";
+import ExpandedRowContent from "../../../components/ui/Table/ExpandedRowContent";
 import PopupMenu, { type PopupPosition } from "../../../components/ui/Table/PopupMenu";
 import ModelsContainer from "./ModelsContainer";// <-- Import your ModelsContainer
 
-interface FieldAgentsTask {
-    id: string;
-    taskId: string;
-    borrowerName: string;
-    location: string;
-    docType?: string;
-    taskType: "Collection" | "KYC";
-    status: "Completed" | "Pending" | "Flagged";
-    collectionStatus: "PTP" | "Paid" | "ID" | "PTPD" | "TNC" | "FI" | "No Update";
-    dueDate: string;
-    agent: string;
-    uploadedBy?: string;
-    lastUpdated: string;
-    avatar?: string;
-    agentAvatar?: string;
-    expandedDetails: {
-        taskDetails: {
-            recommendedTime: string;
-            notes: string;
-            amount: string;
-        };
-        loanInformation: {
-            loanCategory: string;
-            loanAmount: string;
-            loanNumber: string;
-            bankName: string;
-            netAmount: string;
-            dueDate: string;
-            pos: string;
-            tos: string;
-        };
-        recentActivity: Array<RecentActivityItem>;
-    };
-}
-
+import type { FieldAgentsTaskType } from "../../../components/types/fieldAgentTypes/fieldAgentTypes";
 interface FilterState {
     status: string;
     agent: string[];
@@ -94,7 +60,7 @@ const popupMenuItems = [
 
 const FieldAgentTaskTable: React.FC = () => {
     const [showPopup, setShowPopup] = useState<boolean>(false);
-    const [selectedTask, setSelectedTask] = useState<FieldAgentsTask | null>(null);
+    const [selectedTask, setSelectedTask] = useState<FieldAgentsTaskType | null>(null);
     const [popupPosition, setPopupPosition] = useState<PopupPosition>({ top: 0, left: 0 });
     const popupRef = useRef<HTMLDivElement>(null);
 
@@ -110,7 +76,7 @@ const FieldAgentTaskTable: React.FC = () => {
     >(null);
 
     // Pass selected task to modal
-    // const [setModalTask] = useState<FieldAgentsTask | null>(null);
+    // const [setModalTask] = useState<FieldAgentsTaskType | null>(null);
 
     // Handle popup actions to open ModelsContainer modal
     const handlePopupAction = useCallback(
@@ -161,7 +127,7 @@ const FieldAgentTaskTable: React.FC = () => {
         searchQuery: "",
     });
 
-    const [selectedRows, setSelectedRows] = useState<FieldAgentsTask[]>([]);
+    const [selectedRows, setSelectedRows] = useState<FieldAgentsTaskType[]>([]);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -176,7 +142,7 @@ const FieldAgentTaskTable: React.FC = () => {
         }
     }, [showPopup]);
 
-    const fieldTask: FieldAgentsTask[] = Array.isArray(fieldAgentTaskData)
+    const fieldTask: FieldAgentsTaskType[] = Array.isArray(fieldAgentTaskData)
         ? (fieldAgentTaskData as any[]).map((task: any) => ({
             ...task,
             id: task.taskId || task.id,
@@ -269,12 +235,12 @@ const FieldAgentTaskTable: React.FC = () => {
                     const arr = value as string[];
                     if (arr.length > 0 && !arr.includes("")) {
                         filtered = filtered.filter((task) =>
-                            arr.includes(task[key as keyof FieldAgentsTask] as string)
+                            arr.includes(task[key as keyof FieldAgentsTaskType] as string)
                         );
                     }
                 } else {
                     filtered = filtered.filter((task) => {
-                        const taskValue = task[key as keyof FieldAgentsTask];
+                        const taskValue = task[key as keyof FieldAgentsTaskType];
                         return taskValue === value;
                     });
                 }
@@ -291,11 +257,11 @@ const FieldAgentTaskTable: React.FC = () => {
         [handleFilterChange]
     );
 
-    const handleSelectionChange = useCallback((selected: FieldAgentsTask[]) => {
+    const handleSelectionChange = useCallback((selected: FieldAgentsTaskType[]) => {
         setSelectedRows(selected);
     }, []);
 
-    const handleRowAction = useCallback((action: string, task: FieldAgentsTask) => {
+    const handleRowAction = useCallback((action: string, task: FieldAgentsTaskType) => {
         if (action === "view") {
             console.log("Viewing task:", task);
         }
@@ -305,7 +271,7 @@ const FieldAgentTaskTable: React.FC = () => {
         setSelectedRows([]);
     }, []);
 
-    const handleMenuClick = useCallback((task: FieldAgentsTask, event: React.MouseEvent) => {
+    const handleMenuClick = useCallback((task: FieldAgentsTaskType, event: React.MouseEvent) => {
         event.preventDefault();
         event.stopPropagation();
         const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
@@ -366,8 +332,8 @@ const FieldAgentTaskTable: React.FC = () => {
     );
 
     const expandedRowRenderer = useCallback(
-        (row: FieldAgentsTask) => (
-            <ExpandedRowContent<FieldAgentsTask>
+        (row: FieldAgentsTaskType) => (
+            <ExpandedRowContent<FieldAgentsTaskType>
                 row={row}
                 getTaskDetails={(r) => r.expandedDetails?.taskDetails || {}}
                 getLoanInformation={(r) => r.expandedDetails?.loanInformation || {}}
@@ -378,7 +344,7 @@ const FieldAgentTaskTable: React.FC = () => {
         [handleMenuClick]
     );
 
-    const columns: TableColumn<FieldAgentsTask>[] = useMemo(
+    const columns: TableColumn<FieldAgentsTaskType>[] = useMemo(
         () => [
             {
                 key: "taskId",
@@ -391,7 +357,7 @@ const FieldAgentTaskTable: React.FC = () => {
                 key: "borrowerName",
                 label: "Borrower",
                 sortable: true,
-                render: (value: string, row: FieldAgentsTask) => (
+                render: (value: string, row: FieldAgentsTaskType) => (
                     <div className="flex items-center space-x-2">
                         <Avatar name={value} image={row.avatar} size="sm" />
                         <span className="text-sm font-normal">{value}</span>
@@ -438,7 +404,7 @@ const FieldAgentTaskTable: React.FC = () => {
                 key: "agent",
                 label: "Agent",
                 sortable: true,
-                render: (value: string, row: FieldAgentsTask) => (
+                render: (value: string, row: FieldAgentsTaskType) => (
                     <div className="flex items-center space-x-2">
                         <Avatar name={value} image={row.agentAvatar} size="sm" />
                         <span className="text-sm font-normal">{value}</span>

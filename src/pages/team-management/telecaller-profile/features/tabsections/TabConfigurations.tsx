@@ -4,33 +4,37 @@ import TelecallerKPI from "../telecallerKPI/TelecallerKPI";
 import TelecallerKRI from "../telecallerkri/TelecallerKRI";
 import TelecallerTask from "../telecallertask/TelecallerTask";
 import TelecallerLeaveRequest from "../telecallerleave-request/TelecallerLeaveRequest";
-import TelecallerDocuments from "../telecallerdocuments/TelecallerDocuments";
-import TelecallerIssueLogged from "../telecallerIssue-Logged/TelecallerIsueLogged";
 import TelecallerAttendance from "../telecallerattendance/TelecallerAttendance";
 
+interface TabConfigurationsProps {
+  telecallerData: any;
+}
 
 interface TabConfig {
   label: string;
   value: string;
-  component: React.ComponentType;
+  component: (props: { telecallerData: any }) => React.ReactNode;
 }
 
-const TabConfigurations: React.FC = () => {
+const TabConfigurations: React.FC<TabConfigurationsProps> = ({
+  telecallerData,
+}) => {
+  console.log(telecallerData, "tab");
   const tabsConfig: TabConfig[] = [
     {
       label: "KPI",
       value: "kpi",
-      component: TelecallerKPI,
+      component: (props) => <TelecallerKPI telecaller={props.telecallerData} />,
     },
     {
       label: "KRI",
       value: "kri",
-      component: TelecallerKRI,
+      component: (props) => <TelecallerKRI telecaller={props.telecallerData} />,
     },
     {
       label: "Task",
       value: "Task",
-      component: TelecallerTask,
+      component: (props) => <TelecallerTask telecaller={props.telecallerData} />,
     },
     {
       label: "Attendance",
@@ -42,16 +46,7 @@ const TabConfigurations: React.FC = () => {
       value: "leave-request",
       component: TelecallerLeaveRequest,
     },
-    {
-      label: "Documents",
-      value: "documents",
-      component: TelecallerDocuments,
-    },
-    {
-      label: "Issue Logged",
-      value: "issue-logged",
-      component: TelecallerIssueLogged,
-    }
+
   ];
 
   // State for active tab
@@ -86,7 +81,7 @@ const TabConfigurations: React.FC = () => {
 
       {/* Tab Content */}
       <div className="min-h-[400px] pt-4">
-        {ActiveComponent && <ActiveComponent />}
+        {ActiveComponent && <ActiveComponent telecallerData={telecallerData} />}
       </div>
     </div>
   );

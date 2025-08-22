@@ -6,42 +6,9 @@ import ExpandableTable from "../../../components/ui/Table/ExpandableTable";
 import type { TableColumn } from "../../../components/ui/Table/ExpandableTable";
 import Badge from "../../../components/ui/Table/Badge";
 import Avatar from "../../../components/ui/Table/Avatar";
-import ExpandedRowContent, { type RecentActivityItem } from "../../../components/ui/Table/ExpandedRowContent";
+import ExpandedRowContent from "../../../components/ui/Table/ExpandedRowContent";
 import PopupMenu, { type PopupPosition } from "../../../components/ui/Table/PopupMenu";
-
-interface TelecallersTask {
-    id: string;
-    taskId: string;
-    borrowerName: string;
-    location: string;
-    language: string; 
-    taskType: "New Calls" | "Follow-up";
-    status: "Completed" | "Pending" | "Flagged";
-    collectionStatus: "PTP" | "Paid" | "TNC" | "PTPD" | "YTC" | "SI" | "NFI" | "No Update";
-    lastCallTime: string;
-    lastUpdated: string;
-    telecaller: string;
-    avatar?: string;
-    agentAvatar?: string;
-    expandedDetails: {
-        taskDetails: {
-            recommendedTime: string;
-            notes: string;
-            amount: string;
-        };
-        loanInformation: {
-            loanCategory: string;
-            loanAmount: string;
-            loanNumber: string;
-            bankName: string;
-            netAmount: string;
-            dueDate: string;
-            pos: string;
-            tos: string;
-        };
-        recentActivity: Array<RecentActivityItem>;
-    };
-}
+import type { TelecallersTask } from "../../../components/types/telecaller/telecallerTypes";
 
 interface FilterState {
     status: string;
@@ -331,20 +298,17 @@ const TelecallersTaskTable: React.FC = () => {
             {
                 key: "taskType",
                 label: "Task Type",
-                sortable: true,
                 render: (value: string) => <span className="text-sm font-normal">{value}</span>,
             },
             {
                 key: "status",
                 label: "Status",
-                sortable: true,
                 render: (value: string) => <Badge variant={getStatusVariant(value)}>{value}</Badge>,
             },
             {
                 key: "collectionStatus",
                 label: "Collection Status",
                 align: "center",
-                sortable: true,
                 render: (value: string) => <Badge variant={getCollectionStatusVariant(value)}>{value}</Badge>,
             },
             {

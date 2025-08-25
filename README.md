@@ -81,12 +81,13 @@ aixcollectpro/
 │   │   ├── common/
 │   │   ├── forms/
 │   ├── config/
-│   ├── hooks/
+│   ├── lib/
+│   │   ├── hooks/
+│   │   ├── redux/
+│   │   ├── routes/
 │   ├── layouts/
 │   ├── pages/
-│   ├── routes/
 │   ├── utils/
-│   ├── routes/
 │   ├── styles/
 ├── App.tsx
 ├── index.css

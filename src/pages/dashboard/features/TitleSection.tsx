@@ -3,14 +3,22 @@ import PrimaryButton from "../../../components/ui/Buttons/PrimaryButton"
 import DateRangePickerInput from "../../../components/ui/Input/DateRangePickerInput"
 import { useState } from "react";
 import TaskAssignmentModal from "./TaskAssignmentModal";
+import { useNavigate } from "react-router-dom";
 
 
 
 const TitleSection: React.FC = () => {
     const [isModalOpen, setModalOpen] = useState(false);
+    const navigate = useNavigate();
+    const handleReport = () => {
+        navigate('/reports');
+
+    };
+
 
     const openModal = () => setModalOpen(true);
     const closeModal = () => setModalOpen(false);
+
     return (
         <div className="w-full mt-4">
             <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 lg:gap-6 mr-3">
@@ -34,9 +42,9 @@ const TitleSection: React.FC = () => {
                             <PrimaryButton text="+Assign Task" onClick={openModal} className="bg-primary-700 hover:bg-primary-600 text-white" />
                             <TaskAssignmentModal isOpen={isModalOpen} onClose={closeModal} />
                         </div>
-                        <div className="bg-white p-2 sm:p-[13px] border border-neutral-300 rounded-md hover:bg-gray-50 transition-colors cursor-pointer">
+                        <button className="bg-white p-2 sm:p-[13px] border border-neutral-300 rounded-md hover:bg-gray-50 transition-colors cursor-pointer" onClick={handleReport} >
                             <GoGraph className="text-primary-700 w-4 h-4 sm:w-5 sm:h-5" />
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>

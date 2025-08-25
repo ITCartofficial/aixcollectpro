@@ -1,23 +1,24 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import DashboardLayout from '../../layout/DashboardLayout';
+import Dashboard from '../../pages/dashboard/Dashboard';
+import Profile from '../../pages/profile/Profile';
+import TeamManagement from '../../pages/team-management/TeamManagement';
+import AgentProfile from '../../pages/team-management/agent-profile/[id]';
+import TelecallerProfile from '../../pages/team-management/telecaller-profile/[id]';
+import TaskManagement from '../../pages/task-management/TaskManagement';
+import TaskDetails from '../../pages/task-management/task-details/[id]';
+import CollectionMetrics from '../../pages/collection-metrics/CollectionMetrics';
+import Documents from '../../pages/documents/Documents';
+import AlertsEscalations from '../../pages/alerts-and-escalations/AlertsEscalations';
+import AttendanceLeave from '../../pages/attendance-and-leave/AttendanceLeave';
+import AiInsights from '../../pages/ai-insights/AiInsights';
+import Reports from '../../pages/reports/Reports';
+import Settings from '../../pages/settings/Settings';
 // import PrivacyPolicy from '../pages/privacy-policy/PrivacyPolicy';
-import DashboardLayout from '../layout/DashboardLayout';
-import Dashboard from '../pages/dashboard/Dashboard';
-import Settings from '../pages/settings/Settings';
-import TeamManagement from '../pages/team-management/TeamManagement';
-import TaskManagement from '../pages/task-management/TaskManagement';
-import CollectionMetrics from '../pages/collection-metrics/CollectionMetrics';
-import Documents from '../pages/documents/Documents';
-import AttendanceLeave from '../pages/attendance-and-leave/AttendanceLeave';
-import AiInsights from '../pages/ai-insights/AiInsights';
-import Reports from '../pages/reports/Reports';
-import AlertsEscalations from '../pages/alerts-and-escalations/AlertsEscalations';
-import TaskDetails from '../pages/task-management/task-details/[id]';
-import Profile from '../pages/profile/Profile';
-import AgentProfile from '../pages/team-management/agent-profile/[id]';
-import TelecallerProfile from '../pages/team-management/telecaller-profile/[id]';
-
 // import About from '../pages/about/About';
+
+
 
 export const ProtectedRoutes: React.FC = () => {
   return (

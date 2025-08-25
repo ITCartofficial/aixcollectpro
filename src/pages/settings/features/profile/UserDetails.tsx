@@ -2,71 +2,49 @@ import { RiEdit2Line } from "react-icons/ri";
 import Badge from "../../../../components/ui/Table/Badge";
 import PrimaryButton from "../../../../components/ui/Buttons/PrimaryButton";
 
+import { useAppSelector } from "../../../../lib/redux/reduxHooks";
+import { selectUserDetailsProps } from "../../../../lib/redux/selectors";
+import Avatar from "../../../../components/ui/Table/Avatar";
+
 interface UserDetailsProps {
-  name: string;
-  phone: string;
-  email: string;
-  role: string;
-  employeeId: string;
-  location: string;
-  vendor: string;
-  reportingManager: string;
-  joinedOn: string;
-  status: "Active" | "Inactive";
-  avatar?: string;
   onEdit?: () => void;
   onApplyLeave?: () => void;
 }
 
 const UserDetails: React.FC<UserDetailsProps> = ({
-  name,
-  phone,
-  email,
-  role,
-  employeeId,
-  location,
-  vendor,
-  reportingManager,
-  joinedOn,
-  status,
-  avatar,
   onEdit,
   onApplyLeave,
 }) => {
+  // Get user data from Redux instead of props
+  const userData = useAppSelector(selectUserDetailsProps);
 
-  // Generate avatar initials from first name and last name
-  const getAvatarInitials = (fullName: string): string => {
-    const names = fullName.trim().split(' ');
-    if (names.length === 1) {
-      return names[0].charAt(0).toUpperCase();
-    }
-    const firstName = names[0];
-    const lastName = names[names.length - 1];
-    return `${firstName.charAt(0)}${lastName.charAt(0)}`.toUpperCase();
-  };
-
-  const initials = getAvatarInitials(name);
-
-  const Avatar = () => {
-    if (avatar) {
-      return (
-        <img
-          src={avatar}
-          alt={name}
-          className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full object-cover"
-          onError={(e) => {
-            (e.target as HTMLImageElement).style.display = 'none';
-          }}
-        />
-      );
-    }
-
+  // Loading state - show spinner while Redux data loads
+  if (!userData) {
     return (
-      <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-semibold text-lg sm:text-xl lg:text-2xl shadow-md">
-        {initials}
+      <div className="w-full rounded-lg bg-white shadow-[0_1px_3px_0_rgba(0,81,175,0.10)] px-6 py-6 md:px-8">
+        <div className="flex items-center justify-center h-32">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p className="text-gray-500">Loading user data...</p>
+          </div>
+        </div>
       </div>
     );
-  };
+  }
+
+  const {
+    name,
+    phone,
+    email,
+    role,
+    employeeId,
+    location,
+    vendor,
+    reportingManager,
+    joinedOn,
+    status,
+    avatar,
+  } = userData;
 
   return (
     <div className="w-full rounded-lg bg-white shadow-[0_1px_3px_0_rgba(0,81,175,0.10)] px-6 py-6 md:px-8 transition-all">
@@ -74,7 +52,12 @@ const UserDetails: React.FC<UserDetailsProps> = ({
       {/* Mobile Layout */}
       <div className="block md:hidden">
         <div className="flex items-center space-x-4 mb-6">
-          <Avatar />
+          <Avatar 
+            name={name}
+            image={avatar || undefined}
+            size="xl"
+            className="w-16 h-16 text-lg font-semibold shadow-md"
+          />
           <div className="flex-1 min-w-0">
             <h3 className="text-base font-semibold text-gray-900 mb-2">{name}</h3>
             <div className="flex items-center gap-2 mb-3">
@@ -135,7 +118,12 @@ const UserDetails: React.FC<UserDetailsProps> = ({
         {/* Profile Section with Status/Edit inline on Right */}
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <Avatar />
+            <Avatar 
+              name={name}
+              image={avatar || undefined}
+              size="xl"
+              className="w-20 h-20 text-xl font-semibold shadow-md"
+            />
             <div className="flex-1 min-w-0">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">{name}</h3>
               <div className="space-y-1">
@@ -198,7 +186,12 @@ const UserDetails: React.FC<UserDetailsProps> = ({
         {/* Left: Avatar + Name + Contact */}
         <div className="col-span-4 flex items-center border-r border-gray-200 pr-6">
           <div className="flex items-center space-x-4 w-full">
-            <Avatar />
+            <Avatar 
+              name={name}
+              image={avatar || undefined}
+              size="xl"
+              className="w-24 h-24 text-2xl font-semibold shadow-md"
+            />
             <div className="flex-1 min-w-0">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">{name}</h3>
               <div className="space-y-1">

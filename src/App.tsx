@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
-import { PublicRoutes } from './routes/PublicRoutes';
-import { ProtectedRoutes } from './routes/ProtectedRoutes';
+import { PublicRoutes } from './lib/routes/PublicRoutes';
+import { ProtectedRoutes } from './lib/routes/ProtectedRoutes';
+
 
 
 const App = () => {

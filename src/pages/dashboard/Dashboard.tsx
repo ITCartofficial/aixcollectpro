@@ -31,40 +31,21 @@ const Dashboard = () => {
       <TitleSection  />
 
       <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 mr-3">
-        <div className="lg:col-span-5">
-          <TaskSection />
-        </div>
-        <div className="lg:col-span-5">
-          <MetricsCardSection />
-        </div>
+        <div className="lg:col-span-5"><TaskSection /></div>
+        <div className="lg:col-span-5"><MetricsCardSection /></div>
 
-        <div className="lg:col-span-2">
-          <TaskTypeCard />
-        </div>
-        <div className="lg:col-span-4">
-          <FieldAgentPerformance />
-        </div>
-        <div className="lg:col-span-4">
-          <TelecallerPerformance />
-        </div>
+        <div className="lg:col-span-2"><TaskTypeCard /></div>
+        <div className="lg:col-span-4"><FieldAgentPerformance /></div>
+        <div className="lg:col-span-4"><TelecallerPerformance /></div>
 
-        <div className="lg:col-span-5">
-          <CollectionPerformanceGraph data={data} />
-        </div>
-        <div className="lg:col-span-5">
-          <LocationWiseCollectionSummary />
-        </div>
-        <div className="lg:col-span-5">
-          <VisitSuccessMatrics />
-        </div>
-        <div className="lg:col-span-5">
-          <FlaggedTaskCard />
-        </div>
+        <div className="lg:col-span-5"><CollectionPerformanceGraph data={data} /></div>
+        <div className="lg:col-span-5"><LocationWiseCollectionSummary /></div>
+        <div className="lg:col-span-5"><VisitSuccessMatrics /></div>
+        <div className="lg:col-span-5"><FlaggedTaskCard /></div>
 
         {/* <div className="lg:col-span-5"><AiAlertAndInsightCard /></div> */}
-        <div className="col-span-10 bg-white rounded-lg shadow p-6">
+        <div className="lg:col-span-10 bg-white rounded-lg shadow p-6">
           <LiveAgentTrackingSection />
-
           <AgentActivityFeedTable />
         </div>
       </div>
@@ -73,9 +54,6 @@ const Dashboard = () => {
 };
 
 export default Dashboard
-
-
-
 
 
 

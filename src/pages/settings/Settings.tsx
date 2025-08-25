@@ -59,10 +59,7 @@ const Settings = () => {
       {/* Header Section */}
       <div className="w-full flex  justify-between items-start md:items-center gap-4 mb-6">
         <h1 className="text-xl lg:text-2xl font-bold text-black">Settings</h1>
-        <PrimaryButton 
-          text="Export Report" 
-          className="w-auto px-6 bg-primary-700 hover:bg-primary-600 text-white" 
-        />
+        <PrimaryButton text="Check-in" className="w-42 bg-primary-700 hover:bg-primary-600 text-white"/>
       </div>
 
       {/* Tab Buttons and Content Section */}

@@ -115,6 +115,7 @@ export interface FieldAgentsTaskType {
     agent: string;
     uploadedBy?: string;
     lastUpdated: string;
+    telecaller:string;
     avatar?: string;
     agentAvatar?: string;
     expandedDetails: {
@@ -137,3 +138,14 @@ export interface FieldAgentsTaskType {
     };
 }
 
+
+export interface Notes {
+  id: string;
+  lastUpdated: string;
+  expandedDetails: {
+    taskDetails: {
+      notes: string;
+    };
+  };
+  isNew?: boolean;
+}

@@ -88,3 +88,18 @@ export interface FieldAgent {
     };
   };
 }
+
+
+
+
+
+export interface Notes {
+  id: string;
+  lastUpdated: string;
+  expandedDetails: {
+    taskDetails: {
+      notes: string;
+    };
+  };
+  isNew?: boolean; 
+}

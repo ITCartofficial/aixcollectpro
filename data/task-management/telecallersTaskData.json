@@ -1,16 +1,24 @@
 [
   {
     "taskId": "CALL-90301",
-    "borrowerName": "Suresh Mehta",
+    "borrowerName": "Anil Kumar",
+    "phone": "+91 98765 43201",
+    "email": "suresh.mehta@gmail.com",
+    "dueDate": "04 May 2025",
+    "altNumber1": "+91 98450 12301",
+    "altNumber2": "+91 98000 54301",
+    "address1": "45, MG Road, Connaught Place, New Delhi, Delhi-110001",
+    "address2": "Plot 12, Sector 15, Noida, Uttar Pradesh-201301",
     "language": "Hindi",
     "taskType": "New Calls",
     "status": "Completed",
     "collectionStatus": "Paid",
     "lastCallTime": "10 June, 2025",
     "telecaller": "Ananya Iyer",
-    "lastUpdated": "10:15 AM",
-    "avatar": "https://ui-avatars.com/api/?name=Anil+Kumar&background=ff6b6b&color=fff",
-    "agentAvatar": "https://ui-avatars.com/api/?name=Rakesh+Kumar&background=4ecdc4&color=fff",
+     "lastUpdated": "11 June, 2025",
+    "avatar": "https://ui-avatars.com/api/?name=Suresh+Mehta&background=ff6b6b&color=fff",
+    "agentAvatar": "https://ui-avatars.com/api/?name=Ananya+Iyer&background=4ecdc4&color=fff",
+    "actionTakes": "Marked as Promise to Pay by tomorrow",
     "expandedDetails": {
       "taskDetails": {
         "recommendedTime": "Today, 11:30 AM - 12:30 PM",
@@ -23,7 +31,10 @@
         "loanNumber": "LN-84739012",
         "bankName": "HDFC Bank",
         "netAmount": "₹5,340",
+        "dueAmount": "₹5,340",
         "dueDate": "10 May 2025",
+        "penalInterest": "₹500",
+        "overdueDays": "15 days",
         "pos": "₹1,50,000",
         "tos": "₹1,75,000"
       },
@@ -31,7 +42,7 @@
         {
           "type": "Payment Collected",
           "date": "Jun 11, 2025",
-          "description": "₹5,340 collected and status updated to Paid by Agent Vinod Rao.",
+          "description": "₹5,340 collected and status updated to Paid by Agent Ananya Iyer.",
           "status": "success"
         }
       ]
@@ -40,15 +51,23 @@
   {
     "taskId": "CALL-90302",
     "borrowerName": "Ravi Shankar",
+    "phone": "+91 98765 43202",
+    "email": "ravi.shankar@gmail.com",
+    "altNumber1": "+91 98450 12302",
+    "altNumber2": "+91 98000 54302",
+    "address1": "78, Brigade Road, Bangalore, Karnataka-560001",
+    "address2": "23, Jayanagar 4th Block, Bangalore, Karnataka-560011",
     "language": "Kannada",
     "taskType": "Follow-up",
     "status": "Pending",
-    "collectionStatus": "PTP",
+    "collectionStatus": "Paid",
+    "dueDate": "10 June, 2025",
     "lastCallTime": "10 June, 2025",
     "telecaller": "Rajesh Sharma",
-    "lastUpdated": "09:45 AM",
-    "avatar": "https://ui-avatars.com/api/?name=Leela+Sharma&background=45b7d1&color=fff",
-    "agentAvatar": "https://ui-avatars.com/api/?name=Vinod+Rao&background=f39c12&color=fff",
+    "lastUpdated": "12 June, 2025",
+    "avatar": "https://ui-avatars.com/api/?name=Ravi+Shankar&background=45b7d1&color=fff",
+    "agentAvatar": "https://ui-avatars.com/api/?name=Rajesh+Sharma&background=f39c12&color=fff",
+    "actionTakes": "₹5,340 collected via UPI",
     "expandedDetails": {
       "taskDetails": {
         "recommendedTime": "Today, 10:00 AM - 11:00 AM",
@@ -61,7 +80,10 @@
         "loanNumber": "LN-84739013",
         "bankName": "ICICI Bank",
         "netAmount": "₹0",
+        "dueAmount": "₹0",
         "dueDate": "09 May 2025",
+        "penalInterest": "₹0",
+        "overdueDays": "0 days",
         "pos": "₹1,50,000",
         "tos": "₹1,50,000"
       },
@@ -78,6 +100,13 @@
   {
     "taskId": "CALL-90303",
     "borrowerName": "Fatima Bano",
+    "phone": "+91 98765 43203",
+    "email": "fatima.bano@gmail.com",
+    "dueDate": "08 May 2025",
+    "altNumber1": "+91 98450 12303",
+    "altNumber2": "+91 98000 54303",
+    "address1": "156, Charminar Road, Hyderabad, Telangana-500002",
+    "address2": "89, Banjara Hills, Hyderabad, Telangana-500034",
     "language": "Urdu",
     "taskType": "Follow-up",
     "status": "Flagged",
@@ -85,8 +114,9 @@
     "lastCallTime": "09 June, 2025",
     "telecaller": "Neha Prasad",
     "lastUpdated": "Yesterday",
-    "avatar": "https://ui-avatars.com/api/?name=Raj+Malhotra&background=e74c3c&color=fff",
-    "agentAvatar": "https://ui-avatars.com/api/?name=Ajay+Singh&background=9b59b6&color=fff",
+    "avatar": "https://ui-avatars.com/api/?name=Fatima+Bano&background=e74c3c&color=fff",
+    "agentAvatar": "https://ui-avatars.com/api/?name=Neha+Prasad&background=9b59b6&color=fff",
+    "actionTakes": "KYC verification completed successfully",
     "expandedDetails": {
       "taskDetails": {
         "recommendedTime": "Tomorrow, 02:00 PM - 03:00 PM",
@@ -99,7 +129,10 @@
         "loanNumber": "LN-84739014",
         "bankName": "SBI Bank",
         "netAmount": "₹12,500",
+        "dueAmount": "₹12,500",
         "dueDate": "09 May 2025",
+        "penalInterest": "₹750",
+        "overdueDays": "23 days",
         "pos": "₹2,87,500",
         "tos": "₹3,00,000"
       },
@@ -116,6 +149,13 @@
   {
     "taskId": "CALL-90304",
     "borrowerName": "Meera Das",
+    "phone": "+91 98765 43204",
+    "email": "meera.das@gmail.com",
+    "dueDate": "08 May 2025",
+    "altNumber1": "+91 98450 12304",
+    "altNumber2": "+91 98000 54304",
+    "address1": "67, Park Street, Kolkata, West Bengal-700016",
+    "address2": "34, Salt Lake City, Kolkata, West Bengal-700064",
     "language": "Bengali",
     "taskType": "New Calls",
     "status": "Completed",
@@ -123,8 +163,9 @@
     "lastCallTime": "10 June, 2025",
     "telecaller": "Varun Khanna",
     "lastUpdated": "11:00 AM",
-    "avatar": "https://ui-avatars.com/api/?name=Jyoti+Shetty&background=8e44ad&color=fff",
-    "agentAvatar": "https://ui-avatars.com/api/?name=Manoj+Pillai&background=27ae60&color=fff",
+    "avatar": "https://ui-avatars.com/api/?name=Meera+Das&background=8e44ad&color=fff",
+    "agentAvatar": "https://ui-avatars.com/api/?name=Varun+Khanna&background=27ae60&color=fff",
+    "actionTakes": "Visit attempted — customer unavailable",
     "expandedDetails": {
       "taskDetails": {
         "recommendedTime": "Today, 01:00 PM - 02:00 PM",
@@ -137,7 +178,10 @@
         "loanNumber": "LN-84739015",
         "bankName": "Axis Bank",
         "netAmount": "₹8,750",
+        "dueAmount": "₹8,750",
         "dueDate": "10 May 2025",
+        "penalInterest": "₹400",
+        "overdueDays": "18 days",
         "pos": "₹2,41,250",
         "tos": "₹2,50,000"
       },
@@ -154,6 +198,13 @@
   {
     "taskId": "CALL-90305",
     "borrowerName": "Harish Gowda",
+    "phone": "+91 98765 43205",
+    "email": "harish.gowda@gmail.com",
+    "dueDate": "08 May 2025",
+    "altNumber1": "+91 98450 12305",
+    "altNumber2": "+91 98000 54305",
+    "address1": "142, Indiranagar, Bangalore, Karnataka-560038",
+    "address2": "89, Koramangala 5th Block, Bangalore, Karnataka-560095",
     "language": "Kannada",
     "taskType": "Follow-up",
     "status": "Pending",
@@ -161,8 +212,9 @@
     "lastCallTime": "11 June, 2025",
     "telecaller": "Priya Nair",
     "lastUpdated": "09:10 AM",
-    "avatar": "https://ui-avatars.com/api/?name=Sameer+Reddy&background=3498db&color=fff",
-    "agentAvatar": "https://ui-avatars.com/api/?name=Rakesh+Kumar&background=4ecdc4&color=fff",
+    "avatar": "https://ui-avatars.com/api/?name=Harish+Gowda&background=3498db&color=fff",
+    "agentAvatar": "https://ui-avatars.com/api/?name=Priya+Nair&background=4ecdc4&color=fff",
+    "actionTakes": "Marked as Promise to Pay",
     "expandedDetails": {
       "taskDetails": {
         "recommendedTime": "Tomorrow, 11:00 AM - 12:00 PM",
@@ -175,7 +227,10 @@
         "loanNumber": "LN-84739016",
         "bankName": "HDFC Bank",
         "netAmount": "₹15,200",
+        "dueAmount": "₹15,200",
         "dueDate": "11 May 2025",
+        "penalInterest": "₹800",
+        "overdueDays": "21 days",
         "pos": "₹3,84,800",
         "tos": "₹4,00,000"
       },
@@ -192,6 +247,13 @@
   {
     "taskId": "CALL-90306",
     "borrowerName": "Nitin Joshi",
+    "phone": "+91 98765 43206",
+    "email": "nitin.joshi@gmail.com",
+    "dueDate": "08 May 2025",
+    "altNumber1": "+91 98450 12306",
+    "altNumber2": "+91 98000 54306",
+    "address1": "234, FC Road, Pune, Maharashtra-411005",
+    "address2": "67, Hadapsar, Pune, Maharashtra-411028",
     "language": "Marathi",
     "taskType": "New Calls",
     "status": "Completed",
@@ -199,8 +261,9 @@
     "lastCallTime": "09 June, 2025",
     "telecaller": "Ananya Iyer",
     "lastUpdated": "10:58 AM",
-    "avatar": "https://ui-avatars.com/api/?name=Neha+Verma&background=e67e22&color=fff",
-    "agentAvatar": "https://ui-avatars.com/api/?name=Ajay+Singh&background=9b59b6&color=fff",
+    "avatar": "https://ui-avatars.com/api/?name=Nitin+Joshi&background=e67e22&color=fff",
+    "agentAvatar": "https://ui-avatars.com/api/?name=Ananya+Iyer&background=9b59b6&color=fff",
+    "actionTakes": "Marked as Promise to Pay by tomorrow",
     "expandedDetails": {
       "taskDetails": {
         "recommendedTime": "Today, 09:00 AM - 10:00 AM",
@@ -213,7 +276,10 @@
         "loanNumber": "LN-84739017",
         "bankName": "ICICI Bank",
         "netAmount": "₹6,890",
+        "dueAmount": "₹6,890",
         "dueDate": "09 May 2025",
+        "penalInterest": "₹300",
+        "overdueDays": "12 days",
         "pos": "₹1,73,110",
         "tos": "₹1,80,000"
       },
@@ -221,7 +287,7 @@
         {
           "type": "Payment Collected",
           "date": "Jun 09, 2025",
-          "description": "₹6,890 collected and status updated to Paid by Agent Ajay Singh.",
+          "description": "₹6,890 collected and status updated to Paid by Agent Ananya Iyer.",
           "status": "success"
         }
       ]
@@ -230,6 +296,13 @@
   {
     "taskId": "CALL-90307",
     "borrowerName": "Kavya Menon",
+    "phone": "+91 98765 43207",
+    "email": "kavya.menon@gmail.com",
+    "dueDate": "08 May 2025",
+    "altNumber1": "+91 98450 12307",
+    "altNumber2": "+91 98000 54307",
+    "address1": "123, Marine Drive, Kochi, Kerala-682016",
+    "address2": "45, Kakkanad, Kochi, Kerala-682030",
     "language": "Malayalam",
     "taskType": "Follow-up",
     "status": "Flagged",
@@ -237,8 +310,9 @@
     "lastCallTime": "12 June, 2025",
     "telecaller": "Neha Prasad",
     "lastUpdated": "Monday",
-    "avatar": "https://ui-avatars.com/api/?name=Arvind+Menon&background=2ecc71&color=fff",
-    "agentAvatar": "https://ui-avatars.com/api/?name=Rakesh+Kumar&background=4ecdc4&color=fff",
+    "avatar": "https://ui-avatars.com/api/?name=Kavya+Menon&background=2ecc71&color=fff",
+    "agentAvatar": "https://ui-avatars.com/api/?name=Neha+Prasad&background=4ecdc4&color=fff",
+    "actionTakes": "Marked as Promise to Pay by tomorrow",
     "expandedDetails": {
       "taskDetails": {
         "recommendedTime": "Tomorrow, 03:00 PM - 04:00 PM",
@@ -251,7 +325,10 @@
         "loanNumber": "LN-84739018",
         "bankName": "SBI Bank",
         "netAmount": "₹22,100",
+        "dueAmount": "₹22,100",
         "dueDate": "10 May 2025",
+        "penalInterest": "₹1,200",
+        "overdueDays": "28 days",
         "pos": "₹4,77,900",
         "tos": "₹5,00,000"
       },
@@ -268,6 +345,13 @@
   {
     "taskId": "CALL-90308",
     "borrowerName": "Imran Qureshi",
+    "phone": "+91 98765 43208",
+    "email": "imran.qureshi@gmail.com",
+    "dueDate": "08 May 2025",
+    "altNumber1": "+91 98450 12308",
+    "altNumber2": "+91 98000 54308",
+    "address1": "567, CP Tank, Mumbai, Maharashtra-400004",
+    "address2": "89, Andheri West, Mumbai, Maharashtra-400058",
     "language": "Hindi",
     "taskType": "Follow-up",
     "status": "Pending",
@@ -275,8 +359,9 @@
     "lastCallTime": "10 June, 2025",
     "telecaller": "Rajesh Sharma",
     "lastUpdated": "Monday",
-    "avatar": "https://ui-avatars.com/api/?name=Suman+Joshi&background=f39c12&color=fff",
-    "agentAvatar": "https://ui-avatars.com/api/?name=Vinod+Rao&background=f39c12&color=fff",
+    "avatar": "https://ui-avatars.com/api/?name=Imran+Qureshi&background=f39c12&color=fff",
+    "agentAvatar": "https://ui-avatars.com/api/?name=Rajesh+Sharma&background=f39c12&color=fff",
+    "actionTakes": "Marked as Promise to Pay by tomorrow",
     "expandedDetails": {
       "taskDetails": {
         "recommendedTime": "Tomorrow, 04:00 PM - 05:00 PM",
@@ -289,7 +374,10 @@
         "loanNumber": "LN-84739019",
         "bankName": "Axis Bank",
         "netAmount": "₹0",
+        "dueAmount": "₹0",
         "dueDate": "11 May 2025",
+        "penalInterest": "₹0",
+        "overdueDays": "0 days",
         "pos": "₹1,20,000",
         "tos": "₹1,20,000"
       },
@@ -306,6 +394,13 @@
   {
     "taskId": "CALL-90309",
     "borrowerName": "Lata Bhaskar",
+    "phone": "+91 98765 43209",
+    "email": "lata.bhaskar@gmail.com",
+    "altNumber1": "+91 98450 12309",
+    "dueDate": "08 May 2025",
+    "altNumber2": "+91 98000 54309",
+    "address1": "234, T. Nagar, Chennai, Tamil Nadu-600017",
+    "address2": "67, Adyar, Chennai, Tamil Nadu-600020",
     "language": "Tamil",
     "taskType": "New Calls",
     "status": "Completed",
@@ -313,8 +408,9 @@
     "lastCallTime": "11 June, 2025",
     "telecaller": "Priya Nair",
     "lastUpdated": "—",
-    "avatar": "https://ui-avatars.com/api/?name=Deepak+Naik&background=16a085&color=fff",
-    "agentAvatar": "https://ui-avatars.com/api/?name=Manoj+Pillai&background=27ae60&color=fff",
+    "avatar": "https://ui-avatars.com/api/?name=Lata+Bhaskar&background=16a085&color=fff",
+    "agentAvatar": "https://ui-avatars.com/api/?name=Priya+Nair&background=27ae60&color=fff",
+    "actionTakes": "Marked as Promise to Pay by tomorrow",
     "expandedDetails": {
       "taskDetails": {
         "recommendedTime": "Today, 12:00 PM - 01:00 PM",
@@ -327,7 +423,10 @@
         "loanNumber": "LN-84739020",
         "bankName": "HDFC Bank",
         "netAmount": "₹9,450",
+        "dueAmount": "₹9,450",
         "dueDate": "09 May 2025",
+        "penalInterest": "₹450",
+        "overdueDays": "16 days",
         "pos": "₹2,65,550",
         "tos": "₹2,75,000"
       },
@@ -344,6 +443,13 @@
   {
     "taskId": "CALL-90310",
     "borrowerName": "Manav Gupta",
+    "phone": "+91 98765 43210",
+    "email": "manav.gupta@gmail.com",
+    "dueDate": "08 May 2025",
+    "altNumber1": "+91 98450 12310",
+    "altNumber2": "+91 98000 54310",
+    "address1": "89, Sector 17, Chandigarh, Punjab-160017",
+    "address2": "123, Phase 2, Mohali, Punjab-160055",
     "language": "Hindi",
     "taskType": "Follow-up",
     "status": "Flagged",
@@ -351,8 +457,9 @@
     "lastCallTime": "10 June, 2025",
     "telecaller": "Varun Khanna",
     "lastUpdated": "10:22 AM",
-    "avatar": "https://ui-avatars.com/api/?name=Ritu+Sharma&background=c0392b&color=fff",
-    "agentAvatar": "",
+    "avatar": "https://ui-avatars.com/api/?name=Manav+Gupta&background=c0392b&color=fff",
+    "agentAvatar": "https://ui-avatars.com/api/?name=Varun+Khanna&background=27ae60&color=fff",
+    "actionTakes": "Marked as Promise to Pay by tomorrow",
     "expandedDetails": {
       "taskDetails": {
         "recommendedTime": "Assign Agent Required",
@@ -365,7 +472,10 @@
         "loanNumber": "LN-84739021",
         "bankName": "SBI Bank",
         "netAmount": "₹18,750",
+        "dueAmount": "₹18,750",
         "dueDate": "08 May 2025",
+        "penalInterest": "₹950",
+        "overdueDays": "30 days",
         "pos": "₹3,31,250",
         "tos": "₹3,50,000"
       },

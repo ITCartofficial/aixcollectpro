@@ -12,13 +12,14 @@ import AttendanceLeave from "../pages/attendance-and-leave/AttendanceLeave";
 import AiInsights from "../pages/ai-insights/AiInsights";
 import Reports from "../pages/reports/Reports";
 import AlertsEscalations from "../pages/alerts-and-escalations/AlertsEscalations";
-import TaskDetails from "../pages/task-management/task-details/[id]";
 import Profile from "../pages/profile/Profile";
 import AgentProfile from "../pages/team-management/agent-profile/[id]";
 import TelecallerProfile from "../pages/team-management/telecaller-profile/[id]";
 import SupervisorProfile from "../pages/team-management/supervisor-profile/[id]";
 import IssueLogged from "../pages/issue-logged/IssueLogged";
 import AccessControl from "../pages/access-control/AccessControl";
+import FieldTaskPage from "../pages/task-management/task-details/fieldTask/[id]";
+import TaskDetailPage from "../pages/task-management/task-details/telecaller/[id]";
 // import About from '../pages/about/About';
 
 export const ProtectedRoutes: React.FC = () => {
@@ -44,7 +45,8 @@ export const ProtectedRoutes: React.FC = () => {
         />
 
         <Route path="task-management" element={<TaskManagement />} />
-        <Route path="task-details/:id" element={<TaskDetails />} />
+        <Route path="task-details/:taskId" element={<TaskDetailPage />} />
+        <Route path="field-tasks/:taskId" element={<FieldTaskPage />} />
 
         <Route path="collection-metrics" element={<CollectionMetrics />} />
         <Route path="documents" element={<Documents />} />

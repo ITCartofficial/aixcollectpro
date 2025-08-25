@@ -30,7 +30,7 @@ const TaskDetail: React.FC<TaskDetailProps> = ({
     <div className="w-full flex flex-col gap-3">
       {/* Heading */}
       <h1 className="text-xl lg:text-xl font-bold text-black mb-2">
-        Barrower Name
+        Borrower Name
       </h1>
 
       {/* Card */}
